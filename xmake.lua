@@ -132,7 +132,7 @@ target("swiftlys2")
     --[[ -------------------------------- HL2SDK Mandatory Libs Section -------------------------------- ]]
 
     add_files({
-        sdk_path.."/mathlib/*.cpp"
+        sdk_path.."/mathlib/mathlib.cpp"
     })
 
     if is_plat("windows") then
