@@ -3,7 +3,7 @@ using SwiftlyS2.Shared.Menus;
 
 namespace SwiftlyS2.Core.Menus;
 
-public class MenuButtonOverrides : IMenuButtonOverrides
+internal class MenuButtonOverrides : IMenuButtonOverrides
 {
     public KeyKind? Select { get; set; }
     public KeyKind? Move { get; set; }

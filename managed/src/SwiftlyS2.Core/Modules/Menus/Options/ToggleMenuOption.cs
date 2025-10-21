@@ -4,7 +4,7 @@ using SwiftlyS2.Shared.Players;
 
 namespace SwiftlyS2.Core.Menu.Options;
 
-public class ToggleMenuOption(string text, bool defaultValue = false, Action<IPlayer, bool>? onToggle = null, IMenuTextSize size = IMenuTextSize.Medium) : IOption
+internal class ToggleMenuOption(string text, bool defaultValue = false, Action<IPlayer, bool>? onToggle = null, IMenuTextSize size = IMenuTextSize.Medium) : IOption
 {
     public string Text { get; set; } = text;
     public bool Value { get; set; } = defaultValue;

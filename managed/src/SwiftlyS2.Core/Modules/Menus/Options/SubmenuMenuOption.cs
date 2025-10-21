@@ -4,7 +4,7 @@ using SwiftlyS2.Shared.Players;
 
 namespace SwiftlyS2.Core.Menu.Options;
 
-public class SubmenuMenuOption : IOption
+internal class SubmenuMenuOption : IOption
 {
     public string Text { get; set; }
     public IMenu? Submenu { get; set; }

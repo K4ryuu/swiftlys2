@@ -4,7 +4,7 @@ using SwiftlyS2.Shared.Players;
 
 namespace SwiftlyS2.Core.Menu.Options;
 
-public class TextMenuOption : IOption
+internal class TextMenuOption : IOption
 {
     public string Text { get; set; }
     public ITextAlign Alignment { get; set; }
@@ -63,7 +63,7 @@ public class TextMenuOption : IOption
     }
 }
 
-public enum TextAlign
+internal enum TextAlign
 {
     Left,
     Center,
