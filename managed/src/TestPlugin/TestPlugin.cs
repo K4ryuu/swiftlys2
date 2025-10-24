@@ -40,13 +40,13 @@ public class TestConfig
 
 public class InProcessConfig : ManualConfig
 {
-    public InProcessConfig()
-    {
-        AddLogger(ConsoleLogger.Default);
-        AddJob(Job.Default
-            .WithToolchain(new InProcessNoEmitToolchain(true))
-            .WithId("InProcess"));
-    }
+  public InProcessConfig()
+  {
+    AddLogger(ConsoleLogger.Default);
+    AddJob(Job.Default
+        .WithToolchain(new InProcessNoEmitToolchain(true))
+        .WithId("InProcess"));
+  }
 }
 
 
@@ -66,6 +66,22 @@ public class TestPlugin : BasePlugin
   {
     BenchContext.Controller = context.Sender!.RequiredController;
     BenchmarkRunner.Run<PlayerBenchmarks>(new InProcessConfig());
+  }
+
+  [GameEventHandler(HookMode.Pre)]
+  public HookResult OnPlayerSpawn(EventPlayerSpawn @event)
+  {
+    if (!@event.UserIdPlayer.IsValid)
+    {
+      return HookResult.Continue;
+    }
+    var player = @event.UserIdPlayer.RequiredController;
+    if (player.InGameMoneyServices?.IsValid == true)
+    {
+      player.InGameMoneyServices.Account = Core.ConVar.Find<int>("mp_maxmoney")?.Value ?? 16000;
+      player.InGameMoneyServices.AccountUpdated();
+    }
+    return HookResult.Continue;
   }
 
   public override void Load(bool hotReload)
@@ -342,21 +358,30 @@ public class TestPlugin : BasePlugin
   [Command("bad")]
   public void TestCommandBad(ICommandContext context)
   {
-    try {
+    try
+    {
       var isValveDS = Core.EntitySystem.GetGameRules()!.IsValveDS;
-    } catch (Exception e) {
+    }
+    catch (Exception e)
+    {
       Core.Logger.LogWarning("{Exception}", e.Message);
     }
 
-    try {
+    try
+    {
       Core.EntitySystem.GetGameRules()!.IsValveDS = true;
-    } catch (Exception e) {
+    }
+    catch (Exception e)
+    {
       Core.Logger.LogWarning("{Exception}", e.Message);
     }
 
-    try {
+    try
+    {
       Core.EntitySystem.GetGameRules()!.IsValveDSUpdated();
-    } catch (Exception e) {
+    }
+    catch (Exception e)
+    {
       Core.Logger.LogWarning("{Exception}", e.Message);
     }
   }
