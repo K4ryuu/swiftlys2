@@ -51,25 +51,6 @@ int Bridge_EngineHelpers_GetServerIP(char* out)
     return s.size();
 }
 
-int Bridge_EngineHelpers_GetMap(char* out)
-{
-    static std::string s;
-    auto engine = g_ifaceService.FetchInterface<IVEngineServer2>(INTERFACEVERSION_VENGINESERVER);
-    if (!engine) s = "unknown_map";
-    else {
-        auto globals = engine->GetServerGlobals();
-        if (!globals) {
-            s = "unknown_map";
-        }
-        else {
-            s = globals->mapname.ToCStr();
-        }
-    }
-
-    if (out != nullptr) strcpy(out, s.c_str());
-    return s.size();
-}
-
 bool Bridge_EngineHelpers_IsMapValid(const char* map_name)
 {
     if (!map_name) return false;
@@ -87,14 +68,6 @@ bool Bridge_EngineHelpers_IsMapValid(const char* map_name)
     );
 }
 
-int Bridge_EngineHelpers_GetMaxPlayers()
-{
-    auto engine = g_ifaceService.FetchInterface<IVEngineServer2>(INTERFACEVERSION_VENGINESERVER);
-    if (!engine) return 0;
-
-    return engine->GetServerGlobals()->maxClients;
-}
-
 void Bridge_EngineHelpers_ExecuteCommand(const char* command)
 {
     if (!command) return;
@@ -103,22 +76,6 @@ void Bridge_EngineHelpers_ExecuteCommand(const char* command)
     if (!engine) return;
 
     engine->ServerCommand(command);
-}
-
-float Bridge_EngineHelpers_GetServerCurrentTime()
-{
-    auto engine = g_ifaceService.FetchInterface<IVEngineServer2>(INTERFACEVERSION_VENGINESERVER);
-    if (!engine) return 0.0f;
-
-    return engine->GetServerGlobals()->curtime;
-}
-
-int Bridge_EngineHelpers_GetServerTickCount()
-{
-    auto engine = g_ifaceService.FetchInterface<IVEngineServer2>(INTERFACEVERSION_VENGINESERVER);
-    if (!engine) return 0;
-
-    return engine->GetServerGlobals()->tickcount;
 }
 
 void* Bridge_EngineHelpers_FindGameSystemByName(const char* name)
@@ -201,12 +158,8 @@ int Bridge_EngineHelpers_GetMenuSettings(char* out)
 }
 
 DEFINE_NATIVE("EngineHelpers.GetServerIP", Bridge_EngineHelpers_GetServerIP);
-DEFINE_NATIVE("EngineHelpers.GetMap", Bridge_EngineHelpers_GetMap);
 DEFINE_NATIVE("EngineHelpers.IsMapValid", Bridge_EngineHelpers_IsMapValid);
-DEFINE_NATIVE("EngineHelpers.GetMaxPlayers", Bridge_EngineHelpers_GetMaxPlayers);
 DEFINE_NATIVE("EngineHelpers.ExecuteCommand", Bridge_EngineHelpers_ExecuteCommand);
-DEFINE_NATIVE("EngineHelpers.GetServerCurrentTime", Bridge_EngineHelpers_GetServerCurrentTime);
-DEFINE_NATIVE("EngineHelpers.GetServerTickCount", Bridge_EngineHelpers_GetServerTickCount);
 DEFINE_NATIVE("EngineHelpers.FindGameSystemByName", Bridge_EngineHelpers_FindGameSystemByName);
 DEFINE_NATIVE("EngineHelpers.SendMessageToConsole", Bridge_EngineHelpers_SendMessageToConsole);
 DEFINE_NATIVE("EngineHelpers.GetTraceManager", Bridge_EngineHelpers_GetTraceManager);
