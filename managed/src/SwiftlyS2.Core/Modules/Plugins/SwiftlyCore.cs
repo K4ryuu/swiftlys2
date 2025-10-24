@@ -209,5 +209,5 @@ internal class SwiftlyCore : ISwiftlyCore, IDisposable
   IRegistratorService ISwiftlyCore.Registrator => RegistratorService;
   IMenuManager ISwiftlyCore.Menus => MenuManager;
   string ISwiftlyCore.PluginPath => ContextBasePath;
-  public ICommandLine CommandLine => CommandLineManager;
+  ICommandLine ISwiftlyCore.CommandLine => CommandLineManager;
 }
