@@ -59,7 +59,7 @@ internal class CoreHookService : IDisposable
   private delegate nint ExecuteCommandDelegate(nint a1, int a2, uint a3, nint a4, nint a5);
 
   private delegate byte CCSPlayer_WeaponServices_CanUse(nint pWeaponServices, nint pBasePlayerWeapon);
-  private delegate void CBaseEntity_Touch_Template(nint pBaseEntity, nint pOtherEntity);
+  private delegate nint CBaseEntity_Touch_Template(nint pBaseEntity, nint pOtherEntity);
 
   private IUnmanagedFunction<ExecuteCommandDelegate>? _ExecuteCommand;
   private Guid _ExecuteCommandGuid;
@@ -134,18 +134,8 @@ internal class CoreHookService : IDisposable
     {
       return (pBaseEntity, pOtherEntity) =>
       {
-        var entity = new CBaseEntityImpl(pBaseEntity);
-        var otherEntity = new CBaseEntityImpl(pOtherEntity);
-        var @event = new OnEntityTouchHookEvent
-        {
-          Entity = entity,
-          OtherEntity = otherEntity
-        };
-        EventPublisher.InvokeOnEntityTouchHook(@event, 0);
-        if (@event.Result != HookResult.Stop)
-        {
-          next()(pBaseEntity, pOtherEntity);
-        }
+        EventPublisher.InvokeOnEntityTouchHook(new OnEntityTouchHookEvent { Entity = new CBaseEntityImpl(pBaseEntity), OtherEntity = new CBaseEntityImpl(pOtherEntity), TouchType = EntityTouchType.StartTouch });
+        return next()(pBaseEntity, pOtherEntity);
       };
     });
 
@@ -153,18 +143,8 @@ internal class CoreHookService : IDisposable
     {
       return (pBaseEntity, pOtherEntity) =>
       {
-        var entity = new CBaseEntityImpl(pBaseEntity);
-        var otherEntity = new CBaseEntityImpl(pOtherEntity);
-        var @event = new OnEntityTouchHookEvent
-        {
-          Entity = entity,
-          OtherEntity = otherEntity
-        };
-        EventPublisher.InvokeOnEntityTouchHook(@event, 1);
-        if (@event.Result != HookResult.Stop)
-        {
-          next()(pBaseEntity, pOtherEntity);
-        }
+        EventPublisher.InvokeOnEntityTouchHook(new OnEntityTouchHookEvent { Entity = new CBaseEntityImpl(pBaseEntity), OtherEntity = new CBaseEntityImpl(pOtherEntity), TouchType = EntityTouchType.Touch });
+        return next()(pBaseEntity, pOtherEntity);
       };
     });
 
@@ -172,18 +152,8 @@ internal class CoreHookService : IDisposable
     {
       return (pBaseEntity, pOtherEntity) =>
       {
-        var entity = new CBaseEntityImpl(pBaseEntity);
-        var otherEntity = new CBaseEntityImpl(pOtherEntity);
-        var @event = new OnEntityTouchHookEvent
-        {
-          Entity = entity,
-          OtherEntity = otherEntity
-        };
-        EventPublisher.InvokeOnEntityTouchHook(@event, 2);
-        if (@event.Result != HookResult.Stop)
-        {
-          next()(pBaseEntity, pOtherEntity);
-        }
+        EventPublisher.InvokeOnEntityTouchHook(new OnEntityTouchHookEvent { Entity = new CBaseEntityImpl(pBaseEntity), OtherEntity = new CBaseEntityImpl(pOtherEntity), TouchType = EntityTouchType.EndTouch });
+        return next()(pBaseEntity, pOtherEntity);
       };
     });
   }

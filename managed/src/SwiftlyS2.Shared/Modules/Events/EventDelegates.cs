@@ -104,19 +104,9 @@ public class EventDelegates
   public delegate void OnPrecacheResource(IOnPrecacheResourceEvent @event);
 
   /// <summary>
-  /// Called when an entity begins touching another entity.
-  /// </summary>
-  public delegate void OnEntityStartTouchHook(IOnEntityTouchHookEvent @event);
-
-  /// <summary>
   /// Called when an entity is touching another entity.
   /// </summary>
   public delegate void OnEntityTouchHook(IOnEntityTouchHookEvent @event);
-
-  /// <summary>
-  /// Called when an entity stops touching another entity.
-  /// </summary>
-  public delegate void OnEntityEndTouchHook(IOnEntityTouchHookEvent @event);
 
   /// <summary>
   /// Called when an item services can acquire hook is triggered.

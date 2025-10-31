@@ -124,17 +124,7 @@ public interface IEventSubscriber
   public event EventDelegates.OnCommandExecuteHook? OnCommandExecuteHook;
 
   /// <summary>
-  /// Called when an entity begins touching another entity.
-  /// </summary>
-  public event EventDelegates.OnEntityStartTouchHook? OnEntityStartTouchHook;
-
-  /// <summary>
   /// Called when an entity is touching another entity.
   /// </summary>
   public event EventDelegates.OnEntityTouchHook? OnEntityTouchHook;
-
-  /// <summary>
-  /// Called when an entity stops touching another entity.
-  /// </summary>
-  public event EventDelegates.OnEntityEndTouchHook? OnEntityEndTouchHook;
 }
