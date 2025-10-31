@@ -121,6 +121,7 @@ internal class MenuBuilder : IMenuBuilder
     {
         _menu!.Options.Add(new ProgressBarMenuOption(text, progressProvider, barWidth, size));
         _menu!.Options[^1].Menu = _menu;
+        _menu!.RenderOntick = true;
         return this;
     }
 

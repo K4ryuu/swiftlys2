@@ -242,6 +242,12 @@ internal class MenuManager : IMenuManager
 
     public void OpenMenu(IPlayer player, IMenu menu)
     {
+        if (OpenMenus.TryGetValue(player, out var currentMenu))
+        {
+            currentMenu.Close(player);
+            OnMenuClosed?.Invoke(player, currentMenu);
+        }
+
         OpenMenus[player] = menu;
         menu.Show(player);
         OnMenuOpened?.Invoke(player, menu);
