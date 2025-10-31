@@ -272,19 +272,20 @@ bool Bridge_Player_HasMenuShown(int playerid)
     return player->HasMenuShown();
 }
 
-void commandsCallback(const CCommandContext& context, const CCommand& args);
-
 void Bridge_Player_ExecuteCommand(int playerid, const char* command)
 {
     static auto playerManager = g_ifaceService.FetchInterface<IPlayerManager>(PLAYERMANAGER_INTERFACE_VERSION);
     auto player = playerManager->GetPlayer(playerid);
     if (!player) return;
 
-    if (std::string(command).starts_with("sw_")) {
+    CCommand cmd;
+    cmd.Tokenize(command);
+
+    ConCommandRef cmdRef(command[0]);
+
+    if (cmdRef.IsValidRef()) {
         CCommandContext context(CommandTarget_t::CT_FIRST_SPLITSCREEN_CLIENT, CPlayerSlot(player->GetSlot()));
-        CCommand cmd;
-        cmd.Tokenize(command);
-        commandsCallback(context, cmd);
+        cmdRef.Dispatch(context, cmd);
     }
     else {
         static auto engine = g_ifaceService.FetchInterface<IVEngineServer2>(INTERFACEVERSION_VENGINESERVER);
