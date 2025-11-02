@@ -5,6 +5,8 @@
 #include <string.h>
 #include <iostream>
 
+#define MIN(a,b) (((a) < (b)) ? (a) : (b))
+
 hostfxr_initialize_for_runtime_config_fn _initialize_for_runtime_config = nullptr;
 hostfxr_get_runtime_delegate_fn _get_runtime_delegate = nullptr;
 hostfxr_close_fn _close = nullptr;
@@ -107,7 +109,7 @@ bool InitializeHostFXR(std::string origin_path) {
 
   // Clear and copy dotnet root path to buffer with bounds checking
   memset(dotnet_path, 0, sizeof(dotnet_path));
-  size_t copy_size = min(dotnet_root_path.size(), sizeof(dotnet_path) - 1);
+  size_t copy_size = MIN(dotnet_root_path.size(), sizeof(dotnet_path) - 1);
   memcpy(dotnet_path, dotnet_root_path.c_str(), copy_size);
 
   params.dotnet_root = dotnet_path;
