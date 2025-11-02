@@ -398,4 +398,95 @@ internal class Menu : IMenu
         pawn.ActualMoveType = moveType;
         pawn.MoveTypeUpdated();
     }
+
+    internal string ApplyHorizontalStyle(string text)
+    {
+        if (HorizontalStyle == null || string.IsNullOrEmpty(text))
+            return text;
+
+        var textWidth = Helper.EstimateTextWidth(text);
+        if (textWidth <= HorizontalStyle.Value.MaxWidth)
+            return text;
+
+        return HorizontalStyle.Value.OverflowStyle switch
+        {
+            MenuHorizontalOverflowStyle.TruncateEnd => TruncateTextEnd(text, HorizontalStyle.Value.MaxWidth),
+            MenuHorizontalOverflowStyle.TruncateBothEnds => TruncateTextBothEnds(text, HorizontalStyle.Value.MaxWidth),
+            MenuHorizontalOverflowStyle.ScrollLeftFade => text,
+            MenuHorizontalOverflowStyle.ScrollRightFade => text,
+            MenuHorizontalOverflowStyle.ScrollLeftLoop => text,
+            MenuHorizontalOverflowStyle.ScrollRightLoop => text,
+            _ => text
+        };
+    }
+
+    private static string TruncateTextEnd(string text, float maxWidth, string suffix = "...")
+    {
+        static float GetCharWidth(char c) => c switch
+        {
+            >= '\u4E00' and <= '\u9FFF' => 2.0f,
+            >= '\u3000' and <= '\u303F' => 2.0f,
+            >= '\uFF00' and <= '\uFFEF' => 2.0f,
+            >= 'A' and <= 'Z' => 1.2f,
+            >= 'a' and <= 'z' => 1.0f,
+            >= '0' and <= '9' => 1.0f,
+            ' ' => 0.5f,
+            >= '!' and <= '/' => 0.8f,
+            >= ':' and <= '@' => 0.8f,
+            >= '[' and <= '`' => 0.8f,
+            >= '{' and <= '~' => 0.8f,
+            _ => 1.0f
+        };
+
+        var suffixWidth = Helper.EstimateTextWidth(suffix);
+        var currentWidth = 0f;
+        var truncateIndex = 0;
+
+        foreach (var (c, i) in text.Select((ch, idx) => (ch, idx)))
+        {
+            var charWidth = GetCharWidth(c);
+            if (currentWidth + charWidth + suffixWidth <= maxWidth)
+            {
+                currentWidth += charWidth;
+                truncateIndex = i + 1;
+            }
+        }
+
+        return truncateIndex < text.Length ? $"{text[..truncateIndex]}{suffix}" : text;
+    }
+
+    private static string TruncateTextBothEnds(string text, float maxWidth)
+    {
+        if (string.IsNullOrEmpty(text))
+            return text;
+
+        var totalWidth = Helper.EstimateTextWidth(text);
+        if (totalWidth <= maxWidth)
+            return text;
+
+        var targetLength = (int)(text.Length * (maxWidth / totalWidth));
+        if (targetLength <= 0)
+            return "";
+
+        var startIndex = (text.Length - targetLength) / 2;
+        var endIndex = startIndex + targetLength;
+
+        if (endIndex > text.Length)
+            endIndex = text.Length;
+        if (startIndex < 0)
+            startIndex = 0;
+
+        var result = text[startIndex..endIndex];
+        var resultWidth = Helper.EstimateTextWidth(result);
+
+        while (resultWidth > maxWidth && result.Length > 0)
+        {
+            if (result.Length <= 1)
+                break;
+            result = result[1..^1];
+            resultWidth = Helper.EstimateTextWidth(result);
+        }
+
+        return result;
+    }
 }

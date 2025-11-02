@@ -561,7 +561,10 @@ public class TestPlugin : BasePlugin
 
     IMenu settingsMenu = Core.Menus.CreateMenu("Settings");
 
-    settingsMenu.Builder.Design.MaxVisibleItems(5);
+    settingsMenu.Builder.Design
+      .MaxVisibleItems(5)
+      .SetGlobalHorizontalStyle(MenuHorizontalStyle.TruncateBothEnds(28f));
+
     // settingsMenu.Builder.Design.MaxVisibleItems(Random.Shared.Next(-2, 8));
 
     if (!int.TryParse(context.Args[0], out int type)) type = 0;
@@ -598,6 +601,12 @@ public class TestPlugin : BasePlugin
     settingsMenu.Builder.AddText("7. Text");
     settingsMenu.Builder.AddText("8. Text");
     settingsMenu.Builder.AddText("9. Text");
+    settingsMenu.Builder.AddText("123456789012345678901234567890");
+    settingsMenu.Builder.AddText("一二三四五六七八九十一二三四五六七八九十");
+    settingsMenu.Builder.AddText("ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ");
+    settingsMenu.Builder.AddText("abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz");
+    settingsMenu.Builder.AddText("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
+    settingsMenu.Builder.AddText(@"`~!@#$%^&*()_+!@#$%^&*()_+/|\{}`~!@#$%^&*()_+!@#$%^&*()_+/|\{}");
 
     // settingsMenu.Builder.AddProgressBar("8. ProgressBar", () => 0.5f);
 

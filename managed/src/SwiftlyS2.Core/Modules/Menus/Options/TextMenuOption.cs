@@ -1,4 +1,4 @@
-﻿using SwiftlyS2.Core.Menus;
+using SwiftlyS2.Core.Menus;
 using SwiftlyS2.Shared.Menus;
 using SwiftlyS2.Shared.Players;
 
@@ -44,6 +44,8 @@ internal class TextMenuOption : IOption
     public string GetDisplayText(IPlayer player)
     {
         var text = DynamicText?.Invoke() ?? Text;
+
+        text = (Menu as Menus.Menu)?.ApplyHorizontalStyle(text) ?? text;
 
         var sizeClass = MenuSizeHelper.GetSizeClass(Size);
 
