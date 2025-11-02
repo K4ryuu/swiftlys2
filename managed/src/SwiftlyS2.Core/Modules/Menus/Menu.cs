@@ -148,7 +148,7 @@ internal class Menu : IMenu
                         arrowPosition = halfVisible;
                     }
                 }
-                else if (ScrollStyle == MenuScrollStyle.ArrowFollow)
+                else if (ScrollStyle == MenuScrollStyle.LinearScroll)
                 {
                     if (selectedIdx < maxVisibleOptions - 1)
                     {

@@ -554,14 +554,21 @@ public class TestPlugin : BasePlugin
     return HookResult.Continue;
   }
 
-  [Command("mtest")]
+  [Command("mt")]
   public void MenuTestCommand(ICommandContext context)
   {
     var player = context.Sender!;
 
     IMenu settingsMenu = Core.Menus.CreateMenu("Settings");
-    
-    settingsMenu.Builder.SetScrollStyle(MenuScrollStyle.ArrowFollow);
+
+    if (!int.TryParse(context.Args[0], out int type)) type = 0;
+
+    settingsMenu.Builder.SetScrollStyle(type switch
+    {
+      1 => MenuScrollStyle.LinearScroll,
+      2 => MenuScrollStyle.WaitingCenter,
+      _ => MenuScrollStyle.CenterFixed
+    });
     
     settingsMenu.Builder.AddButton("1. AButton",(p) =>
     {

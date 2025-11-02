@@ -212,21 +212,20 @@ public interface IMenu
 public enum MenuScrollStyle
 {
     /// <summary>
-    /// Arrow follows the selected item as it moves through the list.
-    /// Selection arrow moves up and down within the visible area.
+    /// Linear scrolling mode where the selection indicator moves within the visible area.
+    /// Content displays linearly without wrapping, indicator adjusts position as selection changes.
     /// </summary>
-    ArrowFollow,
+    LinearScroll,
 
     /// <summary>
-    /// Arrow stays centered (or as centered as possible) while content scrolls.
-    /// Selection arrow remains in a fixed position while menu options scroll past it.
+    /// Attempts to always keep the selection indicator at the preset center position.
+    /// Content scrolls circularly around the center, allowing wrap-around display (e.g., 7 8 1 2 3).
     /// </summary>
     CenterFixed,
 
     /// <summary>
-    /// Arrow always stays at the exact center position.
-    /// Content scrolls to keep the selected item at center.
-    /// Similar to CenterFixed but stricter about center positioning.
+    /// Waits for the selection indicator to reach the preset center, then maintains it there.
+    /// Indicator adjusts position at the edges but stays centered during mid-range navigation.
     /// </summary>
     WaitingCenter
 }

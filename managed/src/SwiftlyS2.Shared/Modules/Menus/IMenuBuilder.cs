@@ -320,9 +320,8 @@ public interface IMenuBuilder
 
     /// <summary>
     /// Sets the scroll style for the menu navigation.
-    /// Controls whether the arrow follows selected items or stays centered.
     /// </summary>
-    /// <param name="style">The scroll style to use. Use ArrowFollow for following arrow, CenterFixed for fixed center arrow.</param>
+    /// <param name="style">The scroll style to use.</param>
     /// <returns>The current menu builder instance for method chaining.</returns>
     IMenuBuilder SetScrollStyle(MenuScrollStyle style);
 }
