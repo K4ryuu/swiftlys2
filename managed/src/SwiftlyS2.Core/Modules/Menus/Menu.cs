@@ -13,7 +13,7 @@ namespace SwiftlyS2.Core.Menus;
 
 internal partial class Menu : IMenu
 {
-    public string Title { get; set; } = "";
+    public string Title { get; set; } = "Menu";
 
     public List<IOption> Options { get; set; } = new();
 
@@ -445,25 +445,6 @@ internal partial class Menu : IMenu
         };
     }
 
-    [GeneratedRegex("<.*?>")]
-    private static partial Regex HtmlTagRegex();
-
-    private static string StripHtmlTags(string text)
-    {
-        if (string.IsNullOrEmpty(text))
-        {
-            return text;
-        }
-
-        return HtmlTagRegex().Replace(text, string.Empty);
-    }
-
-    private static int CalculateVisibleChars(string text, float maxWidth)
-    {
-        var plainText = StripHtmlTags(text);
-        return plainText.TakeWhile((c, i) => plainText[..i].Sum(Helper.GetCharWidth) + Helper.GetCharWidth(c) <= maxWidth).Count();
-    }
-
     private int UpdateScrollOffset(string text, bool scrollLeft, MenuHorizontalStyle? style = null)
     {
         var textKey = $"{text}_{scrollLeft}";
@@ -483,19 +464,99 @@ internal partial class Menu : IMenu
 
     private string ScrollTextWithFade(string text, float maxWidth, bool scrollLeft, MenuHorizontalStyle? style = null)
     {
-        var visibleChars = CalculateVisibleChars(text, maxWidth);
-        if (visibleChars >= text.Length)
+        var plainText = StripHtmlTags(text);
+        if (Helper.EstimateTextWidth(plainText) <= maxWidth)
         {
             return text;
         }
 
-        var offset = UpdateScrollOffset(text, scrollLeft, style);
-        var startIndex = Math.Clamp(scrollLeft ? offset : text.Length - visibleChars - offset, 0, text.Length - 1);
+        // Extract all plain text characters from segments
+        var segments = ParseHtmlSegments(text);
+        var plainChars = segments
+            .Where(s => !s.IsTag)
+            .SelectMany(s => s.Content)
+            .ToArray();
 
-        return new string(Enumerable.Range(0, visibleChars)
-            .TakeWhile(i => startIndex + i < text.Length)
-            .Select(i => text[startIndex + i])
-            .ToArray());
+        if (plainChars.Length == 0)
+        {
+            return text;
+        }
+
+        // Calculate how many characters can fit
+        var targetCharCount = CalculateTargetCharCount(plainChars, maxWidth);
+        if (targetCharCount == 0)
+        {
+            return string.Empty;
+        }
+
+        // Update scroll offset for fade effect
+        var key = $"{plainText}_{scrollLeft}";
+        ScrollOffsets.TryAdd(key, 0);
+        ScrollCallCounts.TryAdd(key, 0);
+
+        if (++ScrollCallCounts[key] >= (style?.TicksPerScroll ?? HorizontalStyle?.TicksPerScroll ?? 16))
+        {
+            ScrollCallCounts[key] = 0;
+            // Allow scrolling beyond end for complete fade-out
+            ScrollOffsets[key] = (ScrollOffsets[key] + 1) % (plainChars.Length + 1);
+        }
+
+        // Calculate visible character range
+        var offset = ScrollOffsets[key];
+        var (skipStart, skipEnd) = scrollLeft
+            ? (offset, Math.Max(0, plainChars.Length - offset - targetCharCount))
+            : (Math.Max(0, plainChars.Length - targetCharCount - offset), offset);
+
+        // Build output with proper HTML tag tracking
+        StringBuilder result = new();
+        List<string> outputTags = [], activeTags = [];
+        var (charIdx, started) = (0, false);
+
+        foreach (var (content, isTag) in segments)
+        {
+            if (isTag)
+            {
+                // Track active opening and closing tags
+                if (!content.StartsWith("</") && !content.StartsWith("<!") && !content.EndsWith("/>"))
+                {
+                    activeTags.Add(content);
+                }
+                else if (content.StartsWith("</"))
+                {
+                    var tagName = content[2..^1].Split(' ')[0];
+                    var idx = activeTags.FindLastIndex(t => t[1..^1].Split(' ')[0].Equals(tagName, StringComparison.OrdinalIgnoreCase));
+                    if (idx >= 0) activeTags.RemoveAt(idx);
+                }
+
+                // Output tags within visible window
+                if (started)
+                {
+                    result.Append(content);
+                    ProcessOpenTag(content, outputTags);
+                }
+            }
+            else
+            {
+                // Process characters within scroll window
+                foreach (var ch in content)
+                {
+                    if (charIdx >= skipStart && charIdx < plainChars.Length - skipEnd)
+                    {
+                        // Apply active tags at start of output
+                        if (!started)
+                        {
+                            started = true;
+                            activeTags.ForEach(tag => { result.Append(tag); ProcessOpenTag(tag, outputTags); });
+                        }
+                        result.Append(ch);
+                    }
+                    charIdx++;
+                }
+            }
+        }
+
+        CloseOpenTags(result, outputTags);
+        return result.ToString();
     }
 
     private string ScrollTextWithLoop(string text, float maxWidth, bool scrollLeft, MenuHorizontalStyle? style = null)
@@ -511,85 +572,6 @@ internal partial class Menu : IMenu
         return new string(Enumerable.Range(0, visibleChars)
             .Select(i => scrollLeft ? text[(offset + i) % text.Length] : text[(text.Length - offset + i) % text.Length])
             .ToArray());
-    }
-
-    // Parses HTML text into segments of plain text and HTML tags
-    private static List<(string Content, bool IsTag)> ParseHtmlSegments(string text)
-    {
-        var tagMatches = HtmlTagRegex().Matches(text);
-        if (tagMatches.Count == 0)
-        {
-            return [(text, false)];
-        }
-
-        List<(string Content, bool IsTag)> segments = [];
-        var currentIndex = 0;
-
-        foreach (Match match in tagMatches)
-        {
-            if (match.Index > currentIndex)
-            {
-                segments.Add((text[currentIndex..match.Index], false));
-            }
-            segments.Add((match.Value, true));
-            currentIndex = match.Index + match.Length;
-        }
-
-        if (currentIndex < text.Length)
-        {
-            segments.Add((text[currentIndex..], false));
-        }
-
-        return segments;
-    }
-
-    // Tracks opening and closing HTML tags for proper nesting
-    private static void ProcessOpenTag(string tag, List<string> openTags)
-    {
-        var tagName = tag switch
-        {
-            ['<', '/', .. var rest] => new string(rest).TrimEnd('>').Split(' ', 2)[0],
-            ['<', '!', ..] => null,
-            [.. var chars] when chars[^1] == '/' && chars[^2] == '>' => null,
-            ['<', .. var rest] => new string(rest).TrimEnd('>').Split(' ', 2)[0],
-            _ => null
-        };
-
-        if (tagName is null)
-        {
-            return;
-        }
-
-        if (tag.StartsWith("</"))
-        {
-            var index = openTags.FindLastIndex(t => t.Equals(tagName, StringComparison.OrdinalIgnoreCase));
-            if (index >= 0) openTags.RemoveAt(index);
-        }
-        else
-        {
-            openTags.Add(tagName);
-        }
-    }
-
-    // Appends closing tags in reverse order to maintain proper HTML structure
-    private static void CloseOpenTags(StringBuilder result, List<string> openTags)
-        => openTags.AsEnumerable().Reverse().ToList().ForEach(tag => result.Append($"</{tag}>"));
-
-    // Calculates how many characters fit within the specified width
-    private static int CalculateTargetCharCount(ReadOnlySpan<char> plainChars, float maxWidth)
-    {
-        var currentWidth = 0f;
-        var count = 0;
-
-        foreach (var ch in plainChars)
-        {
-            var charWidth = Helper.GetCharWidth(ch);
-            if (currentWidth + charWidth > maxWidth) break;
-            currentWidth += charWidth;
-            count++;
-        }
-
-        return count;
     }
 
     private static string TruncateTextEnd(string text, float maxWidth, string suffix = "...")
@@ -672,7 +654,7 @@ internal partial class Menu : IMenu
         var targetCharCount = CalculateTargetCharCount(plainChars, maxWidth);
         if (targetCharCount == 0)
         {
-            return "";
+            return string.Empty;
         }
 
         // Calculate range to keep from middle
@@ -725,5 +707,102 @@ internal partial class Menu : IMenu
 
         CloseOpenTags(result, outputOpenTags);
         return result.ToString();
+    }
+}
+
+internal partial class Menu
+{
+    [GeneratedRegex("<.*?>")]
+    private static partial Regex HtmlTagRegex();
+
+    private static string StripHtmlTags(string text)
+    {
+        if (string.IsNullOrEmpty(text))
+        {
+            return text;
+        }
+
+        return HtmlTagRegex().Replace(text, string.Empty);
+    }
+
+    private static int CalculateVisibleChars(string text, float maxWidth)
+    {
+        var plainText = StripHtmlTags(text);
+        return plainText.TakeWhile((c, i) => plainText[..i].Sum(Helper.GetCharWidth) + Helper.GetCharWidth(c) <= maxWidth).Count();
+    }
+
+    private static List<(string Content, bool IsTag)> ParseHtmlSegments(string text)
+    {
+        var tagMatches = HtmlTagRegex().Matches(text);
+        if (tagMatches.Count == 0)
+        {
+            return [(text, false)];
+        }
+
+        List<(string Content, bool IsTag)> segments = [];
+        var currentIndex = 0;
+
+        foreach (Match match in tagMatches)
+        {
+            if (match.Index > currentIndex)
+            {
+                segments.Add((text[currentIndex..match.Index], false));
+            }
+            segments.Add((match.Value, true));
+            currentIndex = match.Index + match.Length;
+        }
+
+        if (currentIndex < text.Length)
+        {
+            segments.Add((text[currentIndex..], false));
+        }
+
+        return segments;
+    }
+
+    private static void ProcessOpenTag(string tag, List<string> openTags)
+    {
+        var tagName = tag switch
+        {
+            ['<', '/', .. var rest] => new string(rest).TrimEnd('>').Split(' ', 2)[0],
+            ['<', '!', ..] => null,
+            [.. var chars] when chars[^1] == '/' && chars[^2] == '>' => null,
+            ['<', .. var rest] => new string(rest).TrimEnd('>').Split(' ', 2)[0],
+            _ => null
+        };
+
+        if (tagName is null)
+        {
+            return;
+        }
+
+        if (tag.StartsWith("</"))
+        {
+            var index = openTags.FindLastIndex(t => t.Equals(tagName, StringComparison.OrdinalIgnoreCase));
+            if (index >= 0) openTags.RemoveAt(index);
+        }
+        else
+        {
+            openTags.Add(tagName);
+        }
+    }
+
+    private static void CloseOpenTags(StringBuilder result, List<string> openTags)
+        => openTags.AsEnumerable().Reverse().ToList().ForEach(tag => result.Append($"</{tag}>"));
+
+    private static int CalculateTargetCharCount(ReadOnlySpan<char> plainChars, float maxWidth)
+    {
+        var currentWidth = 0f;
+        var count = 0;
+
+        foreach (var ch in plainChars)
+        {
+            var charWidth = Helper.GetCharWidth(ch);
+            if (currentWidth + charWidth > maxWidth) break;
+            currentWidth += charWidth;
+            count++;
+        }
+
+        return count;
     }
 }

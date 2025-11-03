@@ -609,8 +609,10 @@ public class TestPlugin : BasePlugin
     settingsMenu.Builder.AddText("8. Text");
     settingsMenu.Builder.AddText("9. Text");
     settingsMenu.Builder.AddSeparator();
-    settingsMenu.Builder.AddText("<font color='yellow'><b><garbage>abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</garbage></b></font>", overflowStyle: MenuHorizontalStyle.TruncateEnd(26f));
-    settingsMenu.Builder.AddText("<font color='red'><b><garbage>abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</garbage></b></font>", overflowStyle: MenuHorizontalStyle.TruncateBothEnds(26f));
+    settingsMenu.Builder.AddText("<font color='yellow'><b><garbage>abcdefghijklmnopqrstuvwxyz<font color='purple'>split</font>ABCDEFGHIJKLMNOPQRSTUVWXYZ</garbage></b></font>", overflowStyle: MenuHorizontalStyle.TruncateEnd(26f));
+    settingsMenu.Builder.AddText("<font color='red'><b><garbage>abcdefghijklmnopqrstuvwxyz<font color='purple'>split</font>ABCDEFGHIJKLMNOPQRSTUVWXYZ</garbage></b></font>", overflowStyle: MenuHorizontalStyle.TruncateBothEnds(26f));
+    settingsMenu.Builder.AddText("<font color='lightblue'><b><garbage>abcdefghijklmnopqrstuvwxyz<font color='purple'>split</font>ABCDEFGHIJKLMNOPQRSTUVWXYZ</garbage></b></font>", overflowStyle: MenuHorizontalStyle.ScrollRightFade(26f, 8));
+    settingsMenu.Builder.AddText("<font color='blue'><b><garbage>abcdefghijklmnopqrstuvwxyz<font color='purple'>split</font>ABCDEFGHIJKLMNOPQRSTUVWXYZ</garbage></b></font>", overflowStyle: MenuHorizontalStyle.ScrollLeftLoop(26f, 16));
     settingsMenu.Builder.AddText("123456789012345678901234567890");
     settingsMenu.Builder.AddText("一二三四五六七八九十一二三四五六七八九十");
     settingsMenu.Builder.AddSeparator();

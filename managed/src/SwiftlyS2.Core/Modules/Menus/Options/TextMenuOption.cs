@@ -54,12 +54,14 @@ internal class TextMenuOption : IOption
 
         text = $"<font class='{sizeClass}'>{text}</font>";
 
-        return Alignment switch
+        var htmlText = Alignment switch
         {
             ITextAlign.Center => $"<center>{text}</center>",
             ITextAlign.Right => $"<div align='right'>{text}</div>",
             _ => text
         };
+        Console.WriteLine(htmlText);
+        return htmlText;
     }
 
     public IMenuTextSize GetTextSize()
