@@ -54,12 +54,13 @@ internal class ToggleMenuOption : IOption
 
         var status = Value ? "<font color='#008000'>✔</font>" : "<font color='#FF0000'>✘</font>";
 
+        var text = (Menu as Menus.Menu)?.ApplyHorizontalStyle(Text, OverflowStyle) ?? Text;
         if (!CanInteract(player))
         {
-            return $"<font class='{sizeClass}' color='grey'>{Text}: {status}/</font>";
+            return $"<font class='{sizeClass}' color='grey'>{text}: {status}/</font>";
         }
 
-        return $"<font class='{sizeClass}'>{Text}: {status}</font>";
+        return $"<font class='{sizeClass}'>{text}: {status}</font>";
     }
 
     public IMenuTextSize GetTextSize()

@@ -71,11 +71,12 @@ internal class ChoiceMenuOption : IOption
 
         var choice = $"<font color='{Menu!.RenderColor.ToHex(true)}'>[</font>{SelectedChoice}<font color='{Menu.RenderColor.ToHex(true)}'>]</font>";
 
+        var text = (Menu as Menus.Menu)?.ApplyHorizontalStyle(Text, OverflowStyle) ?? Text;
         if (!CanInteract(player))
         {
-            return $"<font class='{sizeClass}' color='grey'>{Text}: {choice}</font>";
+            return $"<font class='{sizeClass}' color='grey'>{text}: {choice}</font>";
         }
-        return $"<font class='{sizeClass}'>{Text}: {choice}</font>";
+        return $"<font class='{sizeClass}'>{text}: {choice}</font>";
     }
 
     public IMenuTextSize GetTextSize()

@@ -623,8 +623,15 @@ public class TestPlugin : BasePlugin
     settingsMenu.Builder.AddText("Swiftlys2 salută această lume minunată");
     settingsMenu.Builder.AddText("Swiftlys2 extends warmest greetings to this wondrous world");
     settingsMenu.Builder.AddText("Swiftlys2 sendas korajn salutojn al ĉi tiu mirinda mondo");
-
-    // settingsMenu.Builder.AddProgressBar("8. ProgressBar", () => 0.5f);
+    settingsMenu.Builder.AddSeparator();
+    settingsMenu.Builder.AddAsyncButton("AsyncButton|AsyncButton|AsyncButton", async (p) => await Task.Delay(2000));
+    settingsMenu.Builder.AddButton("Button|Button|Button|Button", (p) => { });
+    settingsMenu.Builder.AddChoice("Choice|Choice|Choice|Choice", ["Option 1", "Option 2", "Option 3"], "Option 1", (p, value) => { });
+    settingsMenu.Builder.AddProgressBar("ProgressBar|ProgressBar|ProgressBar", () => 0.5f);
+    settingsMenu.Builder.AddSlider("Slider|Slider|Slider|Slider", 0f, 100f, 0f, 1f, (p, value) => { });
+    // settingsMenu.Builder.AddSubmenu("Submenu");
+    settingsMenu.Builder.AddToggle("Toggle|Toggle|Toggle|Toggle", true, (p, value) => { });
+    settingsMenu.Builder.AddSeparator();
 
     Core.Menus.OpenMenu(player, settingsMenu);
   }

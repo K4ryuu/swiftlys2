@@ -73,12 +73,13 @@ internal class SliderMenuButton : IOption
         }
         slider += $"<font color='#ff3333'>)</font> {Value:F1}";
 
+        var text = (Menu as Menus.Menu)?.ApplyHorizontalStyle(Text, OverflowStyle) ?? Text;
         if (!CanInteract(player))
         {
-            return $"<font class='{sizeClass}' color='grey'>{Text}: {slider}</font>";
+            return $"<font class='{sizeClass}' color='grey'>{text}: {slider}</font>";
         }
 
-        return $"<font class='{sizeClass}'>{Text}: {slider}</font>";
+        return $"<font class='{sizeClass}'>{text}: {slider}</font>";
     }
 
     public IMenuTextSize GetTextSize()

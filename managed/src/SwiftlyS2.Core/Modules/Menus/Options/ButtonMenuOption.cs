@@ -46,12 +46,13 @@ internal class ButtonMenuOption : IOption
     {
         var sizeClass = MenuSizeHelper.GetSizeClass(Size);
 
+        var text = (Menu as Menus.Menu)?.ApplyHorizontalStyle(Text, OverflowStyle) ?? Text;
         if (!CanInteract(player))
         {
-            return $"<font class='{sizeClass}' color='grey'>{Text}</font>";
+            return $"<font class='{sizeClass}' color='grey'>{text}</font>";
         }
 
-        return $"<font class='{sizeClass}'>{Text}</font>";
+        return $"<font class='{sizeClass}'>{text}</font>";
     }
     public IMenuTextSize GetTextSize()
     {

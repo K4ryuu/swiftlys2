@@ -37,7 +37,7 @@ internal class ProgressBarMenuOption(string text, Func<float> progressProvider, 
             bar += $"<font color='#666666'>{EmptyChar}</font>";
 
         var percentage = ShowPercentage ? $" {(int)(progress * 100)}%" : "";
-        return $"<font class='{sizeClass}'>{Text}: {bar}{percentage}</font>";
+        return $"<font class='{sizeClass}'>{((Menu as Menus.Menu)?.ApplyHorizontalStyle(Text, OverflowStyle) ?? Text)}: {bar}{percentage}</font>";
     }
 
     public IMenuTextSize GetTextSize()
