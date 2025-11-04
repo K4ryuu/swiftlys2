@@ -79,6 +79,8 @@ internal class MenuManager : IMenuManager
         _exitSound.Volume = Settings.SoundExitVolume;
 
         _Core.Event.OnClientKeyStateChanged += KeyStateChange;
+        _Core.Event.OnClientDisconnected += OnClientDisconnected;
+        _Core.Event.OnMapUnload += OnMapUnload;
     }
 
     ~MenuManager()
@@ -91,6 +93,8 @@ internal class MenuManager : IMenuManager
         }
 
         _Core.Event.OnClientKeyStateChanged -= KeyStateChange;
+        _Core.Event.OnClientDisconnected -= OnClientDisconnected;
+        _Core.Event.OnMapUnload -= OnMapUnload;
     }
 
     void KeyStateChange(IOnClientKeyStateChangedEvent @event)
@@ -200,6 +204,42 @@ internal class MenuManager : IMenuManager
                 }
             }
         }
+    }
+
+    public void OnClientDisconnected(IOnClientDisconnectedEvent @event)
+    {
+        var player = _Core.PlayerManager.GetPlayer(@event.PlayerId);
+        if (player == null)
+        {
+            return;
+        }
+
+        if (OpenMenus.TryRemove(player, out var menu))
+        {
+            var currentMenu = menu;
+            while (currentMenu != null)
+            {
+                currentMenu.Close(player);
+                OnMenuClosed?.Invoke(player, currentMenu);
+                currentMenu = currentMenu.Parent;
+            }
+        }
+    }
+
+    public void OnMapUnload(IOnMapUnloadEvent _)
+    {
+        foreach (var kvp in OpenMenus)
+        {
+            var player = kvp.Key;
+            var currentMenu = kvp.Value;
+            while (currentMenu != null)
+            {
+                currentMenu.Close(player);
+                OnMenuClosed?.Invoke(player, currentMenu);
+                currentMenu = currentMenu.Parent;
+            }
+        }
+        OpenMenus.Clear();
     }
 
     public void CloseMenu(IMenu menu)
