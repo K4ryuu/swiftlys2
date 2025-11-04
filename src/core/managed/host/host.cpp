@@ -49,6 +49,14 @@ std::string widenedOriginPath;
 std::string original_path;
 
 bool InitializeHostFXR(std::string origin_path) {
+#ifdef _WIN32
+  for (size_t i = 0; i < origin_path.size(); ++i) {
+    if (origin_path[i] == '/') {
+      origin_path[i] = '\\';
+    }
+  }
+#endif
+
   original_path = origin_path;
 
 #ifdef _WIN32
@@ -109,7 +117,11 @@ bool InitializeHostFXR(std::string origin_path) {
 
   // Clear and copy dotnet root path to buffer with bounds checking
   memset(dotnet_path, 0, sizeof(dotnet_path));
+#ifdef _WIN32
+  size_t copy_size = MIN(dotnet_root_path.size() * sizeof(wchar_t), sizeof(dotnet_path) - sizeof(wchar_t));
+#else
   size_t copy_size = MIN(dotnet_root_path.size(), sizeof(dotnet_path) - 1);
+#endif
   memcpy(dotnet_path, dotnet_root_path.c_str(), copy_size);
 
   params.dotnet_root = dotnet_path;
