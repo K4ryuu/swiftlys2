@@ -554,6 +554,36 @@ public class TestPlugin : BasePlugin
     return HookResult.Continue;
   }
 
+  [Command("i76")]
+  public void TestIssue76Command(ICommandContext context)
+  {
+      var player = context.Sender!;
+      IMenu settingsMenu = Core.Menus.CreateMenu("Settings");
+      // Add the following code to render text properly
+      //settingsMenu.Builder.AddText("123", overflowStyle: MenuHorizontalStyle.ScrollLeftLoop(25f));
+      settingsMenu.Builder.AddText("123");
+      settingsMenu.Builder.AddText("1234");
+      settingsMenu.Builder.AddText("12345");
+
+      Core.Menus.OpenMenu(player, settingsMenu);
+  }
+
+  [Command("i78")]
+  public void TestIssue78Command(ICommandContext context)
+  {
+      var player = context.Sender!;
+      IMenu settingsMenu = Core.Menus.CreateMenu("Settings");
+      settingsMenu.Builder.AddButton("123", (p) =>
+      {
+        player.SendMessage(MessageType.Chat, "Button");
+      });
+
+      settingsMenu.Builder.Design.OverrideExitButton("shift");
+      settingsMenu.Builder.Design.OverrideSelectButton("e");
+
+      Core.Menus.OpenMenu(player, settingsMenu);
+  }
+
   [Command("mt")]
   public void MenuTestCommand(ICommandContext context)
   {
