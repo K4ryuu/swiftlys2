@@ -569,11 +569,11 @@ public class TestPlugin : BasePlugin
   }
 
   [Command("i78")]
-  public void TestIssue762Command(ICommandContext context)
+  public void TestIssue78Command(ICommandContext context)
   {
       var player = context.Sender!;
       IMenu settingsMenu = Core.Menus.CreateMenu("Settings");
-      settingsMenu.Builder.AddButton("12345", (p) =>
+      settingsMenu.Builder.AddButton("123", (p) =>
       {
         player.SendMessage(MessageType.Chat, "Button");
       });
