@@ -7,6 +7,7 @@ using SwiftlyS2.Shared.Convars;
 using SwiftlyS2.Shared.Database;
 using SwiftlyS2.Shared.EntitySystem;
 using SwiftlyS2.Shared.Events;
+using SwiftlyS2.Shared.FileSystem;
 using SwiftlyS2.Shared.GameEvents;
 using SwiftlyS2.Shared.Helpers;
 using SwiftlyS2.Shared.Memory;
@@ -172,4 +173,9 @@ public interface ISwiftlyCore
   /// This directory is ensured to exist by the framework.
   /// </summary>
   public string PluginDataDirectory { get; }
+
+  /// <summary>
+  /// Game file system interface.
+  /// </summary>
+  public IGameFileSystem GameFileSystem { get; }
 }

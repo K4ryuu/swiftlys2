@@ -1,0 +1,8 @@
+class FileSystem
+
+string GetSearchPath = string pathId, int32 searchPathType, int32 searchPathsToGet
+bool FileExists = string fileName, string pathId
+void AddSearchPath = string path, string pathId, int32 searchPathAdd, int32 searchPathPriority
+bool RemoveSearchPath = string path, string pathId
+bool IsDirectory = string path, string pathId
+void PrintSearchPaths = void
