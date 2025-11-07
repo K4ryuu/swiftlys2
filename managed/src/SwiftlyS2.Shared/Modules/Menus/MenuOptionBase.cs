@@ -107,12 +107,7 @@ public abstract class MenuOptionBase : IMenuOption
     /// <summary>
     /// Occurs when a player's cursor enters this option.
     /// </summary>
-    public event EventHandler<MenuOptionEventArgs>? OptionEnter;
-
-    /// <summary>
-    /// Occurs when a player's cursor leaves this option.
-    /// </summary>
-    public event EventHandler<MenuOptionEventArgs>? OptionLeave;
+    public event EventHandler<MenuOptionEventArgs>? Hover;
 
     /// <summary>
     /// Occurs before HTML markup is assembled, allowing customization of the text content.
@@ -253,21 +248,12 @@ public abstract class MenuOptionBase : IMenuOption
     }
 
     /// <summary>
-    /// Raises the <see cref="OptionEnter"/> event.
+    /// Raises the <see cref="Hover"/> event.
     /// </summary>
     /// <param name="player">The player whose cursor entered the option.</param>
-    protected virtual void OnOptionEnter( IPlayer player )
+    protected virtual void OnHover( IPlayer player )
     {
-        OptionEnter?.Invoke(this, new MenuOptionEventArgs { Player = player, Option = this });
-    }
-
-    /// <summary>
-    /// Raises the <see cref="OptionLeave"/> event.
-    /// </summary>
-    /// <param name="player">The player whose cursor left the option.</param>
-    protected virtual void OnOptionLeave( IPlayer player )
-    {
-        OptionLeave?.Invoke(this, new MenuOptionEventArgs { Player = player, Option = this });
+        Hover?.Invoke(this, new MenuOptionEventArgs { Player = player, Option = this });
     }
 
     private static string GetSizeClass( IMenuOptionTextSize size )

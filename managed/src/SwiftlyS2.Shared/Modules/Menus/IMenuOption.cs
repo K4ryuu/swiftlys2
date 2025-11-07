@@ -163,12 +163,7 @@ public interface IMenuOption
     /// <summary>
     /// Occurs when a player's cursor enters this option.
     /// </summary>
-    public event EventHandler<MenuOptionEventArgs>? OptionEnter;
-
-    /// <summary>
-    /// Occurs when a player's cursor leaves this option.
-    /// </summary>
-    public event EventHandler<MenuOptionEventArgs>? OptionLeave;
+    public event EventHandler<MenuOptionEventArgs>? Hover;
 
     /// <summary>
     /// Occurs before HTML markup is assembled, allowing customization of the text content.
