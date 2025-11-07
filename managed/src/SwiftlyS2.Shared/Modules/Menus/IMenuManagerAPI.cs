@@ -95,6 +95,21 @@ public sealed class MenuManagerEventArgs : EventArgs
 public interface IMenuManagerAPI
 {
     /// <summary>
+    /// Global configuration settings for all menus.
+    /// </summary>
+    public MenuManagerConfiguration Configuration { get; }
+
+    /// <summary>
+    /// Fired when a menu is closed for a player.
+    /// </summary>
+    public event EventHandler<MenuManagerEventArgs>? MenuClosed;
+
+    /// <summary>
+    /// Fired when a menu is opened for a player.
+    /// </summary>
+    public event EventHandler<MenuManagerEventArgs>? MenuOpened;
+
+    /// <summary>
     /// Creates a new menu with an optional title.
     /// </summary>
     /// <param name="title">The menu title, or null for no title.</param>
@@ -139,24 +154,4 @@ public interface IMenuManagerAPI
     /// Closes every open menu for every player.
     /// </summary>
     public void CloseAllMenus();
-
-    /// <summary>
-    /// Fired when a menu is closed for a player.
-    /// </summary>
-    public event EventHandler<MenuManagerEventArgs>? MenuClosed;
-
-    /// <summary>
-    /// Fired when a menu is opened for a player.
-    /// </summary>
-    public event EventHandler<MenuManagerEventArgs>? MenuOpened;
-
-    /// <summary>
-    /// Fired when a menu is rendered for a player.
-    /// </summary>
-    public event EventHandler<MenuManagerEventArgs>? MenuRendered;
-
-    /// <summary>
-    /// Global configuration settings for all menus.
-    /// </summary>
-    public MenuManagerConfiguration Configuration { get; }
 }
