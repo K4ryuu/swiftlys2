@@ -109,6 +109,11 @@ public interface IMenuOption
     public IMenuAPI? Menu { get; }
 
     /// <summary>
+    /// Gets the number of lines this option requests to occupy in the menu.
+    /// </summary>
+    public int LineCount { get; }
+
+    /// <summary>
     /// Gets or sets the text content displayed for this menu option.
     /// </summary>
     /// <remarks>

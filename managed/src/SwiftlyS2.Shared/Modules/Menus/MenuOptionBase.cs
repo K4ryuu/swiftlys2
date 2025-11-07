@@ -17,6 +17,11 @@ public abstract class MenuOptionBase : IMenuOption
     public IMenuAPI? Menu { get; init; }
 
     /// <summary>
+    /// Gets the number of lines this option requests to occupy in the menu.
+    /// </summary>
+    public virtual int LineCount => 1;
+
+    /// <summary>
     /// Gets or sets the text content displayed for this menu option.
     /// </summary>
     /// <remarks>
