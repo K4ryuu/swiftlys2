@@ -6,8 +6,22 @@ namespace SwiftlyS2.Shared.Menus;
 /// <summary>
 /// Defines configuration settings that control menu behavior.
 /// </summary>
+/// <summary>
+/// Configuration settings that control menu behavior, appearance, and player interaction.
+/// Defines various aspects of menu functionality including navigation, input handling, audio feedback, and display options.
+/// </summary>
 public record class MenuConfiguration
 {
+    /// <summary>
+    /// The title of the menu.
+    /// </summary>
+    public string Title { get; set; } = "Menu";
+
+    /// <summary>
+    /// Whether to hide the menu title.
+    /// </summary>
+    public bool HideTitle { get; set; } = false;
+
     /// <summary>
     /// Whether to play sounds when players interact with the menu.
     /// </summary>
@@ -76,22 +90,6 @@ public interface IMenuAPI
     public IMenuAPI? Parent { get; }
 
     /// <summary>
-    /// The menu title displayed to players.
-    /// </summary>
-    /// <remarks>
-    /// This is a global property. Changing it will affect what all players see.
-    /// </remarks>
-    public string Title { get; set; }
-
-    /// <summary>
-    /// Whether to hide the menu title.
-    /// </summary>
-    /// <remarks>
-    /// This is a global property. Changing it will affect what all players see.
-    /// </remarks>
-    public bool HideTitle { get; set; }
-
-    /// <summary>
     /// Read-only collection of all options in this menu.
     /// </summary>
     public IReadOnlyList<IMenuOption> Options { get; }
@@ -138,7 +136,7 @@ public interface IMenuAPI
     /// Removes an option from this menu.
     /// </summary>
     /// <param name="option">The menu option to remove.</param>
-    /// <returns>True if the option was successfully removed; false if the option was not found.</returns>
+    /// <returns>True if the option was successfully removed, false if the option was not found.</returns>
     public bool RemoveOption( IMenuOption option );
 
     /// <summary>
@@ -146,7 +144,7 @@ public interface IMenuAPI
     /// </summary>
     /// <param name="player">The player whose selection to move.</param>
     /// <param name="option">The option to move the selection to.</param>
-    /// <returns>True if the move was successful; false if the option was not found.</returns>
+    /// <returns>True if the move was successful, false if the option was not found.</returns>
     public bool MoveToOption( IPlayer player, IMenuOption option );
 
     /// <summary>
@@ -154,7 +152,7 @@ public interface IMenuAPI
     /// </summary>
     /// <param name="player">The player whose selection to move.</param>
     /// <param name="index">The index of the option to move the selection to.</param>
-    /// <returns>True if the move was successful; false if the index was out of bounds.</returns>
+    /// <returns>True if the move was successful, false if the index was out of bounds.</returns>
     public bool MoveToOptionIndex( IPlayer player, int index );
 
     /// <summary>

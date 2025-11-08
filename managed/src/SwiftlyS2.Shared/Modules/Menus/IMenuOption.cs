@@ -196,14 +196,14 @@ public interface IMenuOption
     /// Determines whether this option is visible to the specified player.
     /// </summary>
     /// <param name="player">The player to check visibility for.</param>
-    /// <returns>True if the option is visible to the player; otherwise, false.</returns>
+    /// <returns>True if the option is visible to the player, otherwise, false.</returns>
     public bool GetVisible( IPlayer player );
 
     /// <summary>
     /// Determines whether this option is enabled for the specified player.
     /// </summary>
     /// <param name="player">The player to check enabled state for.</param>
-    /// <returns>True if the option is enabled for the player; otherwise, false.</returns>
+    /// <returns>True if the option is enabled for the player, otherwise, false.</returns>
     public bool GetEnabled( IPlayer player );
 
     // /// <summary>

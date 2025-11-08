@@ -1,3 +1,5 @@
+using SwiftlyS2.Shared.Events;
+
 namespace SwiftlyS2.Shared.Menus;
 
 /// <summary>
@@ -10,13 +12,6 @@ public interface IMenuBuilderAPI
     /// Gets the design interface for this menu.
     /// </summary>
     public IMenuDesignAPI Design { get; }
-
-    /// <summary>
-    /// Associates this builder with a menu instance. Typically called internally.
-    /// </summary>
-    /// <param name="menu">The menu to configure.</param>
-    /// <returns>This builder for method chaining.</returns>
-    public IMenuBuilderAPI SetMenu( IMenuAPI menu );
 
     /// <summary>
     /// Creates a hierarchical menu by setting a parent menu that players can navigate back to.
@@ -47,13 +42,6 @@ public interface IMenuBuilderAPI
     public IMenuBuilderAPI FreezePlayer( bool freeze = false );
 
     /// <summary>
-    /// Makes the menu automatically close when an option is selected.
-    /// </summary>
-    /// <param name="closeOnSelect">True to auto-close on selection, false otherwise.</param>
-    /// <returns>This builder for method chaining.</returns>
-    public IMenuBuilderAPI CloseOnSelect( bool closeOnSelect = false );
-
-    /// <summary>
     /// Sets how long the menu stays open before automatically closing.
     /// </summary>
     /// <param name="seconds">Time in seconds before auto-close. Set to 0 to disable.</param>
@@ -63,21 +51,27 @@ public interface IMenuBuilderAPI
     /// <summary>
     /// Customizes which button(s) players press to select menu options.
     /// </summary>
-    /// <param name="buttonNames">Button names for selection.</param>
+    /// <param name="keyKind">Key kind for selection.</param>
     /// <returns>This builder for method chaining.</returns>
-    public IMenuBuilderAPI OverrideSelectButton( params string[] buttonNames );
+    public IMenuBuilderAPI OverrideSelectButton( KeyKind keyKind );
 
     /// <summary>
     /// Customizes which button(s) players press to navigate through menu options.
     /// </summary>
-    /// <param name="buttonNames">Button names for navigation.</param>
+    /// <param name="keyKind">Key kind for navigation.</param>
     /// <returns>This builder for method chaining.</returns>
-    public IMenuBuilderAPI OverrideMoveButton( params string[] buttonNames );
+    public IMenuBuilderAPI OverrideMoveButton( KeyKind keyKind );
 
     /// <summary>
     /// Customizes which button(s) players press to close the menu.
     /// </summary>
-    /// <param name="buttonNames">Button names for closing the menu.</param>
+    /// <param name="keyKind">Key kind for closing the menu.</param>
     /// <returns>This builder for method chaining.</returns>
-    public IMenuBuilderAPI OverrideExitButton( params string[] buttonNames );
+    public IMenuBuilderAPI OverrideExitButton( KeyKind keyKind );
+
+    /// <summary>
+    /// Builds the menu and returns the final menu instance.
+    /// </summary>
+    /// <returns>The built menu instance.</returns>
+    public IMenuAPI Build();
 }

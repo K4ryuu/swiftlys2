@@ -112,10 +112,11 @@ public interface IMenuManagerAPI
     /// <summary>
     /// Creates a new menu with an optional title.
     /// </summary>
-    /// <param name="title">The menu title, or null for no title.</param>
-    /// <param name="hideTitle">Whether to hide the title.</param>
+    /// <param name="configuration">The configuration for the menu.</param>
+    /// <param name="keybindOverrides">The keybind overrides for the menu.</param>
+    /// <param name="parent">The parent menu, or null for no parent.</param>
     /// <returns>A new menu instance ready to be configured.</returns>
-    public IMenuAPI CreateMenu( string? title = null, bool hideTitle = false );
+    public IMenuAPI CreateMenu( MenuConfiguration configuration, IMenuKeybindOverrides keybindOverrides, IMenuAPI? parent = null );
 
     /// <summary>
     /// Gets the menu currently open for the specified player.

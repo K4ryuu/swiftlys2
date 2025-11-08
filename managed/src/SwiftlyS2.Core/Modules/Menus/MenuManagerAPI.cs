@@ -9,7 +9,7 @@ using SwiftlyS2.Shared.Players;
 
 namespace SwiftlyS2.Core.Menus;
 
-internal class MenuManagerAPI : IMenuManagerAPI
+internal sealed class MenuManagerAPI : IMenuManagerAPI
 {
     /// <summary>
     /// Global Configuration settings for all menus.
@@ -122,7 +122,7 @@ internal class MenuManagerAPI : IMenuManagerAPI
                 .ForEach(group =>
                 {
                     Spectre.Console.AnsiConsole.WriteException(
-                        new InvalidOperationException($"Duplicate key binding detected in menu '{menu.Title}': Key '{group.Key}' is used by: {string.Join(", ", group.Select(kvp => kvp.Key))}")
+                        new InvalidOperationException($"Duplicate key binding detected in menu '{menu.Configuration.Title}': Key '{group.Key}' is used by: {string.Join(", ", group.Select(kvp => kvp.Key))}")
                     );
                 });
 
@@ -258,11 +258,9 @@ internal class MenuManagerAPI : IMenuManagerAPI
         CloseAllMenus();
     }
 
-    public IMenuAPI CreateMenu( string? title = null, bool hideTitle = false )
+    public IMenuAPI CreateMenu( MenuConfiguration configuration, IMenuKeybindOverrides keybindOverrides, IMenuAPI? parent = null )
     {
-        // TODO
-        // return new MenuAPI { Title = title, MenuManager = this, MaxVisibleOptions = Settings.ItemsPerPage, core = core };
-        return null!;
+        return new MenuAPI(core, configuration, keybindOverrides, null, parent);
     }
 
     public IMenuAPI? GetCurrentMenu( IPlayer player )

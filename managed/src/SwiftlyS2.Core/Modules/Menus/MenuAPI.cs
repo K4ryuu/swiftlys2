@@ -1,17 +1,13 @@
 using System.Collections.Concurrent;
-using System.Text;
-using System.Text.RegularExpressions;
-using SwiftlyS2.Core.Menu.Options;
-using SwiftlyS2.Core.Natives;
 using SwiftlyS2.Shared;
 using SwiftlyS2.Shared.Menus;
-using SwiftlyS2.Shared.Natives;
+using SwiftlyS2.Core.Natives;
 using SwiftlyS2.Shared.Players;
 using SwiftlyS2.Shared.SchemaDefinitions;
 
 namespace SwiftlyS2.Core.Menus;
 
-internal class MenuAPI : IMenuAPI
+internal sealed class MenuAPI : IMenuAPI
 {
     /// <summary>
     /// The builder used to construct and configure this menu.
@@ -21,33 +17,17 @@ internal class MenuAPI : IMenuAPI
     /// <summary>
     /// Configuration settings for this menu.
     /// </summary>
-    public required MenuConfiguration Configuration { get; init; }
+    public MenuConfiguration Configuration { get; init; }
 
     /// <summary>
     /// Keybind overrides for this menu.
     /// </summary>
-    public required IMenuKeybindOverrides KeybindOverrides { get; init; }
+    public IMenuKeybindOverrides KeybindOverrides { get; init; }
 
     /// <summary>
     /// The parent menu in a hierarchical menu structure, or null if this is a top-level menu.
     /// </summary>
     public IMenuAPI? Parent { get; init; } = null;
-
-    /// <summary>
-    /// The title of this menu, displayed to players.
-    /// </summary>
-    /// <remarks>
-    /// This is a global property. Changing it will affect what all players see.
-    /// </remarks>
-    public string Title { get; set; } = "Menu";
-
-    /// <summary>
-    /// Whether to hide the menu title.
-    /// </summary>
-    /// <remarks>
-    /// This is a global property. Changing it will affect what all players see.
-    /// </remarks>
-    public bool HideTitle { get; set; } = false;
 
     /// <summary>
     /// Read-only collection of all options in this menu.
@@ -92,15 +72,14 @@ internal class MenuAPI : IMenuAPI
     private int maxDisplayLines = 0;
     private readonly ConcurrentDictionary<IPlayer, CancellationTokenSource> autoCloseCancelTokens = new();
 
-    public MenuAPI( ISwiftlyCore core, MenuConfiguration configuration, IMenuKeybindOverrides keybindOverrides, IMenuBuilderAPI? builder = null, IMenuAPI? parent = null, string? title = null, bool hideTitle = false )
+    // [SetsRequiredMembers]
+    public MenuAPI( ISwiftlyCore core, MenuConfiguration configuration, IMenuKeybindOverrides keybindOverrides, IMenuBuilderAPI? builder = null, IMenuAPI? parent = null )
     {
         this.core = core;
         Configuration = configuration;
         KeybindOverrides = keybindOverrides;
         Builder = builder;
         Parent = parent;
-        Title = title ?? "Menu";
-        HideTitle = hideTitle;
 
         options.Clear();
         selectedOptionIndex.Clear();
