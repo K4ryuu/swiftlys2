@@ -1,5 +1,3 @@
-using SwiftlyS2.Shared.Events;
-
 namespace SwiftlyS2.Shared.Menus;
 
 /// <summary>
@@ -51,23 +49,23 @@ public interface IMenuBuilderAPI
     /// <summary>
     /// Customizes which button(s) players press to select menu options.
     /// </summary>
-    /// <param name="keyKind">Key kind for selection.</param>
+    /// <param name="keyBind">Key bind for selection.</param>
     /// <returns>This builder for method chaining.</returns>
-    public IMenuBuilderAPI OverrideSelectButton( KeyKind keyKind );
+    public IMenuBuilderAPI OverrideSelectButton( KeyBind keyBind );
 
     /// <summary>
     /// Customizes which button(s) players press to navigate through menu options.
     /// </summary>
-    /// <param name="keyKind">Key kind for navigation.</param>
+    /// <param name="keyBind">Key bind for navigation.</param>
     /// <returns>This builder for method chaining.</returns>
-    public IMenuBuilderAPI OverrideMoveButton( KeyKind keyKind );
+    public IMenuBuilderAPI OverrideMoveButton( KeyBind keyBind );
 
     /// <summary>
     /// Customizes which button(s) players press to close the menu.
     /// </summary>
-    /// <param name="keyKind">Key kind for closing the menu.</param>
+    /// <param name="keyBind">Key bind for closing the menu.</param>
     /// <returns>This builder for method chaining.</returns>
-    public IMenuBuilderAPI OverrideExitButton( KeyKind keyKind );
+    public IMenuBuilderAPI OverrideExitButton( KeyBind keyBind );
 
     /// <summary>
     /// Builds the menu and returns the final menu instance.

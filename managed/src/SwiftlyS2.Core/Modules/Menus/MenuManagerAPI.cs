@@ -31,27 +31,31 @@ internal sealed class MenuManagerAPI : IMenuManagerAPI
     private readonly SoundEvent useSound = new();
     private readonly SoundEvent exitSound = new();
     private readonly SoundEvent scrollSound = new();
+    private readonly KeyBind buttonsScroll;
+    private readonly KeyBind buttonsScrollBack;
+    private readonly KeyBind buttonsExit;
+    private readonly KeyBind buttonsUse;
 
-    private static readonly Dictionary<string, KeyKind> StringToKeyKind = new() {
-        ["mouse1"] = KeyKind.Mouse1,
-        ["mouse2"] = KeyKind.Mouse2,
-        ["space"] = KeyKind.Space,
-        ["ctrl"] = KeyKind.Ctrl,
-        ["w"] = KeyKind.W,
-        ["a"] = KeyKind.A,
-        ["s"] = KeyKind.S,
-        ["d"] = KeyKind.D,
-        ["e"] = KeyKind.E,
-        ["esc"] = KeyKind.Esc,
-        ["r"] = KeyKind.R,
-        ["alt"] = KeyKind.Alt,
-        ["shift"] = KeyKind.Shift,
-        ["weapon1"] = KeyKind.Weapon1,
-        ["weapon2"] = KeyKind.Weapon2,
-        ["grenade1"] = KeyKind.Grenade1,
-        ["grenade2"] = KeyKind.Grenade2,
-        ["tab"] = KeyKind.Tab,
-        ["f"] = KeyKind.F,
+    private static readonly Dictionary<string, KeyBind> StringToKeyBind = new() {
+        ["mouse1"] = KeyBind.Mouse1,
+        ["mouse2"] = KeyBind.Mouse2,
+        ["space"] = KeyBind.Space,
+        ["ctrl"] = KeyBind.Ctrl,
+        ["w"] = KeyBind.W,
+        ["a"] = KeyBind.A,
+        ["s"] = KeyBind.S,
+        ["d"] = KeyBind.D,
+        ["e"] = KeyBind.E,
+        ["esc"] = KeyBind.Esc,
+        ["r"] = KeyBind.R,
+        ["alt"] = KeyBind.Alt,
+        ["shift"] = KeyBind.Shift,
+        ["weapon1"] = KeyBind.Weapon1,
+        ["weapon2"] = KeyBind.Weapon2,
+        ["grenade1"] = KeyBind.Grenade1,
+        ["grenade2"] = KeyBind.Grenade2,
+        ["tab"] = KeyBind.Tab,
+        ["f"] = KeyBind.F,
     };
 
     public MenuManagerAPI( ISwiftlyCore core )
@@ -81,6 +85,10 @@ internal sealed class MenuManagerAPI : IMenuManagerAPI
         useSound.Volume = Configuration.SoundUseVolume;
         exitSound.Name = Configuration.SoundExitName;
         exitSound.Volume = Configuration.SoundExitVolume;
+        buttonsScroll = StringToKeyBind.GetValueOrDefault(Configuration.ButtonsScroll.Trim().ToLower());
+        buttonsScrollBack = StringToKeyBind.GetValueOrDefault(Configuration.ButtonsScrollBack.Trim().ToLower());
+        buttonsExit = StringToKeyBind.GetValueOrDefault(Configuration.ButtonsExit.Trim().ToLower());
+        buttonsUse = StringToKeyBind.GetValueOrDefault(Configuration.ButtonsUse.Trim().ToLower());
 
         openMenus.Clear();
 
@@ -108,25 +116,14 @@ internal sealed class MenuManagerAPI : IMenuManagerAPI
             return;
         }
 
-        if (Configuration.InputMode == "button")
+        if (Configuration.InputMode.Trim().Equals("button", StringComparison.CurrentCultureIgnoreCase))
         {
-            var scrollKey = menu.KeybindOverrides.Move ?? StringToKeyKind.GetValueOrDefault(Configuration.ButtonsScroll);
-            var scrollBackKey = menu.KeybindOverrides.MoveBack ?? StringToKeyKind.GetValueOrDefault(Configuration.ButtonsScrollBack);
-            var exitKey = menu.KeybindOverrides.Exit ?? StringToKeyKind.GetValueOrDefault(Configuration.ButtonsExit);
-            var useKey = menu.KeybindOverrides.Select ?? StringToKeyKind.GetValueOrDefault(Configuration.ButtonsUse);
+            var scrollKey = menu.KeybindOverrides.Move ?? buttonsScroll;
+            var scrollBackKey = menu.KeybindOverrides.MoveBack ?? buttonsScrollBack;
+            var exitKey = menu.KeybindOverrides.Exit ?? buttonsExit;
+            var useKey = menu.KeybindOverrides.Select ?? buttonsUse;
 
-            new Dictionary<string, KeyKind> { ["Scroll"] = scrollKey, ["ScrollBack"] = scrollBackKey, ["Exit"] = exitKey, ["Use"] = useKey }
-                .GroupBy(kvp => kvp.Value)
-                .Where(g => g.Count() > 1 && @event.Key.HasFlag(g.Key))
-                .ToList()
-                .ForEach(group =>
-                {
-                    Spectre.Console.AnsiConsole.WriteException(
-                        new InvalidOperationException($"Duplicate key binding detected in menu '{menu.Configuration.Title}': Key '{group.Key}' is used by: {string.Join(", ", group.Select(kvp => kvp.Key))}")
-                    );
-                });
-
-            if (@event.Key == scrollKey)
+            if (scrollKey.HasFlag(@event.Key.ToKeyBind()))
             {
                 // TODO
                 // menu.MoveSelection(player, 1);
@@ -138,7 +135,7 @@ internal sealed class MenuManagerAPI : IMenuManagerAPI
                     scrollSound.Recipients.RemoveRecipient(@event.PlayerId);
                 }
             }
-            else if (@event.Key == scrollBackKey)
+            else if (scrollBackKey.HasFlag(@event.Key.ToKeyBind()))
             {
                 // TODO
                 // menu.MoveSelection(player, -1);
@@ -150,7 +147,7 @@ internal sealed class MenuManagerAPI : IMenuManagerAPI
                     scrollSound.Recipients.RemoveRecipient(@event.PlayerId);
                 }
             }
-            else if (@event.Key == exitKey)
+            else if (exitKey.HasFlag(@event.Key.ToKeyBind()))
             {
                 CloseMenuForPlayer(player, menu);
 
@@ -161,7 +158,7 @@ internal sealed class MenuManagerAPI : IMenuManagerAPI
                     exitSound.Recipients.RemoveRecipient(@event.PlayerId);
                 }
             }
-            else if (@event.Key == useKey)
+            else if (useKey.HasFlag(@event.Key.ToKeyBind()))
             {
                 // TODO
                 // var option = menu.GetCurrentOption(player);
@@ -182,9 +179,9 @@ internal sealed class MenuManagerAPI : IMenuManagerAPI
                 }
             }
         }
-        else if (Configuration.InputMode == "wasd")
+        else if (Configuration.InputMode.Trim().Equals("wasd", StringComparison.CurrentCultureIgnoreCase))
         {
-            if (@event.Key == KeyKind.W)
+            if (KeyBind.W.HasFlag(@event.Key.ToKeyBind()))
             {
                 // TODO
                 // menu.MoveSelection(player, -1);
@@ -196,7 +193,7 @@ internal sealed class MenuManagerAPI : IMenuManagerAPI
                     scrollSound.Recipients.RemoveRecipient(@event.PlayerId);
                 }
             }
-            else if (@event.Key == KeyKind.S)
+            else if (KeyBind.S.HasFlag(@event.Key.ToKeyBind()))
             {
                 // TODO
                 // menu.MoveSelection(player, 1);
@@ -208,7 +205,7 @@ internal sealed class MenuManagerAPI : IMenuManagerAPI
                     scrollSound.Recipients.RemoveRecipient(@event.PlayerId);
                 }
             }
-            else if (@event.Key == KeyKind.A)
+            else if (KeyBind.A.HasFlag(@event.Key.ToKeyBind()))
             {
                 CloseMenuForPlayer(player, menu);
                 if (menu.Configuration.PlaySound)
@@ -218,7 +215,7 @@ internal sealed class MenuManagerAPI : IMenuManagerAPI
                     exitSound.Recipients.RemoveRecipient(@event.PlayerId);
                 }
             }
-            else if (@event.Key == KeyKind.D)
+            else if (KeyBind.D.HasFlag(@event.Key.ToKeyBind()))
             {
                 // TODO
                 // var option = menu.GetCurrentOption(player);
@@ -260,6 +257,32 @@ internal sealed class MenuManagerAPI : IMenuManagerAPI
 
     public IMenuAPI CreateMenu( MenuConfiguration configuration, IMenuKeybindOverrides keybindOverrides, IMenuAPI? parent = null )
     {
+        var bindingList = new Dictionary<string, KeyBind> {
+            ["Scroll"] = keybindOverrides.Move ?? buttonsScroll,
+            ["ScrollBack"] = keybindOverrides.MoveBack ?? buttonsScrollBack,
+            ["Exit"] = keybindOverrides.Exit ?? buttonsExit,
+            ["Use"] = keybindOverrides.Select ?? buttonsUse
+        }.ToList();
+
+        for (var i = 0; i < bindingList.Count; i++)
+        {
+            for (var j = i + 1; j < bindingList.Count; j++)
+            {
+                var binding1 = bindingList[i];
+                var binding2 = bindingList[j];
+                var overlap = binding1.Value & binding2.Value;
+
+                if (overlap != 0)
+                {
+                    Spectre.Console.AnsiConsole.WriteException(
+                        new InvalidOperationException(
+                            $"Key binding conflict detected in menu '{configuration.Title}': '{binding1.Key}' and '{binding2.Key}' share overlapping keys: {overlap}"
+                        )
+                    );
+                }
+            }
+        }
+
         return new MenuAPI(core, configuration, keybindOverrides, null, parent);
     }
 
