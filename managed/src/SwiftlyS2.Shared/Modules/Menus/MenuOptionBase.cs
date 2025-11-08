@@ -11,10 +11,10 @@ public abstract class MenuOptionBase : IMenuOption
     private bool visible = true;
     private bool enabled = true;
 
-    /// <summary>
-    /// Gets or sets the menu that this option belongs to.
-    /// </summary>
-    public IMenuAPI? Menu { get; init; }
+    // /// <summary>
+    // /// Gets or sets the menu that this option belongs to.
+    // /// </summary>
+    // public IMenuAPI? Menu { get; init; }
 
     /// <summary>
     /// Gets the number of lines this option requests to occupy in the menu.
@@ -77,6 +77,11 @@ public abstract class MenuOptionBase : IMenuOption
             OnEnabledChanged(new MenuOptionEventArgs { Player = null!, Option = this });
         }
     }
+
+    /// <summary>
+    /// Gets or sets a value indicating whether the menu should be closed after handling the click.
+    /// </summary>
+    public bool CloseAfterClick { get; init; } = false;
 
     /// <summary>
     /// Gets or sets an object that contains data about this option.
@@ -247,13 +252,42 @@ public abstract class MenuOptionBase : IMenuOption
         return ValueTask.FromResult(!args.Cancel);
     }
 
+    // /// <summary>
+    // /// Handles the click action for this option.
+    // /// </summary>
+    // /// <param name="player">The player who clicked the option.</param>
+    // /// <param name="closeMenu">Whether to close the menu after handling the click.</param>
+    // /// <returns>A task that represents the asynchronous operation.</returns>
+    // public virtual async ValueTask OnClickAsync( IPlayer player, bool closeMenu = false )
+    // {
+    //     if (!await OnValidatingAsync(player))
+    //     {
+    //         return;
+    //     }
+
+    //     if (Click != null)
+    //     {
+    //         var args = new MenuOptionClickEventArgs {
+    //             Player = player,
+    //             Option = this,
+    //             CloseMenu = closeMenu
+    //         };
+
+    //         await Click.Invoke(this, args);
+
+    //         // if (args.CloseMenu)
+    //         // {
+    //         //     Menu?.CloseForPlayer(player);
+    //         // }
+    //     }
+    // }
+
     /// <summary>
     /// Handles the click action for this option.
     /// </summary>
     /// <param name="player">The player who clicked the option.</param>
-    /// <param name="closeMenu">Whether to close the menu after handling the click.</param>
     /// <returns>A task that represents the asynchronous operation.</returns>
-    public virtual async ValueTask OnClickAsync( IPlayer player, bool closeMenu = false )
+    public virtual async ValueTask OnClickAsync( IPlayer player )
     {
         if (!await OnValidatingAsync(player))
         {
@@ -265,15 +299,10 @@ public abstract class MenuOptionBase : IMenuOption
             var args = new MenuOptionClickEventArgs {
                 Player = player,
                 Option = this,
-                CloseMenu = closeMenu
+                CloseMenu = CloseAfterClick
             };
 
             await Click.Invoke(this, args);
-
-            if (args.CloseMenu)
-            {
-                Menu?.CloseForPlayer(player);
-            }
         }
     }
 

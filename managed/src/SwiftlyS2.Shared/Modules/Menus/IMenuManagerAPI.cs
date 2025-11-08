@@ -110,6 +110,12 @@ public interface IMenuManagerAPI
     public event EventHandler<MenuManagerEventArgs>? MenuOpened;
 
     /// <summary>
+    /// Creates a new menu builder.
+    /// </summary>
+    /// <returns>A new menu builder instance.</returns>
+    public IMenuBuilderAPI CreateBuilder();
+
+    /// <summary>
     /// Creates a new menu with an optional title.
     /// </summary>
     /// <param name="configuration">The configuration for the menu.</param>

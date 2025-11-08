@@ -108,6 +108,11 @@ internal sealed class MenuManagerAPI : IMenuManagerAPI
 
     private void KeyStateChange( IOnClientKeyStateChangedEvent @event )
     {
+        if (openMenus.IsEmpty)
+        {
+            return;
+        }
+
         var player = core.PlayerManager.GetPlayer(@event.PlayerId);
         var menu = GetCurrentMenu(player);
 
@@ -125,8 +130,7 @@ internal sealed class MenuManagerAPI : IMenuManagerAPI
 
             if (scrollKey.HasFlag(@event.Key.ToKeyBind()))
             {
-                // TODO
-                // menu.MoveSelection(player, 1);
+                _ = menu.MoveToOptionIndex(player, menu.GetCurrentOptionIndex(player) + 1);
 
                 if (menu.Configuration.PlaySound)
                 {
@@ -137,8 +141,7 @@ internal sealed class MenuManagerAPI : IMenuManagerAPI
             }
             else if (scrollBackKey.HasFlag(@event.Key.ToKeyBind()))
             {
-                // TODO
-                // menu.MoveSelection(player, -1);
+                _ = menu.MoveToOptionIndex(player, menu.GetCurrentOptionIndex(player) - 1);
 
                 if (menu.Configuration.PlaySound)
                 {
@@ -160,18 +163,13 @@ internal sealed class MenuManagerAPI : IMenuManagerAPI
             }
             else if (useKey.HasFlag(@event.Key.ToKeyBind()))
             {
-                // TODO
-                // var option = menu.GetCurrentOption(player);
-                // if (option is SliderMenuButton || option is ChoiceMenuOption)
-                // {
-                //     menu.UseSlideOption(player, true);
-                // }
-                // else
-                // {
-                //     menu.UseSelection(player);
-                // }
+                var option = menu.GetCurrentOption(player);
+                if (option != null)
+                {
+                    _ = Task.Run(async () => await option.OnClickAsync(player));
+                }
 
-                if (menu.Configuration.PlaySound/* && (option?.PlaySound ?? false)*/)
+                if (menu.Configuration.PlaySound && (option?.PlaySound ?? false))
                 {
                     useSound.Recipients.AddRecipient(@event.PlayerId);
                     useSound.Emit();
@@ -183,8 +181,7 @@ internal sealed class MenuManagerAPI : IMenuManagerAPI
         {
             if (KeyBind.W.HasFlag(@event.Key.ToKeyBind()))
             {
-                // TODO
-                // menu.MoveSelection(player, -1);
+                _ = menu.MoveToOptionIndex(player, menu.GetCurrentOptionIndex(player) - 1);
 
                 if (menu.Configuration.PlaySound)
                 {
@@ -195,8 +192,7 @@ internal sealed class MenuManagerAPI : IMenuManagerAPI
             }
             else if (KeyBind.S.HasFlag(@event.Key.ToKeyBind()))
             {
-                // TODO
-                // menu.MoveSelection(player, 1);
+                _ = menu.MoveToOptionIndex(player, menu.GetCurrentOptionIndex(player) + 1);
 
                 if (menu.Configuration.PlaySound)
                 {
@@ -217,18 +213,13 @@ internal sealed class MenuManagerAPI : IMenuManagerAPI
             }
             else if (KeyBind.D.HasFlag(@event.Key.ToKeyBind()))
             {
-                // TODO
-                // var option = menu.GetCurrentOption(player);
-                // if (option is SliderMenuButton || option is ChoiceMenuOption)
-                // {
-                //     menu.UseSlideOption(player, true);
-                // }
-                // else
-                // {
-                //     menu.UseSelection(player);
-                // }
+                var option = menu.GetCurrentOption(player);
+                if (option != null)
+                {
+                    _ = Task.Run(async () => await option.OnClickAsync(player));
+                }
 
-                if (menu.Configuration.PlaySound/* && (option?.PlaySound ?? false)*/)
+                if (menu.Configuration.PlaySound && (option?.PlaySound ?? false))
                 {
                     useSound.Recipients.AddRecipient(@event.PlayerId);
                     useSound.Emit();
@@ -253,6 +244,11 @@ internal sealed class MenuManagerAPI : IMenuManagerAPI
     private void OnMapUnload( IOnMapUnloadEvent _ )
     {
         CloseAllMenus();
+    }
+
+    public IMenuBuilderAPI CreateBuilder()
+    {
+        return new MenuBuilderAPI(core);
     }
 
     public IMenuAPI CreateMenu( MenuConfiguration configuration, MenuKeybindOverrides keybindOverrides, IMenuAPI? parent = null )

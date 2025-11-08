@@ -103,10 +103,10 @@ public sealed class MenuOptionClickEventArgs : EventArgs
 /// </summary>
 public interface IMenuOption
 {
-    /// <summary>
-    /// Gets or sets the menu that this option belongs to.
-    /// </summary>
-    public IMenuAPI? Menu { get; }
+    // /// <summary>
+    // /// Gets or sets the menu that this option belongs to.
+    // /// </summary>
+    // public IMenuAPI? Menu { get; }
 
     /// <summary>
     /// Gets the number of lines this option requests to occupy in the menu.
@@ -136,6 +136,11 @@ public interface IMenuOption
     /// This is a global property. Changing it will affect what all players see.
     /// </remarks>
     public bool Enabled { get; set; }
+
+    /// <summary>
+    /// Gets a value indicating whether the menu should be closed after handling the click.
+    /// </summary>
+    public bool CloseAfterClick { get; }
 
     /// <summary>
     /// Gets or sets an object that contains data about this option.
@@ -250,13 +255,20 @@ public interface IMenuOption
     /// <returns>A task that represents the asynchronous operation. The task result is true if validation succeeds; otherwise, false.</returns>
     public ValueTask<bool> OnValidatingAsync( IPlayer player );
 
+    // /// <summary>
+    // /// Handles the click action for this option.
+    // /// </summary>
+    // /// <param name="player">The player who clicked the option.</param>
+    // /// <param name="closeMenu">Whether to close the menu after handling the click.</param>
+    // /// <returns>A task that represents the asynchronous operation.</returns>
+    // public ValueTask OnClickAsync( IPlayer player, bool closeMenu = false );
+
     /// <summary>
     /// Handles the click action for this option.
     /// </summary>
     /// <param name="player">The player who clicked the option.</param>
-    /// <param name="closeMenu">Whether to close the menu after handling the click.</param>
     /// <returns>A task that represents the asynchronous operation.</returns>
-    public ValueTask OnClickAsync( IPlayer player, bool closeMenu = false );
+    public ValueTask OnClickAsync( IPlayer player );
 }
 
 /// <summary>

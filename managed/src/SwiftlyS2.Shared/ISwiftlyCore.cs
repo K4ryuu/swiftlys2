@@ -150,6 +150,11 @@ public interface ISwiftlyCore
     public IMenuManager Menus { get; }
 
     /// <summary>
+    /// Menu manager API.
+    /// </summary>
+    public IMenuManagerAPI MenusAPI { get; }
+
+    /// <summary>
     /// Command line.
     /// </summary>
     public ICommandLine CommandLine { get; }

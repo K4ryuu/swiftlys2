@@ -24,8 +24,8 @@ internal class PluginContext : IDisposable
     {
         Plugin?.Unload();
         Loader?.Dispose();
-        // TODO: Close all menus
         Core?.MenuManager?.CloseAllMenus();
+        Core?.MenuManagerAPI?.CloseAllMenus();
         Core?.Dispose();
     }
 }
