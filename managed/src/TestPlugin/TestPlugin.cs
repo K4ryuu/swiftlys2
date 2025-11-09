@@ -622,7 +622,7 @@ public class TestPlugin : BasePlugin
             .Design.MaxVisibleItems(5)
             .Design.SetMenuTitle("Refactored Menu")
             .Design.HideMenuTitle(false)
-            .Design.SetGlobalOptionScrollStyle(MenuOptionScrollStyle.CenterFixed)
+            .Design.SetGlobalOptionScrollStyle(MenuOptionScrollStyle.LinearScroll)
             .AddOption(new TextMenuOption("1"))
             .AddOption(new TextMenuOption("12"))
             .AddOption(new TextMenuOption("123"))
