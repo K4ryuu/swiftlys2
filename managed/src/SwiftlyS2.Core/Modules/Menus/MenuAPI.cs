@@ -221,7 +221,11 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
 
         if (currentOriginalIndex != selectedIndex)
         {
-            _ = selectedOptionIndex.TryUpdate(player, currentOriginalIndex, selectedIndex);
+            var updateResult = selectedOptionIndex.TryUpdate(player, currentOriginalIndex, selectedIndex);
+            if (updateResult && currentOriginalIndex != desiredIndex)
+            {
+                _ = desiredOptionIndex.TryUpdate(player, currentOriginalIndex, desiredIndex);
+            }
         }
     }
 
