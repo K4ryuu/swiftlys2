@@ -185,6 +185,7 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
         var filteredOptions = options.Where(opt => opt.Visible && opt.GetVisible(player)).ToList();
         if (filteredOptions.Count == 0)
         {
+            NativePlayer.SetCenterMenuRender(player.PlayerID, BuildMenuHtml(player, [], 0, 0, maxOptions, maxVisibleItems));
             return;
         }
 
