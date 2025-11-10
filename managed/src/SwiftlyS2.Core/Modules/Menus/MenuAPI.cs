@@ -130,10 +130,20 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
         }
 
         // Console.WriteLine($"{GetType().Name} has been disposed.");
-        // core.PlayerManager
-        //     .GetAllPlayers()
-        //     .ToList()
-        //     .ForEach(player => CloseForPlayer(player));
+        core.PlayerManager
+            .GetAllPlayers()
+            .Where(player => player.IsValid && (selectedOptionIndex.TryGetValue(player, out var _) || desiredOptionIndex.TryGetValue(player, out var _)))
+            .ToList()
+            .ForEach(player =>
+            {
+                NativePlayer.ClearCenterMenuRender(player.PlayerID);
+                SetFreezeState(player, false);
+                if (autoCloseCancelTokens.TryGetValue(player, out var token))
+                {
+                    token.Cancel();
+                    token.Dispose();
+                }
+            });
 
         options.ForEach(option => option.Dispose());
         options.Clear();
@@ -331,6 +341,7 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
                 ( _, oldToken ) =>
                 {
                     oldToken.Cancel();
+                    oldToken.Dispose();
                     return core.Scheduler.DelayBySeconds(Configuration.AutoCloseAfter, () => core.MenusAPI.CloseMenuForPlayer(player, this));
                 }
             );
@@ -359,6 +370,7 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
         if (autoCloseCancelTokens.TryRemove(player, out var token))
         {
             token.Cancel();
+            token.Dispose();
         }
 
         if (!selectedOptionIndex.Any(kvp => !kvp.Key.IsFakeClient) && !desiredOptionIndex.Any(kvp => !kvp.Key.IsFakeClient))
