@@ -44,12 +44,11 @@ public sealed class ChoiceMenuOption : MenuOptionBase
 
         if (this.choices.Count == 0)
         {
-            throw new ArgumentException("Choices list cannot be empty.", nameof(choices));
+            Spectre.Console.AnsiConsole.WriteException(new ArgumentException("Choices list cannot be empty. Adding a default choice.", nameof(choices)));
+            this.choices.Add("Default");
         }
 
-        this.defaultIndex = defaultChoice != null && this.choices.Contains(defaultChoice)
-            ? this.choices.IndexOf(defaultChoice)
-            : 0;
+        this.defaultIndex = defaultChoice != null && this.choices.Contains(defaultChoice) ? this.choices.IndexOf(defaultChoice) : 0;
 
         selectedIndices.Clear();
         Click += OnChoiceClick;
@@ -60,7 +59,7 @@ public sealed class ChoiceMenuOption : MenuOptionBase
         var text = base.GetDisplayText(player, displayLine);
         var index = selectedIndices.GetOrAdd(player, defaultIndex);
         var choice = choices[Math.Clamp(index, 0, choices.Count - 1)];
-        return $"{text}: <font color='#FF3333'>[<font color='#FFFFFF'>{choice}</font>]</font>";
+        return $"{text}: <font color='#FFFFFF'>[</font>{choice}<font color='#FF3333'>]</font>";
     }
 
     /// <summary>
