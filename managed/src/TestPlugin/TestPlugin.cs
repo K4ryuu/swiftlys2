@@ -1,6 +1,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using System.Text.RegularExpressions;
 using SwiftlyS2.Shared;
 using SwiftlyS2.Shared.Commands;
 using SwiftlyS2.Shared.GameEventDefinitions;
@@ -30,6 +31,9 @@ using BenchmarkDotNet.Jobs;
 using BenchmarkDotNet.Loggers;
 using SwiftlyS2.Shared.Menus;
 using SwiftlyS2.Shared.SteamAPI;
+using SwiftlyS2.Core.Menus.OptionsBase;
+using System.Collections.Concurrent;
+using Dia2Lib;
 
 namespace TestPlugin;
 
@@ -555,190 +559,276 @@ public class TestPlugin : BasePlugin
         context.Reply(SteamGameServer.GetPublicIP().ToString());
     }
 
-    [Command("i76")]
-    public void TestIssue76Command( ICommandContext context )
-    {
-        var player = context.Sender!;
-        IMenu settingsMenu = Core.Menus.CreateMenu("Settings");
-        // Add the following code to render text properly
-        //settingsMenu.Builder.AddText("123", overflowStyle: MenuHorizontalStyle.ScrollLeftLoop(25f));
-        settingsMenu.Builder.AddText("123");
-        settingsMenu.Builder.AddText("1234");
-        settingsMenu.Builder.AddText("12345");
+    // [Command("i76")]
+    // public void TestIssue76Command( ICommandContext context )
+    // {
+    //     var player = context.Sender!;
+    //     IMenu settingsMenu = Core.Menus.CreateMenu("Settings");
+    //     // Add the following code to render text properly
+    //     //settingsMenu.Builder.AddText("123", overflowStyle: MenuHorizontalStyle.ScrollLeftLoop(25f));
+    //     settingsMenu.Builder.AddText("123");
+    //     settingsMenu.Builder.AddText("1234");
+    //     settingsMenu.Builder.AddText("12345");
 
-        Core.Menus.OpenMenu(player, settingsMenu);
+    //     Core.Menus.OpenMenu(player, settingsMenu);
+    // }
+
+    // [Command("i77")]
+    // public void TestIssue77Command( ICommandContext context )
+    // {
+    //     var player = context.Sender!;
+    //     IMenu settingsMenu = Core.Menus.CreateMenu("Settings");
+
+    //     settingsMenu.Builder.AddText("123");
+    //     settingsMenu.Builder.AddSubmenu("Submenu", () =>
+    //     {
+    //         var menu = Core.Menus.CreateMenu("Submenu");
+    //         menu.Builder.AddText("1234");
+    //         return menu;
+    //     });
+
+    //     settingsMenu.Builder.AddSubmenu("Async Submenu", async () =>
+    //     {
+    //         await Task.Delay(5000);
+    //         var menu = Core.Menus.CreateMenu("Async Submenu");
+    //         menu.Builder.AddText("12345");
+    //         return menu;
+    //     });
+
+    //     Core.Menus.OpenMenu(player, settingsMenu);
+    // }
+
+    // [Command("i78")]
+    // public void TestIssue78Command( ICommandContext context )
+    // {
+    //     var player = context.Sender!;
+    //     IMenu settingsMenu = Core.Menus.CreateMenu("Settings");
+    //     settingsMenu.Builder.AddButton("123", ( p ) =>
+    //     {
+    //         player.SendMessage(MessageType.Chat, "Button");
+    //     });
+
+    //     settingsMenu.Builder.Design.OverrideExitButton("shift");
+    //     settingsMenu.Builder.Design.OverrideSelectButton("e");
+
+    //     Core.Menus.OpenMenu(player, settingsMenu);
+    // }
+
+    [Command("rmt")]
+    public void RefactoredMenuTestCommand( ICommandContext context )
+    {
+        var button = new ButtonMenuOption($"<b>{HtmlGradient.GenerateGradientText("Swiftlys2 向这广袤世界致以温柔问候", "#FFE4E1", "#FFC0CB", "#FF69B4")}</b>") { TextStyle = MenuOptionTextStyle.ScrollLeftLoop };
+        button.Click += ( sender, args ) =>
+        {
+            args.Player.SendMessage(MessageType.Chat, "Swiftlys2 向这广袤世界致以温柔问候");
+            // button.Visible = false;
+            button.Enabled = false;
+            // button.TextStyle = MenuOptionTextStyle.ScrollRightFade;
+            // button.Text = Regex.Match(button.Text, @"^(.*)#(\d+)$") is { Success: true } m
+            //     ? $"{m.Groups[1].Value}#{int.Parse(m.Groups[2].Value) + 1}"
+            //     : $"{button.Text}#1";
+            // button.MaxWidth -= 1f;
+            _ = Task.Run(async () =>
+            {
+                await Task.Delay(1000);
+                // button.Visible = true;
+                button.Enabled = true;
+            });
+            return ValueTask.CompletedTask;
+        };
+
+        var player = context.Sender!;
+        var menu = Core.MenusAPI
+            .CreateBuilder()
+            .SetPlayerFrozen(false)
+            // .SetAutoCloseDelay(15f)
+            .Design.SetMaxVisibleItems(5)
+            .Design.SetMenuTitle($"{HtmlGradient.GenerateGradientText("Redesigned Menu", "#00FA9A", "#F5FFFA")}")
+            .Design.SetMenuTitleVisible(true)
+            .Design.SetMenuFooterVisible(true)
+            .Design.EnableAutoAdjustVisibleItems()
+            .Design.SetGlobalScrollStyle(MenuOptionScrollStyle.WaitingCenter)
+            // .AddOption(new TextMenuOption($"<b>{HtmlGradient.GenerateGradientText("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", "#AFEEEE", "#7FFFD4", "#40E0D0")}</b>", textStyle: MenuOptionTextStyle.ScrollRightFade))
+            // .AddOption(new TextMenuOption($"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", textStyle: MenuOptionTextStyle.ScrollLeftFade))
+            // .AddOption(new TextMenuOption("<font color='#F5FFFA'><b><invalid>12345678901234567890<font color='#00FA9A'>split</font>12345678901234567890</invalid></b></font>", textStyle: MenuOptionTextStyle.TruncateBothEnds))
+            .AddOption(new TextMenuOption("1") { Visible = false })
+            .AddOption(new ToggleMenuOption("12"))
+            .AddOption(new ChoiceMenuOption("123", ["Option 1", "Option 2", "Option 3"]))
+            .AddOption(new SliderMenuOption("1234"))
+            .AddOption(new ProgressBarMenuOption("12345", () => (float)new Random().NextDouble(), multiLine: false))
+            .AddOption(new SubmenuMenuOption("123456", async () =>
+            {
+                await Task.Delay(1000);
+                var menu = Core.MenusAPI.CreateBuilder()
+                    .SetPlayerFrozen(true)
+                    .Design.SetMenuTitle("Async Submenu")
+                    .AddOption(new TextMenuOption("123456"))
+                    .Build();
+                return menu;
+            }))
+            .AddOption(new InputMenuOption("1234567"))
+            .AddOption(new TextMenuOption("12345678") { TextStyle = MenuOptionTextStyle.ScrollLeftLoop })
+            .AddOption(new TextMenuOption("123456789"))
+            .AddOption(new TextMenuOption("1234567890") { Visible = false })
+            .AddOption(button)
+            .AddOption(new TextMenuOption($"<b>{HtmlGradient.GenerateGradientText("Swiftlys2 からこの広大なる世界へ温かい挨拶を", "#FFE5CC", "#FFAB91", "#FF7043")}</b>") { TextStyle = MenuOptionTextStyle.ScrollRightLoop })
+            .AddOption(new TextMenuOption($"<b>{HtmlGradient.GenerateGradientText("Swiftlys2 가 이 넓은 세상에 따뜻한 인사를 전합니다", "#E6E6FA", "#00FFFF", "#FF1493")}</b>") { TextStyle = MenuOptionTextStyle.ScrollLeftFade })
+            .AddOption(new TextMenuOption($"<b>{HtmlGradient.GenerateGradientText("Swiftlys2 приветствует этот прекрасный мир", "#AFEEEE", "#7FFFD4", "#40E0D0")}</b>") { TextStyle = MenuOptionTextStyle.ScrollRightFade })
+            .AddOption(new TextMenuOption("<font color='#F5FFFA'><b><invalid><font color='#00FA9A'>Swiftlys2</font> salută această lume minunată</invalid></b></font>") { TextStyle = MenuOptionTextStyle.TruncateEnd })
+            .AddOption(new TextMenuOption("<font color='#00FA9A'><b><invalid><font color='#F5FFFA'>Swiftlys2</font> extends warmest greetings to this wondrous world</invalid></b></font>") { TextStyle = MenuOptionTextStyle.TruncateBothEnds })
+            // .AddOption(new TextMenuOption("Swiftlys2 sendas korajn salutojn al ĉi tiu mirinda mondo"))
+            .AddOption(new TextMenuOption("1234567890") { Visible = false })
+            .AddOption(new TextMenuOption("123456789"))
+            .AddOption(new TextMenuOption("12345678") { TextStyle = MenuOptionTextStyle.ScrollRightLoop })
+            .AddOption(new InputMenuOption("1234567"))
+            .AddOption(new SubmenuMenuOption("123456", () =>
+            {
+                var menu = Core.MenusAPI.CreateBuilder()
+                    .Design.SetMenuTitle("Async Submenu")
+                    .AddOption(new TextMenuOption("123456"))
+                    .Build();
+                return menu;
+            }))
+            .AddOption(new ProgressBarMenuOption("12345", () => (float)new Random().NextDouble(), multiLine: false))
+            .AddOption(new SliderMenuOption("1234"))
+            .AddOption(new ChoiceMenuOption("123", ["Option 1", "Option 2", "Option 3"]))
+            .AddOption(new ToggleMenuOption("12"))
+            .AddOption(new TextMenuOption("1") { Visible = false })
+            .Build();
+
+        Core.MenusAPI.OpenMenu(menu);
+        // Core.MenusAPI.OpenMenuForPlayer(player, menu);
     }
 
-    [Command("i77")]
-    public void TestIssue77Command( ICommandContext context )
-    {
-        var player = context.Sender!;
-        IMenu settingsMenu = Core.Menus.CreateMenu("Settings");
+    // [Command("mt")]
+    // public void MenuTestCommand( ICommandContext context )
+    // {
+    //     var player = context.Sender!;
 
-        settingsMenu.Builder.AddText("123");
-        settingsMenu.Builder.AddSubmenu("Submenu", () =>
-        {
-            var menu = Core.Menus.CreateMenu("Submenu");
-            menu.Builder.AddText("1234");
-            return menu;
-        });
+    //     IMenu settingsMenu = Core.Menus.CreateMenu("MenuTest");
 
-        settingsMenu.Builder.AddSubmenu("Async Submenu", async () =>
-        {
-            await Task.Delay(5000);
-            var menu = Core.Menus.CreateMenu("Async Submenu");
-            menu.Builder.AddText("12345");
-            return menu;
-        });
+    //     settingsMenu.Builder.Design.MaxVisibleItems(5);
 
-        Core.Menus.OpenMenu(player, settingsMenu);
-    }
+    //     // settingsMenu.Builder.Design.MaxVisibleItems(Random.Shared.Next(-2, 8));
+    //     if (context.Args.Length < 1 || !int.TryParse(context.Args[0], out int vtype)) vtype = 0;
+    //     settingsMenu.Builder.Design.SetVerticalScrollStyle(vtype switch {
+    //         1 => MenuVerticalScrollStyle.LinearScroll,
+    //         2 => MenuVerticalScrollStyle.WaitingCenter,
+    //         _ => MenuVerticalScrollStyle.CenterFixed
+    //     });
 
-    [Command("i78")]
-    public void TestIssue78Command( ICommandContext context )
-    {
-        var player = context.Sender!;
-        IMenu settingsMenu = Core.Menus.CreateMenu("Settings");
-        settingsMenu.Builder.AddButton("123", ( p ) =>
-        {
-            player.SendMessage(MessageType.Chat, "Button");
-        });
+    //     if (context.Args.Length < 2 || !int.TryParse(context.Args[1], out int htype)) htype = 0;
+    //     settingsMenu.Builder.Design.SetGlobalHorizontalStyle(htype switch {
+    //         0 => MenuHorizontalStyle.Default,
+    //         1 => MenuHorizontalStyle.TruncateBothEnds(26f),
+    //         2 => MenuHorizontalStyle.ScrollLeftFade(26f, 8, 128),
+    //         3 => MenuHorizontalStyle.ScrollLeftLoop(26f, 8, 128),
+    //         1337 => MenuHorizontalStyle.TruncateEnd(0f),
+    //         _ => MenuHorizontalStyle.TruncateEnd(26f)
+    //     });
 
-        settingsMenu.Builder.Design.OverrideExitButton("shift");
-        settingsMenu.Builder.Design.OverrideSelectButton("e");
+    //     settingsMenu.Builder.AddButton("1. AButton", ( p ) =>
+    //     {
+    //         player.SendMessage(MessageType.Chat, "Button");
+    //     });
 
-        Core.Menus.OpenMenu(player, settingsMenu);
-    }
+    //     settingsMenu.Builder.AddToggle("2. Toggle", defaultValue: true, ( p, value ) =>
+    //     {
+    //         player.SendMessage(MessageType.Chat, $"AddToggle {value}");
+    //     });
 
-    [Command("mt")]
-    public void MenuTestCommand( ICommandContext context )
-    {
-        var player = context.Sender!;
+    //     settingsMenu.Builder.AddSlider("3. Slider", min: 0, max: 100, defaultValue: 10, step: 10, ( p, value ) =>
+    //     {
+    //         player.SendMessage(MessageType.Chat, $"AddSlider {value}");
+    //     });
 
-        IMenu settingsMenu = Core.Menus.CreateMenu("MenuTest");
+    //     settingsMenu.Builder.AddAsyncButton("4. AsyncButton", async ( p ) =>
+    //     {
+    //         await Task.Delay(2000);
+    //     });
 
-        settingsMenu.Builder.Design.MaxVisibleItems(5);
+    //     settingsMenu.Builder.AddText("5. Text");
+    //     settingsMenu.Builder.AddText("6. Text");
+    //     settingsMenu.Builder.AddText("7. Text");
+    //     settingsMenu.Builder.AddText("8. Text");
+    //     settingsMenu.Builder.AddText("9. Text");
+    //     settingsMenu.Builder.AddSeparator();
+    //     settingsMenu.Builder.AddText($"<b>{HtmlGradient.GenerateGradientText("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", "#FFE4E1", "#FFC0CB", "#FF69B4")}</b>", overflowStyle: MenuHorizontalStyle.TruncateEnd(26f));
+    //     settingsMenu.Builder.AddText($"<b>{HtmlGradient.GenerateGradientText("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", "#FFE5CC", "#FFAB91", "#FF7043")}</b>", overflowStyle: MenuHorizontalStyle.TruncateBothEnds(26f));
+    //     settingsMenu.Builder.AddText($"<b>{HtmlGradient.GenerateGradientText("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", "#E6E6FA", "#00FFFF", "#FF1493")}</b>", overflowStyle: MenuHorizontalStyle.ScrollRightFade(26f, 8));
+    //     settingsMenu.Builder.AddText($"<b>{HtmlGradient.GenerateGradientText("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", "#AFEEEE", "#7FFFD4", "#40E0D0")}</b>", overflowStyle: MenuHorizontalStyle.ScrollLeftLoop(26f, 8));
+    //     settingsMenu.Builder.AddText("<font color='#F5FFFA'><b><garbage>12345678901234567890<font color='#00FA9A'>split</font>12345678901234567890</garbage></b></font>", overflowStyle: MenuHorizontalStyle.ScrollLeftFade(26f, 8, 128));
+    //     settingsMenu.Builder.AddText("<font color='#00FA9A'><b><garbage>一二三四五六七八九十<font color='#F5FFFA'>分割</font>一二三四五六七八九十</garbage></b></font>", overflowStyle: MenuHorizontalStyle.ScrollRightLoop(26f, 8, 64));
+    //     settingsMenu.Builder.AddSeparator();
+    //     settingsMenu.Builder.AddText("Swiftlys2 向这广袤世界致以温柔问候", overflowStyle: MenuHorizontalStyle.ScrollRightLoop(26f, 8));
+    //     settingsMenu.Builder.AddText("Swiftlys2 からこの広大なる世界へ温かい挨拶を");
+    //     settingsMenu.Builder.AddText("Swiftlys2 가 이 넓은 세상에 따뜻한 인사를 전합니다");
+    //     settingsMenu.Builder.AddText("Swiftlys2 приветствует этот прекрасный мир");
+    //     settingsMenu.Builder.AddText("Swiftlys2 salută această lume minunată");
+    //     settingsMenu.Builder.AddText("Swiftlys2 extends warmest greetings to this wondrous world");
+    //     settingsMenu.Builder.AddText("Swiftlys2 sendas korajn salutojn al ĉi tiu mirinda mondo");
+    //     settingsMenu.Builder.AddSeparator();
+    //     settingsMenu.Builder.AddAsyncButton("AsyncButton|AsyncButton|AsyncButton", async ( p ) => await Task.Delay(2000));
+    //     settingsMenu.Builder.AddButton("Button|Button|Button|Button", ( p ) => { });
+    //     settingsMenu.Builder.AddChoice("Choice|Choice|Choice|Choice", ["Option 1", "Option 2", "Option 3"], "Option 1", ( p, value ) => { }, overflowStyle: MenuHorizontalStyle.TruncateEnd(8f));
+    //     settingsMenu.Builder.AddProgressBar("ProgressBar|ProgressBar|ProgressBar", () => (float)Random.Shared.NextDouble(), overflowStyle: MenuHorizontalStyle.ScrollLeftLoop(26f, 12));
+    //     settingsMenu.Builder.AddSlider("Slider|Slider|Slider|Slider", 0f, 100f, 0f, 1f, ( p, value ) => { }, overflowStyle: MenuHorizontalStyle.ScrollRightLoop(8f, 12));
+    //     // settingsMenu.Builder.AddSubmenu("Submenu");
+    //     settingsMenu.Builder.AddToggle("Toggle|Toggle|Toggle|Toggle", true, ( p, value ) => { });
+    //     settingsMenu.Builder.AddSeparator();
 
-        // settingsMenu.Builder.Design.MaxVisibleItems(Random.Shared.Next(-2, 8));
-        if (context.Args.Length < 1 || !int.TryParse(context.Args[0], out int vtype)) vtype = 0;
-        settingsMenu.Builder.Design.SetVerticalScrollStyle(vtype switch {
-            1 => MenuVerticalScrollStyle.LinearScroll,
-            2 => MenuVerticalScrollStyle.WaitingCenter,
-            _ => MenuVerticalScrollStyle.CenterFixed
-        });
+    //     Core.Menus.OpenMenu(player, settingsMenu);
+    // }
 
-        if (context.Args.Length < 2 || !int.TryParse(context.Args[1], out int htype)) htype = 0;
-        settingsMenu.Builder.Design.SetGlobalHorizontalStyle(htype switch {
-            0 => MenuHorizontalStyle.Default,
-            1 => MenuHorizontalStyle.TruncateBothEnds(26f),
-            2 => MenuHorizontalStyle.ScrollLeftFade(26f, 8, 128),
-            3 => MenuHorizontalStyle.ScrollLeftLoop(26f, 8, 128),
-            1337 => MenuHorizontalStyle.TruncateEnd(0f),
-            _ => MenuHorizontalStyle.TruncateEnd(26f)
-        });
+    // [Command("menu")]
+    // public void MenuCommand( ICommandContext context )
+    // {
+    //     var player = context.Sender!;
+    //     var menu = Core.Menus.CreateMenu("Test Menu");
 
-        settingsMenu.Builder.AddButton("1. AButton", ( p ) =>
-        {
-            player.SendMessage(MessageType.Chat, "Button");
-        });
+    //     menu.Builder
+    //         .AddButton("Button 1", ( ctx ) =>
+    //         {
+    //             player.SendMessage(MessageType.Chat, "You clicked Button 1");
+    //         })
+    //         .AddButton("Button 2", ( ctx ) =>
+    //         {
+    //             player.SendMessage(MessageType.Chat, "You clicked Button 2");
+    //         })
+    //         .AddButton("Button 3", ( ctx ) =>
+    //         {
+    //             player.SendMessage(MessageType.Chat, "You clicked Button 3");
+    //         })
+    //         .AddButton("Button 4", ( ctx ) =>
+    //         {
+    //             player.SendMessage(MessageType.Chat, "You clicked Button 4");
+    //         })
+    //         .AddButton("Button 5", ( ctx ) =>
+    //         {
+    //             player.SendMessage(MessageType.Chat, "You clicked Button 5");
+    //         })
+    //         .AddButton("Button 6", ( ctx ) =>
+    //         {
+    //             player.SendMessage(MessageType.Chat, "You clicked Button 6");
+    //         })
+    //         .AddButton("Button 7", ( ctx ) =>
+    //         {
+    //             player.SendMessage(MessageType.Chat, "You clicked Button 7");
+    //         })
+    //         .AddButton("Button 8", ( ctx ) =>
+    //         {
+    //             player.SendMessage(MessageType.Chat, "You clicked Button 8");
+    //         })
+    //         .AddSeparator()
+    //         .AddText("hello!", size: IMenuTextSize.ExtraLarge)
+    //         .AutoClose(15f)
+    //         .HasSound(true)
+    //         .ForceFreeze();
 
-        settingsMenu.Builder.AddToggle("2. Toggle", defaultValue: true, ( p, value ) =>
-        {
-            player.SendMessage(MessageType.Chat, $"AddToggle {value}");
-        });
+    //     menu.Builder.Design.SetColor(new(0, 186, 105, 255));
 
-        settingsMenu.Builder.AddSlider("3. Slider", min: 0, max: 100, defaultValue: 10, step: 10, ( p, value ) =>
-        {
-            player.SendMessage(MessageType.Chat, $"AddSlider {value}");
-        });
-
-        settingsMenu.Builder.AddAsyncButton("4. AsyncButton", async ( p ) =>
-        {
-            await Task.Delay(2000);
-        });
-
-        settingsMenu.Builder.AddText("5. Text");
-        settingsMenu.Builder.AddText("6. Text");
-        settingsMenu.Builder.AddText("7. Text");
-        settingsMenu.Builder.AddText("8. Text");
-        settingsMenu.Builder.AddText("9. Text");
-        settingsMenu.Builder.AddSeparator();
-        settingsMenu.Builder.AddText($"<b>{HtmlGradient.GenerateGradientText("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", "#FFE4E1", "#FFC0CB", "#FF69B4")}</b>", overflowStyle: MenuHorizontalStyle.TruncateEnd(26f));
-        settingsMenu.Builder.AddText($"<b>{HtmlGradient.GenerateGradientText("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", "#FFE5CC", "#FFAB91", "#FF7043")}</b>", overflowStyle: MenuHorizontalStyle.TruncateBothEnds(26f));
-        settingsMenu.Builder.AddText($"<b>{HtmlGradient.GenerateGradientText("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", "#E6E6FA", "#00FFFF", "#FF1493")}</b>", overflowStyle: MenuHorizontalStyle.ScrollRightFade(26f, 8));
-        settingsMenu.Builder.AddText($"<b>{HtmlGradient.GenerateGradientText("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", "#AFEEEE", "#7FFFD4", "#40E0D0")}</b>", overflowStyle: MenuHorizontalStyle.ScrollLeftLoop(26f, 8));
-        settingsMenu.Builder.AddText("<font color='#F5FFFA'><b><garbage>12345678901234567890<font color='#00FA9A'>split</font>12345678901234567890</garbage></b></font>", overflowStyle: MenuHorizontalStyle.ScrollLeftFade(26f, 8, 128));
-        settingsMenu.Builder.AddText("<font color='#00FA9A'><b><garbage>一二三四五六七八九十<font color='#F5FFFA'>分割</font>一二三四五六七八九十</garbage></b></font>", overflowStyle: MenuHorizontalStyle.ScrollRightLoop(26f, 8, 64));
-        settingsMenu.Builder.AddSeparator();
-        settingsMenu.Builder.AddText("Swiftlys2 向这广袤世界致以温柔问候", overflowStyle: MenuHorizontalStyle.ScrollRightLoop(26f, 8));
-        settingsMenu.Builder.AddText("Swiftlys2 からこの広大なる世界へ温かい挨拶を");
-        settingsMenu.Builder.AddText("Swiftlys2 가 이 넓은 세상에 따뜻한 인사를 전합니다");
-        settingsMenu.Builder.AddText("Swiftlys2 приветствует этот прекрасный мир");
-        settingsMenu.Builder.AddText("Swiftlys2 salută această lume minunată");
-        settingsMenu.Builder.AddText("Swiftlys2 extends warmest greetings to this wondrous world");
-        settingsMenu.Builder.AddText("Swiftlys2 sendas korajn salutojn al ĉi tiu mirinda mondo");
-        settingsMenu.Builder.AddSeparator();
-        settingsMenu.Builder.AddAsyncButton("AsyncButton|AsyncButton|AsyncButton", async ( p ) => await Task.Delay(2000));
-        settingsMenu.Builder.AddButton("Button|Button|Button|Button", ( p ) => { });
-        settingsMenu.Builder.AddChoice("Choice|Choice|Choice|Choice", ["Option 1", "Option 2", "Option 3"], "Option 1", ( p, value ) => { }, overflowStyle: MenuHorizontalStyle.TruncateEnd(8f));
-        settingsMenu.Builder.AddProgressBar("ProgressBar|ProgressBar|ProgressBar", () => (float)Random.Shared.NextDouble(), overflowStyle: MenuHorizontalStyle.ScrollLeftLoop(26f, 12));
-        settingsMenu.Builder.AddSlider("Slider|Slider|Slider|Slider", 0f, 100f, 0f, 1f, ( p, value ) => { }, overflowStyle: MenuHorizontalStyle.ScrollRightLoop(8f, 12));
-        // settingsMenu.Builder.AddSubmenu("Submenu");
-        settingsMenu.Builder.AddToggle("Toggle|Toggle|Toggle|Toggle", true, ( p, value ) => { });
-        settingsMenu.Builder.AddSeparator();
-
-        Core.Menus.OpenMenu(player, settingsMenu);
-    }
-
-    [Command("menu")]
-    public void MenuCommand( ICommandContext context )
-    {
-        var player = context.Sender!;
-        var menu = Core.Menus.CreateMenu("Test Menu");
-
-        menu.Builder
-            .AddButton("Button 1", ( ctx ) =>
-            {
-                player.SendMessage(MessageType.Chat, "You clicked Button 1");
-            })
-            .AddButton("Button 2", ( ctx ) =>
-            {
-                player.SendMessage(MessageType.Chat, "You clicked Button 2");
-            })
-            .AddButton("Button 3", ( ctx ) =>
-            {
-                player.SendMessage(MessageType.Chat, "You clicked Button 3");
-            })
-            .AddButton("Button 4", ( ctx ) =>
-            {
-                player.SendMessage(MessageType.Chat, "You clicked Button 4");
-            })
-            .AddButton("Button 5", ( ctx ) =>
-            {
-                player.SendMessage(MessageType.Chat, "You clicked Button 5");
-            })
-            .AddButton("Button 6", ( ctx ) =>
-            {
-                player.SendMessage(MessageType.Chat, "You clicked Button 6");
-            })
-            .AddButton("Button 7", ( ctx ) =>
-            {
-                player.SendMessage(MessageType.Chat, "You clicked Button 7");
-            })
-            .AddButton("Button 8", ( ctx ) =>
-            {
-                player.SendMessage(MessageType.Chat, "You clicked Button 8");
-            })
-            .AddSeparator()
-            .AddText("hello!", size: IMenuTextSize.ExtraLarge)
-            .AutoClose(15f)
-            .HasSound(true)
-            .ForceFreeze();
-
-        menu.Builder.Design.SetColor(new(0, 186, 105, 255));
-
-        Core.Menus.OpenMenu(player, menu);
-    }
+    //     Core.Menus.OpenMenu(player, menu);
+    // }
 
     public override void Unload()
     {
