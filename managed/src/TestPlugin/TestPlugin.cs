@@ -456,8 +456,7 @@ public class TestPlugin : BasePlugin
     [Command("tt99")]
     public void TestCommand99( ICommandContext context )
     {
-        Console.WriteLine(context.Sender!.SteamID);
-        Console.WriteLine(context.Sender!.UnauthorizedSteamID);
+        Console.WriteLine(Core.Engine.ServerIP);
     }
 
     [Command("tt7")]
