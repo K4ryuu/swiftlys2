@@ -38,10 +38,10 @@ public sealed class InputMenuOption : MenuOptionBase
     /// When using this constructor, the <see cref="MenuOptionBase.Text"/> property must be manually set to specify the initial text.
     /// </remarks>
     public InputMenuOption(
-        string defaultValue = "",
         int maxLength = 16,
-        string? hintMessage = null,
         Func<string, bool>? validator = null,
+        string defaultValue = "",
+        string? hintMessage = null,
         int updateIntervalMs = 120,
         int pauseIntervalMs = 1000 ) : base(updateIntervalMs, pauseIntervalMs)
     {
@@ -52,10 +52,10 @@ public sealed class InputMenuOption : MenuOptionBase
         }
 
         PlaySound = true;
-        this.defaultValue = defaultValue;
         this.maxLength = maxLength;
-        this.hintMessage = hintMessage ?? $"Please type your input (max {maxLength} characters)";
         this.validator = validator;
+        this.defaultValue = defaultValue;
+        this.hintMessage = hintMessage ?? $"Please type your input (max {maxLength} characters)";
 
         values.Clear();
         Click += OnInputClick;
@@ -65,20 +65,20 @@ public sealed class InputMenuOption : MenuOptionBase
     /// Creates an instance of <see cref="InputMenuOption"/>.
     /// </summary>
     /// <param name="text">The text content to display.</param>
-    /// <param name="defaultValue">The default input value. Defaults to empty string.</param>
     /// <param name="maxLength">Maximum input length. Defaults to 16.</param>
-    /// <param name="hintMessage">Optional hint message to display when waiting for input. Defaults to English prompt.</param>
     /// <param name="validator">Optional function to validate input. Returns true if valid.</param>
+    /// <param name="defaultValue">The default input value. Defaults to empty string.</param>
+    /// <param name="hintMessage">Optional hint message to display when waiting for input. Defaults to English prompt.</param>
     /// <param name="updateIntervalMs">The interval in milliseconds between text updates. Defaults to 120ms.</param>
     /// <param name="pauseIntervalMs">The pause duration in milliseconds before starting the next text update cycle. Defaults to 1000ms.</param>
     public InputMenuOption(
         string text,
-        string defaultValue = "",
         int maxLength = 16,
-        string? hintMessage = null,
         Func<string, bool>? validator = null,
+        string defaultValue = "",
+        string? hintMessage = null,
         int updateIntervalMs = 120,
-        int pauseIntervalMs = 1000 ) : this(defaultValue, maxLength, hintMessage, validator, updateIntervalMs, pauseIntervalMs)
+        int pauseIntervalMs = 1000 ) : this(maxLength, validator, defaultValue, hintMessage, updateIntervalMs, pauseIntervalMs)
     {
         Text = text;
     }
