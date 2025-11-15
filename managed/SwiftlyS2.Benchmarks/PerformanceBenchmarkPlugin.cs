@@ -1,18 +1,19 @@
 using System.Runtime.InteropServices;
+using BenchmarkDotNet.Jobs;
+using BenchmarkDotNet.Columns;
+using BenchmarkDotNet.Running;
+using BenchmarkDotNet.Configs;
+using BenchmarkDotNet.Exporters;
+using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Exporters.Xml;
+using BenchmarkDotNet.Exporters.Csv;
+using BenchmarkDotNet.Exporters.Json;
+using BenchmarkDotNet.Toolchains.InProcess.Emit;
 using SwiftlyS2.Shared;
 using SwiftlyS2.Shared.Commands;
 using SwiftlyS2.Shared.Plugins;
 using SwiftlyS2.Shared.Natives;
 using SwiftlyS2.Core.Natives;
-using BenchmarkDotNet.Running;
-using BenchmarkDotNet.Attributes;
-using BenchmarkDotNet.Configs;
-using BenchmarkDotNet.Jobs;
-using BenchmarkDotNet.Toolchains.InProcess.Emit;
-using BenchmarkDotNet.Exporters;
-using BenchmarkDotNet.Exporters.Csv;
-using BenchmarkDotNet.Exporters.Json;
-using BenchmarkDotNet.Exporters.Xml;
 
 namespace SwiftlyS2.Benchmarks;
 
@@ -37,13 +38,20 @@ public class PerformanceBenchmarkPlugin : BasePlugin
 
         var job = Job.Default
             .WithToolchain(InProcessEmitToolchain.Instance)
-            .WithWarmupCount(3)
-            .WithIterationCount(10);
+            .WithWarmupCount(5)
+            .WithIterationCount(20)
+            .WithMinIterationCount(15)
+            .WithMaxIterationCount(30)
+            .WithGcServer(true)
+            .WithGcForce(false);
 
         var config = ManualConfig
             .Create(DefaultConfig.Instance)
             .AddJob(job)
             .WithOptions(ConfigOptions.DisableOptimizationsValidator)
+            .AddColumn(StatisticColumn.P95)
+            .AddColumn(StatisticColumn.StdDev)
+            .AddColumn(StatisticColumn.Median)
             .AddExporter(HtmlExporter.Default)
             .AddExporter(MarkdownExporter.GitHub)
             .AddExporter(CsvExporter.Default)
@@ -82,19 +90,19 @@ public class NativeInteropBenchmark
         return 1337;
     }
 
-    [Benchmark(Description = "Baseline: P/Invoke (SwiftlyS2 usermode)")]
+    [Benchmark(Description = "Baseline: P/Invoke (usermode)")]
     public int Baseline_PInvoke_Usermode()
     {
         return SwiftlyS2BenchmarkPInvoke();
     }
 
-    [Benchmark(Description = "Baseline: P/Invoke (kernel32 syscall)")]
+    [Benchmark(Description = "Baseline: P/Invoke (kernel32)")]
     public int Baseline_PInvoke_Kernel()
     {
         return GetCurrentProcessId();
     }
 
-    [Benchmark(Description = "Pattern 1: void -> void (simplest native call)")]
+    [Benchmark(Description = "Pattern 1: void -> void")]
     public void Pattern1_VoidToVoid()
     {
         NativeBenchmark.VoidToVoid();
@@ -112,31 +120,31 @@ public class NativeInteropBenchmark
         return NativeBenchmark.GetPtr();
     }
 
-    [Benchmark(Description = "Pattern 4: int32 -> int32 (single primitive)")]
+    [Benchmark(Description = "Pattern 4: int32 -> int32")]
     public int Pattern4_Int32ToInt32()
     {
         return NativeBenchmark.Int32ToInt32(42);
     }
 
-    [Benchmark(Description = "Pattern 5: float -> float (single primitive)")]
+    [Benchmark(Description = "Pattern 5: float -> float")]
     public float Pattern5_FloatToFloat()
     {
         return NativeBenchmark.FloatToFloat(3.14f);
     }
 
-    [Benchmark(Description = "Pattern 6: string -> string (UTF-8 encoding)")]
+    [Benchmark(Description = "Pattern 6: string -> string")]
     public string Pattern6_StringToString()
     {
         return NativeBenchmark.StringToString("test");
     }
 
-    [Benchmark(Description = "Pattern 7: string -> ptr (UTF-8 encoding)")]
+    [Benchmark(Description = "Pattern 7: string -> ptr")]
     public IntPtr Pattern7_StringToPtr()
     {
         return NativeBenchmark.StringToPtr("test");
     }
 
-    [Benchmark(Description = "Pattern 8: 5 params (no string)")]
+    [Benchmark(Description = "Pattern 8: 5 params")]
     public int Pattern8_MultiPrimitives()
     {
         return NativeBenchmark.MultiPrimitives(IntPtr.Zero, 100, 3.14f, true, 999UL);
@@ -148,7 +156,7 @@ public class NativeInteropBenchmark
         return NativeBenchmark.MultiWithOneString(IntPtr.Zero, "test", IntPtr.Zero, 42, 1.5f);
     }
 
-    [Benchmark(Description = "Pattern 10: 5 params + 2 strings (heaviest)")]
+    [Benchmark(Description = "Pattern 10: 5 params + 2 strings")]
     public void Pattern10_MultiWithTwoStrings()
     {
         NativeBenchmark.MultiWithTwoStrings(IntPtr.Zero, "test1", IntPtr.Zero, "test2", 100);
@@ -226,25 +234,23 @@ public class NativeInteropBenchmark
         return NativeBenchmark.PtrToPtr(new IntPtr(0x1234));
     }
 
-    [Benchmark(Description = "Pattern 23: Vector -> Vector (complex type)")]
-    public Vector Pattern23_VectorToVector()
+    [Benchmark(Description = "Pattern 23: Vector -> Vector")]
+    public unsafe Vector Pattern23_VectorToVector()
     {
-        return NativeBenchmark.VectorToVector(new Vector(1.0f, 2.0f, 3.0f));
+        Vector result;
+        NativeBenchmark.VectorToVector((nint)(&result), new Vector(1.0f, 2.0f, 3.0f));
+        return result;
     }
 
-    [Benchmark(Description = "Pattern 24: QAngle -> QAngle (complex type)")]
-    public QAngle Pattern24_QAngleToQAngle()
+    [Benchmark(Description = "Pattern 24: QAngle -> QAngle")]
+    public unsafe QAngle Pattern24_QAngleToQAngle()
     {
-        return NativeBenchmark.QAngleToQAngle(new QAngle(45.0f, 90.0f, 0.0f));
+        QAngle result;
+        NativeBenchmark.QAngleToQAngle((nint)(&result), new QAngle(45.0f, 90.0f, 0.0f));
+        return result;
     }
 
-    [Benchmark(Description = "Pattern 25: Color -> Color (complex type)")]
-    public Color Pattern25_ColorToColor()
-    {
-        return NativeBenchmark.ColorToColor(new Color(255, 128, 64, 255));
-    }
-
-    [Benchmark(Description = "Pattern 26: Complex mixed (vector+qangle+string)")]
+    [Benchmark(Description = "Pattern 25: Vector + QAngle + String)")]
     public void Pattern26_ComplexWithString()
     {
         NativeBenchmark.ComplexWithString(

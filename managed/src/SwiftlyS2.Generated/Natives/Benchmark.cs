@@ -208,25 +208,16 @@ public static class NativeBenchmark {
     }
   }
 
-  private unsafe static delegate* unmanaged<Vector, Vector> _VectorToVector;
+  private unsafe static delegate* unmanaged<nint, Vector, void> _VectorToVector;
 
-  public unsafe static Vector VectorToVector(Vector value) {
-    var ret = _VectorToVector(value);
-    return ret;
+  public unsafe static void VectorToVector(nint result, Vector value) {
+    _VectorToVector(result, value);
   }
 
-  private unsafe static delegate* unmanaged<QAngle, QAngle> _QAngleToQAngle;
+  private unsafe static delegate* unmanaged<nint, QAngle, void> _QAngleToQAngle;
 
-  public unsafe static QAngle QAngleToQAngle(QAngle value) {
-    var ret = _QAngleToQAngle(value);
-    return ret;
-  }
-
-  private unsafe static delegate* unmanaged<Color, Color> _ColorToColor;
-
-  public unsafe static Color ColorToColor(Color value) {
-    var ret = _ColorToColor(value);
-    return ret;
+  public unsafe static void QAngleToQAngle(nint result, QAngle value) {
+    _QAngleToQAngle(result, value);
   }
 
   private unsafe static delegate* unmanaged<nint, Vector, byte*, QAngle, void> _ComplexWithString;

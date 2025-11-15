@@ -9,18 +9,17 @@
 #include <public/Color.h>
 #include <scripting/scripting.h>
 
-
-// Pattern 1: void -> void
+// Pattern 1
 void Bridge_Benchmark_VoidToVoid() {}
 
-// Pattern 2: void -> primitive types
+// Pattern 2
 bool Bridge_Benchmark_GetBool()
 {
     return true;
 }
 int32_t Bridge_Benchmark_GetInt32()
 {
-    return 42;
+    return 1337;
 }
 uint32_t Bridge_Benchmark_GetUInt32()
 {
@@ -28,7 +27,7 @@ uint32_t Bridge_Benchmark_GetUInt32()
 }
 int64_t Bridge_Benchmark_GetInt64()
 {
-    return 42000000LL;
+    return 1337000000LL;
 }
 uint64_t Bridge_Benchmark_GetUInt64()
 {
@@ -47,7 +46,7 @@ void* Bridge_Benchmark_GetPtr()
     return reinterpret_cast<void*>(0x1337);
 }
 
-// Pattern 3: Single primitive -> same primitive
+// Pattern 3
 bool Bridge_Benchmark_BoolToBool(bool value)
 {
     return !value;
@@ -81,7 +80,7 @@ void* Bridge_Benchmark_PtrToPtr(void* value)
     return value;
 }
 
-// Pattern 4: String (UTF-8 encoding test)
+// Pattern 4
 const char* Bridge_Benchmark_StringToString(const char* value)
 {
     return "test";
@@ -91,36 +90,36 @@ void* Bridge_Benchmark_StringToPtr(const char* value)
     return reinterpret_cast<void*>(0xBEEF);
 }
 
-// Pattern 5: Multiple primitives (no string)
+// Pattern 5
 int32_t Bridge_Benchmark_MultiPrimitives(void* p1, int32_t i1, float f1, bool b1, uint64_t u1)
 {
     return i1 + (int32_t)f1;
 }
 
-// Pattern 6: Multiple with 1 string
+// Pattern 6
 int32_t Bridge_Benchmark_MultiWithOneString(void* p1, const char* s1, void* p2, int32_t i1, float f1)
 {
     return i1;
 }
 
-// Pattern 7: Multiple with 2 strings (heaviest encoding)
+// Pattern 7
 void Bridge_Benchmark_MultiWithTwoStrings(void* p1, const char* s1, void* p2, const char* s2, int32_t i1) {}
 
-// Pattern 8: Complex types (vector, qangle, color)
-Vector Bridge_Benchmark_VectorToVector(Vector value)
+// Pattern 8
+void Bridge_Benchmark_VectorToVector(Vector* result, Vector value)
 {
-    return Vector(value.x + 1, value.y + 1, value.z + 1);
+    result->x = value.x + 1;
+    result->y = value.y + 1;
+    result->z = value.z + 1;
 }
-QAngle Bridge_Benchmark_QAngleToQAngle(QAngle value)
+void Bridge_Benchmark_QAngleToQAngle(QAngle* result, QAngle value)
 {
-    return QAngle(value.x + 1, value.y + 1, value.z + 1);
-}
-Color Bridge_Benchmark_ColorToColor(Color value)
-{
-    return Color(255, 0, 0, 255);
+    result->x = value.x + 1;
+    result->y = value.y + 1;
+    result->z = value.z + 1;
 }
 
-// Pattern 9: Mixed complex + string
+// Pattern 9
 void Bridge_Benchmark_ComplexWithString(void* entity, Vector pos, const char* name, QAngle angle) {}
 
 DEFINE_NATIVE("Benchmark.VoidToVoid", Bridge_Benchmark_VoidToVoid);
@@ -147,5 +146,4 @@ DEFINE_NATIVE("Benchmark.MultiWithOneString", Bridge_Benchmark_MultiWithOneStrin
 DEFINE_NATIVE("Benchmark.MultiWithTwoStrings", Bridge_Benchmark_MultiWithTwoStrings);
 DEFINE_NATIVE("Benchmark.VectorToVector", Bridge_Benchmark_VectorToVector);
 DEFINE_NATIVE("Benchmark.QAngleToQAngle", Bridge_Benchmark_QAngleToQAngle);
-DEFINE_NATIVE("Benchmark.ColorToColor", Bridge_Benchmark_ColorToColor);
 DEFINE_NATIVE("Benchmark.ComplexWithString", Bridge_Benchmark_ComplexWithString);
