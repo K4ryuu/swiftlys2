@@ -18,7 +18,7 @@ internal static class NativeCommands
     /// </summary>
     public unsafe static int HandleCommandForPlayer(int playerid, string command)
     {
-        byte[] commandBuffer = Encoding.UTF8.GetBytes(command);
+        byte[] commandBuffer = Encoding.UTF8.GetBytes(command + "\0");
         fixed (byte* commandBufferPtr = commandBuffer)
         {
             var ret = _HandleCommandForPlayer(playerid, commandBufferPtr);
@@ -33,7 +33,7 @@ internal static class NativeCommands
     /// </summary>
     public unsafe static ulong RegisterCommand(string commandName, nint callback, bool registerRaw)
     {
-        byte[] commandNameBuffer = Encoding.UTF8.GetBytes(commandName);
+        byte[] commandNameBuffer = Encoding.UTF8.GetBytes(commandName + "\0");
         fixed (byte* commandNameBufferPtr = commandNameBuffer)
         {
             var ret = _RegisterCommand(commandNameBufferPtr, callback, registerRaw ? (byte)1 : (byte)0);
@@ -55,8 +55,8 @@ internal static class NativeCommands
     /// </summary>
     public unsafe static ulong RegisterAlias(string aliasName, string commandName, bool registerRaw)
     {
-        byte[] aliasNameBuffer = Encoding.UTF8.GetBytes(aliasName);
-        byte[] commandNameBuffer = Encoding.UTF8.GetBytes(commandName);
+        byte[] aliasNameBuffer = Encoding.UTF8.GetBytes(aliasName + "\0");
+        byte[] commandNameBuffer = Encoding.UTF8.GetBytes(commandName + "\0");
         fixed (byte* aliasNameBufferPtr = aliasNameBuffer)
         {
             fixed (byte* commandNameBufferPtr = commandNameBuffer)

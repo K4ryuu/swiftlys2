@@ -15,7 +15,7 @@ internal static class NativeConvars
 
     public unsafe static void QueryClientConvar(int playerid, string cvarName)
     {
-        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName);
+        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName + "\0");
         fixed (byte* cvarNameBufferPtr = cvarNameBuffer)
         {
             _QueryClientConvar(playerid, cvarNameBufferPtr);
@@ -98,8 +98,8 @@ internal static class NativeConvars
 
     public unsafe static void CreateConvarInt16(string cvarName, int cvarType, ulong cvarFlags, string helpMessage, short defaultValue, nint minValue, nint maxValue)
     {
-        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName);
-        byte[] helpMessageBuffer = Encoding.UTF8.GetBytes(helpMessage);
+        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName + "\0");
+        byte[] helpMessageBuffer = Encoding.UTF8.GetBytes(helpMessage + "\0");
         fixed (byte* cvarNameBufferPtr = cvarNameBuffer)
         {
             fixed (byte* helpMessageBufferPtr = helpMessageBuffer)
@@ -113,8 +113,8 @@ internal static class NativeConvars
 
     public unsafe static void CreateConvarUInt16(string cvarName, int cvarType, ulong cvarFlags, string helpMessage, ushort defaultValue, nint minValue, nint maxValue)
     {
-        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName);
-        byte[] helpMessageBuffer = Encoding.UTF8.GetBytes(helpMessage);
+        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName + "\0");
+        byte[] helpMessageBuffer = Encoding.UTF8.GetBytes(helpMessage + "\0");
         fixed (byte* cvarNameBufferPtr = cvarNameBuffer)
         {
             fixed (byte* helpMessageBufferPtr = helpMessageBuffer)
@@ -128,8 +128,8 @@ internal static class NativeConvars
 
     public unsafe static void CreateConvarInt32(string cvarName, int cvarType, ulong cvarFlags, string helpMessage, int defaultValue, nint minValue, nint maxValue)
     {
-        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName);
-        byte[] helpMessageBuffer = Encoding.UTF8.GetBytes(helpMessage);
+        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName + "\0");
+        byte[] helpMessageBuffer = Encoding.UTF8.GetBytes(helpMessage + "\0");
         fixed (byte* cvarNameBufferPtr = cvarNameBuffer)
         {
             fixed (byte* helpMessageBufferPtr = helpMessageBuffer)
@@ -143,8 +143,8 @@ internal static class NativeConvars
 
     public unsafe static void CreateConvarUInt32(string cvarName, int cvarType, ulong cvarFlags, string helpMessage, uint defaultValue, nint minValue, nint maxValue)
     {
-        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName);
-        byte[] helpMessageBuffer = Encoding.UTF8.GetBytes(helpMessage);
+        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName + "\0");
+        byte[] helpMessageBuffer = Encoding.UTF8.GetBytes(helpMessage + "\0");
         fixed (byte* cvarNameBufferPtr = cvarNameBuffer)
         {
             fixed (byte* helpMessageBufferPtr = helpMessageBuffer)
@@ -158,8 +158,8 @@ internal static class NativeConvars
 
     public unsafe static void CreateConvarInt64(string cvarName, int cvarType, ulong cvarFlags, string helpMessage, long defaultValue, nint minValue, nint maxValue)
     {
-        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName);
-        byte[] helpMessageBuffer = Encoding.UTF8.GetBytes(helpMessage);
+        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName + "\0");
+        byte[] helpMessageBuffer = Encoding.UTF8.GetBytes(helpMessage + "\0");
         fixed (byte* cvarNameBufferPtr = cvarNameBuffer)
         {
             fixed (byte* helpMessageBufferPtr = helpMessageBuffer)
@@ -173,8 +173,8 @@ internal static class NativeConvars
 
     public unsafe static void CreateConvarUInt64(string cvarName, int cvarType, ulong cvarFlags, string helpMessage, ulong defaultValue, nint minValue, nint maxValue)
     {
-        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName);
-        byte[] helpMessageBuffer = Encoding.UTF8.GetBytes(helpMessage);
+        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName + "\0");
+        byte[] helpMessageBuffer = Encoding.UTF8.GetBytes(helpMessage + "\0");
         fixed (byte* cvarNameBufferPtr = cvarNameBuffer)
         {
             fixed (byte* helpMessageBufferPtr = helpMessageBuffer)
@@ -188,8 +188,8 @@ internal static class NativeConvars
 
     public unsafe static void CreateConvarBool(string cvarName, int cvarType, ulong cvarFlags, string helpMessage, bool defaultValue, nint minValue, nint maxValue)
     {
-        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName);
-        byte[] helpMessageBuffer = Encoding.UTF8.GetBytes(helpMessage);
+        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName + "\0");
+        byte[] helpMessageBuffer = Encoding.UTF8.GetBytes(helpMessage + "\0");
         fixed (byte* cvarNameBufferPtr = cvarNameBuffer)
         {
             fixed (byte* helpMessageBufferPtr = helpMessageBuffer)
@@ -203,8 +203,8 @@ internal static class NativeConvars
 
     public unsafe static void CreateConvarFloat(string cvarName, int cvarType, ulong cvarFlags, string helpMessage, float defaultValue, nint minValue, nint maxValue)
     {
-        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName);
-        byte[] helpMessageBuffer = Encoding.UTF8.GetBytes(helpMessage);
+        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName + "\0");
+        byte[] helpMessageBuffer = Encoding.UTF8.GetBytes(helpMessage + "\0");
         fixed (byte* cvarNameBufferPtr = cvarNameBuffer)
         {
             fixed (byte* helpMessageBufferPtr = helpMessageBuffer)
@@ -218,8 +218,8 @@ internal static class NativeConvars
 
     public unsafe static void CreateConvarDouble(string cvarName, int cvarType, ulong cvarFlags, string helpMessage, double defaultValue, nint minValue, nint maxValue)
     {
-        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName);
-        byte[] helpMessageBuffer = Encoding.UTF8.GetBytes(helpMessage);
+        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName + "\0");
+        byte[] helpMessageBuffer = Encoding.UTF8.GetBytes(helpMessage + "\0");
         fixed (byte* cvarNameBufferPtr = cvarNameBuffer)
         {
             fixed (byte* helpMessageBufferPtr = helpMessageBuffer)
@@ -233,8 +233,8 @@ internal static class NativeConvars
 
     public unsafe static void CreateConvarColor(string cvarName, int cvarType, ulong cvarFlags, string helpMessage, Color defaultValue, nint minValue, nint maxValue)
     {
-        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName);
-        byte[] helpMessageBuffer = Encoding.UTF8.GetBytes(helpMessage);
+        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName + "\0");
+        byte[] helpMessageBuffer = Encoding.UTF8.GetBytes(helpMessage + "\0");
         fixed (byte* cvarNameBufferPtr = cvarNameBuffer)
         {
             fixed (byte* helpMessageBufferPtr = helpMessageBuffer)
@@ -248,8 +248,8 @@ internal static class NativeConvars
 
     public unsafe static void CreateConvarVector2D(string cvarName, int cvarType, ulong cvarFlags, string helpMessage, Vector2D defaultValue, nint minValue, nint maxValue)
     {
-        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName);
-        byte[] helpMessageBuffer = Encoding.UTF8.GetBytes(helpMessage);
+        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName + "\0");
+        byte[] helpMessageBuffer = Encoding.UTF8.GetBytes(helpMessage + "\0");
         fixed (byte* cvarNameBufferPtr = cvarNameBuffer)
         {
             fixed (byte* helpMessageBufferPtr = helpMessageBuffer)
@@ -263,8 +263,8 @@ internal static class NativeConvars
 
     public unsafe static void CreateConvarVector(string cvarName, int cvarType, ulong cvarFlags, string helpMessage, Vector defaultValue, nint minValue, nint maxValue)
     {
-        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName);
-        byte[] helpMessageBuffer = Encoding.UTF8.GetBytes(helpMessage);
+        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName + "\0");
+        byte[] helpMessageBuffer = Encoding.UTF8.GetBytes(helpMessage + "\0");
         fixed (byte* cvarNameBufferPtr = cvarNameBuffer)
         {
             fixed (byte* helpMessageBufferPtr = helpMessageBuffer)
@@ -278,8 +278,8 @@ internal static class NativeConvars
 
     public unsafe static void CreateConvarVector4D(string cvarName, int cvarType, ulong cvarFlags, string helpMessage, Vector4D defaultValue, nint minValue, nint maxValue)
     {
-        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName);
-        byte[] helpMessageBuffer = Encoding.UTF8.GetBytes(helpMessage);
+        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName + "\0");
+        byte[] helpMessageBuffer = Encoding.UTF8.GetBytes(helpMessage + "\0");
         fixed (byte* cvarNameBufferPtr = cvarNameBuffer)
         {
             fixed (byte* helpMessageBufferPtr = helpMessageBuffer)
@@ -293,8 +293,8 @@ internal static class NativeConvars
 
     public unsafe static void CreateConvarQAngle(string cvarName, int cvarType, ulong cvarFlags, string helpMessage, QAngle defaultValue, nint minValue, nint maxValue)
     {
-        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName);
-        byte[] helpMessageBuffer = Encoding.UTF8.GetBytes(helpMessage);
+        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName + "\0");
+        byte[] helpMessageBuffer = Encoding.UTF8.GetBytes(helpMessage + "\0");
         fixed (byte* cvarNameBufferPtr = cvarNameBuffer)
         {
             fixed (byte* helpMessageBufferPtr = helpMessageBuffer)
@@ -308,9 +308,9 @@ internal static class NativeConvars
 
     public unsafe static void CreateConvarString(string cvarName, int cvarType, ulong cvarFlags, string helpMessage, string defaultValue, nint minValue, nint maxValue)
     {
-        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName);
-        byte[] helpMessageBuffer = Encoding.UTF8.GetBytes(helpMessage);
-        byte[] defaultValueBuffer = Encoding.UTF8.GetBytes(defaultValue);
+        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName + "\0");
+        byte[] helpMessageBuffer = Encoding.UTF8.GetBytes(helpMessage + "\0");
+        byte[] defaultValueBuffer = Encoding.UTF8.GetBytes(defaultValue + "\0");
         fixed (byte* cvarNameBufferPtr = cvarNameBuffer)
         {
             fixed (byte* helpMessageBufferPtr = helpMessageBuffer)
@@ -327,7 +327,7 @@ internal static class NativeConvars
 
     public unsafe static void DeleteConvar(string cvarName)
     {
-        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName);
+        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName + "\0");
         fixed (byte* cvarNameBufferPtr = cvarNameBuffer)
         {
             _DeleteConvar(cvarNameBufferPtr);
@@ -338,7 +338,7 @@ internal static class NativeConvars
 
     public unsafe static bool ExistsConvar(string cvarName)
     {
-        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName);
+        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName + "\0");
         fixed (byte* cvarNameBufferPtr = cvarNameBuffer)
         {
             var ret = _ExistsConvar(cvarNameBufferPtr);
@@ -350,7 +350,7 @@ internal static class NativeConvars
 
     public unsafe static int GetConvarType(string cvarName)
     {
-        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName);
+        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName + "\0");
         fixed (byte* cvarNameBufferPtr = cvarNameBuffer)
         {
             var ret = _GetConvarType(cvarNameBufferPtr);
@@ -362,8 +362,8 @@ internal static class NativeConvars
 
     public unsafe static void SetClientConvarValueString(int playerid, string cvarName, string defaultValue)
     {
-        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName);
-        byte[] defaultValueBuffer = Encoding.UTF8.GetBytes(defaultValue);
+        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName + "\0");
+        byte[] defaultValueBuffer = Encoding.UTF8.GetBytes(defaultValue + "\0");
         fixed (byte* cvarNameBufferPtr = cvarNameBuffer)
         {
             fixed (byte* defaultValueBufferPtr = defaultValueBuffer)
@@ -377,7 +377,7 @@ internal static class NativeConvars
 
     public unsafe static ulong GetFlags(string cvarName)
     {
-        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName);
+        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName + "\0");
         fixed (byte* cvarNameBufferPtr = cvarNameBuffer)
         {
             var ret = _GetFlags(cvarNameBufferPtr);
@@ -389,7 +389,7 @@ internal static class NativeConvars
 
     public unsafe static void SetFlags(string cvarName, ulong flags)
     {
-        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName);
+        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName + "\0");
         fixed (byte* cvarNameBufferPtr = cvarNameBuffer)
         {
             _SetFlags(cvarNameBufferPtr, flags);
@@ -400,7 +400,7 @@ internal static class NativeConvars
 
     public unsafe static nint GetMinValuePtrPtr(string cvarName)
     {
-        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName);
+        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName + "\0");
         fixed (byte* cvarNameBufferPtr = cvarNameBuffer)
         {
             var ret = _GetMinValuePtrPtr(cvarNameBufferPtr);
@@ -412,7 +412,7 @@ internal static class NativeConvars
 
     public unsafe static nint GetMaxValuePtrPtr(string cvarName)
     {
-        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName);
+        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName + "\0");
         fixed (byte* cvarNameBufferPtr = cvarNameBuffer)
         {
             var ret = _GetMaxValuePtrPtr(cvarNameBufferPtr);
@@ -424,7 +424,7 @@ internal static class NativeConvars
 
     public unsafe static bool HasDefaultValue(string cvarName)
     {
-        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName);
+        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName + "\0");
         fixed (byte* cvarNameBufferPtr = cvarNameBuffer)
         {
             var ret = _HasDefaultValue(cvarNameBufferPtr);
@@ -436,7 +436,7 @@ internal static class NativeConvars
 
     public unsafe static nint GetDefaultValuePtr(string cvarName)
     {
-        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName);
+        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName + "\0");
         fixed (byte* cvarNameBufferPtr = cvarNameBuffer)
         {
             var ret = _GetDefaultValuePtr(cvarNameBufferPtr);
@@ -448,7 +448,7 @@ internal static class NativeConvars
 
     public unsafe static void SetDefaultValue(string cvarName, nint defaultValue)
     {
-        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName);
+        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName + "\0");
         fixed (byte* cvarNameBufferPtr = cvarNameBuffer)
         {
             _SetDefaultValue(cvarNameBufferPtr, defaultValue);
@@ -459,8 +459,8 @@ internal static class NativeConvars
 
     public unsafe static void SetDefaultValueString(string cvarName, string defaultValue)
     {
-        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName);
-        byte[] defaultValueBuffer = Encoding.UTF8.GetBytes(defaultValue);
+        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName + "\0");
+        byte[] defaultValueBuffer = Encoding.UTF8.GetBytes(defaultValue + "\0");
         fixed (byte* cvarNameBufferPtr = cvarNameBuffer)
         {
             fixed (byte* defaultValueBufferPtr = defaultValueBuffer)
@@ -474,7 +474,7 @@ internal static class NativeConvars
 
     public unsafe static nint GetValuePtr(string cvarName)
     {
-        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName);
+        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName + "\0");
         fixed (byte* cvarNameBufferPtr = cvarNameBuffer)
         {
             var ret = _GetValuePtr(cvarNameBufferPtr);
@@ -486,7 +486,7 @@ internal static class NativeConvars
 
     public unsafe static void SetValuePtr(string cvarName, nint value)
     {
-        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName);
+        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName + "\0");
         fixed (byte* cvarNameBufferPtr = cvarNameBuffer)
         {
             _SetValuePtr(cvarNameBufferPtr, value);
@@ -497,7 +497,7 @@ internal static class NativeConvars
 
     public unsafe static void SetValueInternalPtr(string cvarName, nint value)
     {
-        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName);
+        byte[] cvarNameBuffer = Encoding.UTF8.GetBytes(cvarName + "\0");
         fixed (byte* cvarNameBufferPtr = cvarNameBuffer)
         {
             _SetValueInternalPtr(cvarNameBufferPtr, value);

@@ -15,7 +15,7 @@ internal static class NativeGameEvents
 
     public unsafe static bool GetBool(nint _event, string key)
     {
-        byte[] keyBuffer = Encoding.UTF8.GetBytes(key);
+        byte[] keyBuffer = Encoding.UTF8.GetBytes(key + "\0");
         fixed (byte* keyBufferPtr = keyBuffer)
         {
             var ret = _GetBool(_event, keyBufferPtr);
@@ -27,7 +27,7 @@ internal static class NativeGameEvents
 
     public unsafe static int GetInt(nint _event, string key)
     {
-        byte[] keyBuffer = Encoding.UTF8.GetBytes(key);
+        byte[] keyBuffer = Encoding.UTF8.GetBytes(key + "\0");
         fixed (byte* keyBufferPtr = keyBuffer)
         {
             var ret = _GetInt(_event, keyBufferPtr);
@@ -39,7 +39,7 @@ internal static class NativeGameEvents
 
     public unsafe static ulong GetUint64(nint _event, string key)
     {
-        byte[] keyBuffer = Encoding.UTF8.GetBytes(key);
+        byte[] keyBuffer = Encoding.UTF8.GetBytes(key + "\0");
         fixed (byte* keyBufferPtr = keyBuffer)
         {
             var ret = _GetUint64(_event, keyBufferPtr);
@@ -51,7 +51,7 @@ internal static class NativeGameEvents
 
     public unsafe static float GetFloat(nint _event, string key)
     {
-        byte[] keyBuffer = Encoding.UTF8.GetBytes(key);
+        byte[] keyBuffer = Encoding.UTF8.GetBytes(key + "\0");
         fixed (byte* keyBufferPtr = keyBuffer)
         {
             var ret = _GetFloat(_event, keyBufferPtr);
@@ -63,7 +63,7 @@ internal static class NativeGameEvents
 
     public unsafe static string GetString(nint _event, string key)
     {
-        byte[] keyBuffer = Encoding.UTF8.GetBytes(key);
+        byte[] keyBuffer = Encoding.UTF8.GetBytes(key + "\0");
         fixed (byte* keyBufferPtr = keyBuffer)
         {
             var ret = _GetString(null, _event, keyBufferPtr);
@@ -80,7 +80,7 @@ internal static class NativeGameEvents
 
     public unsafe static nint GetPtr(nint _event, string key)
     {
-        byte[] keyBuffer = Encoding.UTF8.GetBytes(key);
+        byte[] keyBuffer = Encoding.UTF8.GetBytes(key + "\0");
         fixed (byte* keyBufferPtr = keyBuffer)
         {
             var ret = _GetPtr(_event, keyBufferPtr);
@@ -95,7 +95,7 @@ internal static class NativeGameEvents
     /// </summary>
     public unsafe static nint GetEHandle(nint _event, string key)
     {
-        byte[] keyBuffer = Encoding.UTF8.GetBytes(key);
+        byte[] keyBuffer = Encoding.UTF8.GetBytes(key + "\0");
         fixed (byte* keyBufferPtr = keyBuffer)
         {
             var ret = _GetEHandle(_event, keyBufferPtr);
@@ -107,7 +107,7 @@ internal static class NativeGameEvents
 
     public unsafe static nint GetEntity(nint _event, string key)
     {
-        byte[] keyBuffer = Encoding.UTF8.GetBytes(key);
+        byte[] keyBuffer = Encoding.UTF8.GetBytes(key + "\0");
         fixed (byte* keyBufferPtr = keyBuffer)
         {
             var ret = _GetEntity(_event, keyBufferPtr);
@@ -119,7 +119,7 @@ internal static class NativeGameEvents
 
     public unsafe static int GetEntityIndex(nint _event, string key)
     {
-        byte[] keyBuffer = Encoding.UTF8.GetBytes(key);
+        byte[] keyBuffer = Encoding.UTF8.GetBytes(key + "\0");
         fixed (byte* keyBufferPtr = keyBuffer)
         {
             var ret = _GetEntityIndex(_event, keyBufferPtr);
@@ -131,7 +131,7 @@ internal static class NativeGameEvents
 
     public unsafe static int GetPlayerSlot(nint _event, string key)
     {
-        byte[] keyBuffer = Encoding.UTF8.GetBytes(key);
+        byte[] keyBuffer = Encoding.UTF8.GetBytes(key + "\0");
         fixed (byte* keyBufferPtr = keyBuffer)
         {
             var ret = _GetPlayerSlot(_event, keyBufferPtr);
@@ -143,7 +143,7 @@ internal static class NativeGameEvents
 
     public unsafe static nint GetPlayerController(nint _event, string key)
     {
-        byte[] keyBuffer = Encoding.UTF8.GetBytes(key);
+        byte[] keyBuffer = Encoding.UTF8.GetBytes(key + "\0");
         fixed (byte* keyBufferPtr = keyBuffer)
         {
             var ret = _GetPlayerController(_event, keyBufferPtr);
@@ -155,7 +155,7 @@ internal static class NativeGameEvents
 
     public unsafe static nint GetPlayerPawn(nint _event, string key)
     {
-        byte[] keyBuffer = Encoding.UTF8.GetBytes(key);
+        byte[] keyBuffer = Encoding.UTF8.GetBytes(key + "\0");
         fixed (byte* keyBufferPtr = keyBuffer)
         {
             var ret = _GetPlayerPawn(_event, keyBufferPtr);
@@ -170,7 +170,7 @@ internal static class NativeGameEvents
     /// </summary>
     public unsafe static nint GetPawnEHandle(nint _event, string key)
     {
-        byte[] keyBuffer = Encoding.UTF8.GetBytes(key);
+        byte[] keyBuffer = Encoding.UTF8.GetBytes(key + "\0");
         fixed (byte* keyBufferPtr = keyBuffer)
         {
             var ret = _GetPawnEHandle(_event, keyBufferPtr);
@@ -182,7 +182,7 @@ internal static class NativeGameEvents
 
     public unsafe static int GetPawnEntityIndex(nint _event, string key)
     {
-        byte[] keyBuffer = Encoding.UTF8.GetBytes(key);
+        byte[] keyBuffer = Encoding.UTF8.GetBytes(key + "\0");
         fixed (byte* keyBufferPtr = keyBuffer)
         {
             var ret = _GetPawnEntityIndex(_event, keyBufferPtr);
@@ -194,7 +194,7 @@ internal static class NativeGameEvents
 
     public unsafe static void SetBool(nint _event, string key, bool value)
     {
-        byte[] keyBuffer = Encoding.UTF8.GetBytes(key);
+        byte[] keyBuffer = Encoding.UTF8.GetBytes(key + "\0");
         fixed (byte* keyBufferPtr = keyBuffer)
         {
             _SetBool(_event, keyBufferPtr, value ? (byte)1 : (byte)0);
@@ -205,7 +205,7 @@ internal static class NativeGameEvents
 
     public unsafe static void SetInt(nint _event, string key, int value)
     {
-        byte[] keyBuffer = Encoding.UTF8.GetBytes(key);
+        byte[] keyBuffer = Encoding.UTF8.GetBytes(key + "\0");
         fixed (byte* keyBufferPtr = keyBuffer)
         {
             _SetInt(_event, keyBufferPtr, value);
@@ -216,7 +216,7 @@ internal static class NativeGameEvents
 
     public unsafe static void SetUint64(nint _event, string key, ulong value)
     {
-        byte[] keyBuffer = Encoding.UTF8.GetBytes(key);
+        byte[] keyBuffer = Encoding.UTF8.GetBytes(key + "\0");
         fixed (byte* keyBufferPtr = keyBuffer)
         {
             _SetUint64(_event, keyBufferPtr, value);
@@ -227,7 +227,7 @@ internal static class NativeGameEvents
 
     public unsafe static void SetFloat(nint _event, string key, float value)
     {
-        byte[] keyBuffer = Encoding.UTF8.GetBytes(key);
+        byte[] keyBuffer = Encoding.UTF8.GetBytes(key + "\0");
         fixed (byte* keyBufferPtr = keyBuffer)
         {
             _SetFloat(_event, keyBufferPtr, value);
@@ -238,8 +238,8 @@ internal static class NativeGameEvents
 
     public unsafe static void SetString(nint _event, string key, string value)
     {
-        byte[] keyBuffer = Encoding.UTF8.GetBytes(key);
-        byte[] valueBuffer = Encoding.UTF8.GetBytes(value);
+        byte[] keyBuffer = Encoding.UTF8.GetBytes(key + "\0");
+        byte[] valueBuffer = Encoding.UTF8.GetBytes(value + "\0");
         fixed (byte* keyBufferPtr = keyBuffer)
         {
             fixed (byte* valueBufferPtr = valueBuffer)
@@ -253,7 +253,7 @@ internal static class NativeGameEvents
 
     public unsafe static void SetPtr(nint _event, string key, nint value)
     {
-        byte[] keyBuffer = Encoding.UTF8.GetBytes(key);
+        byte[] keyBuffer = Encoding.UTF8.GetBytes(key + "\0");
         fixed (byte* keyBufferPtr = keyBuffer)
         {
             _SetPtr(_event, keyBufferPtr, value);
@@ -264,7 +264,7 @@ internal static class NativeGameEvents
 
     public unsafe static void SetEntity(nint _event, string key, nint value)
     {
-        byte[] keyBuffer = Encoding.UTF8.GetBytes(key);
+        byte[] keyBuffer = Encoding.UTF8.GetBytes(key + "\0");
         fixed (byte* keyBufferPtr = keyBuffer)
         {
             _SetEntity(_event, keyBufferPtr, value);
@@ -275,7 +275,7 @@ internal static class NativeGameEvents
 
     public unsafe static void SetEntityIndex(nint _event, string key, int value)
     {
-        byte[] keyBuffer = Encoding.UTF8.GetBytes(key);
+        byte[] keyBuffer = Encoding.UTF8.GetBytes(key + "\0");
         fixed (byte* keyBufferPtr = keyBuffer)
         {
             _SetEntityIndex(_event, keyBufferPtr, value);
@@ -286,7 +286,7 @@ internal static class NativeGameEvents
 
     public unsafe static void SetPlayerSlot(nint _event, string key, int value)
     {
-        byte[] keyBuffer = Encoding.UTF8.GetBytes(key);
+        byte[] keyBuffer = Encoding.UTF8.GetBytes(key + "\0");
         fixed (byte* keyBufferPtr = keyBuffer)
         {
             _SetPlayerSlot(_event, keyBufferPtr, value);
@@ -297,7 +297,7 @@ internal static class NativeGameEvents
 
     public unsafe static bool HasKey(nint _event, string key)
     {
-        byte[] keyBuffer = Encoding.UTF8.GetBytes(key);
+        byte[] keyBuffer = Encoding.UTF8.GetBytes(key + "\0");
         fixed (byte* keyBufferPtr = keyBuffer)
         {
             var ret = _HasKey(_event, keyBufferPtr);
@@ -325,7 +325,7 @@ internal static class NativeGameEvents
 
     public unsafe static void RegisterListener(string eventName)
     {
-        byte[] eventNameBuffer = Encoding.UTF8.GetBytes(eventName);
+        byte[] eventNameBuffer = Encoding.UTF8.GetBytes(eventName + "\0");
         fixed (byte* eventNameBufferPtr = eventNameBuffer)
         {
             _RegisterListener(eventNameBufferPtr);
@@ -372,7 +372,7 @@ internal static class NativeGameEvents
 
     public unsafe static nint CreateEvent(string eventName)
     {
-        byte[] eventNameBuffer = Encoding.UTF8.GetBytes(eventName);
+        byte[] eventNameBuffer = Encoding.UTF8.GetBytes(eventName + "\0");
         fixed (byte* eventNameBufferPtr = eventNameBuffer)
         {
             var ret = _CreateEvent(eventNameBufferPtr);
@@ -405,7 +405,7 @@ internal static class NativeGameEvents
 
     public unsafe static bool IsPlayerListeningToEventName(int playerid, string eventName)
     {
-        byte[] eventNameBuffer = Encoding.UTF8.GetBytes(eventName);
+        byte[] eventNameBuffer = Encoding.UTF8.GetBytes(eventName + "\0");
         fixed (byte* eventNameBufferPtr = eventNameBuffer)
         {
             var ret = _IsPlayerListeningToEventName(playerid, eventNameBufferPtr);

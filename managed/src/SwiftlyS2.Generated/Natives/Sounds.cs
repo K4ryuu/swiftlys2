@@ -42,7 +42,7 @@ internal static class NativeSounds
 
     public unsafe static void SetName(nint soundEvent, string name)
     {
-        byte[] nameBuffer = Encoding.UTF8.GetBytes(name);
+        byte[] nameBuffer = Encoding.UTF8.GetBytes(name + "\0");
         fixed (byte* nameBufferPtr = nameBuffer)
         {
             _SetName(soundEvent, nameBufferPtr);
@@ -109,7 +109,7 @@ internal static class NativeSounds
 
     public unsafe static bool HasField(nint soundEvent, string fieldName)
     {
-        byte[] fieldNameBuffer = Encoding.UTF8.GetBytes(fieldName);
+        byte[] fieldNameBuffer = Encoding.UTF8.GetBytes(fieldName + "\0");
         fixed (byte* fieldNameBufferPtr = fieldNameBuffer)
         {
             var ret = _HasField(soundEvent, fieldNameBufferPtr);
@@ -121,7 +121,7 @@ internal static class NativeSounds
 
     public unsafe static void SetBool(nint soundEvent, string fieldName, bool value)
     {
-        byte[] fieldNameBuffer = Encoding.UTF8.GetBytes(fieldName);
+        byte[] fieldNameBuffer = Encoding.UTF8.GetBytes(fieldName + "\0");
         fixed (byte* fieldNameBufferPtr = fieldNameBuffer)
         {
             _SetBool(soundEvent, fieldNameBufferPtr, value ? (byte)1 : (byte)0);
@@ -132,7 +132,7 @@ internal static class NativeSounds
 
     public unsafe static bool GetBool(nint soundEvent, string fieldName)
     {
-        byte[] fieldNameBuffer = Encoding.UTF8.GetBytes(fieldName);
+        byte[] fieldNameBuffer = Encoding.UTF8.GetBytes(fieldName + "\0");
         fixed (byte* fieldNameBufferPtr = fieldNameBuffer)
         {
             var ret = _GetBool(soundEvent, fieldNameBufferPtr);
@@ -144,7 +144,7 @@ internal static class NativeSounds
 
     public unsafe static void SetInt32(nint soundEvent, string fieldName, int value)
     {
-        byte[] fieldNameBuffer = Encoding.UTF8.GetBytes(fieldName);
+        byte[] fieldNameBuffer = Encoding.UTF8.GetBytes(fieldName + "\0");
         fixed (byte* fieldNameBufferPtr = fieldNameBuffer)
         {
             _SetInt32(soundEvent, fieldNameBufferPtr, value);
@@ -155,7 +155,7 @@ internal static class NativeSounds
 
     public unsafe static int GetInt32(nint soundEvent, string fieldName)
     {
-        byte[] fieldNameBuffer = Encoding.UTF8.GetBytes(fieldName);
+        byte[] fieldNameBuffer = Encoding.UTF8.GetBytes(fieldName + "\0");
         fixed (byte* fieldNameBufferPtr = fieldNameBuffer)
         {
             var ret = _GetInt32(soundEvent, fieldNameBufferPtr);
@@ -167,7 +167,7 @@ internal static class NativeSounds
 
     public unsafe static void SetUInt32(nint soundEvent, string fieldName, uint value)
     {
-        byte[] fieldNameBuffer = Encoding.UTF8.GetBytes(fieldName);
+        byte[] fieldNameBuffer = Encoding.UTF8.GetBytes(fieldName + "\0");
         fixed (byte* fieldNameBufferPtr = fieldNameBuffer)
         {
             _SetUInt32(soundEvent, fieldNameBufferPtr, value);
@@ -178,7 +178,7 @@ internal static class NativeSounds
 
     public unsafe static uint GetUInt32(nint soundEvent, string fieldName)
     {
-        byte[] fieldNameBuffer = Encoding.UTF8.GetBytes(fieldName);
+        byte[] fieldNameBuffer = Encoding.UTF8.GetBytes(fieldName + "\0");
         fixed (byte* fieldNameBufferPtr = fieldNameBuffer)
         {
             var ret = _GetUInt32(soundEvent, fieldNameBufferPtr);
@@ -190,7 +190,7 @@ internal static class NativeSounds
 
     public unsafe static void SetUInt64(nint soundEvent, string fieldName, ulong value)
     {
-        byte[] fieldNameBuffer = Encoding.UTF8.GetBytes(fieldName);
+        byte[] fieldNameBuffer = Encoding.UTF8.GetBytes(fieldName + "\0");
         fixed (byte* fieldNameBufferPtr = fieldNameBuffer)
         {
             _SetUInt64(soundEvent, fieldNameBufferPtr, value);
@@ -201,7 +201,7 @@ internal static class NativeSounds
 
     public unsafe static ulong GetUInt64(nint soundEvent, string fieldName)
     {
-        byte[] fieldNameBuffer = Encoding.UTF8.GetBytes(fieldName);
+        byte[] fieldNameBuffer = Encoding.UTF8.GetBytes(fieldName + "\0");
         fixed (byte* fieldNameBufferPtr = fieldNameBuffer)
         {
             var ret = _GetUInt64(soundEvent, fieldNameBufferPtr);
@@ -213,7 +213,7 @@ internal static class NativeSounds
 
     public unsafe static void SetFloat(nint soundEvent, string fieldName, float value)
     {
-        byte[] fieldNameBuffer = Encoding.UTF8.GetBytes(fieldName);
+        byte[] fieldNameBuffer = Encoding.UTF8.GetBytes(fieldName + "\0");
         fixed (byte* fieldNameBufferPtr = fieldNameBuffer)
         {
             _SetFloat(soundEvent, fieldNameBufferPtr, value);
@@ -224,7 +224,7 @@ internal static class NativeSounds
 
     public unsafe static float GetFloat(nint soundEvent, string fieldName)
     {
-        byte[] fieldNameBuffer = Encoding.UTF8.GetBytes(fieldName);
+        byte[] fieldNameBuffer = Encoding.UTF8.GetBytes(fieldName + "\0");
         fixed (byte* fieldNameBufferPtr = fieldNameBuffer)
         {
             var ret = _GetFloat(soundEvent, fieldNameBufferPtr);
@@ -236,7 +236,7 @@ internal static class NativeSounds
 
     public unsafe static void SetFloat3(nint soundEvent, string fieldName, Vector value)
     {
-        byte[] fieldNameBuffer = Encoding.UTF8.GetBytes(fieldName);
+        byte[] fieldNameBuffer = Encoding.UTF8.GetBytes(fieldName + "\0");
         fixed (byte* fieldNameBufferPtr = fieldNameBuffer)
         {
             _SetFloat3(soundEvent, fieldNameBufferPtr, value);
@@ -247,7 +247,7 @@ internal static class NativeSounds
 
     public unsafe static Vector GetFloat3(nint soundEvent, string fieldName)
     {
-        byte[] fieldNameBuffer = Encoding.UTF8.GetBytes(fieldName);
+        byte[] fieldNameBuffer = Encoding.UTF8.GetBytes(fieldName + "\0");
         fixed (byte* fieldNameBufferPtr = fieldNameBuffer)
         {
             var ret = _GetFloat3(soundEvent, fieldNameBufferPtr);

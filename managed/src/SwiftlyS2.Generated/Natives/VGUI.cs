@@ -37,7 +37,7 @@ internal static class NativeVGUI
 
     public unsafe static void ScreenTextSetText(ulong textid, string text)
     {
-        byte[] textBuffer = Encoding.UTF8.GetBytes(text);
+        byte[] textBuffer = Encoding.UTF8.GetBytes(text + "\0");
         fixed (byte* textBufferPtr = textBuffer)
         {
             _ScreenTextSetText(textid, textBufferPtr);

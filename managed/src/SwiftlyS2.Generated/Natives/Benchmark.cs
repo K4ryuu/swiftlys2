@@ -150,7 +150,7 @@ public static class NativeBenchmark
 
     public unsafe static string StringToString(string value)
     {
-        byte[] valueBuffer = Encoding.UTF8.GetBytes(value);
+        byte[] valueBuffer = Encoding.UTF8.GetBytes(value + "\0");
         fixed (byte* valueBufferPtr = valueBuffer)
         {
             var ret = _StringToString(null, valueBufferPtr);
@@ -167,7 +167,7 @@ public static class NativeBenchmark
 
     public unsafe static nint StringToPtr(string value)
     {
-        byte[] valueBuffer = Encoding.UTF8.GetBytes(value);
+        byte[] valueBuffer = Encoding.UTF8.GetBytes(value + "\0");
         fixed (byte* valueBufferPtr = valueBuffer)
         {
             var ret = _StringToPtr(valueBufferPtr);
@@ -187,7 +187,7 @@ public static class NativeBenchmark
 
     public unsafe static int MultiWithOneString(nint p1, string s1, nint p2, int i1, float f1)
     {
-        byte[] s1Buffer = Encoding.UTF8.GetBytes(s1);
+        byte[] s1Buffer = Encoding.UTF8.GetBytes(s1 + "\0");
         fixed (byte* s1BufferPtr = s1Buffer)
         {
             var ret = _MultiWithOneString(p1, s1BufferPtr, p2, i1, f1);
@@ -199,8 +199,8 @@ public static class NativeBenchmark
 
     public unsafe static void MultiWithTwoStrings(nint p1, string s1, nint p2, string s2, int i1)
     {
-        byte[] s1Buffer = Encoding.UTF8.GetBytes(s1);
-        byte[] s2Buffer = Encoding.UTF8.GetBytes(s2);
+        byte[] s1Buffer = Encoding.UTF8.GetBytes(s1 + "\0");
+        byte[] s2Buffer = Encoding.UTF8.GetBytes(s2 + "\0");
         fixed (byte* s1BufferPtr = s1Buffer)
         {
             fixed (byte* s2BufferPtr = s2Buffer)
@@ -228,7 +228,7 @@ public static class NativeBenchmark
 
     public unsafe static void ComplexWithString(nint entity, Vector pos, string name, QAngle angle)
     {
-        byte[] nameBuffer = Encoding.UTF8.GetBytes(name);
+        byte[] nameBuffer = Encoding.UTF8.GetBytes(name + "\0");
         fixed (byte* nameBufferPtr = nameBuffer)
         {
             _ComplexWithString(entity, pos, nameBufferPtr, angle);

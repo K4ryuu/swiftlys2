@@ -30,7 +30,7 @@ internal static class NativeCEntityKeyValues
 
     public unsafe static bool GetBool(nint keyvalues, string key)
     {
-        byte[] keyBuffer = Encoding.UTF8.GetBytes(key);
+        byte[] keyBuffer = Encoding.UTF8.GetBytes(key + "\0");
         fixed (byte* keyBufferPtr = keyBuffer)
         {
             var ret = _GetBool(keyvalues, keyBufferPtr);
@@ -42,7 +42,7 @@ internal static class NativeCEntityKeyValues
 
     public unsafe static int GetInt(nint keyvalues, string key)
     {
-        byte[] keyBuffer = Encoding.UTF8.GetBytes(key);
+        byte[] keyBuffer = Encoding.UTF8.GetBytes(key + "\0");
         fixed (byte* keyBufferPtr = keyBuffer)
         {
             var ret = _GetInt(keyvalues, keyBufferPtr);
@@ -54,7 +54,7 @@ internal static class NativeCEntityKeyValues
 
     public unsafe static uint GetUint(nint keyvalues, string key)
     {
-        byte[] keyBuffer = Encoding.UTF8.GetBytes(key);
+        byte[] keyBuffer = Encoding.UTF8.GetBytes(key + "\0");
         fixed (byte* keyBufferPtr = keyBuffer)
         {
             var ret = _GetUint(keyvalues, keyBufferPtr);
@@ -66,7 +66,7 @@ internal static class NativeCEntityKeyValues
 
     public unsafe static long GetInt64(nint keyvalues, string key)
     {
-        byte[] keyBuffer = Encoding.UTF8.GetBytes(key);
+        byte[] keyBuffer = Encoding.UTF8.GetBytes(key + "\0");
         fixed (byte* keyBufferPtr = keyBuffer)
         {
             var ret = _GetInt64(keyvalues, keyBufferPtr);
@@ -78,7 +78,7 @@ internal static class NativeCEntityKeyValues
 
     public unsafe static ulong GetUint64(nint keyvalues, string key)
     {
-        byte[] keyBuffer = Encoding.UTF8.GetBytes(key);
+        byte[] keyBuffer = Encoding.UTF8.GetBytes(key + "\0");
         fixed (byte* keyBufferPtr = keyBuffer)
         {
             var ret = _GetUint64(keyvalues, keyBufferPtr);
@@ -90,7 +90,7 @@ internal static class NativeCEntityKeyValues
 
     public unsafe static float GetFloat(nint keyvalues, string key)
     {
-        byte[] keyBuffer = Encoding.UTF8.GetBytes(key);
+        byte[] keyBuffer = Encoding.UTF8.GetBytes(key + "\0");
         fixed (byte* keyBufferPtr = keyBuffer)
         {
             var ret = _GetFloat(keyvalues, keyBufferPtr);
@@ -102,7 +102,7 @@ internal static class NativeCEntityKeyValues
 
     public unsafe static double GetDouble(nint keyvalues, string key)
     {
-        byte[] keyBuffer = Encoding.UTF8.GetBytes(key);
+        byte[] keyBuffer = Encoding.UTF8.GetBytes(key + "\0");
         fixed (byte* keyBufferPtr = keyBuffer)
         {
             var ret = _GetDouble(keyvalues, keyBufferPtr);
@@ -114,7 +114,7 @@ internal static class NativeCEntityKeyValues
 
     public unsafe static string GetString(nint keyvalues, string key)
     {
-        byte[] keyBuffer = Encoding.UTF8.GetBytes(key);
+        byte[] keyBuffer = Encoding.UTF8.GetBytes(key + "\0");
         fixed (byte* keyBufferPtr = keyBuffer)
         {
             var ret = _GetString(null, keyvalues, keyBufferPtr);
@@ -131,7 +131,7 @@ internal static class NativeCEntityKeyValues
 
     public unsafe static nint GetPtr(nint keyvalues, string key)
     {
-        byte[] keyBuffer = Encoding.UTF8.GetBytes(key);
+        byte[] keyBuffer = Encoding.UTF8.GetBytes(key + "\0");
         fixed (byte* keyBufferPtr = keyBuffer)
         {
             var ret = _GetPtr(keyvalues, keyBufferPtr);
@@ -143,7 +143,7 @@ internal static class NativeCEntityKeyValues
 
     public unsafe static CUtlStringToken GetStringToken(nint keyvalues, string key)
     {
-        byte[] keyBuffer = Encoding.UTF8.GetBytes(key);
+        byte[] keyBuffer = Encoding.UTF8.GetBytes(key + "\0");
         fixed (byte* keyBufferPtr = keyBuffer)
         {
             var ret = _GetStringToken(keyvalues, keyBufferPtr);
@@ -155,7 +155,7 @@ internal static class NativeCEntityKeyValues
 
     public unsafe static Color GetColor(nint keyvalues, string key)
     {
-        byte[] keyBuffer = Encoding.UTF8.GetBytes(key);
+        byte[] keyBuffer = Encoding.UTF8.GetBytes(key + "\0");
         fixed (byte* keyBufferPtr = keyBuffer)
         {
             var ret = _GetColor(keyvalues, keyBufferPtr);
@@ -167,7 +167,7 @@ internal static class NativeCEntityKeyValues
 
     public unsafe static Vector GetVector(nint keyvalues, string key)
     {
-        byte[] keyBuffer = Encoding.UTF8.GetBytes(key);
+        byte[] keyBuffer = Encoding.UTF8.GetBytes(key + "\0");
         fixed (byte* keyBufferPtr = keyBuffer)
         {
             var ret = _GetVector(keyvalues, keyBufferPtr);
@@ -179,7 +179,7 @@ internal static class NativeCEntityKeyValues
 
     public unsafe static Vector2D GetVector2D(nint keyvalues, string key)
     {
-        byte[] keyBuffer = Encoding.UTF8.GetBytes(key);
+        byte[] keyBuffer = Encoding.UTF8.GetBytes(key + "\0");
         fixed (byte* keyBufferPtr = keyBuffer)
         {
             var ret = _GetVector2D(keyvalues, keyBufferPtr);
@@ -191,7 +191,7 @@ internal static class NativeCEntityKeyValues
 
     public unsafe static Vector4D GetVector4D(nint keyvalues, string key)
     {
-        byte[] keyBuffer = Encoding.UTF8.GetBytes(key);
+        byte[] keyBuffer = Encoding.UTF8.GetBytes(key + "\0");
         fixed (byte* keyBufferPtr = keyBuffer)
         {
             var ret = _GetVector4D(keyvalues, keyBufferPtr);
@@ -203,7 +203,7 @@ internal static class NativeCEntityKeyValues
 
     public unsafe static QAngle GetQAngle(nint keyvalues, string key)
     {
-        byte[] keyBuffer = Encoding.UTF8.GetBytes(key);
+        byte[] keyBuffer = Encoding.UTF8.GetBytes(key + "\0");
         fixed (byte* keyBufferPtr = keyBuffer)
         {
             var ret = _GetQAngle(keyvalues, keyBufferPtr);
@@ -215,7 +215,7 @@ internal static class NativeCEntityKeyValues
 
     public unsafe static void SetBool(nint keyvalues, string key, bool value)
     {
-        byte[] keyBuffer = Encoding.UTF8.GetBytes(key);
+        byte[] keyBuffer = Encoding.UTF8.GetBytes(key + "\0");
         fixed (byte* keyBufferPtr = keyBuffer)
         {
             _SetBool(keyvalues, keyBufferPtr, value ? (byte)1 : (byte)0);
@@ -226,7 +226,7 @@ internal static class NativeCEntityKeyValues
 
     public unsafe static void SetInt(nint keyvalues, string key, int value)
     {
-        byte[] keyBuffer = Encoding.UTF8.GetBytes(key);
+        byte[] keyBuffer = Encoding.UTF8.GetBytes(key + "\0");
         fixed (byte* keyBufferPtr = keyBuffer)
         {
             _SetInt(keyvalues, keyBufferPtr, value);
@@ -237,7 +237,7 @@ internal static class NativeCEntityKeyValues
 
     public unsafe static void SetUint(nint keyvalues, string key, uint value)
     {
-        byte[] keyBuffer = Encoding.UTF8.GetBytes(key);
+        byte[] keyBuffer = Encoding.UTF8.GetBytes(key + "\0");
         fixed (byte* keyBufferPtr = keyBuffer)
         {
             _SetUint(keyvalues, keyBufferPtr, value);
@@ -248,7 +248,7 @@ internal static class NativeCEntityKeyValues
 
     public unsafe static void SetInt64(nint keyvalues, string key, long value)
     {
-        byte[] keyBuffer = Encoding.UTF8.GetBytes(key);
+        byte[] keyBuffer = Encoding.UTF8.GetBytes(key + "\0");
         fixed (byte* keyBufferPtr = keyBuffer)
         {
             _SetInt64(keyvalues, keyBufferPtr, value);
@@ -259,7 +259,7 @@ internal static class NativeCEntityKeyValues
 
     public unsafe static void SetUint64(nint keyvalues, string key, ulong value)
     {
-        byte[] keyBuffer = Encoding.UTF8.GetBytes(key);
+        byte[] keyBuffer = Encoding.UTF8.GetBytes(key + "\0");
         fixed (byte* keyBufferPtr = keyBuffer)
         {
             _SetUint64(keyvalues, keyBufferPtr, value);
@@ -270,7 +270,7 @@ internal static class NativeCEntityKeyValues
 
     public unsafe static void SetFloat(nint keyvalues, string key, float value)
     {
-        byte[] keyBuffer = Encoding.UTF8.GetBytes(key);
+        byte[] keyBuffer = Encoding.UTF8.GetBytes(key + "\0");
         fixed (byte* keyBufferPtr = keyBuffer)
         {
             _SetFloat(keyvalues, keyBufferPtr, value);
@@ -281,7 +281,7 @@ internal static class NativeCEntityKeyValues
 
     public unsafe static void SetDouble(nint keyvalues, string key, double value)
     {
-        byte[] keyBuffer = Encoding.UTF8.GetBytes(key);
+        byte[] keyBuffer = Encoding.UTF8.GetBytes(key + "\0");
         fixed (byte* keyBufferPtr = keyBuffer)
         {
             _SetDouble(keyvalues, keyBufferPtr, value);
@@ -292,8 +292,8 @@ internal static class NativeCEntityKeyValues
 
     public unsafe static void SetString(nint keyvalues, string key, string value)
     {
-        byte[] keyBuffer = Encoding.UTF8.GetBytes(key);
-        byte[] valueBuffer = Encoding.UTF8.GetBytes(value);
+        byte[] keyBuffer = Encoding.UTF8.GetBytes(key + "\0");
+        byte[] valueBuffer = Encoding.UTF8.GetBytes(value + "\0");
         fixed (byte* keyBufferPtr = keyBuffer)
         {
             fixed (byte* valueBufferPtr = valueBuffer)
@@ -307,7 +307,7 @@ internal static class NativeCEntityKeyValues
 
     public unsafe static void SetPtr(nint keyvalues, string key, nint value)
     {
-        byte[] keyBuffer = Encoding.UTF8.GetBytes(key);
+        byte[] keyBuffer = Encoding.UTF8.GetBytes(key + "\0");
         fixed (byte* keyBufferPtr = keyBuffer)
         {
             _SetPtr(keyvalues, keyBufferPtr, value);
@@ -318,7 +318,7 @@ internal static class NativeCEntityKeyValues
 
     public unsafe static void SetStringToken(nint keyvalues, string key, CUtlStringToken value)
     {
-        byte[] keyBuffer = Encoding.UTF8.GetBytes(key);
+        byte[] keyBuffer = Encoding.UTF8.GetBytes(key + "\0");
         fixed (byte* keyBufferPtr = keyBuffer)
         {
             _SetStringToken(keyvalues, keyBufferPtr, value);
@@ -329,7 +329,7 @@ internal static class NativeCEntityKeyValues
 
     public unsafe static void SetColor(nint keyvalues, string key, Color value)
     {
-        byte[] keyBuffer = Encoding.UTF8.GetBytes(key);
+        byte[] keyBuffer = Encoding.UTF8.GetBytes(key + "\0");
         fixed (byte* keyBufferPtr = keyBuffer)
         {
             _SetColor(keyvalues, keyBufferPtr, value);
@@ -340,7 +340,7 @@ internal static class NativeCEntityKeyValues
 
     public unsafe static void SetVector(nint keyvalues, string key, Vector value)
     {
-        byte[] keyBuffer = Encoding.UTF8.GetBytes(key);
+        byte[] keyBuffer = Encoding.UTF8.GetBytes(key + "\0");
         fixed (byte* keyBufferPtr = keyBuffer)
         {
             _SetVector(keyvalues, keyBufferPtr, value);
@@ -351,7 +351,7 @@ internal static class NativeCEntityKeyValues
 
     public unsafe static void SetVector2D(nint keyvalues, string key, Vector2D value)
     {
-        byte[] keyBuffer = Encoding.UTF8.GetBytes(key);
+        byte[] keyBuffer = Encoding.UTF8.GetBytes(key + "\0");
         fixed (byte* keyBufferPtr = keyBuffer)
         {
             _SetVector2D(keyvalues, keyBufferPtr, value);
@@ -362,7 +362,7 @@ internal static class NativeCEntityKeyValues
 
     public unsafe static void SetVector4D(nint keyvalues, string key, Vector4D value)
     {
-        byte[] keyBuffer = Encoding.UTF8.GetBytes(key);
+        byte[] keyBuffer = Encoding.UTF8.GetBytes(key + "\0");
         fixed (byte* keyBufferPtr = keyBuffer)
         {
             _SetVector4D(keyvalues, keyBufferPtr, value);
@@ -373,7 +373,7 @@ internal static class NativeCEntityKeyValues
 
     public unsafe static void SetQAngle(nint keyvalues, string key, QAngle value)
     {
-        byte[] keyBuffer = Encoding.UTF8.GetBytes(key);
+        byte[] keyBuffer = Encoding.UTF8.GetBytes(key + "\0");
         fixed (byte* keyBufferPtr = keyBuffer)
         {
             _SetQAngle(keyvalues, keyBufferPtr, value);

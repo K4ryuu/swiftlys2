@@ -15,7 +15,7 @@ internal static class NativePatches
 
     public unsafe static void Apply(string patchName)
     {
-        byte[] patchNameBuffer = Encoding.UTF8.GetBytes(patchName);
+        byte[] patchNameBuffer = Encoding.UTF8.GetBytes(patchName + "\0");
         fixed (byte* patchNameBufferPtr = patchNameBuffer)
         {
             _Apply(patchNameBufferPtr);
@@ -26,7 +26,7 @@ internal static class NativePatches
 
     public unsafe static void Revert(string patchName)
     {
-        byte[] patchNameBuffer = Encoding.UTF8.GetBytes(patchName);
+        byte[] patchNameBuffer = Encoding.UTF8.GetBytes(patchName + "\0");
         fixed (byte* patchNameBufferPtr = patchNameBuffer)
         {
             _Revert(patchNameBufferPtr);
@@ -37,7 +37,7 @@ internal static class NativePatches
 
     public unsafe static bool Exists(string patchName)
     {
-        byte[] patchNameBuffer = Encoding.UTF8.GetBytes(patchName);
+        byte[] patchNameBuffer = Encoding.UTF8.GetBytes(patchName + "\0");
         fixed (byte* patchNameBufferPtr = patchNameBuffer)
         {
             var ret = _Exists(patchNameBufferPtr);

@@ -22,7 +22,7 @@ internal static class NativeSchema
 
     public unsafe static uint FindChainOffset(string className)
     {
-        byte[] classNameBuffer = Encoding.UTF8.GetBytes(className);
+        byte[] classNameBuffer = Encoding.UTF8.GetBytes(className + "\0");
         fixed (byte* classNameBufferPtr = classNameBuffer)
         {
             var ret = _FindChainOffset(classNameBufferPtr);
@@ -42,7 +42,7 @@ internal static class NativeSchema
 
     public unsafe static bool IsStruct(string className)
     {
-        byte[] classNameBuffer = Encoding.UTF8.GetBytes(className);
+        byte[] classNameBuffer = Encoding.UTF8.GetBytes(className + "\0");
         fixed (byte* classNameBufferPtr = classNameBuffer)
         {
             var ret = _IsStruct(classNameBufferPtr);
@@ -54,7 +54,7 @@ internal static class NativeSchema
 
     public unsafe static bool IsClassLoaded(string className)
     {
-        byte[] classNameBuffer = Encoding.UTF8.GetBytes(className);
+        byte[] classNameBuffer = Encoding.UTF8.GetBytes(className + "\0");
         fixed (byte* classNameBufferPtr = classNameBuffer)
         {
             var ret = _IsClassLoaded(classNameBufferPtr);

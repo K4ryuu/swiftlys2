@@ -31,7 +31,7 @@ internal static class NativeEngineHelpers
     /// </summary>
     public unsafe static bool IsMapValid(string map_name)
     {
-        byte[] map_nameBuffer = Encoding.UTF8.GetBytes(map_name);
+        byte[] map_nameBuffer = Encoding.UTF8.GetBytes(map_name + "\0");
         fixed (byte* map_nameBufferPtr = map_nameBuffer)
         {
             var ret = _IsMapValid(map_nameBufferPtr);
@@ -43,7 +43,7 @@ internal static class NativeEngineHelpers
 
     public unsafe static void ExecuteCommand(string command)
     {
-        byte[] commandBuffer = Encoding.UTF8.GetBytes(command);
+        byte[] commandBuffer = Encoding.UTF8.GetBytes(command + "\0");
         fixed (byte* commandBufferPtr = commandBuffer)
         {
             _ExecuteCommand(commandBufferPtr);
@@ -54,7 +54,7 @@ internal static class NativeEngineHelpers
 
     public unsafe static nint FindGameSystemByName(string name)
     {
-        byte[] nameBuffer = Encoding.UTF8.GetBytes(name);
+        byte[] nameBuffer = Encoding.UTF8.GetBytes(name + "\0");
         fixed (byte* nameBufferPtr = nameBuffer)
         {
             var ret = _FindGameSystemByName(nameBufferPtr);
@@ -66,7 +66,7 @@ internal static class NativeEngineHelpers
 
     public unsafe static void SendMessageToConsole(string msg)
     {
-        byte[] msgBuffer = Encoding.UTF8.GetBytes(msg);
+        byte[] msgBuffer = Encoding.UTF8.GetBytes(msg + "\0");
         fixed (byte* msgBufferPtr = msgBuffer)
         {
             _SendMessageToConsole(msgBufferPtr);

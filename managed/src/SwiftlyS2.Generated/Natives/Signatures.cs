@@ -15,7 +15,7 @@ internal static class NativeSignatures
 
     public unsafe static bool Exists(string signatureName)
     {
-        byte[] signatureNameBuffer = Encoding.UTF8.GetBytes(signatureName);
+        byte[] signatureNameBuffer = Encoding.UTF8.GetBytes(signatureName + "\0");
         fixed (byte* signatureNameBufferPtr = signatureNameBuffer)
         {
             var ret = _Exists(signatureNameBufferPtr);
@@ -27,7 +27,7 @@ internal static class NativeSignatures
 
     public unsafe static nint Fetch(string signatureName)
     {
-        byte[] signatureNameBuffer = Encoding.UTF8.GetBytes(signatureName);
+        byte[] signatureNameBuffer = Encoding.UTF8.GetBytes(signatureName + "\0");
         fixed (byte* signatureNameBufferPtr = signatureNameBuffer)
         {
             var ret = _Fetch(signatureNameBufferPtr);

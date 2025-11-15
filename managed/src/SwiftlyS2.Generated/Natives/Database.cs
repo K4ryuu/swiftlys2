@@ -41,7 +41,7 @@ internal static class NativeDatabase
 
     public unsafe static string GetCredentials(string connectionName)
     {
-        byte[] connectionNameBuffer = Encoding.UTF8.GetBytes(connectionName);
+        byte[] connectionNameBuffer = Encoding.UTF8.GetBytes(connectionName + "\0");
         fixed (byte* connectionNameBufferPtr = connectionNameBuffer)
         {
             var ret = _GetCredentials(null, connectionNameBufferPtr);
@@ -58,7 +58,7 @@ internal static class NativeDatabase
 
     public unsafe static bool ConnectionExists(string connectionName)
     {
-        byte[] connectionNameBuffer = Encoding.UTF8.GetBytes(connectionName);
+        byte[] connectionNameBuffer = Encoding.UTF8.GetBytes(connectionName + "\0");
         fixed (byte* connectionNameBufferPtr = connectionNameBuffer)
         {
             var ret = _ConnectionExists(connectionNameBufferPtr);

@@ -15,7 +15,7 @@ internal static class NativeCommandLine
 
     public unsafe static bool HasParameter(string parameter)
     {
-        byte[] parameterBuffer = Encoding.UTF8.GetBytes(parameter);
+        byte[] parameterBuffer = Encoding.UTF8.GetBytes(parameter + "\0");
         fixed (byte* parameterBufferPtr = parameterBuffer)
         {
             var ret = _HasParameter(parameterBufferPtr);
@@ -35,8 +35,8 @@ internal static class NativeCommandLine
 
     public unsafe static string GetParameterValueString(string parameter, string defaultValue)
     {
-        byte[] parameterBuffer = Encoding.UTF8.GetBytes(parameter);
-        byte[] defaultValueBuffer = Encoding.UTF8.GetBytes(defaultValue);
+        byte[] parameterBuffer = Encoding.UTF8.GetBytes(parameter + "\0");
+        byte[] defaultValueBuffer = Encoding.UTF8.GetBytes(defaultValue + "\0");
         fixed (byte* parameterBufferPtr = parameterBuffer)
         {
             fixed (byte* defaultValueBufferPtr = defaultValueBuffer)
@@ -56,7 +56,7 @@ internal static class NativeCommandLine
 
     public unsafe static int GetParameterValueInt(string parameter, int defaultValue)
     {
-        byte[] parameterBuffer = Encoding.UTF8.GetBytes(parameter);
+        byte[] parameterBuffer = Encoding.UTF8.GetBytes(parameter + "\0");
         fixed (byte* parameterBufferPtr = parameterBuffer)
         {
             var ret = _GetParameterValueInt(parameterBufferPtr, defaultValue);
@@ -68,7 +68,7 @@ internal static class NativeCommandLine
 
     public unsafe static float GetParameterValueFloat(string parameter, float defaultValue)
     {
-        byte[] parameterBuffer = Encoding.UTF8.GetBytes(parameter);
+        byte[] parameterBuffer = Encoding.UTF8.GetBytes(parameter + "\0");
         fixed (byte* parameterBufferPtr = parameterBuffer)
         {
             var ret = _GetParameterValueFloat(parameterBufferPtr, defaultValue);

@@ -39,7 +39,7 @@ internal static class NativePlayerManager
 
     public unsafe static void SendMessage(int kind, string message, int duration)
     {
-        byte[] messageBuffer = Encoding.UTF8.GetBytes(message);
+        byte[] messageBuffer = Encoding.UTF8.GetBytes(message + "\0");
         fixed (byte* messageBufferPtr = messageBuffer)
         {
             _SendMessage(kind, messageBufferPtr, duration);

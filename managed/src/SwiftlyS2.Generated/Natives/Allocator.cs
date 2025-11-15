@@ -23,8 +23,8 @@ internal static class NativeAllocator
 
     public unsafe static nint TrackedAlloc(ulong size, string identifier, string details)
     {
-        byte[] identifierBuffer = Encoding.UTF8.GetBytes(identifier);
-        byte[] detailsBuffer = Encoding.UTF8.GetBytes(details);
+        byte[] identifierBuffer = Encoding.UTF8.GetBytes(identifier + "\0");
+        byte[] detailsBuffer = Encoding.UTF8.GetBytes(details + "\0");
         fixed (byte* identifierBufferPtr = identifierBuffer)
         {
             fixed (byte* detailsBufferPtr = detailsBuffer)
@@ -73,7 +73,7 @@ internal static class NativeAllocator
 
     public unsafe static ulong GetAllocatedByTrackedIdentifier(string identifier)
     {
-        byte[] identifierBuffer = Encoding.UTF8.GetBytes(identifier);
+        byte[] identifierBuffer = Encoding.UTF8.GetBytes(identifier + "\0");
         fixed (byte* identifierBufferPtr = identifierBuffer)
         {
             var ret = _GetAllocatedByTrackedIdentifier(identifierBufferPtr);

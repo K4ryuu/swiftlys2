@@ -15,7 +15,7 @@ internal static class NativeOffsets
 
     public unsafe static bool Exists(string name)
     {
-        byte[] nameBuffer = Encoding.UTF8.GetBytes(name);
+        byte[] nameBuffer = Encoding.UTF8.GetBytes(name + "\0");
         fixed (byte* nameBufferPtr = nameBuffer)
         {
             var ret = _Exists(nameBufferPtr);
@@ -27,7 +27,7 @@ internal static class NativeOffsets
 
     public unsafe static int Fetch(string name)
     {
-        byte[] nameBuffer = Encoding.UTF8.GetBytes(name);
+        byte[] nameBuffer = Encoding.UTF8.GetBytes(name + "\0");
         fixed (byte* nameBufferPtr = nameBuffer)
         {
             var ret = _Fetch(nameBufferPtr);

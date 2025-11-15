@@ -15,7 +15,7 @@ internal static class NativePlayer
 
     public unsafe static void SendMessage(int playerid, int kind, string message, int htmlDuration)
     {
-        byte[] messageBuffer = Encoding.UTF8.GetBytes(message);
+        byte[] messageBuffer = Encoding.UTF8.GetBytes(message + "\0");
         fixed (byte* messageBufferPtr = messageBuffer)
         {
             _SendMessage(playerid, kind, messageBufferPtr, htmlDuration);
@@ -98,7 +98,7 @@ internal static class NativePlayer
 
     public unsafe static void PerformCommand(int playerid, string command)
     {
-        byte[] commandBuffer = Encoding.UTF8.GetBytes(command);
+        byte[] commandBuffer = Encoding.UTF8.GetBytes(command + "\0");
         fixed (byte* commandBufferPtr = commandBuffer)
         {
             _PerformCommand(playerid, commandBufferPtr);
@@ -122,7 +122,7 @@ internal static class NativePlayer
 
     public unsafe static void Kick(int playerid, string reason, int gamereason)
     {
-        byte[] reasonBuffer = Encoding.UTF8.GetBytes(reason);
+        byte[] reasonBuffer = Encoding.UTF8.GetBytes(reason + "\0");
         fixed (byte* reasonBufferPtr = reasonBuffer)
         {
             _Kick(playerid, reasonBufferPtr, gamereason);
@@ -196,7 +196,7 @@ internal static class NativePlayer
 
     public unsafe static void SetCenterMenuRender(int playerid, string text)
     {
-        byte[] textBuffer = Encoding.UTF8.GetBytes(text);
+        byte[] textBuffer = Encoding.UTF8.GetBytes(text + "\0");
         fixed (byte* textBufferPtr = textBuffer)
         {
             _SetCenterMenuRender(playerid, textBufferPtr);
@@ -222,7 +222,7 @@ internal static class NativePlayer
 
     public unsafe static void ExecuteCommand(int playerid, string command)
     {
-        byte[] commandBuffer = Encoding.UTF8.GetBytes(command);
+        byte[] commandBuffer = Encoding.UTF8.GetBytes(command + "\0");
         fixed (byte* commandBufferPtr = commandBuffer)
         {
             _ExecuteCommand(playerid, commandBufferPtr);

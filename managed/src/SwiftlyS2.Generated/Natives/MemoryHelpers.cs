@@ -18,7 +18,7 @@ internal static class NativeMemoryHelpers
     /// </summary>
     public unsafe static nint FetchInterfaceByName(string ifaceName)
     {
-        byte[] ifaceNameBuffer = Encoding.UTF8.GetBytes(ifaceName);
+        byte[] ifaceNameBuffer = Encoding.UTF8.GetBytes(ifaceName + "\0");
         fixed (byte* ifaceNameBufferPtr = ifaceNameBuffer)
         {
             var ret = _FetchInterfaceByName(ifaceNameBufferPtr);
@@ -30,8 +30,8 @@ internal static class NativeMemoryHelpers
 
     public unsafe static nint GetVirtualTableAddress(string library, string vtableName)
     {
-        byte[] libraryBuffer = Encoding.UTF8.GetBytes(library);
-        byte[] vtableNameBuffer = Encoding.UTF8.GetBytes(vtableName);
+        byte[] libraryBuffer = Encoding.UTF8.GetBytes(library + "\0");
+        byte[] vtableNameBuffer = Encoding.UTF8.GetBytes(vtableName + "\0");
         fixed (byte* libraryBufferPtr = libraryBuffer)
         {
             fixed (byte* vtableNameBufferPtr = vtableNameBuffer)
@@ -46,8 +46,8 @@ internal static class NativeMemoryHelpers
 
     public unsafe static nint GetAddressBySignature(string library, string sig, int len, bool rawBytes)
     {
-        byte[] libraryBuffer = Encoding.UTF8.GetBytes(library);
-        byte[] sigBuffer = Encoding.UTF8.GetBytes(sig);
+        byte[] libraryBuffer = Encoding.UTF8.GetBytes(library + "\0");
+        byte[] sigBuffer = Encoding.UTF8.GetBytes(sig + "\0");
         fixed (byte* libraryBufferPtr = libraryBuffer)
         {
             fixed (byte* sigBufferPtr = sigBuffer)
@@ -83,7 +83,7 @@ internal static class NativeMemoryHelpers
 
     public unsafe static bool ObjectPtrHasBaseClass(nint objptr, string baseClassName)
     {
-        byte[] baseClassNameBuffer = Encoding.UTF8.GetBytes(baseClassName);
+        byte[] baseClassNameBuffer = Encoding.UTF8.GetBytes(baseClassName + "\0");
         fixed (byte* baseClassNameBufferPtr = baseClassNameBuffer)
         {
             var ret = _ObjectPtrHasBaseClass(objptr, baseClassNameBufferPtr);

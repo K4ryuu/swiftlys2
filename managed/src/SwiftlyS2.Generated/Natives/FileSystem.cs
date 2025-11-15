@@ -15,7 +15,7 @@ internal static class NativeFileSystem
 
     public unsafe static string GetSearchPath(string pathId, int searchPathType, int searchPathsToGet)
     {
-        byte[] pathIdBuffer = Encoding.UTF8.GetBytes(pathId);
+        byte[] pathIdBuffer = Encoding.UTF8.GetBytes(pathId + "\0");
         fixed (byte* pathIdBufferPtr = pathIdBuffer)
         {
             var ret = _GetSearchPath(null, pathIdBufferPtr, searchPathType, searchPathsToGet);
@@ -32,8 +32,8 @@ internal static class NativeFileSystem
 
     public unsafe static void AddSearchPath(string path, string pathId, int searchPathAdd, int searchPathPriority)
     {
-        byte[] pathBuffer = Encoding.UTF8.GetBytes(path);
-        byte[] pathIdBuffer = Encoding.UTF8.GetBytes(pathId);
+        byte[] pathBuffer = Encoding.UTF8.GetBytes(path + "\0");
+        byte[] pathIdBuffer = Encoding.UTF8.GetBytes(pathId + "\0");
         fixed (byte* pathBufferPtr = pathBuffer)
         {
             fixed (byte* pathIdBufferPtr = pathIdBuffer)
@@ -47,8 +47,8 @@ internal static class NativeFileSystem
 
     public unsafe static bool RemoveSearchPath(string path, string pathId)
     {
-        byte[] pathBuffer = Encoding.UTF8.GetBytes(path);
-        byte[] pathIdBuffer = Encoding.UTF8.GetBytes(pathId);
+        byte[] pathBuffer = Encoding.UTF8.GetBytes(path + "\0");
+        byte[] pathIdBuffer = Encoding.UTF8.GetBytes(pathId + "\0");
         fixed (byte* pathBufferPtr = pathBuffer)
         {
             fixed (byte* pathIdBufferPtr = pathIdBuffer)
@@ -63,8 +63,8 @@ internal static class NativeFileSystem
 
     public unsafe static bool FileExists(string fileName, string pathId)
     {
-        byte[] fileNameBuffer = Encoding.UTF8.GetBytes(fileName);
-        byte[] pathIdBuffer = Encoding.UTF8.GetBytes(pathId);
+        byte[] fileNameBuffer = Encoding.UTF8.GetBytes(fileName + "\0");
+        byte[] pathIdBuffer = Encoding.UTF8.GetBytes(pathId + "\0");
         fixed (byte* fileNameBufferPtr = fileNameBuffer)
         {
             fixed (byte* pathIdBufferPtr = pathIdBuffer)
@@ -79,8 +79,8 @@ internal static class NativeFileSystem
 
     public unsafe static bool IsDirectory(string path, string pathId)
     {
-        byte[] pathBuffer = Encoding.UTF8.GetBytes(path);
-        byte[] pathIdBuffer = Encoding.UTF8.GetBytes(pathId);
+        byte[] pathBuffer = Encoding.UTF8.GetBytes(path + "\0");
+        byte[] pathIdBuffer = Encoding.UTF8.GetBytes(pathId + "\0");
         fixed (byte* pathBufferPtr = pathBuffer)
         {
             fixed (byte* pathIdBufferPtr = pathIdBuffer)
@@ -102,8 +102,8 @@ internal static class NativeFileSystem
 
     public unsafe static string ReadFile(string fileName, string pathId)
     {
-        byte[] fileNameBuffer = Encoding.UTF8.GetBytes(fileName);
-        byte[] pathIdBuffer = Encoding.UTF8.GetBytes(pathId);
+        byte[] fileNameBuffer = Encoding.UTF8.GetBytes(fileName + "\0");
+        byte[] pathIdBuffer = Encoding.UTF8.GetBytes(pathId + "\0");
         fixed (byte* fileNameBufferPtr = fileNameBuffer)
         {
             fixed (byte* pathIdBufferPtr = pathIdBuffer)
@@ -123,9 +123,9 @@ internal static class NativeFileSystem
 
     public unsafe static bool WriteFile(string fileName, string pathId, string content)
     {
-        byte[] fileNameBuffer = Encoding.UTF8.GetBytes(fileName);
-        byte[] pathIdBuffer = Encoding.UTF8.GetBytes(pathId);
-        byte[] contentBuffer = Encoding.UTF8.GetBytes(content);
+        byte[] fileNameBuffer = Encoding.UTF8.GetBytes(fileName + "\0");
+        byte[] pathIdBuffer = Encoding.UTF8.GetBytes(pathId + "\0");
+        byte[] contentBuffer = Encoding.UTF8.GetBytes(content + "\0");
         fixed (byte* fileNameBufferPtr = fileNameBuffer)
         {
             fixed (byte* pathIdBufferPtr = pathIdBuffer)
@@ -143,8 +143,8 @@ internal static class NativeFileSystem
 
     public unsafe static uint GetFileSize(string fileName, string pathId)
     {
-        byte[] fileNameBuffer = Encoding.UTF8.GetBytes(fileName);
-        byte[] pathIdBuffer = Encoding.UTF8.GetBytes(pathId);
+        byte[] fileNameBuffer = Encoding.UTF8.GetBytes(fileName + "\0");
+        byte[] pathIdBuffer = Encoding.UTF8.GetBytes(pathId + "\0");
         fixed (byte* fileNameBufferPtr = fileNameBuffer)
         {
             fixed (byte* pathIdBufferPtr = pathIdBuffer)
@@ -159,8 +159,8 @@ internal static class NativeFileSystem
 
     public unsafe static bool PrecacheFile(string fileName, string pathId)
     {
-        byte[] fileNameBuffer = Encoding.UTF8.GetBytes(fileName);
-        byte[] pathIdBuffer = Encoding.UTF8.GetBytes(pathId);
+        byte[] fileNameBuffer = Encoding.UTF8.GetBytes(fileName + "\0");
+        byte[] pathIdBuffer = Encoding.UTF8.GetBytes(pathId + "\0");
         fixed (byte* fileNameBufferPtr = fileNameBuffer)
         {
             fixed (byte* pathIdBufferPtr = pathIdBuffer)
@@ -175,8 +175,8 @@ internal static class NativeFileSystem
 
     public unsafe static bool IsFileWritable(string fileName, string pathId)
     {
-        byte[] fileNameBuffer = Encoding.UTF8.GetBytes(fileName);
-        byte[] pathIdBuffer = Encoding.UTF8.GetBytes(pathId);
+        byte[] fileNameBuffer = Encoding.UTF8.GetBytes(fileName + "\0");
+        byte[] pathIdBuffer = Encoding.UTF8.GetBytes(pathId + "\0");
         fixed (byte* fileNameBufferPtr = fileNameBuffer)
         {
             fixed (byte* pathIdBufferPtr = pathIdBuffer)
@@ -191,8 +191,8 @@ internal static class NativeFileSystem
 
     public unsafe static bool SetFileWritable(string fileName, string pathId, bool writable)
     {
-        byte[] fileNameBuffer = Encoding.UTF8.GetBytes(fileName);
-        byte[] pathIdBuffer = Encoding.UTF8.GetBytes(pathId);
+        byte[] fileNameBuffer = Encoding.UTF8.GetBytes(fileName + "\0");
+        byte[] pathIdBuffer = Encoding.UTF8.GetBytes(pathId + "\0");
         fixed (byte* fileNameBufferPtr = fileNameBuffer)
         {
             fixed (byte* pathIdBufferPtr = pathIdBuffer)

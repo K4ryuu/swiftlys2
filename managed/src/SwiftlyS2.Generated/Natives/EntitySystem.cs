@@ -29,7 +29,7 @@ internal static class NativeEntitySystem
 
     public unsafe static nint CreateEntityByName(string name)
     {
-        byte[] nameBuffer = Encoding.UTF8.GetBytes(name);
+        byte[] nameBuffer = Encoding.UTF8.GetBytes(name + "\0");
         fixed (byte* nameBufferPtr = nameBuffer)
         {
             var ret = _CreateEntityByName(nameBufferPtr);
@@ -41,7 +41,7 @@ internal static class NativeEntitySystem
 
     public unsafe static void AcceptInputInt32(nint entity, string input, nint activator, nint caller, int value, int outputID)
     {
-        byte[] inputBuffer = Encoding.UTF8.GetBytes(input);
+        byte[] inputBuffer = Encoding.UTF8.GetBytes(input + "\0");
         fixed (byte* inputBufferPtr = inputBuffer)
         {
             _AcceptInputInt32(entity, inputBufferPtr, activator, caller, value, outputID);
@@ -52,7 +52,7 @@ internal static class NativeEntitySystem
 
     public unsafe static void AcceptInputUInt32(nint entity, string input, nint activator, nint caller, uint value, int outputID)
     {
-        byte[] inputBuffer = Encoding.UTF8.GetBytes(input);
+        byte[] inputBuffer = Encoding.UTF8.GetBytes(input + "\0");
         fixed (byte* inputBufferPtr = inputBuffer)
         {
             _AcceptInputUInt32(entity, inputBufferPtr, activator, caller, value, outputID);
@@ -63,7 +63,7 @@ internal static class NativeEntitySystem
 
     public unsafe static void AcceptInputInt64(nint entity, string input, nint activator, nint caller, long value, int outputID)
     {
-        byte[] inputBuffer = Encoding.UTF8.GetBytes(input);
+        byte[] inputBuffer = Encoding.UTF8.GetBytes(input + "\0");
         fixed (byte* inputBufferPtr = inputBuffer)
         {
             _AcceptInputInt64(entity, inputBufferPtr, activator, caller, value, outputID);
@@ -74,7 +74,7 @@ internal static class NativeEntitySystem
 
     public unsafe static void AcceptInputUInt64(nint entity, string input, nint activator, nint caller, ulong value, int outputID)
     {
-        byte[] inputBuffer = Encoding.UTF8.GetBytes(input);
+        byte[] inputBuffer = Encoding.UTF8.GetBytes(input + "\0");
         fixed (byte* inputBufferPtr = inputBuffer)
         {
             _AcceptInputUInt64(entity, inputBufferPtr, activator, caller, value, outputID);
@@ -85,7 +85,7 @@ internal static class NativeEntitySystem
 
     public unsafe static void AcceptInputFloat(nint entity, string input, nint activator, nint caller, float value, int outputID)
     {
-        byte[] inputBuffer = Encoding.UTF8.GetBytes(input);
+        byte[] inputBuffer = Encoding.UTF8.GetBytes(input + "\0");
         fixed (byte* inputBufferPtr = inputBuffer)
         {
             _AcceptInputFloat(entity, inputBufferPtr, activator, caller, value, outputID);
@@ -96,7 +96,7 @@ internal static class NativeEntitySystem
 
     public unsafe static void AcceptInputDouble(nint entity, string input, nint activator, nint caller, double value, int outputID)
     {
-        byte[] inputBuffer = Encoding.UTF8.GetBytes(input);
+        byte[] inputBuffer = Encoding.UTF8.GetBytes(input + "\0");
         fixed (byte* inputBufferPtr = inputBuffer)
         {
             _AcceptInputDouble(entity, inputBufferPtr, activator, caller, value, outputID);
@@ -107,7 +107,7 @@ internal static class NativeEntitySystem
 
     public unsafe static void AcceptInputBool(nint entity, string input, nint activator, nint caller, bool value, int outputID)
     {
-        byte[] inputBuffer = Encoding.UTF8.GetBytes(input);
+        byte[] inputBuffer = Encoding.UTF8.GetBytes(input + "\0");
         fixed (byte* inputBufferPtr = inputBuffer)
         {
             _AcceptInputBool(entity, inputBufferPtr, activator, caller, value ? (byte)1 : (byte)0, outputID);
@@ -118,8 +118,8 @@ internal static class NativeEntitySystem
 
     public unsafe static void AcceptInputString(nint entity, string input, nint activator, nint caller, string value, int outputID)
     {
-        byte[] inputBuffer = Encoding.UTF8.GetBytes(input);
-        byte[] valueBuffer = Encoding.UTF8.GetBytes(value);
+        byte[] inputBuffer = Encoding.UTF8.GetBytes(input + "\0");
+        byte[] valueBuffer = Encoding.UTF8.GetBytes(value + "\0");
         fixed (byte* inputBufferPtr = inputBuffer)
         {
             fixed (byte* valueBufferPtr = valueBuffer)
@@ -133,7 +133,7 @@ internal static class NativeEntitySystem
 
     public unsafe static void AddEntityIOEventInt32(nint entity, string input, nint activator, nint caller, int value, float delay)
     {
-        byte[] inputBuffer = Encoding.UTF8.GetBytes(input);
+        byte[] inputBuffer = Encoding.UTF8.GetBytes(input + "\0");
         fixed (byte* inputBufferPtr = inputBuffer)
         {
             _AddEntityIOEventInt32(entity, inputBufferPtr, activator, caller, value, delay);
@@ -144,7 +144,7 @@ internal static class NativeEntitySystem
 
     public unsafe static void AddEntityIOEventUInt32(nint entity, string input, nint activator, nint caller, uint value, float delay)
     {
-        byte[] inputBuffer = Encoding.UTF8.GetBytes(input);
+        byte[] inputBuffer = Encoding.UTF8.GetBytes(input + "\0");
         fixed (byte* inputBufferPtr = inputBuffer)
         {
             _AddEntityIOEventUInt32(entity, inputBufferPtr, activator, caller, value, delay);
@@ -155,7 +155,7 @@ internal static class NativeEntitySystem
 
     public unsafe static void AddEntityIOEventInt64(nint entity, string input, nint activator, nint caller, long value, float delay)
     {
-        byte[] inputBuffer = Encoding.UTF8.GetBytes(input);
+        byte[] inputBuffer = Encoding.UTF8.GetBytes(input + "\0");
         fixed (byte* inputBufferPtr = inputBuffer)
         {
             _AddEntityIOEventInt64(entity, inputBufferPtr, activator, caller, value, delay);
@@ -166,7 +166,7 @@ internal static class NativeEntitySystem
 
     public unsafe static void AddEntityIOEventUInt64(nint entity, string input, nint activator, nint caller, ulong value, float delay)
     {
-        byte[] inputBuffer = Encoding.UTF8.GetBytes(input);
+        byte[] inputBuffer = Encoding.UTF8.GetBytes(input + "\0");
         fixed (byte* inputBufferPtr = inputBuffer)
         {
             _AddEntityIOEventUInt64(entity, inputBufferPtr, activator, caller, value, delay);
@@ -177,7 +177,7 @@ internal static class NativeEntitySystem
 
     public unsafe static void AddEntityIOEventFloat(nint entity, string input, nint activator, nint caller, float value, float delay)
     {
-        byte[] inputBuffer = Encoding.UTF8.GetBytes(input);
+        byte[] inputBuffer = Encoding.UTF8.GetBytes(input + "\0");
         fixed (byte* inputBufferPtr = inputBuffer)
         {
             _AddEntityIOEventFloat(entity, inputBufferPtr, activator, caller, value, delay);
@@ -188,7 +188,7 @@ internal static class NativeEntitySystem
 
     public unsafe static void AddEntityIOEventDouble(nint entity, string input, nint activator, nint caller, double value, float delay)
     {
-        byte[] inputBuffer = Encoding.UTF8.GetBytes(input);
+        byte[] inputBuffer = Encoding.UTF8.GetBytes(input + "\0");
         fixed (byte* inputBufferPtr = inputBuffer)
         {
             _AddEntityIOEventDouble(entity, inputBufferPtr, activator, caller, value, delay);
@@ -199,7 +199,7 @@ internal static class NativeEntitySystem
 
     public unsafe static void AddEntityIOEventBool(nint entity, string input, nint activator, nint caller, bool value, float delay)
     {
-        byte[] inputBuffer = Encoding.UTF8.GetBytes(input);
+        byte[] inputBuffer = Encoding.UTF8.GetBytes(input + "\0");
         fixed (byte* inputBufferPtr = inputBuffer)
         {
             _AddEntityIOEventBool(entity, inputBufferPtr, activator, caller, value ? (byte)1 : (byte)0, delay);
@@ -210,8 +210,8 @@ internal static class NativeEntitySystem
 
     public unsafe static void AddEntityIOEventString(nint entity, string input, nint activator, nint caller, string value, float delay)
     {
-        byte[] inputBuffer = Encoding.UTF8.GetBytes(input);
-        byte[] valueBuffer = Encoding.UTF8.GetBytes(value);
+        byte[] inputBuffer = Encoding.UTF8.GetBytes(input + "\0");
+        byte[] valueBuffer = Encoding.UTF8.GetBytes(value + "\0");
         fixed (byte* inputBufferPtr = inputBuffer)
         {
             fixed (byte* valueBufferPtr = valueBuffer)
@@ -284,8 +284,8 @@ internal static class NativeEntitySystem
     /// </summary>
     public unsafe static ulong HookEntityOutput(string className, string outputName, nint callback)
     {
-        byte[] classNameBuffer = Encoding.UTF8.GetBytes(className);
-        byte[] outputNameBuffer = Encoding.UTF8.GetBytes(outputName);
+        byte[] classNameBuffer = Encoding.UTF8.GetBytes(className + "\0");
+        byte[] outputNameBuffer = Encoding.UTF8.GetBytes(outputName + "\0");
         fixed (byte* classNameBufferPtr = classNameBuffer)
         {
             fixed (byte* outputNameBufferPtr = outputNameBuffer)

@@ -67,7 +67,7 @@ internal static class NativeConsoleOutput
     /// </summary>
     public unsafe static bool NeedsFiltering(string text)
     {
-        byte[] textBuffer = Encoding.UTF8.GetBytes(text);
+        byte[] textBuffer = Encoding.UTF8.GetBytes(text + "\0");
         fixed (byte* textBufferPtr = textBuffer)
         {
             var ret = _NeedsFiltering(textBufferPtr);
