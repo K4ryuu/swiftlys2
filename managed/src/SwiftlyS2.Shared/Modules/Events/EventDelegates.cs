@@ -145,4 +145,9 @@ public class EventDelegates
   /// Called when a command is executed.
   /// </summary>
   public delegate void OnCommandExecuteHook( IOnCommandExecuteHookEvent @event );
+
+  /// <summary>
+  /// Called when the movement services run command hook is triggered.
+  /// </summary>
+  public delegate void OnMovementServicesRunCommandHook( IOnMovementServicesRunCommandHookEvent @event );
 }

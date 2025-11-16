@@ -145,4 +145,9 @@ public interface IEventSubscriber
   /// Called when an entity ends touching another entity.
   /// </summary>
   public event EventDelegates.OnEntityEndTouch? OnEntityEndTouch;
+
+  /// <summary>
+  /// Called when the movement services run command hook is triggered.
+  /// </summary>
+  public event EventDelegates.OnMovementServicesRunCommandHook? OnMovementServicesRunCommandHook;
 }

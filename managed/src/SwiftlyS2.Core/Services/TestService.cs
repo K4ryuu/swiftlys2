@@ -12,6 +12,7 @@ using SwiftlyS2.Core.ProtobufDefinitions;
 using SwiftlyS2.Core.SchemaDefinitions;
 using SwiftlyS2.Shared;
 using SwiftlyS2.Shared.Convars;
+using SwiftlyS2.Shared.Events;
 using SwiftlyS2.Shared.GameEventDefinitions;
 using SwiftlyS2.Shared.GameEvents;
 using SwiftlyS2.Shared.Misc;
@@ -47,7 +48,7 @@ internal class TestService {
     _Logger.LogWarning("TestService created");
     _Logger.LogWarning("TestService created");
 
-    Test();
+    Test2();
   }
 
 
@@ -61,6 +62,20 @@ internal class TestService {
       Console.WriteLine("Has vtable: " + hasVtable);
       var vtable = _Core.Memory.ObjectPtrHasBaseClass(@event.Entity.Address, "CBaseEntity");
       Console.WriteLine("Has base class: " + vtable);
+      var handle = _Core.EntitySystem.GetRefEHandle(@event.Entity);
+    };
+    // _Core.Event.OnItemServicesCanAcquireHook += (@event) => {
+    //   Console.WriteLine(@event.EconItemView.ItemDefinitionIndex);
+
+    //   @event.SetAcquireResult(AcquireResult.NotAllowedByProhibition);
+    // };
+
+
+  }
+  public void Test2()
+  {
+    _Core.Event.OnMovementServicesRunCommandHook += (@event) => {
+
     };
     // _Core.Event.OnItemServicesCanAcquireHook += (@event) => {
     //   Console.WriteLine(@event.EconItemView.ItemDefinitionIndex);

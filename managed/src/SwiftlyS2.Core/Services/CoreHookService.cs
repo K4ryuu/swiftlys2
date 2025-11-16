@@ -12,6 +12,7 @@ using SwiftlyS2.Shared.SchemaDefinitions;
 using SwiftlyS2.Shared.Natives;
 using SwiftlyS2.Core.SchemaDefinitions;
 using SwiftlyS2.Shared.SteamAPI;
+using SwiftlyS2.Core.ProtobufDefinitions;
 
 namespace SwiftlyS2.Core.Services;
 
@@ -31,6 +32,7 @@ internal class CoreHookService : IDisposable
     HookICVarFindConCommand();
     HookCCSPlayer_WeaponServices_CanUse();
     HookSteamServerAPIActivated();
+    HookCPlayer_MovementServices_RunCommand();
   }
 
   private delegate int CanAcquireDelegate( nint pItemServices, nint pEconItemView, nint acquireMethod, nint unk1 );
@@ -63,6 +65,7 @@ internal class CoreHookService : IDisposable
   private delegate byte CCSPlayer_WeaponServices_CanUse( nint pWeaponServices, nint pBasePlayerWeapon );
   private delegate nint CBaseEntity_Touch_Template( nint pBaseEntity, nint pOtherEntity );
   private delegate void SteamServerAPIActivated( nint pServer );
+  private delegate nint CPlayer_MovementServices_RunCommandDelegate( nint pMovementServices, nint pUserCmd );
 
   private IUnmanagedFunction<ExecuteCommandDelegate>? _ExecuteCommand;
   private Guid _ExecuteCommandGuid;
@@ -78,6 +81,8 @@ internal class CoreHookService : IDisposable
   private Guid _CBaseEntity_EndTouchGuid;
   private IUnmanagedFunction<SteamServerAPIActivated>? _SteamServerAPIActivated;
   private Guid _SteamServerAPIActivatedGuid;
+  private IUnmanagedFunction<CPlayer_MovementServices_RunCommandDelegate>? _CPlayer_MovementServices_RunCommand;
+  private Guid _CPlayer_MovementServices_RunCommandGuid;
 
   private void HookSteamServerAPIActivated()
   {
@@ -343,6 +348,42 @@ internal class CoreHookService : IDisposable
     }
   }
 
+
+  private void HookCPlayer_MovementServices_RunCommand()
+  {
+    var offset = _Core.GameData.GetOffset("CPlayer_MovementServices::RunCommand");
+    var pVtable = _Core.Memory.GetVTableAddress(Library.Server, "CPlayer_MovementServices");
+    if (pVtable == null)
+    {
+      _Logger.LogError("Failed to get CPlayer_MovementServices vtable.");
+      return;
+    }
+    _CPlayer_MovementServices_RunCommand = _Core.Memory.GetUnmanagedFunctionByVTable<CPlayer_MovementServices_RunCommandDelegate>(pVtable!.Value, offset);
+    _Logger.LogInformation("Hooking CPlayer_MovementServices::RunCommand at {Address}", _CPlayer_MovementServices_RunCommand.Address);
+    _CPlayer_MovementServices_RunCommandGuid = _CPlayer_MovementServices_RunCommand.AddHook(( next ) =>
+    {
+      return ( pMovementServices, pUserCmd ) =>
+      {
+
+        var movementService = new CCSPlayer_MovementServicesImpl(pMovementServices);
+
+        var userCmdPb = new CSGOUserCmdPBImpl(pUserCmd + 0x10, false);
+
+        var buttonState = new CInButtonStateImpl(pUserCmd + 0x58);
+
+        var @event = new OnMovementServicesRunCommandHookEvent {
+          MovementServices = movementService,
+          ButtonState = buttonState,
+          UserCmdPB = userCmdPb
+        };
+        EventPublisher.InvokeOnMovementServicesRunCommandHook(@event);
+
+        var result = next()(pMovementServices, pUserCmd);
+        return result;
+      };
+    });
+  }
+
   public void Dispose()
   {
     _CanAcquire!.RemoveHook(_CanAcquireGuid);
@@ -354,5 +395,6 @@ internal class CoreHookService : IDisposable
     _CBaseEntity_Touch!.RemoveHook(_CBaseEntity_TouchGuid);
     _CBaseEntity_EndTouch!.RemoveHook(_CBaseEntity_EndTouchGuid);
     _SteamServerAPIActivated?.RemoveHook(_SteamServerAPIActivatedGuid);
+    _CPlayer_MovementServices_RunCommand?.RemoveHook(_CPlayer_MovementServices_RunCommandGuid);
   }
 }
