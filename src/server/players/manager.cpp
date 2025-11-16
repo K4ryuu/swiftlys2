@@ -275,12 +275,21 @@ bool ClientConnectHook(void* _this, CPlayerSlot slot, const char* pszName, uint6
     static auto playermanager = g_ifaceService.FetchInterface<IPlayerManager>(PLAYERMANAGER_INTERFACE_VERSION);
     auto playerid = slot.Get();
     auto player = playermanager->RegisterPlayer(playerid);
-    player->Initialize(playerid);
+    // player->Initialize(playerid);
+    if (!player)
+    {
+        return false;
+    }
+
     player->SetUnauthorizedSteamID(xuid);
 
     if (g_pOnClientConnectCallback)
+    {
         if (reinterpret_cast<bool (*)(int)>(g_pOnClientConnectCallback)(playerid) == false)
+        {
             return false;
+        }
+    }
 
     return reinterpret_cast<decltype(&ClientConnectHook)>(g_pClientConnectHook->GetOriginal())(_this, slot, pszName, xuid, pszNetworkID, unk1, pRejectReason);
 }
@@ -291,8 +300,8 @@ void OnClientConnectedHook(void* _this, CPlayerSlot slot, const char* pszName, u
     auto playerid = slot.Get();
     if (bFakePlayer)
     {
-        auto player = playermanager->RegisterPlayer(playerid);
-        player->Initialize(playerid);
+        playermanager->RegisterPlayer(playerid);
+        // player->Initialize(playerid);
     }
     else
     {
