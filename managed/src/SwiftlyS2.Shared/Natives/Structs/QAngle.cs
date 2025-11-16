@@ -1,4 +1,3 @@
-using System.Numerics;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
@@ -71,5 +70,32 @@ public struct QAngle
 
   [MethodImpl(MethodImplOptions.AggressiveInlining)]
   public static bool operator !=(QAngle a, QAngle b) => a.Pitch != b.Pitch || a.Yaw != b.Yaw || a.Roll != b.Roll;
+
+  private const float Deg2Rad = MathF.PI / 180.0f;
+
+  /// <summary>
+  /// Calculates forward, right, and up basis vectors that correspond to this angle.
+  /// Usage: <c>angle.ToDirectionVectors(out var forward, out var right, out var up);</c>
+  /// </summary>
+  /// <param name="forward">Forward direction (X: north, Z: up).</param>
+  /// <param name="right">Right direction.</param>
+  /// <param name="up">Up direction.</param>
+  public void ToDirectionVectors(out Vector forward, out Vector right, out Vector up)
+  {
+    var yawRad = Yaw * Deg2Rad;
+    var pitchRad = Pitch * Deg2Rad;
+    var rollRad = Roll * Deg2Rad;
+
+    var sy = MathF.Sin(yawRad);
+    var cy = MathF.Cos(yawRad);
+    var sp = MathF.Sin(pitchRad);
+    var cp = MathF.Cos(pitchRad);
+    var sr = MathF.Sin(rollRad);
+    var cr = MathF.Cos(rollRad);
+
+    forward = new Vector(cp * cy, cp * sy, -sp);
+    right = new Vector(-sr * sp * cy + cr * sy, -sr * sp * sy - cr * cy, -sr * cp);
+    up = new Vector(cr * sp * cy + sr * sy, cr * sp * sy - sr * cy, cr * cp);
+  }
 
 }
