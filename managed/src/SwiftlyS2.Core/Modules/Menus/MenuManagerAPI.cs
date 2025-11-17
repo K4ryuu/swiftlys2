@@ -145,7 +145,7 @@ internal sealed class MenuManagerAPI : IMenuManagerAPI
                 if (menu.Configuration.PlaySound)
                 {
                     scrollSound.Recipients.AddRecipient(@event.PlayerId);
-                    scrollSound.Emit();
+                    _ = scrollSound.Emit();
                     scrollSound.Recipients.RemoveRecipient(@event.PlayerId);
                 }
             }
@@ -156,7 +156,7 @@ internal sealed class MenuManagerAPI : IMenuManagerAPI
                 if (menu.Configuration.PlaySound)
                 {
                     scrollSound.Recipients.AddRecipient(@event.PlayerId);
-                    scrollSound.Emit();
+                    _ = scrollSound.Emit();
                     scrollSound.Recipients.RemoveRecipient(@event.PlayerId);
                 }
             }
@@ -167,7 +167,7 @@ internal sealed class MenuManagerAPI : IMenuManagerAPI
                 if (menu.Configuration.PlaySound)
                 {
                     exitSound.Recipients.AddRecipient(@event.PlayerId);
-                    exitSound.Emit();
+                    _ = exitSound.Emit();
                     exitSound.Recipients.RemoveRecipient(@event.PlayerId);
                 }
             }
@@ -181,7 +181,7 @@ internal sealed class MenuManagerAPI : IMenuManagerAPI
                     if (menu.Configuration.PlaySound && option.PlaySound)
                     {
                         useSound.Recipients.AddRecipient(@event.PlayerId);
-                        useSound.Emit();
+                        _ = useSound.Emit();
                         useSound.Recipients.RemoveRecipient(@event.PlayerId);
                     }
                 }
@@ -196,7 +196,7 @@ internal sealed class MenuManagerAPI : IMenuManagerAPI
                 if (menu.Configuration.PlaySound)
                 {
                     scrollSound.Recipients.AddRecipient(@event.PlayerId);
-                    scrollSound.Emit();
+                    _ = scrollSound.Emit();
                     scrollSound.Recipients.RemoveRecipient(@event.PlayerId);
                 }
             }
@@ -207,7 +207,7 @@ internal sealed class MenuManagerAPI : IMenuManagerAPI
                 if (menu.Configuration.PlaySound)
                 {
                     scrollSound.Recipients.AddRecipient(@event.PlayerId);
-                    scrollSound.Emit();
+                    _ = scrollSound.Emit();
                     scrollSound.Recipients.RemoveRecipient(@event.PlayerId);
                 }
             }
@@ -217,7 +217,7 @@ internal sealed class MenuManagerAPI : IMenuManagerAPI
                 if (menu.Configuration.PlaySound)
                 {
                     exitSound.Recipients.AddRecipient(@event.PlayerId);
-                    exitSound.Emit();
+                    _ = exitSound.Emit();
                     exitSound.Recipients.RemoveRecipient(@event.PlayerId);
                 }
             }
@@ -231,7 +231,7 @@ internal sealed class MenuManagerAPI : IMenuManagerAPI
                     if (menu.Configuration.PlaySound && option.PlaySound)
                     {
                         useSound.Recipients.AddRecipient(@event.PlayerId);
-                        useSound.Emit();
+                        _ = useSound.Emit();
                         useSound.Recipients.RemoveRecipient(@event.PlayerId);
                     }
                 }
@@ -335,6 +335,10 @@ internal sealed class MenuManagerAPI : IMenuManagerAPI
                 _ = onClosedCallbacks.TryRemove((player, currentMenu), out var callback);
                 CloseMenuForPlayerInternal(player, currentMenu, false);
                 _ = onClosedCallbacks.AddOrUpdate((player, currentMenu), callback, ( _, _ ) => callback);
+            }
+            else
+            {
+                CloseMenuForPlayerInternal(player, currentMenu, false);
             }
         }
 
