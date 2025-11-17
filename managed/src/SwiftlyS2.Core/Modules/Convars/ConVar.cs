@@ -4,6 +4,7 @@ using SwiftlyS2.Shared.Natives;
 using SwiftlyS2.Core.Extensions;
 using System.Runtime.InteropServices;
 using System.Runtime.CompilerServices;
+using SwiftlyS2.Core.Services;
 
 namespace SwiftlyS2.Core.Convars;
 
@@ -86,6 +87,7 @@ internal class ConVar<T> : IConVar<T>
     get => GetValue();
     set => SetValue(value);
   }
+
   public void ReplicateToClient( int clientId, T value )
   {
     var val = "";
