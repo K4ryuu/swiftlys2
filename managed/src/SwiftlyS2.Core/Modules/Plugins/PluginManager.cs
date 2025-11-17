@@ -44,9 +44,8 @@ internal class PluginManager
             Filter = "*.dll",
             IncludeSubdirectories = true,
             NotifyFilter = NotifyFilters.LastWrite,
+            EnableRaisingEvents = true
         };
-
-        this.fileWatcher.EnableRaisingEvents = true;
         this.fileWatcher.Changed += ( sender, e ) =>
         {
             try
@@ -67,7 +66,7 @@ internal class PluginManager
                     ?.Metadata?.Id;
                 if (!string.IsNullOrWhiteSpace(pluginId))
                 {
-                    ReloadPlugin(pluginId, true);
+                    ReloadPluginById(pluginId, true);
                 }
             }
             catch (Exception ex)
@@ -76,7 +75,7 @@ internal class PluginManager
                 {
                     return;
                 }
-                logger.LogError(ex, "Error handling plugin change");
+                logger.LogError(ex, "Failed to handle plugin change");
             }
         };
 
@@ -112,7 +111,7 @@ internal class PluginManager
         var entrypointDll = Path.Combine(dir, Path.GetFileName(dir) + ".dll");
         if (!File.Exists(entrypointDll))
         {
-            return FailWithError(context, $"Plugin entrypoint DLL not found: {Path.Combine(dir, Path.GetFileName(dir))}.dll");
+            return FailWithError(context, $"Failed to find plugin entrypoint DLL: {Path.Combine(dir, Path.GetFileName(dir))}.dll");
         }
 
         var currentContext = AssemblyLoadContext.GetLoadContext(Assembly.GetExecutingAssembly());
@@ -134,13 +133,13 @@ internal class PluginManager
             .FirstOrDefault(t => t.IsSubclassOf(typeof(BasePlugin)));
         if (pluginType == null)
         {
-            return FailWithError(context, $"Plugin type not found: {Path.Combine(dir, Path.GetFileName(dir))}.dll");
+            return FailWithError(context, $"Failed to find plugin type: {Path.Combine(dir, Path.GetFileName(dir))}.dll");
         }
 
         var metadata = pluginType.GetCustomAttribute<PluginMetadata>();
         if (metadata == null)
         {
-            return FailWithError(context, $"Plugin metadata not found: {Path.Combine(dir, Path.GetFileName(dir))}.dll");
+            return FailWithError(context, $"Failed to find plugin metadata: {Path.Combine(dir, Path.GetFileName(dir))}.dll");
         }
 
         context.Metadata = metadata;
@@ -175,7 +174,7 @@ internal class PluginManager
             }
             catch { }
 
-            return FailWithError(context, $"Error loading plugin {Path.Combine(dir, Path.GetFileName(dir))}.dll");
+            return FailWithError(context, $"Failed to load plugin: {Path.Combine(dir, Path.GetFileName(dir))}.dll");
         }
     }
 
@@ -197,9 +196,13 @@ internal class PluginManager
         {
             if (!silent)
             {
-                logger.LogWarning("Error unloading plugin: {Id}", id);
+                logger.LogWarning("Failed to unload plugin by Id: {Id}", id);
             }
             return false;
+        }
+        finally
+        {
+            RebuildSharedServices();
         }
     }
 
@@ -209,33 +212,39 @@ internal class PluginManager
             .Where(p => p.Status == PluginStatus.Unloaded || p.Status == PluginStatus.Error)
             .FirstOrDefault(p => p.Metadata?.Id == id);
 
-        if (context != null)
+        try
         {
-            _ = plugins.Remove(context);
-            _ = LoadPlugin(context.PluginDirectory!, true, silent);
-            RebuildSharedServices();
+            if (plugins.Remove(context!))
+            {
+                _ = LoadPlugin(context!.PluginDirectory!, true, silent);
+            }
             return true;
         }
-        else
+        catch
+        {
+            if (!silent)
+            {
+                logger.LogWarning("Failed to load plugin by Id: {Id}", id);
+            }
+            return false;
+        }
+        finally
         {
             RebuildSharedServices();
-            return false;
         }
     }
 
-    public void ReloadPlugin( string id, bool silent = false )
+    public void ReloadPluginById( string id, bool silent = false )
     {
-        logger.LogInformation("Reloading plugin {Id}", id);
-
         _ = UnloadPluginById(id, silent);
 
         if (!LoadPluginById(id, silent))
         {
-            logger.LogError("Failed to reload plugin {Id}", id);
+            logger.LogWarning("Failed to reload plugin by Id: {Id}", id);
         }
         else
         {
-            logger.LogInformation("Reloaded plugin {Id}", id);
+            logger.LogInformation("Reloaded plugin by Id: {Id}", id);
         }
     }
 
@@ -285,9 +294,9 @@ internal class PluginManager
         {
             var resolver = new DependencyResolver(logger);
             resolver.AnalyzeDependencies(rootDirService.GetPluginsRoot());
-            logger.LogInformation("{Graph}", resolver.GetDependencyGraphVisualization());
+            logger.LogInformation("{Graph}\n", resolver.GetDependencyGraphVisualization());
             var loadOrder = resolver.GetLoadOrder();
-            logger.LogInformation("Loading {Count} export assemblies in dependency order.", loadOrder.Count);
+            // logger.LogInformation("Loading {Count} export assemblies in dependency order", loadOrder.Count);
 
             loadOrder.ForEach(exportFile =>
             {
@@ -308,17 +317,20 @@ internal class PluginManager
                 }
             });
 
-            logger.LogInformation("Successfully loaded {Count} shared types.", sharedTypes.Count);
+            logger.LogInformation("Loaded {Count} shared types", sharedTypes.Count);
         }
         catch (InvalidOperationException ex) when (ex.Message.Contains("Circular dependency"))
         {
-            logger.LogError(ex, "Circular dependency detected in plugin exports. Loading exports without dependency resolution.");
+            logger.LogError(ex, "Circular dependency detected in plugin exports, loading manually");
             PopulateSharedManually(rootDirService.GetPluginsRoot());
         }
         catch (Exception ex)
         {
-            if (!GlobalExceptionHandler.Handle(ex)) return;
-            logger.LogError(ex, "Unexpected error during export loading");
+            if (!GlobalExceptionHandler.Handle(ex))
+            {
+                return;
+            }
+            logger.LogError(ex, "Failed to load exports");
         }
     }
 
@@ -342,7 +354,7 @@ internal class PluginManager
                     var context = LoadPlugin(pluginDir, false);
                     if (context?.Status == PluginStatus.Loaded)
                     {
-                        logger.LogInformation("Loaded plugin {Id}", context.Metadata!.Id);
+                        logger.LogInformation("Loaded plugin: {Id}", context.Metadata!.Id);
                     }
                 }
                 catch (Exception e)
@@ -351,7 +363,7 @@ internal class PluginManager
                     {
                         continue;
                     }
-                    logger.LogWarning(e, "Error loading plugin: {Path}", pluginDir);
+                    logger.LogWarning(e, "Failed to load plugin: {Path}", pluginDir);
                 }
             }
         }
