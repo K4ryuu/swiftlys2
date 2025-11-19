@@ -12,6 +12,7 @@ public partial interface CHintMessage : ISchemaClass<CHintMessage> {
 
   static CHintMessage ISchemaClass<CHintMessage>.From(nint handle) => new CHintMessageImpl(handle);
   static int ISchemaClass<CHintMessage>.Size => 40;
+  static string? ISchemaClass<CHintMessage>.ClassName => null;
 
   
   public string HintString { get; set; }

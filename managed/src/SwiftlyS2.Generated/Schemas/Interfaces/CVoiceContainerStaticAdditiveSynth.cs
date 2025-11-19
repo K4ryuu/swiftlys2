@@ -12,6 +12,7 @@ public partial interface CVoiceContainerStaticAdditiveSynth : CVoiceContainerBas
 
   static CVoiceContainerStaticAdditiveSynth ISchemaClass<CVoiceContainerStaticAdditiveSynth>.From(nint handle) => new CVoiceContainerStaticAdditiveSynthImpl(handle);
   static int ISchemaClass<CVoiceContainerStaticAdditiveSynth>.Size => 232;
+  static string? ISchemaClass<CVoiceContainerStaticAdditiveSynth>.ClassName => null;
 
   
   public ref CUtlVector<CVoiceContainerStaticAdditiveSynth__CTone> Tones { get; }

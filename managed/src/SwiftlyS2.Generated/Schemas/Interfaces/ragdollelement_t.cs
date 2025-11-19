@@ -12,6 +12,7 @@ public partial interface ragdollelement_t : ISchemaClass<ragdollelement_t> {
 
   static ragdollelement_t ISchemaClass<ragdollelement_t>.From(nint handle) => new ragdollelement_tImpl(handle);
   static int ISchemaClass<ragdollelement_t>.Size => 48;
+  static string? ISchemaClass<ragdollelement_t>.ClassName => null;
 
   
   public ref Vector OriginParentSpace { get; }

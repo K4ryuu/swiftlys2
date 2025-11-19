@@ -12,6 +12,7 @@ public partial interface FeSDFRigid_t : ISchemaClass<FeSDFRigid_t> {
 
   static FeSDFRigid_t ISchemaClass<FeSDFRigid_t>.From(nint handle) => new FeSDFRigid_tImpl(handle);
   static int ISchemaClass<FeSDFRigid_t>.Size => 80;
+  static string? ISchemaClass<FeSDFRigid_t>.ClassName => null;
 
   
   public ref Vector LocalMin { get; }

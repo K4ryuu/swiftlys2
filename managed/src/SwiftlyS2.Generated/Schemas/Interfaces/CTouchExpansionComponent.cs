@@ -12,6 +12,7 @@ public partial interface CTouchExpansionComponent : CEntityComponent, ISchemaCla
 
   static CTouchExpansionComponent ISchemaClass<CTouchExpansionComponent>.From(nint handle) => new CTouchExpansionComponentImpl(handle);
   static int ISchemaClass<CTouchExpansionComponent>.Size => 80;
+  static string? ISchemaClass<CTouchExpansionComponent>.ClassName => null;
 
 
 

@@ -12,6 +12,7 @@ public partial interface CCachedPose : ISchemaClass<CCachedPose> {
 
   static CCachedPose ISchemaClass<CCachedPose>.From(nint handle) => new CCachedPoseImpl(handle);
   static int ISchemaClass<CCachedPose>.Size => 64;
+  static string? ISchemaClass<CCachedPose>.ClassName => null;
 
   
   public ref CUtlVector<CTransform> Transforms { get; }

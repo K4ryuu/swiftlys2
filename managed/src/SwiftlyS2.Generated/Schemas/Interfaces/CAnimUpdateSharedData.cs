@@ -12,6 +12,7 @@ public partial interface CAnimUpdateSharedData : ISchemaClass<CAnimUpdateSharedD
 
   static CAnimUpdateSharedData ISchemaClass<CAnimUpdateSharedData>.From(nint handle) => new CAnimUpdateSharedDataImpl(handle);
   static int ISchemaClass<CAnimUpdateSharedData>.Size => 256;
+  static string? ISchemaClass<CAnimUpdateSharedData>.ClassName => null;
 
   
   public ref CUtlVector<SchemaUntypedField> Nodes { get; }

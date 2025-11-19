@@ -12,6 +12,7 @@ public partial interface FourQuaternions : ISchemaClass<FourQuaternions> {
 
   static FourQuaternions ISchemaClass<FourQuaternions>.From(nint handle) => new FourQuaternionsImpl(handle);
   static int ISchemaClass<FourQuaternions>.Size => 64;
+  static string? ISchemaClass<FourQuaternions>.ClassName => null;
 
   
   public ref fltx4 X { get; }

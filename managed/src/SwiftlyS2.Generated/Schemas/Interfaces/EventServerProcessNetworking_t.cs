@@ -12,6 +12,7 @@ public partial interface EventServerProcessNetworking_t : EventSimulate_t, ISche
 
   static EventServerProcessNetworking_t ISchemaClass<EventServerProcessNetworking_t>.From(nint handle) => new EventServerProcessNetworking_tImpl(handle);
   static int ISchemaClass<EventServerProcessNetworking_t>.Size => 48;
+  static string? ISchemaClass<EventServerProcessNetworking_t>.ClassName => null;
 
 
 

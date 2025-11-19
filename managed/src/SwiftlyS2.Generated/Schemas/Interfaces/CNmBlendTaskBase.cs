@@ -12,6 +12,7 @@ public partial interface CNmBlendTaskBase : CNmPoseTask, ISchemaClass<CNmBlendTa
 
   static CNmBlendTaskBase ISchemaClass<CNmBlendTaskBase>.From(nint handle) => new CNmBlendTaskBaseImpl(handle);
   static int ISchemaClass<CNmBlendTaskBase>.Size => 224;
+  static string? ISchemaClass<CNmBlendTaskBase>.ClassName => null;
 
 
 

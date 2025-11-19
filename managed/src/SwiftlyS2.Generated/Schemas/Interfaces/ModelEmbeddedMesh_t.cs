@@ -12,6 +12,7 @@ public partial interface ModelEmbeddedMesh_t : ISchemaClass<ModelEmbeddedMesh_t>
 
   static ModelEmbeddedMesh_t ISchemaClass<ModelEmbeddedMesh_t>.From(nint handle) => new ModelEmbeddedMesh_tImpl(handle);
   static int ISchemaClass<ModelEmbeddedMesh_t>.Size => 112;
+  static string? ISchemaClass<ModelEmbeddedMesh_t>.ClassName => null;
 
   
   public string Name { get; set; }

@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CFuncMover : CBaseModelEntity, ISchemaClass<CFuncMover> {
 
   static CFuncMover ISchemaClass<CFuncMover>.From(nint handle) => new CFuncMoverImpl(handle);
-  static int ISchemaClass<CFuncMover>.Size => 2696;
+  static int ISchemaClass<CFuncMover>.Size => 3440;
+  static string? ISchemaClass<CFuncMover>.ClassName => "func_mover";
 
   
   public string PathName { get; set; }

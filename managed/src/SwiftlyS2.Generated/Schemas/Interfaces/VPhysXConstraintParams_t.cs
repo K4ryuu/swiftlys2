@@ -12,6 +12,7 @@ public partial interface VPhysXConstraintParams_t : ISchemaClass<VPhysXConstrain
 
   static VPhysXConstraintParams_t ISchemaClass<VPhysXConstraintParams_t>.From(nint handle) => new VPhysXConstraintParams_tImpl(handle);
   static int ISchemaClass<VPhysXConstraintParams_t>.Size => 248;
+  static string? ISchemaClass<VPhysXConstraintParams_t>.ClassName => null;
 
   
   public ref byte Type { get; }

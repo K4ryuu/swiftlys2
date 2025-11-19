@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CWarpSectionAnimTag : CWarpSectionAnimTagBase, ISchemaClass<CWarpSectionAnimTag> {
 
   static CWarpSectionAnimTag ISchemaClass<CWarpSectionAnimTag>.From(nint handle) => new CWarpSectionAnimTagImpl(handle);
-  static int ISchemaClass<CWarpSectionAnimTag>.Size => 88;
+  static int ISchemaClass<CWarpSectionAnimTag>.Size => 80;
+  static string? ISchemaClass<CWarpSectionAnimTag>.ClassName => null;
 
   
   public ref bool WarpPosition { get; }

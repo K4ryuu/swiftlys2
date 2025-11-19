@@ -12,6 +12,7 @@ public partial interface CExampleSchemaVData_Monomorphic : ISchemaClass<CExample
 
   static CExampleSchemaVData_Monomorphic ISchemaClass<CExampleSchemaVData_Monomorphic>.From(nint handle) => new CExampleSchemaVData_MonomorphicImpl(handle);
   static int ISchemaClass<CExampleSchemaVData_Monomorphic>.Size => 8;
+  static string? ISchemaClass<CExampleSchemaVData_Monomorphic>.ClassName => null;
 
   
   public ref int Example1 { get; }

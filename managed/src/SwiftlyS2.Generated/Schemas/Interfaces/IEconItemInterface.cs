@@ -12,6 +12,7 @@ public partial interface IEconItemInterface : ISchemaClass<IEconItemInterface> {
 
   static IEconItemInterface ISchemaClass<IEconItemInterface>.From(nint handle) => new IEconItemInterfaceImpl(handle);
   static int ISchemaClass<IEconItemInterface>.Size => 8;
+  static string? ISchemaClass<IEconItemInterface>.ClassName => null;
 
 
 

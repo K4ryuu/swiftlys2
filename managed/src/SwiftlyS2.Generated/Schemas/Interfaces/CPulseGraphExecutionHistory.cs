@@ -12,6 +12,7 @@ public partial interface CPulseGraphExecutionHistory : ISchemaClass<CPulseGraphE
 
   static CPulseGraphExecutionHistory ISchemaClass<CPulseGraphExecutionHistory>.From(nint handle) => new CPulseGraphExecutionHistoryImpl(handle);
   static int ISchemaClass<CPulseGraphExecutionHistory>.Size => 120;
+  static string? ISchemaClass<CPulseGraphExecutionHistory>.ClassName => null;
 
   
   public PulseGraphInstanceID_t InstanceID { get; }

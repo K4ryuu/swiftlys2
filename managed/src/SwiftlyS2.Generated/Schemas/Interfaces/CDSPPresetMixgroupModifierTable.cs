@@ -12,6 +12,7 @@ public partial interface CDSPPresetMixgroupModifierTable : ISchemaClass<CDSPPres
 
   static CDSPPresetMixgroupModifierTable ISchemaClass<CDSPPresetMixgroupModifierTable>.From(nint handle) => new CDSPPresetMixgroupModifierTableImpl(handle);
   static int ISchemaClass<CDSPPresetMixgroupModifierTable>.Size => 24;
+  static string? ISchemaClass<CDSPPresetMixgroupModifierTable>.ClassName => null;
 
   
   public ref CUtlVector<CDspPresetModifierList> Table { get; }

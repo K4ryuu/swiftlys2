@@ -12,6 +12,7 @@ public partial interface CNmStateMachineNode__StateDefinition_t : ISchemaClass<C
 
   static CNmStateMachineNode__StateDefinition_t ISchemaClass<CNmStateMachineNode__StateDefinition_t>.From(nint handle) => new CNmStateMachineNode__StateDefinition_tImpl(handle);
   static int ISchemaClass<CNmStateMachineNode__StateDefinition_t>.Size => 56;
+  static string? ISchemaClass<CNmStateMachineNode__StateDefinition_t>.ClassName => null;
 
   
   public ref short StateNodeIdx { get; }

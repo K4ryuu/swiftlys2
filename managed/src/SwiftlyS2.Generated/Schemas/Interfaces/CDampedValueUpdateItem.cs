@@ -12,6 +12,7 @@ public partial interface CDampedValueUpdateItem : ISchemaClass<CDampedValueUpdat
 
   static CDampedValueUpdateItem ISchemaClass<CDampedValueUpdateItem>.From(nint handle) => new CDampedValueUpdateItemImpl(handle);
   static int ISchemaClass<CDampedValueUpdateItem>.Size => 40;
+  static string? ISchemaClass<CDampedValueUpdateItem>.ClassName => null;
 
   
   public CAnimInputDamping Damping { get; }

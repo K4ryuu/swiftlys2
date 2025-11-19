@@ -12,6 +12,7 @@ public partial interface EventClientPauseSimulate_t : EventSimulate_t, ISchemaCl
 
   static EventClientPauseSimulate_t ISchemaClass<EventClientPauseSimulate_t>.From(nint handle) => new EventClientPauseSimulate_tImpl(handle);
   static int ISchemaClass<EventClientPauseSimulate_t>.Size => 48;
+  static string? ISchemaClass<EventClientPauseSimulate_t>.ClassName => null;
 
 
 

@@ -12,6 +12,7 @@ public partial interface EventClientSceneSystemThreadStateChange_t : ISchemaClas
 
   static EventClientSceneSystemThreadStateChange_t ISchemaClass<EventClientSceneSystemThreadStateChange_t>.From(nint handle) => new EventClientSceneSystemThreadStateChange_tImpl(handle);
   static int ISchemaClass<EventClientSceneSystemThreadStateChange_t>.Size => 1;
+  static string? ISchemaClass<EventClientSceneSystemThreadStateChange_t>.ClassName => null;
 
   
   public ref bool ThreadsActive { get; }

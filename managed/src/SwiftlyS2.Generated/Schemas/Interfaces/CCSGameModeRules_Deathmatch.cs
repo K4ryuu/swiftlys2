@@ -12,6 +12,7 @@ public partial interface CCSGameModeRules_Deathmatch : CCSGameModeRules, ISchema
 
   static CCSGameModeRules_Deathmatch ISchemaClass<CCSGameModeRules_Deathmatch>.From(nint handle) => new CCSGameModeRules_DeathmatchImpl(handle);
   static int ISchemaClass<CCSGameModeRules_Deathmatch>.Size => 136;
+  static string? ISchemaClass<CCSGameModeRules_Deathmatch>.ClassName => null;
 
   
   public GameTime_t DMBonusStartTime { get; }

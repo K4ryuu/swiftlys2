@@ -12,6 +12,7 @@ public partial interface CFollowTargetUpdateNode : CUnaryUpdateNode, ISchemaClas
 
   static CFollowTargetUpdateNode ISchemaClass<CFollowTargetUpdateNode>.From(nint handle) => new CFollowTargetUpdateNodeImpl(handle);
   static int ISchemaClass<CFollowTargetUpdateNode>.Size => 144;
+  static string? ISchemaClass<CFollowTargetUpdateNode>.ClassName => null;
 
   
   public FollowTargetOpFixedSettings_t OpFixedData { get; }

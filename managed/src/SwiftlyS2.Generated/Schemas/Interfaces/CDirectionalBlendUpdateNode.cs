@@ -12,6 +12,7 @@ public partial interface CDirectionalBlendUpdateNode : CLeafUpdateNode, ISchemaC
 
   static CDirectionalBlendUpdateNode ISchemaClass<CDirectionalBlendUpdateNode>.From(nint handle) => new CDirectionalBlendUpdateNodeImpl(handle);
   static int ISchemaClass<CDirectionalBlendUpdateNode>.Size => 176;
+  static string? ISchemaClass<CDirectionalBlendUpdateNode>.ClassName => null;
 
   
   // HSequence

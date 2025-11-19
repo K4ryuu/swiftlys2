@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CFuncWall : CBaseModelEntity, ISchemaClass<CFuncWall> {
 
   static CFuncWall ISchemaClass<CFuncWall>.From(nint handle) => new CFuncWallImpl(handle);
-  static int ISchemaClass<CFuncWall>.Size => 2016;
+  static int ISchemaClass<CFuncWall>.Size => 2752;
+  static string? ISchemaClass<CFuncWall>.ClassName => "func_wall";
 
   
   public ref int State { get; }

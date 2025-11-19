@@ -12,6 +12,7 @@ public partial interface audioparams_t : ISchemaClass<audioparams_t> {
 
   static audioparams_t ISchemaClass<audioparams_t>.From(nint handle) => new audioparams_tImpl(handle);
   static int ISchemaClass<audioparams_t>.Size => 120;
+  static string? ISchemaClass<audioparams_t>.ClassName => null;
 
   
   public ISchemaFixedArray<Vector> LocalSound { get; }

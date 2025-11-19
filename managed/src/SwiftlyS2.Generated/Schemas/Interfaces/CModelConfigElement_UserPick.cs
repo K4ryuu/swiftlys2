@@ -12,6 +12,7 @@ public partial interface CModelConfigElement_UserPick : CModelConfigElement, ISc
 
   static CModelConfigElement_UserPick ISchemaClass<CModelConfigElement_UserPick>.From(nint handle) => new CModelConfigElement_UserPickImpl(handle);
   static int ISchemaClass<CModelConfigElement_UserPick>.Size => 96;
+  static string? ISchemaClass<CModelConfigElement_UserPick>.ClassName => null;
 
   
   public ref CUtlVector<CUtlString> Choices { get; }

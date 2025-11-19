@@ -12,6 +12,7 @@ public partial interface CMotionGraph : ISchemaClass<CMotionGraph> {
 
   static CMotionGraph ISchemaClass<CMotionGraph>.From(nint handle) => new CMotionGraphImpl(handle);
   static int ISchemaClass<CMotionGraph>.Size => 88;
+  static string? ISchemaClass<CMotionGraph>.ClassName => null;
 
   
   public CParamSpanUpdater ParamSpans { get; }

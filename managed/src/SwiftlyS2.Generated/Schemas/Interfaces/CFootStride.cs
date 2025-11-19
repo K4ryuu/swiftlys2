@@ -12,6 +12,7 @@ public partial interface CFootStride : ISchemaClass<CFootStride> {
 
   static CFootStride ISchemaClass<CFootStride>.From(nint handle) => new CFootStrideImpl(handle);
   static int ISchemaClass<CFootStride>.Size => 88;
+  static string? ISchemaClass<CFootStride>.ClassName => null;
 
   
   public CFootCycleDefinition Definition { get; }

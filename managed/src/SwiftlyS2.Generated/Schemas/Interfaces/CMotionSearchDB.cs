@@ -12,6 +12,7 @@ public partial interface CMotionSearchDB : ISchemaClass<CMotionSearchDB> {
 
   static CMotionSearchDB ISchemaClass<CMotionSearchDB>.From(nint handle) => new CMotionSearchDBImpl(handle);
   static int ISchemaClass<CMotionSearchDB>.Size => 184;
+  static string? ISchemaClass<CMotionSearchDB>.ClassName => null;
 
   
   public CMotionSearchNode RootNode { get; }

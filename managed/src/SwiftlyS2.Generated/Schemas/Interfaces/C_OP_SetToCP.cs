@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface C_OP_SetToCP : CParticleFunctionOperator, ISchemaClass<C_OP_SetToCP> {
 
   static C_OP_SetToCP ISchemaClass<C_OP_SetToCP>.From(nint handle) => new C_OP_SetToCPImpl(handle);
-  static int ISchemaClass<C_OP_SetToCP>.Size => 488;
+  static int ISchemaClass<C_OP_SetToCP>.Size => 480;
+  static string? ISchemaClass<C_OP_SetToCP>.ClassName => null;
 
   
   public ref int ControlPointNumber { get; }

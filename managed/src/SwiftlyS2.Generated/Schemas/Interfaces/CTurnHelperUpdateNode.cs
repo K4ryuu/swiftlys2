@@ -12,6 +12,7 @@ public partial interface CTurnHelperUpdateNode : CUnaryUpdateNode, ISchemaClass<
 
   static CTurnHelperUpdateNode ISchemaClass<CTurnHelperUpdateNode>.From(nint handle) => new CTurnHelperUpdateNodeImpl(handle);
   static int ISchemaClass<CTurnHelperUpdateNode>.Size => 144;
+  static string? ISchemaClass<CTurnHelperUpdateNode>.ClassName => null;
 
   
   public ref AnimValueSource FacingTarget { get; }

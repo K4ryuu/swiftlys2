@@ -12,6 +12,7 @@ public partial interface InfoForResourceTypeCVPhysXSurfacePropertiesList : ISche
 
   static InfoForResourceTypeCVPhysXSurfacePropertiesList ISchemaClass<InfoForResourceTypeCVPhysXSurfacePropertiesList>.From(nint handle) => new InfoForResourceTypeCVPhysXSurfacePropertiesListImpl(handle);
   static int ISchemaClass<InfoForResourceTypeCVPhysXSurfacePropertiesList>.Size => 1;
+  static string? ISchemaClass<InfoForResourceTypeCVPhysXSurfacePropertiesList>.ClassName => null;
 
 
 

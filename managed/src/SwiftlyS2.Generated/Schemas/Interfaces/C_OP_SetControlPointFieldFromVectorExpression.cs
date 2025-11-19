@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface C_OP_SetControlPointFieldFromVectorExpression : CParticleFunctionPreEmission, ISchemaClass<C_OP_SetControlPointFieldFromVectorExpression> {
 
   static C_OP_SetControlPointFieldFromVectorExpression ISchemaClass<C_OP_SetControlPointFieldFromVectorExpression>.From(nint handle) => new C_OP_SetControlPointFieldFromVectorExpressionImpl(handle);
-  static int ISchemaClass<C_OP_SetControlPointFieldFromVectorExpression>.Size => 4664;
+  static int ISchemaClass<C_OP_SetControlPointFieldFromVectorExpression>.Size => 4552;
+  static string? ISchemaClass<C_OP_SetControlPointFieldFromVectorExpression>.ClassName => null;
 
   
   public ref VectorFloatExpressionType_t Expression { get; }

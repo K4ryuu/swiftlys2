@@ -12,6 +12,7 @@ public partial interface CIronSightController : ISchemaClass<CIronSightControlle
 
   static CIronSightController ISchemaClass<CIronSightController>.From(nint handle) => new CIronSightControllerImpl(handle);
   static int ISchemaClass<CIronSightController>.Size => 24;
+  static string? ISchemaClass<CIronSightController>.ClassName => null;
 
   
   public ref bool IronSightAvailable { get; }

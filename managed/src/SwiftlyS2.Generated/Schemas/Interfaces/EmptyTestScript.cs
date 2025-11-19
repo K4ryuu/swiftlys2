@@ -12,6 +12,7 @@ public partial interface EmptyTestScript : CAnimScriptBase, ISchemaClass<EmptyTe
 
   static EmptyTestScript ISchemaClass<EmptyTestScript>.From(nint handle) => new EmptyTestScriptImpl(handle);
   static int ISchemaClass<EmptyTestScript>.Size => 32;
+  static string? ISchemaClass<EmptyTestScript>.ClassName => null;
 
   
   // CAnimScriptParam< float32 >

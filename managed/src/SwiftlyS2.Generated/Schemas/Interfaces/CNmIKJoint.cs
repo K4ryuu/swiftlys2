@@ -12,6 +12,7 @@ public partial interface CNmIKJoint : ISchemaClass<CNmIKJoint> {
 
   static CNmIKJoint ISchemaClass<CNmIKJoint>.From(nint handle) => new CNmIKJointImpl(handle);
   static int ISchemaClass<CNmIKJoint>.Size => 64;
+  static string? ISchemaClass<CNmIKJoint>.ClassName => null;
 
   
   public ref int ParentIndex { get; }

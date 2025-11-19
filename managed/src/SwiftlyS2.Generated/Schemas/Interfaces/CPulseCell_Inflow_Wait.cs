@@ -12,6 +12,7 @@ public partial interface CPulseCell_Inflow_Wait : CPulseCell_BaseYieldingInflow,
 
   static CPulseCell_Inflow_Wait ISchemaClass<CPulseCell_Inflow_Wait>.From(nint handle) => new CPulseCell_Inflow_WaitImpl(handle);
   static int ISchemaClass<CPulseCell_Inflow_Wait>.Size => 144;
+  static string? ISchemaClass<CPulseCell_Inflow_Wait>.ClassName => null;
 
   
   public CPulse_ResumePoint WakeResume { get; }

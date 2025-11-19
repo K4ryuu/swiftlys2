@@ -12,6 +12,7 @@ public partial interface FootLockPoseOpFixedSettings : ISchemaClass<FootLockPose
 
   static FootLockPoseOpFixedSettings ISchemaClass<FootLockPoseOpFixedSettings>.From(nint handle) => new FootLockPoseOpFixedSettingsImpl(handle);
   static int ISchemaClass<FootLockPoseOpFixedSettings>.Size => 104;
+  static string? ISchemaClass<FootLockPoseOpFixedSettings>.ClassName => null;
 
   
   public ref CUtlVector<FootFixedData_t> FootInfo { get; }

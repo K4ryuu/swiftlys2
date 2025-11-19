@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CNmTargetPointNode__CDefinition : CNmVectorValueNode__CDefinition, ISchemaClass<CNmTargetPointNode__CDefinition> {
 
   static CNmTargetPointNode__CDefinition ISchemaClass<CNmTargetPointNode__CDefinition>.From(nint handle) => new CNmTargetPointNode__CDefinitionImpl(handle);
-  static int ISchemaClass<CNmTargetPointNode__CDefinition>.Size => 24;
+  static int ISchemaClass<CNmTargetPointNode__CDefinition>.Size => 16;
+  static string? ISchemaClass<CNmTargetPointNode__CDefinition>.ClassName => null;
 
   
   public ref short InputValueNodeIdx { get; }

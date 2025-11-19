@@ -12,6 +12,7 @@ public partial interface VMixDiffusorDesc_t : ISchemaClass<VMixDiffusorDesc_t> {
 
   static VMixDiffusorDesc_t ISchemaClass<VMixDiffusorDesc_t>.From(nint handle) => new VMixDiffusorDesc_tImpl(handle);
   static int ISchemaClass<VMixDiffusorDesc_t>.Size => 16;
+  static string? ISchemaClass<VMixDiffusorDesc_t>.ClassName => null;
 
   
   public ref float Size { get; }

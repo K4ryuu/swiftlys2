@@ -12,6 +12,7 @@ public partial interface CPulseCell_Outflow_CycleRandom : CPulseCell_BaseFlow, I
 
   static CPulseCell_Outflow_CycleRandom ISchemaClass<CPulseCell_Outflow_CycleRandom>.From(nint handle) => new CPulseCell_Outflow_CycleRandomImpl(handle);
   static int ISchemaClass<CPulseCell_Outflow_CycleRandom>.Size => 96;
+  static string? ISchemaClass<CPulseCell_Outflow_CycleRandom>.ClassName => null;
 
   
   public ref CUtlVector<CPulse_OutflowConnection> Outputs { get; }

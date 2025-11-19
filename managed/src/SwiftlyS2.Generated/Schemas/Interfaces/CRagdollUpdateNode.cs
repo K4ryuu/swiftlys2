@@ -12,6 +12,7 @@ public partial interface CRagdollUpdateNode : CUnaryUpdateNode, ISchemaClass<CRa
 
   static CRagdollUpdateNode ISchemaClass<CRagdollUpdateNode>.From(nint handle) => new CRagdollUpdateNodeImpl(handle);
   static int ISchemaClass<CRagdollUpdateNode>.Size => 120;
+  static string? ISchemaClass<CRagdollUpdateNode>.ClassName => null;
 
   
   public ref int WeightListIndex { get; }

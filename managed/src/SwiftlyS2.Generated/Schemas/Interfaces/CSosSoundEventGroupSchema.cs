@@ -12,6 +12,7 @@ public partial interface CSosSoundEventGroupSchema : ISchemaClass<CSosSoundEvent
 
   static CSosSoundEventGroupSchema ISchemaClass<CSosSoundEventGroupSchema>.From(nint handle) => new CSosSoundEventGroupSchemaImpl(handle);
   static int ISchemaClass<CSosSoundEventGroupSchema>.Size => 112;
+  static string? ISchemaClass<CSosSoundEventGroupSchema>.ClassName => null;
 
   
   public ref SosGroupType_t GroupType { get; }

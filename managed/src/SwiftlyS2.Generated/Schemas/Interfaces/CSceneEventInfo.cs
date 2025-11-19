@@ -12,6 +12,7 @@ public partial interface CSceneEventInfo : ISchemaClass<CSceneEventInfo> {
 
   static CSceneEventInfo ISchemaClass<CSceneEventInfo>.From(nint handle) => new CSceneEventInfoImpl(handle);
   static int ISchemaClass<CSceneEventInfo>.Size => 80;
+  static string? ISchemaClass<CSceneEventInfo>.ClassName => null;
 
   
   public ref int Layer { get; }

@@ -12,6 +12,7 @@ public partial interface EventModInitialized_t : ISchemaClass<EventModInitialize
 
   static EventModInitialized_t ISchemaClass<EventModInitialized_t>.From(nint handle) => new EventModInitialized_tImpl(handle);
   static int ISchemaClass<EventModInitialized_t>.Size => 1;
+  static string? ISchemaClass<EventModInitialized_t>.ClassName => null;
 
 
 

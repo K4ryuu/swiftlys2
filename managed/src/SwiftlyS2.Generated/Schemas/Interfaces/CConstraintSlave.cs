@@ -12,6 +12,7 @@ public partial interface CConstraintSlave : ISchemaClass<CConstraintSlave> {
 
   static CConstraintSlave ISchemaClass<CConstraintSlave>.From(nint handle) => new CConstraintSlaveImpl(handle);
   static int ISchemaClass<CConstraintSlave>.Size => 80;
+  static string? ISchemaClass<CConstraintSlave>.ClassName => null;
 
   
   public ref Quaternion BaseOrientation { get; }

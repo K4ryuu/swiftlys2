@@ -12,6 +12,7 @@ public partial interface CPlayerControllerComponent : ISchemaClass<CPlayerContro
 
   static CPlayerControllerComponent ISchemaClass<CPlayerControllerComponent>.From(nint handle) => new CPlayerControllerComponentImpl(handle);
   static int ISchemaClass<CPlayerControllerComponent>.Size => 64;
+  static string? ISchemaClass<CPlayerControllerComponent>.ClassName => null;
 
   
   public ref CNetworkVarChainer __m_pChainEntity { get; }

@@ -12,6 +12,7 @@ public partial interface CVoiceContainerRealtimeFMSineWave : CVoiceContainerBase
 
   static CVoiceContainerRealtimeFMSineWave ISchemaClass<CVoiceContainerRealtimeFMSineWave>.From(nint handle) => new CVoiceContainerRealtimeFMSineWaveImpl(handle);
   static int ISchemaClass<CVoiceContainerRealtimeFMSineWave>.Size => 200;
+  static string? ISchemaClass<CVoiceContainerRealtimeFMSineWave>.ClassName => null;
 
   
   public ref float CarrierFrequency { get; }

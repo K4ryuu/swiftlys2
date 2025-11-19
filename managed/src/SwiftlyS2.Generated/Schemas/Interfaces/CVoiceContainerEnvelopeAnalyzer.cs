@@ -12,6 +12,7 @@ public partial interface CVoiceContainerEnvelopeAnalyzer : CVoiceContainerAnalys
 
   static CVoiceContainerEnvelopeAnalyzer ISchemaClass<CVoiceContainerEnvelopeAnalyzer>.From(nint handle) => new CVoiceContainerEnvelopeAnalyzerImpl(handle);
   static int ISchemaClass<CVoiceContainerEnvelopeAnalyzer>.Size => 96;
+  static string? ISchemaClass<CVoiceContainerEnvelopeAnalyzer>.ClassName => null;
 
   
   public ref EMode_t Mode { get; }

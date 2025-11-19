@@ -12,6 +12,7 @@ public partial interface ParticleNamedValueSource_t : ISchemaClass<ParticleNamed
 
   static ParticleNamedValueSource_t ISchemaClass<ParticleNamedValueSource_t>.From(nint handle) => new ParticleNamedValueSource_tImpl(handle);
   static int ISchemaClass<ParticleNamedValueSource_t>.Size => 96;
+  static string? ISchemaClass<ParticleNamedValueSource_t>.ClassName => null;
 
   
   public string Name { get; set; }

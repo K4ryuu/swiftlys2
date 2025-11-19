@@ -12,6 +12,7 @@ public partial interface InfoForResourceTypeCSequenceGroupData : ISchemaClass<In
 
   static InfoForResourceTypeCSequenceGroupData ISchemaClass<InfoForResourceTypeCSequenceGroupData>.From(nint handle) => new InfoForResourceTypeCSequenceGroupDataImpl(handle);
   static int ISchemaClass<InfoForResourceTypeCSequenceGroupData>.Size => 1;
+  static string? ISchemaClass<InfoForResourceTypeCSequenceGroupData>.ClassName => null;
 
 
 

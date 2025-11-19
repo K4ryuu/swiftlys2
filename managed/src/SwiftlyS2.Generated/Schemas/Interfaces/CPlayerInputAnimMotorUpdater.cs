@@ -12,6 +12,7 @@ public partial interface CPlayerInputAnimMotorUpdater : CAnimMotorUpdaterBase, I
 
   static CPlayerInputAnimMotorUpdater ISchemaClass<CPlayerInputAnimMotorUpdater>.From(nint handle) => new CPlayerInputAnimMotorUpdaterImpl(handle);
   static int ISchemaClass<CPlayerInputAnimMotorUpdater>.Size => 80;
+  static string? ISchemaClass<CPlayerInputAnimMotorUpdater>.ClassName => null;
 
   
   public ref CUtlVector<float> SampleTimes { get; }

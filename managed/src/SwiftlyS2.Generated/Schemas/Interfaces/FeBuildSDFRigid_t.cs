@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface FeBuildSDFRigid_t : FeSDFRigid_t, ISchemaClass<FeBuildSDFRigid_t> {
 
   static FeBuildSDFRigid_t ISchemaClass<FeBuildSDFRigid_t>.From(nint handle) => new FeBuildSDFRigid_tImpl(handle);
-  static int ISchemaClass<FeBuildSDFRigid_t>.Size => 96;
+  static int ISchemaClass<FeBuildSDFRigid_t>.Size => 88;
+  static string? ISchemaClass<FeBuildSDFRigid_t>.ClassName => null;
 
   
   public ref int Priority { get; }

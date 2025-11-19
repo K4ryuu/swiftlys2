@@ -12,6 +12,7 @@ public partial interface CCSGameModeRules_ArmsRace : CCSGameModeRules, ISchemaCl
 
   static CCSGameModeRules_ArmsRace ISchemaClass<CCSGameModeRules_ArmsRace>.From(nint handle) => new CCSGameModeRules_ArmsRaceImpl(handle);
   static int ISchemaClass<CCSGameModeRules_ArmsRace>.Size => 136;
+  static string? ISchemaClass<CCSGameModeRules_ArmsRace>.ClassName => null;
 
   
   public ref CUtlVector<CUtlString> WeaponSequence { get; }

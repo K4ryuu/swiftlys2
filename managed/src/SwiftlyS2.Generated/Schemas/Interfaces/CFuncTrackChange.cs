@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CFuncTrackChange : CFuncPlatRot, ISchemaClass<CFuncTrackChange> {
 
   static CFuncTrackChange ISchemaClass<CFuncTrackChange>.From(nint handle) => new CFuncTrackChangeImpl(handle);
-  static int ISchemaClass<CFuncTrackChange>.Size => 2272;
+  static int ISchemaClass<CFuncTrackChange>.Size => 3008;
+  static string? ISchemaClass<CFuncTrackChange>.ClassName => "func_trackchange";
 
   
   public CPathTrack? TrackTop { get; }

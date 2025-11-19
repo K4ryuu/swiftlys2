@@ -12,6 +12,7 @@ public partial interface CCSObserver_CameraServices : CCSPlayerBase_CameraServic
 
   static CCSObserver_CameraServices ISchemaClass<CCSObserver_CameraServices>.From(nint handle) => new CCSObserver_CameraServicesImpl(handle);
   static int ISchemaClass<CCSObserver_CameraServices>.Size => 424;
+  static string? ISchemaClass<CCSObserver_CameraServices>.ClassName => null;
 
 
 

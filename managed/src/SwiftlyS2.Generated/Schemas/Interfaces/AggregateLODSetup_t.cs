@@ -12,6 +12,7 @@ public partial interface AggregateLODSetup_t : ISchemaClass<AggregateLODSetup_t>
 
   static AggregateLODSetup_t ISchemaClass<AggregateLODSetup_t>.From(nint handle) => new AggregateLODSetup_tImpl(handle);
   static int ISchemaClass<AggregateLODSetup_t>.Size => 40;
+  static string? ISchemaClass<AggregateLODSetup_t>.ClassName => null;
 
   
   public ref Vector LODOrigin { get; }

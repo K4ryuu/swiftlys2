@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CEnvParticleGlow : CParticleSystem, ISchemaClass<CEnvParticleGlow> {
 
   static CEnvParticleGlow ISchemaClass<CEnvParticleGlow>.From(nint handle) => new CEnvParticleGlowImpl(handle);
-  static int ISchemaClass<CEnvParticleGlow>.Size => 3432;
+  static int ISchemaClass<CEnvParticleGlow>.Size => 4176;
+  static string? ISchemaClass<CEnvParticleGlow>.ClassName => "env_particle_glow";
 
   
   public ref float AlphaScale { get; }

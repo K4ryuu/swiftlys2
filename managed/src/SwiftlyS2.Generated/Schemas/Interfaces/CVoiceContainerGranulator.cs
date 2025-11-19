@@ -12,6 +12,7 @@ public partial interface CVoiceContainerGranulator : CVoiceContainerBase, ISchem
 
   static CVoiceContainerGranulator ISchemaClass<CVoiceContainerGranulator>.From(nint handle) => new CVoiceContainerGranulatorImpl(handle);
   static int ISchemaClass<CVoiceContainerGranulator>.Size => 400;
+  static string? ISchemaClass<CVoiceContainerGranulator>.ClassName => null;
 
   
   public ref float GrainLength { get; }

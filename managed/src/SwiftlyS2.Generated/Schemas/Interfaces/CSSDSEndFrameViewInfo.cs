@@ -12,6 +12,7 @@ public partial interface CSSDSEndFrameViewInfo : ISchemaClass<CSSDSEndFrameViewI
 
   static CSSDSEndFrameViewInfo ISchemaClass<CSSDSEndFrameViewInfo>.From(nint handle) => new CSSDSEndFrameViewInfoImpl(handle);
   static int ISchemaClass<CSSDSEndFrameViewInfo>.Size => 16;
+  static string? ISchemaClass<CSSDSEndFrameViewInfo>.ClassName => null;
 
   
   public ref ulong ViewId { get; }

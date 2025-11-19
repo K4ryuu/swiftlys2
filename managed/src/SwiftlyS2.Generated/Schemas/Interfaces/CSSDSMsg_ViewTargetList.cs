@@ -12,6 +12,7 @@ public partial interface CSSDSMsg_ViewTargetList : ISchemaClass<CSSDSMsg_ViewTar
 
   static CSSDSMsg_ViewTargetList ISchemaClass<CSSDSMsg_ViewTargetList>.From(nint handle) => new CSSDSMsg_ViewTargetListImpl(handle);
   static int ISchemaClass<CSSDSMsg_ViewTargetList>.Size => 48;
+  static string? ISchemaClass<CSSDSMsg_ViewTargetList>.ClassName => null;
 
   
   public SceneViewId_t ViewId { get; }

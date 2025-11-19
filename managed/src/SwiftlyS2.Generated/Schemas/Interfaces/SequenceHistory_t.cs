@@ -12,6 +12,7 @@ public partial interface SequenceHistory_t : ISchemaClass<SequenceHistory_t> {
 
   static SequenceHistory_t ISchemaClass<SequenceHistory_t>.From(nint handle) => new SequenceHistory_tImpl(handle);
   static int ISchemaClass<SequenceHistory_t>.Size => 24;
+  static string? ISchemaClass<SequenceHistory_t>.ClassName => null;
 
   
   public HSequence Sequence { get; }

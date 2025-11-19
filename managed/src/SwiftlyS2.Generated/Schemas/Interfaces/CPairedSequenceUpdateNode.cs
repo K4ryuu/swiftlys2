@@ -12,6 +12,7 @@ public partial interface CPairedSequenceUpdateNode : CSequenceUpdateNodeBase, IS
 
   static CPairedSequenceUpdateNode ISchemaClass<CPairedSequenceUpdateNode>.From(nint handle) => new CPairedSequenceUpdateNodeImpl(handle);
   static int ISchemaClass<CPairedSequenceUpdateNode>.Size => 136;
+  static string? ISchemaClass<CPairedSequenceUpdateNode>.ClassName => null;
 
   
   public ref CGlobalSymbol PairedSequenceRole { get; }

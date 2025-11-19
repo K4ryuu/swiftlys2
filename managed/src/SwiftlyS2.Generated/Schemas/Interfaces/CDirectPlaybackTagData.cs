@@ -12,6 +12,7 @@ public partial interface CDirectPlaybackTagData : ISchemaClass<CDirectPlaybackTa
 
   static CDirectPlaybackTagData ISchemaClass<CDirectPlaybackTagData>.From(nint handle) => new CDirectPlaybackTagDataImpl(handle);
   static int ISchemaClass<CDirectPlaybackTagData>.Size => 32;
+  static string? ISchemaClass<CDirectPlaybackTagData>.ClassName => null;
 
   
   public string SequenceName { get; set; }

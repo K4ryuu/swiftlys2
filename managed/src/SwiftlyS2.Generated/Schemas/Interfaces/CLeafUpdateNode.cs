@@ -12,6 +12,7 @@ public partial interface CLeafUpdateNode : CAnimUpdateNodeBase, ISchemaClass<CLe
 
   static CLeafUpdateNode ISchemaClass<CLeafUpdateNode>.From(nint handle) => new CLeafUpdateNodeImpl(handle);
   static int ISchemaClass<CLeafUpdateNode>.Size => 88;
+  static string? ISchemaClass<CLeafUpdateNode>.ClassName => null;
 
 
 

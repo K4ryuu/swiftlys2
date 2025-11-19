@@ -12,6 +12,7 @@ public partial interface CNmEvent : ISchemaClass<CNmEvent> {
 
   static CNmEvent ISchemaClass<CNmEvent>.From(nint handle) => new CNmEventImpl(handle);
   static int ISchemaClass<CNmEvent>.Size => 32;
+  static string? ISchemaClass<CNmEvent>.ClassName => null;
 
   
   public ref float StartTimeSeconds { get; }

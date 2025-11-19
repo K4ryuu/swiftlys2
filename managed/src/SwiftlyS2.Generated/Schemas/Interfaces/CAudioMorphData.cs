@@ -12,6 +12,7 @@ public partial interface CAudioMorphData : ISchemaClass<CAudioMorphData> {
 
   static CAudioMorphData ISchemaClass<CAudioMorphData>.From(nint handle) => new CAudioMorphDataImpl(handle);
   static int ISchemaClass<CAudioMorphData>.Size => 104;
+  static string? ISchemaClass<CAudioMorphData>.ClassName => null;
 
   
   public ref CUtlVector<float> Times { get; }

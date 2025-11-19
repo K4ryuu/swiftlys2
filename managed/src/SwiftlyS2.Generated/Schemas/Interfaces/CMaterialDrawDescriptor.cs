@@ -12,6 +12,7 @@ public partial interface CMaterialDrawDescriptor : ISchemaClass<CMaterialDrawDes
 
   static CMaterialDrawDescriptor ISchemaClass<CMaterialDrawDescriptor>.From(nint handle) => new CMaterialDrawDescriptorImpl(handle);
   static int ISchemaClass<CMaterialDrawDescriptor>.Size => 264;
+  static string? ISchemaClass<CMaterialDrawDescriptor>.ClassName => null;
 
   
   public ref float UvDensity { get; }

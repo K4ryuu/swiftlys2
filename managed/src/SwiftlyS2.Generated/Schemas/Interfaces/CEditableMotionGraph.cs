@@ -12,6 +12,7 @@ public partial interface CEditableMotionGraph : CMotionGraph, ISchemaClass<CEdit
 
   static CEditableMotionGraph ISchemaClass<CEditableMotionGraph>.From(nint handle) => new CEditableMotionGraphImpl(handle);
   static int ISchemaClass<CEditableMotionGraph>.Size => 88;
+  static string? ISchemaClass<CEditableMotionGraph>.ClassName => null;
 
 
 

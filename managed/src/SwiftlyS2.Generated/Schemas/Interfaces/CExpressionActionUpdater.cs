@@ -12,6 +12,7 @@ public partial interface CExpressionActionUpdater : CAnimActionUpdater, ISchemaC
 
   static CExpressionActionUpdater ISchemaClass<CExpressionActionUpdater>.From(nint handle) => new CExpressionActionUpdaterImpl(handle);
   static int ISchemaClass<CExpressionActionUpdater>.Size => 32;
+  static string? ISchemaClass<CExpressionActionUpdater>.ClassName => null;
 
   
   public CAnimParamHandle Param { get; }

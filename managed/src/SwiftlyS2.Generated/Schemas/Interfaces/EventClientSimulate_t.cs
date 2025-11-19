@@ -12,6 +12,7 @@ public partial interface EventClientSimulate_t : EventSimulate_t, ISchemaClass<E
 
   static EventClientSimulate_t ISchemaClass<EventClientSimulate_t>.From(nint handle) => new EventClientSimulate_tImpl(handle);
   static int ISchemaClass<EventClientSimulate_t>.Size => 48;
+  static string? ISchemaClass<EventClientSimulate_t>.ClassName => null;
 
 
 

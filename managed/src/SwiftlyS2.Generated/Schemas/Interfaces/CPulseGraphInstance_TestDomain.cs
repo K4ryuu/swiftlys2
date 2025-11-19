@@ -12,6 +12,7 @@ public partial interface CPulseGraphInstance_TestDomain : CBasePulseGraphInstanc
 
   static CPulseGraphInstance_TestDomain ISchemaClass<CPulseGraphInstance_TestDomain>.From(nint handle) => new CPulseGraphInstance_TestDomainImpl(handle);
   static int ISchemaClass<CPulseGraphInstance_TestDomain>.Size => 352;
+  static string? ISchemaClass<CPulseGraphInstance_TestDomain>.ClassName => null;
 
   
   public ref bool IsRunningUnitTests { get; }

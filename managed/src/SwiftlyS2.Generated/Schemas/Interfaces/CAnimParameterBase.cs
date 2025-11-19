@@ -12,6 +12,7 @@ public partial interface CAnimParameterBase : ISchemaClass<CAnimParameterBase> {
 
   static CAnimParameterBase ISchemaClass<CAnimParameterBase>.From(nint handle) => new CAnimParameterBaseImpl(handle);
   static int ISchemaClass<CAnimParameterBase>.Size => 112;
+  static string? ISchemaClass<CAnimParameterBase>.ClassName => null;
 
   
   public ref CGlobalSymbol Name { get; }

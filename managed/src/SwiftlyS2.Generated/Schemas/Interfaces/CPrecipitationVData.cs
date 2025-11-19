@@ -12,6 +12,7 @@ public partial interface CPrecipitationVData : CEntitySubclassVDataBase, ISchema
 
   static CPrecipitationVData ISchemaClass<CPrecipitationVData>.From(nint handle) => new CPrecipitationVDataImpl(handle);
   static int ISchemaClass<CPrecipitationVData>.Size => 296;
+  static string? ISchemaClass<CPrecipitationVData>.ClassName => null;
 
   
   // CResourceNameTyped< CWeakHandle< InfoForResourceTypeIParticleSystemDefinition > >

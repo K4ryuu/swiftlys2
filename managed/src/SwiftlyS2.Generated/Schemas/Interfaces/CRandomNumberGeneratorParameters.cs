@@ -12,6 +12,7 @@ public partial interface CRandomNumberGeneratorParameters : ISchemaClass<CRandom
 
   static CRandomNumberGeneratorParameters ISchemaClass<CRandomNumberGeneratorParameters>.From(nint handle) => new CRandomNumberGeneratorParametersImpl(handle);
   static int ISchemaClass<CRandomNumberGeneratorParameters>.Size => 8;
+  static string? ISchemaClass<CRandomNumberGeneratorParameters>.ClassName => null;
 
   
   public ref bool DistributeEvenly { get; }

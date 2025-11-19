@@ -12,6 +12,7 @@ public partial interface CResponseCriteriaSet : ISchemaClass<CResponseCriteriaSe
 
   static CResponseCriteriaSet ISchemaClass<CResponseCriteriaSet>.From(nint handle) => new CResponseCriteriaSetImpl(handle);
   static int ISchemaClass<CResponseCriteriaSet>.Size => 56;
+  static string? ISchemaClass<CResponseCriteriaSet>.ClassName => null;
 
   
   public ref int NumPrefixedContexts { get; }

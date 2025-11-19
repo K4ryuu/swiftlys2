@@ -12,6 +12,7 @@ public partial interface CCSPlayerBase_CameraServices : CPlayer_CameraServices, 
 
   static CCSPlayerBase_CameraServices ISchemaClass<CCSPlayerBase_CameraServices>.From(nint handle) => new CCSPlayerBase_CameraServicesImpl(handle);
   static int ISchemaClass<CCSPlayerBase_CameraServices>.Size => 424;
+  static string? ISchemaClass<CCSPlayerBase_CameraServices>.ClassName => null;
 
   
   public ref uint FOV { get; }

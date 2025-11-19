@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CFuncMonitor : CFuncBrush, ISchemaClass<CFuncMonitor> {
 
   static CFuncMonitor ISchemaClass<CFuncMonitor>.From(nint handle) => new CFuncMonitorImpl(handle);
-  static int ISchemaClass<CFuncMonitor>.Size => 2072;
+  static int ISchemaClass<CFuncMonitor>.Size => 2808;
+  static string? ISchemaClass<CFuncMonitor>.ClassName => "func_monitor";
 
   
   public string TargetCamera { get; set; }

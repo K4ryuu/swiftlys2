@@ -12,6 +12,7 @@ public partial interface CAnimBoneDifference : ISchemaClass<CAnimBoneDifference>
 
   static CAnimBoneDifference ISchemaClass<CAnimBoneDifference>.From(nint handle) => new CAnimBoneDifferenceImpl(handle);
   static int ISchemaClass<CAnimBoneDifference>.Size => 48;
+  static string? ISchemaClass<CAnimBoneDifference>.ClassName => null;
 
   
   public ref CBufferString Name { get; }

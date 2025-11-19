@@ -12,6 +12,7 @@ public partial interface CMotionMetricEvaluator : ISchemaClass<CMotionMetricEval
 
   static CMotionMetricEvaluator ISchemaClass<CMotionMetricEvaluator>.From(nint handle) => new CMotionMetricEvaluatorImpl(handle);
   static int ISchemaClass<CMotionMetricEvaluator>.Size => 80;
+  static string? ISchemaClass<CMotionMetricEvaluator>.ClassName => null;
 
   
   public ref CUtlVector<float> Means { get; }

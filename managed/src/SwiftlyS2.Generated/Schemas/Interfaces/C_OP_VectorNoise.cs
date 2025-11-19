@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface C_OP_VectorNoise : CParticleFunctionOperator, ISchemaClass<C_OP_VectorNoise> {
 
   static C_OP_VectorNoise ISchemaClass<C_OP_VectorNoise>.From(nint handle) => new C_OP_VectorNoiseImpl(handle);
-  static int ISchemaClass<C_OP_VectorNoise>.Size => 504;
+  static int ISchemaClass<C_OP_VectorNoise>.Size => 496;
+  static string? ISchemaClass<C_OP_VectorNoise>.ClassName => null;
 
   
   public ParticleAttributeIndex_t FieldOutput { get; }

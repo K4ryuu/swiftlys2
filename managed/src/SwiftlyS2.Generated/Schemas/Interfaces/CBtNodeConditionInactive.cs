@@ -12,6 +12,7 @@ public partial interface CBtNodeConditionInactive : CBtNodeCondition, ISchemaCla
 
   static CBtNodeConditionInactive ISchemaClass<CBtNodeConditionInactive>.From(nint handle) => new CBtNodeConditionInactiveImpl(handle);
   static int ISchemaClass<CBtNodeConditionInactive>.Size => 152;
+  static string? ISchemaClass<CBtNodeConditionInactive>.ClassName => null;
 
   
   public ref float RoundStartThresholdSeconds { get; }

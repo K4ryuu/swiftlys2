@@ -12,6 +12,7 @@ public partial interface CFlexController : ISchemaClass<CFlexController> {
 
   static CFlexController ISchemaClass<CFlexController>.From(nint handle) => new CFlexControllerImpl(handle);
   static int ISchemaClass<CFlexController>.Size => 24;
+  static string? ISchemaClass<CFlexController>.ClassName => null;
 
   
   public string Name { get; set; }

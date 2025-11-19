@@ -12,6 +12,7 @@ public partial interface CBasePlayerWeaponVData : CEntitySubclassVDataBase, ISch
 
   static CBasePlayerWeaponVData ISchemaClass<CBasePlayerWeaponVData>.From(nint handle) => new CBasePlayerWeaponVDataImpl(handle);
   static int ISchemaClass<CBasePlayerWeaponVData>.Size => 1088;
+  static string? ISchemaClass<CBasePlayerWeaponVData>.ClassName => null;
 
   
   // CResourceNameTyped< CWeakHandle< InfoForResourceTypeCModel > >

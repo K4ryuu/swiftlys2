@@ -12,6 +12,7 @@ public partial interface CFootCycleDefinition : ISchemaClass<CFootCycleDefinitio
 
   static CFootCycleDefinition ISchemaClass<CFootCycleDefinition>.From(nint handle) => new CFootCycleDefinitionImpl(handle);
   static int ISchemaClass<CFootCycleDefinition>.Size => 60;
+  static string? ISchemaClass<CFootCycleDefinition>.ClassName => null;
 
   
   public ref Vector StancePositionMS { get; }

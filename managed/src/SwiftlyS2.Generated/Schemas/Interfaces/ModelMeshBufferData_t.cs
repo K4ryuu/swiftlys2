@@ -12,6 +12,7 @@ public partial interface ModelMeshBufferData_t : ISchemaClass<ModelMeshBufferDat
 
   static ModelMeshBufferData_t ISchemaClass<ModelMeshBufferData_t>.From(nint handle) => new ModelMeshBufferData_tImpl(handle);
   static int ISchemaClass<ModelMeshBufferData_t>.Size => 48;
+  static string? ISchemaClass<ModelMeshBufferData_t>.ClassName => null;
 
   
   public ref int BlockIndex { get; }

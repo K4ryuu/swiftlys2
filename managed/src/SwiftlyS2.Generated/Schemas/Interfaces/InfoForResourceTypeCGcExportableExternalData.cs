@@ -12,6 +12,7 @@ public partial interface InfoForResourceTypeCGcExportableExternalData : ISchemaC
 
   static InfoForResourceTypeCGcExportableExternalData ISchemaClass<InfoForResourceTypeCGcExportableExternalData>.From(nint handle) => new InfoForResourceTypeCGcExportableExternalDataImpl(handle);
   static int ISchemaClass<InfoForResourceTypeCGcExportableExternalData>.Size => 1;
+  static string? ISchemaClass<InfoForResourceTypeCGcExportableExternalData>.ClassName => null;
 
 
 

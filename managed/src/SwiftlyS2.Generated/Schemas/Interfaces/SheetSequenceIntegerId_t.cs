@@ -12,6 +12,7 @@ public partial interface SheetSequenceIntegerId_t : ISchemaClass<SheetSequenceIn
 
   static SheetSequenceIntegerId_t ISchemaClass<SheetSequenceIntegerId_t>.From(nint handle) => new SheetSequenceIntegerId_tImpl(handle);
   static int ISchemaClass<SheetSequenceIntegerId_t>.Size => 4;
+  static string? ISchemaClass<SheetSequenceIntegerId_t>.ClassName => null;
 
   
   public ref uint Value { get; }

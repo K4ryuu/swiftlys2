@@ -12,6 +12,7 @@ public partial interface CLookComponentUpdater : CAnimComponentUpdater, ISchemaC
 
   static CLookComponentUpdater ISchemaClass<CLookComponentUpdater>.From(nint handle) => new CLookComponentUpdaterImpl(handle);
   static int ISchemaClass<CLookComponentUpdater>.Size => 72;
+  static string? ISchemaClass<CLookComponentUpdater>.ClassName => null;
 
   
   public CAnimParamHandle LookHeading { get; }

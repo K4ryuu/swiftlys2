@@ -12,6 +12,7 @@ public partial interface PermModelInfo_t : ISchemaClass<PermModelInfo_t> {
 
   static PermModelInfo_t ISchemaClass<PermModelInfo_t>.From(nint handle) => new PermModelInfo_tImpl(handle);
   static int ISchemaClass<PermModelInfo_t>.Size => 88;
+  static string? ISchemaClass<PermModelInfo_t>.ClassName => null;
 
   
   public ref uint Flags { get; }

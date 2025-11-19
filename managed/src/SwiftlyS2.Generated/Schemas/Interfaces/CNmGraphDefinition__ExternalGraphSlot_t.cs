@@ -12,6 +12,7 @@ public partial interface CNmGraphDefinition__ExternalGraphSlot_t : ISchemaClass<
 
   static CNmGraphDefinition__ExternalGraphSlot_t ISchemaClass<CNmGraphDefinition__ExternalGraphSlot_t>.From(nint handle) => new CNmGraphDefinition__ExternalGraphSlot_tImpl(handle);
   static int ISchemaClass<CNmGraphDefinition__ExternalGraphSlot_t>.Size => 16;
+  static string? ISchemaClass<CNmGraphDefinition__ExternalGraphSlot_t>.ClassName => null;
 
   
   public ref short NodeIdx { get; }

@@ -12,6 +12,7 @@ public partial interface CNavHullPresetVData : ISchemaClass<CNavHullPresetVData>
 
   static CNavHullPresetVData ISchemaClass<CNavHullPresetVData>.From(nint handle) => new CNavHullPresetVDataImpl(handle);
   static int ISchemaClass<CNavHullPresetVData>.Size => 24;
+  static string? ISchemaClass<CNavHullPresetVData>.ClassName => null;
 
   
   public ref CUtlVector<CUtlString> NavHulls { get; }

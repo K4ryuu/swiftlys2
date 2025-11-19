@@ -12,6 +12,7 @@ public partial interface FeBuildSphereRigid_t : FeSphereRigid_t, ISchemaClass<Fe
 
   static FeBuildSphereRigid_t ISchemaClass<FeBuildSphereRigid_t>.From(nint handle) => new FeBuildSphereRigid_tImpl(handle);
   static int ISchemaClass<FeBuildSphereRigid_t>.Size => 48;
+  static string? ISchemaClass<FeBuildSphereRigid_t>.ClassName => null;
 
   
   public ref int Priority { get; }

@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CLogicAchievement : CLogicalEntity, ISchemaClass<CLogicAchievement> {
 
   static CLogicAchievement ISchemaClass<CLogicAchievement>.From(nint handle) => new CLogicAchievementImpl(handle);
-  static int ISchemaClass<CLogicAchievement>.Size => 1320;
+  static int ISchemaClass<CLogicAchievement>.Size => 2064;
+  static string? ISchemaClass<CLogicAchievement>.ClassName => "logic_achievement";
 
   
   public ref bool Disabled { get; }

@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CBot : ISchemaClass<CBot> {
 
   static CBot ISchemaClass<CBot>.From(nint handle) => new CBotImpl(handle);
-  static int ISchemaClass<CBot>.Size => 256;
+  static int ISchemaClass<CBot>.Size => 248;
+  static string? ISchemaClass<CBot>.ClassName => null;
 
   
   public CCSPlayerController? Controller { get; }

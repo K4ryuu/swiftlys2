@@ -12,6 +12,7 @@ public partial interface PulseObservableBoolExpression_t : ISchemaClass<PulseObs
 
   static PulseObservableBoolExpression_t ISchemaClass<PulseObservableBoolExpression_t>.From(nint handle) => new PulseObservableBoolExpression_tImpl(handle);
   static int ISchemaClass<PulseObservableBoolExpression_t>.Size => 120;
+  static string? ISchemaClass<PulseObservableBoolExpression_t>.ClassName => null;
 
   
   public CPulse_OutflowConnection EvaluateConnection { get; }

@@ -12,6 +12,7 @@ public partial interface CTimeRemainingMetricEvaluator : CMotionMetricEvaluator,
 
   static CTimeRemainingMetricEvaluator ISchemaClass<CTimeRemainingMetricEvaluator>.From(nint handle) => new CTimeRemainingMetricEvaluatorImpl(handle);
   static int ISchemaClass<CTimeRemainingMetricEvaluator>.Size => 96;
+  static string? ISchemaClass<CTimeRemainingMetricEvaluator>.ClassName => null;
 
   
   public ref bool MatchByTimeRemaining { get; }

@@ -12,6 +12,7 @@ public partial interface CNmBoneMaskValueNode__CDefinition : CNmValueNode__CDefi
 
   static CNmBoneMaskValueNode__CDefinition ISchemaClass<CNmBoneMaskValueNode__CDefinition>.From(nint handle) => new CNmBoneMaskValueNode__CDefinitionImpl(handle);
   static int ISchemaClass<CNmBoneMaskValueNode__CDefinition>.Size => 16;
+  static string? ISchemaClass<CNmBoneMaskValueNode__CDefinition>.ClassName => null;
 
 
 

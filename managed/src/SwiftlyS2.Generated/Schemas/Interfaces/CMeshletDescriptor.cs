@@ -12,6 +12,7 @@ public partial interface CMeshletDescriptor : ISchemaClass<CMeshletDescriptor> {
 
   static CMeshletDescriptor ISchemaClass<CMeshletDescriptor>.From(nint handle) => new CMeshletDescriptorImpl(handle);
   static int ISchemaClass<CMeshletDescriptor>.Size => 24;
+  static string? ISchemaClass<CMeshletDescriptor>.ClassName => null;
 
   
   public PackedAABB_t PackedAABB { get; }

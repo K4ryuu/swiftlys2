@@ -12,6 +12,7 @@ public partial interface EntitySpottedState_t : ISchemaClass<EntitySpottedState_
 
   static EntitySpottedState_t ISchemaClass<EntitySpottedState_t>.From(nint handle) => new EntitySpottedState_tImpl(handle);
   static int ISchemaClass<EntitySpottedState_t>.Size => 24;
+  static string? ISchemaClass<EntitySpottedState_t>.ClassName => null;
 
   
   public ref bool Spotted { get; }

@@ -12,6 +12,7 @@ public partial interface CNmSyncEventIndexConditionNode__CDefinition : CNmBoolVa
 
   static CNmSyncEventIndexConditionNode__CDefinition ISchemaClass<CNmSyncEventIndexConditionNode__CDefinition>.From(nint handle) => new CNmSyncEventIndexConditionNode__CDefinitionImpl(handle);
   static int ISchemaClass<CNmSyncEventIndexConditionNode__CDefinition>.Size => 24;
+  static string? ISchemaClass<CNmSyncEventIndexConditionNode__CDefinition>.ClassName => null;
 
   
   public ref short SourceStateNodeIdx { get; }

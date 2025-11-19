@@ -12,6 +12,7 @@ public partial interface CDestructiblePart : ISchemaClass<CDestructiblePart> {
 
   static CDestructiblePart ISchemaClass<CDestructiblePart>.From(nint handle) => new CDestructiblePartImpl(handle);
   static int ISchemaClass<CDestructiblePart>.Size => 80;
+  static string? ISchemaClass<CDestructiblePart>.ClassName => null;
 
   
   public ref CGlobalSymbol DebugName { get; }

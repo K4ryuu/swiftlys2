@@ -12,6 +12,7 @@ public partial interface VsInputSignatureElement_t : ISchemaClass<VsInputSignatu
 
   static VsInputSignatureElement_t ISchemaClass<VsInputSignatureElement_t>.From(nint handle) => new VsInputSignatureElement_tImpl(handle);
   static int ISchemaClass<VsInputSignatureElement_t>.Size => 196;
+  static string? ISchemaClass<VsInputSignatureElement_t>.ClassName => null;
 
   
   public string Name { get; set; }

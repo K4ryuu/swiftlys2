@@ -12,6 +12,7 @@ public partial interface FeSimdRodConstraint_t : ISchemaClass<FeSimdRodConstrain
 
   static FeSimdRodConstraint_t ISchemaClass<FeSimdRodConstraint_t>.From(nint handle) => new FeSimdRodConstraint_tImpl(handle);
   static int ISchemaClass<FeSimdRodConstraint_t>.Size => 80;
+  static string? ISchemaClass<FeSimdRodConstraint_t>.ClassName => null;
 
   
   // uint16[4]

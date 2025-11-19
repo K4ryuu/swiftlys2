@@ -12,6 +12,7 @@ public partial interface HitReactFixedSettings_t : ISchemaClass<HitReactFixedSet
 
   static HitReactFixedSettings_t ISchemaClass<HitReactFixedSettings_t>.From(nint handle) => new HitReactFixedSettings_tImpl(handle);
   static int ISchemaClass<HitReactFixedSettings_t>.Size => 68;
+  static string? ISchemaClass<HitReactFixedSettings_t>.ClassName => null;
 
   
   public ref int WeightListIndex { get; }

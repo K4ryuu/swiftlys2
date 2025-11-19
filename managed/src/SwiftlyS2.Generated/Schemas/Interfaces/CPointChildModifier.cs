@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CPointChildModifier : CPointEntity, ISchemaClass<CPointChildModifier> {
 
   static CPointChildModifier ISchemaClass<CPointChildModifier>.From(nint handle) => new CPointChildModifierImpl(handle);
-  static int ISchemaClass<CPointChildModifier>.Size => 1272;
+  static int ISchemaClass<CPointChildModifier>.Size => 2016;
+  static string? ISchemaClass<CPointChildModifier>.ClassName => "point_childmodifier";
 
   
   public ref bool OrphanInsteadOfDeletingChildrenOnRemove { get; }

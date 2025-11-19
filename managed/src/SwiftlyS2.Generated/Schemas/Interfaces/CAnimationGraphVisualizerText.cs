@@ -12,6 +12,7 @@ public partial interface CAnimationGraphVisualizerText : CAnimationGraphVisualiz
 
   static CAnimationGraphVisualizerText ISchemaClass<CAnimationGraphVisualizerText>.From(nint handle) => new CAnimationGraphVisualizerTextImpl(handle);
   static int ISchemaClass<CAnimationGraphVisualizerText>.Size => 96;
+  static string? ISchemaClass<CAnimationGraphVisualizerText>.ClassName => null;
 
   
   public ref Vector WsPosition { get; }

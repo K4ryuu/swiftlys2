@@ -12,6 +12,7 @@ public partial interface SkeletonAnimCapture_t__Bone_t : ISchemaClass<SkeletonAn
 
   static SkeletonAnimCapture_t__Bone_t ISchemaClass<SkeletonAnimCapture_t__Bone_t>.From(nint handle) => new SkeletonAnimCapture_t__Bone_tImpl(handle);
   static int ISchemaClass<SkeletonAnimCapture_t__Bone_t>.Size => 64;
+  static string? ISchemaClass<SkeletonAnimCapture_t__Bone_t>.ClassName => null;
 
   
   public string Name { get; set; }

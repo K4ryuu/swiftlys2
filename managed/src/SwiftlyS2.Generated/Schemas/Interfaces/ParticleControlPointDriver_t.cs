@@ -12,6 +12,7 @@ public partial interface ParticleControlPointDriver_t : ISchemaClass<ParticleCon
 
   static ParticleControlPointDriver_t ISchemaClass<ParticleControlPointDriver_t>.From(nint handle) => new ParticleControlPointDriver_tImpl(handle);
   static int ISchemaClass<ParticleControlPointDriver_t>.Size => 48;
+  static string? ISchemaClass<ParticleControlPointDriver_t>.ClassName => null;
 
   
   public ref int ControlPoint { get; }

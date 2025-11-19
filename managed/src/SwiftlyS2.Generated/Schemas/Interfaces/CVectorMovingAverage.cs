@@ -12,6 +12,7 @@ public partial interface CVectorMovingAverage : ISchemaClass<CVectorMovingAverag
 
   static CVectorMovingAverage ISchemaClass<CVectorMovingAverage>.From(nint handle) => new CVectorMovingAverageImpl(handle);
   static int ISchemaClass<CVectorMovingAverage>.Size => 32;
+  static string? ISchemaClass<CVectorMovingAverage>.ClassName => null;
 
 
 

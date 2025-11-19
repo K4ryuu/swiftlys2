@@ -12,6 +12,7 @@ public partial interface CScriptUniformRandomStream : ISchemaClass<CScriptUnifor
 
   static CScriptUniformRandomStream ISchemaClass<CScriptUniformRandomStream>.From(nint handle) => new CScriptUniformRandomStreamImpl(handle);
   static int ISchemaClass<CScriptUniformRandomStream>.Size => 160;
+  static string? ISchemaClass<CScriptUniformRandomStream>.ClassName => null;
 
   
   // HSCRIPT

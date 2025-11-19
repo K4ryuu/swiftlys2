@@ -12,6 +12,7 @@ public partial interface EntityKeyValueData_t : ISchemaClass<EntityKeyValueData_
 
   static EntityKeyValueData_t ISchemaClass<EntityKeyValueData_t>.From(nint handle) => new EntityKeyValueData_tImpl(handle);
   static int ISchemaClass<EntityKeyValueData_t>.Size => 56;
+  static string? ISchemaClass<EntityKeyValueData_t>.ClassName => null;
 
   
   public ref CUtlVector<EntityIOConnectionData_t> Connections { get; }

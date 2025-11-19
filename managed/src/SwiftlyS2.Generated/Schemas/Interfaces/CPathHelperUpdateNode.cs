@@ -12,6 +12,7 @@ public partial interface CPathHelperUpdateNode : CUnaryUpdateNode, ISchemaClass<
 
   static CPathHelperUpdateNode ISchemaClass<CPathHelperUpdateNode>.From(nint handle) => new CPathHelperUpdateNodeImpl(handle);
   static int ISchemaClass<CPathHelperUpdateNode>.Size => 120;
+  static string? ISchemaClass<CPathHelperUpdateNode>.ClassName => null;
 
   
   public ref float StoppingRadius { get; }

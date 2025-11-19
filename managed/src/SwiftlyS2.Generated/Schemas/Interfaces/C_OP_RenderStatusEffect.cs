@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface C_OP_RenderStatusEffect : CParticleFunctionRenderer, ISchemaClass<C_OP_RenderStatusEffect> {
 
   static C_OP_RenderStatusEffect ISchemaClass<C_OP_RenderStatusEffect>.From(nint handle) => new C_OP_RenderStatusEffectImpl(handle);
-  static int ISchemaClass<C_OP_RenderStatusEffect>.Size => 600;
+  static int ISchemaClass<C_OP_RenderStatusEffect>.Size => 592;
+  static string? ISchemaClass<C_OP_RenderStatusEffect>.ClassName => null;
 
   
   public ref CStrongHandle<InfoForResourceTypeCTextureBase> TextureColorWarp { get; }

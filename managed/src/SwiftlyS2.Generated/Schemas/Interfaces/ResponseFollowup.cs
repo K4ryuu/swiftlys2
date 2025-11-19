@@ -12,6 +12,7 @@ public partial interface ResponseFollowup : ISchemaClass<ResponseFollowup> {
 
   static ResponseFollowup ISchemaClass<ResponseFollowup>.From(nint handle) => new ResponseFollowupImpl(handle);
   static int ISchemaClass<ResponseFollowup>.Size => 49;
+  static string? ISchemaClass<ResponseFollowup>.ClassName => null;
 
   
   public string Followup_concept { get; set; }

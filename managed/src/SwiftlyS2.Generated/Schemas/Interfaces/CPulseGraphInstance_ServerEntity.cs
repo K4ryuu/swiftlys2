@@ -12,6 +12,7 @@ public partial interface CPulseGraphInstance_ServerEntity : CBasePulseGraphInsta
 
   static CPulseGraphInstance_ServerEntity ISchemaClass<CPulseGraphInstance_ServerEntity>.From(nint handle) => new CPulseGraphInstance_ServerEntityImpl(handle);
   static int ISchemaClass<CPulseGraphInstance_ServerEntity>.Size => 440;
+  static string? ISchemaClass<CPulseGraphInstance_ServerEntity>.ClassName => null;
 
   
   public ref CHandle<CBaseEntity> Owner { get; }

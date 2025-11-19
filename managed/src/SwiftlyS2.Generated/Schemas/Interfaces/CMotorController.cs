@@ -12,6 +12,7 @@ public partial interface CMotorController : ISchemaClass<CMotorController> {
 
   static CMotorController ISchemaClass<CMotorController>.From(nint handle) => new CMotorControllerImpl(handle);
   static int ISchemaClass<CMotorController>.Size => 32;
+  static string? ISchemaClass<CMotorController>.ClassName => null;
 
   
   public ref float Speed { get; }

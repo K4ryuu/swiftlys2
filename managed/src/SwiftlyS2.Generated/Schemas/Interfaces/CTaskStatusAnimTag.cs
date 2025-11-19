@@ -12,6 +12,7 @@ public partial interface CTaskStatusAnimTag : CAnimTagBase, ISchemaClass<CTaskSt
 
   static CTaskStatusAnimTag ISchemaClass<CTaskStatusAnimTag>.From(nint handle) => new CTaskStatusAnimTagImpl(handle);
   static int ISchemaClass<CTaskStatusAnimTag>.Size => 88;
+  static string? ISchemaClass<CTaskStatusAnimTag>.ClassName => null;
 
 
 

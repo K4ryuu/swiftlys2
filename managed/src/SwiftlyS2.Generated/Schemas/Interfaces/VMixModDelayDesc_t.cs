@@ -12,6 +12,7 @@ public partial interface VMixModDelayDesc_t : ISchemaClass<VMixModDelayDesc_t> {
 
   static VMixModDelayDesc_t ISchemaClass<VMixModDelayDesc_t>.From(nint handle) => new VMixModDelayDesc_tImpl(handle);
   static int ISchemaClass<VMixModDelayDesc_t>.Size => 48;
+  static string? ISchemaClass<VMixModDelayDesc_t>.ClassName => null;
 
   
   public VMixFilterDesc_t FeedbackFilter { get; }

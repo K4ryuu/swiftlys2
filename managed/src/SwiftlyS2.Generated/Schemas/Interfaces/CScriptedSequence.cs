@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CScriptedSequence : CBaseEntity, ISchemaClass<CScriptedSequence> {
 
   static CScriptedSequence ISchemaClass<CScriptedSequence>.From(nint handle) => new CScriptedSequenceImpl(handle);
-  static int ISchemaClass<CScriptedSequence>.Size => 2064;
+  static int ISchemaClass<CScriptedSequence>.Size => 2816;
+  static string? ISchemaClass<CScriptedSequence>.ClassName => "scripted_sequence";
 
   
   public string Entry { get; set; }

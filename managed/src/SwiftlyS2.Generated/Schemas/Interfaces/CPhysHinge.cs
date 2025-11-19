@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CPhysHinge : CPhysConstraint, ISchemaClass<CPhysHinge> {
 
   static CPhysHinge ISchemaClass<CPhysHinge>.From(nint handle) => new CPhysHingeImpl(handle);
-  static int ISchemaClass<CPhysHinge>.Size => 1808;
+  static int ISchemaClass<CPhysHinge>.Size => 2552;
+  static string? ISchemaClass<CPhysHinge>.ClassName => "phys_hinge";
 
   
   public ConstraintSoundInfo SoundInfo { get; }

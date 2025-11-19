@@ -12,6 +12,7 @@ public partial interface ParticleChildrenInfo_t : ISchemaClass<ParticleChildrenI
 
   static ParticleChildrenInfo_t ISchemaClass<ParticleChildrenInfo_t>.From(nint handle) => new ParticleChildrenInfo_tImpl(handle);
   static int ISchemaClass<ParticleChildrenInfo_t>.Size => 32;
+  static string? ISchemaClass<ParticleChildrenInfo_t>.ClassName => null;
 
   
   public ref CStrongHandle<InfoForResourceTypeIParticleSystemDefinition> ChildRef { get; }

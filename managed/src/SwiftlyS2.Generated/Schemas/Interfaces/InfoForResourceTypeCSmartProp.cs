@@ -12,6 +12,7 @@ public partial interface InfoForResourceTypeCSmartProp : ISchemaClass<InfoForRes
 
   static InfoForResourceTypeCSmartProp ISchemaClass<InfoForResourceTypeCSmartProp>.From(nint handle) => new InfoForResourceTypeCSmartPropImpl(handle);
   static int ISchemaClass<InfoForResourceTypeCSmartProp>.Size => 1;
+  static string? ISchemaClass<InfoForResourceTypeCSmartProp>.ClassName => null;
 
 
 

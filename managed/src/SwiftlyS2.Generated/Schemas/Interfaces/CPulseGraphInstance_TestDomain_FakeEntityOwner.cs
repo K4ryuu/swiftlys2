@@ -12,6 +12,7 @@ public partial interface CPulseGraphInstance_TestDomain_FakeEntityOwner : CBaseP
 
   static CPulseGraphInstance_TestDomain_FakeEntityOwner ISchemaClass<CPulseGraphInstance_TestDomain_FakeEntityOwner>.From(nint handle) => new CPulseGraphInstance_TestDomain_FakeEntityOwnerImpl(handle);
   static int ISchemaClass<CPulseGraphInstance_TestDomain_FakeEntityOwner>.Size => 280;
+  static string? ISchemaClass<CPulseGraphInstance_TestDomain_FakeEntityOwner>.ClassName => null;
 
 
 

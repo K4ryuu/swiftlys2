@@ -12,6 +12,7 @@ public partial interface CPlayer_MovementServices_Humanoid : CPlayer_MovementSer
 
   static CPlayer_MovementServices_Humanoid ISchemaClass<CPlayer_MovementServices_Humanoid>.From(nint handle) => new CPlayer_MovementServices_HumanoidImpl(handle);
   static int ISchemaClass<CPlayer_MovementServices_Humanoid>.Size => 640;
+  static string? ISchemaClass<CPlayer_MovementServices_Humanoid>.ClassName => null;
 
   
   public ref float StepSoundTime { get; }

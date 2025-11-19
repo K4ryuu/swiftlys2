@@ -12,6 +12,7 @@ public partial interface CAnimMotorUpdaterBase : ISchemaClass<CAnimMotorUpdaterB
 
   static CAnimMotorUpdaterBase ISchemaClass<CAnimMotorUpdaterBase>.From(nint handle) => new CAnimMotorUpdaterBaseImpl(handle);
   static int ISchemaClass<CAnimMotorUpdaterBase>.Size => 32;
+  static string? ISchemaClass<CAnimMotorUpdaterBase>.ClassName => null;
 
   
   public string Name { get; set; }

@@ -12,6 +12,7 @@ public partial interface CPulseServerFuncs : ISchemaClass<CPulseServerFuncs> {
 
   static CPulseServerFuncs ISchemaClass<CPulseServerFuncs>.From(nint handle) => new CPulseServerFuncsImpl(handle);
   static int ISchemaClass<CPulseServerFuncs>.Size => 1;
+  static string? ISchemaClass<CPulseServerFuncs>.ClassName => null;
 
 
 

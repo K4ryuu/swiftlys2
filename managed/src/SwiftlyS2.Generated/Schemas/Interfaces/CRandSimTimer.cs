@@ -12,6 +12,7 @@ public partial interface CRandSimTimer : CSimpleSimTimer, ISchemaClass<CRandSimT
 
   static CRandSimTimer ISchemaClass<CRandSimTimer>.From(nint handle) => new CRandSimTimerImpl(handle);
   static int ISchemaClass<CRandSimTimer>.Size => 16;
+  static string? ISchemaClass<CRandSimTimer>.ClassName => null;
 
   
   public ref float MinInterval { get; }

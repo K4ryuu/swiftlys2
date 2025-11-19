@@ -12,6 +12,7 @@ public partial interface CSeqPoseSetting : ISchemaClass<CSeqPoseSetting> {
 
   static CSeqPoseSetting ISchemaClass<CSeqPoseSetting>.From(nint handle) => new CSeqPoseSettingImpl(handle);
   static int ISchemaClass<CSeqPoseSetting>.Size => 64;
+  static string? ISchemaClass<CSeqPoseSetting>.ClassName => null;
 
   
   public ref CBufferString PoseParameter { get; }

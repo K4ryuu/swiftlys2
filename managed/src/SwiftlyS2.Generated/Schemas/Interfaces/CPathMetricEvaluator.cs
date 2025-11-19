@@ -12,6 +12,7 @@ public partial interface CPathMetricEvaluator : CMotionMetricEvaluator, ISchemaC
 
   static CPathMetricEvaluator ISchemaClass<CPathMetricEvaluator>.From(nint handle) => new CPathMetricEvaluatorImpl(handle);
   static int ISchemaClass<CPathMetricEvaluator>.Size => 120;
+  static string? ISchemaClass<CPathMetricEvaluator>.ClassName => null;
 
   
   public ref CUtlVector<float> PathTimeSamples { get; }

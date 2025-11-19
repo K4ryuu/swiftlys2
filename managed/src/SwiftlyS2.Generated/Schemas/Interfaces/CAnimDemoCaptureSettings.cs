@@ -12,6 +12,7 @@ public partial interface CAnimDemoCaptureSettings : ISchemaClass<CAnimDemoCaptur
 
   static CAnimDemoCaptureSettings ISchemaClass<CAnimDemoCaptureSettings>.From(nint handle) => new CAnimDemoCaptureSettingsImpl(handle);
   static int ISchemaClass<CAnimDemoCaptureSettings>.Size => 128;
+  static string? ISchemaClass<CAnimDemoCaptureSettings>.ClassName => null;
 
   
   public ref Vector2D ErrorRangeSplineRotation { get; }

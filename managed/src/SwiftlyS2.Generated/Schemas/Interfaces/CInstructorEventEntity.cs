@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CInstructorEventEntity : CPointEntity, ISchemaClass<CInstructorEventEntity> {
 
   static CInstructorEventEntity ISchemaClass<CInstructorEventEntity>.From(nint handle) => new CInstructorEventEntityImpl(handle);
-  static int ISchemaClass<CInstructorEventEntity>.Size => 1288;
+  static int ISchemaClass<CInstructorEventEntity>.Size => 2032;
+  static string? ISchemaClass<CInstructorEventEntity>.ClassName => "point_instructor_event";
 
   
   public string Name { get; set; }

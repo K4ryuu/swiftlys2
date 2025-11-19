@@ -19,7 +19,7 @@ public interface ISchemaClass : INativeHandle
 public interface ISchemaClass<T> : ISchemaField, ISchemaClass, INativeHandle where T : ISchemaClass<T>
 {
 
-  internal static abstract T From(nint handle);
+  internal static abstract T From( nint handle );
   internal static abstract int Size { get; }
-
+  internal static abstract string? ClassName { get; }
 }

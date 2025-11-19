@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CTriggerLook : CTriggerOnce, ISchemaClass<CTriggerLook> {
 
   static CTriggerLook ISchemaClass<CTriggerLook>.From(nint handle) => new CTriggerLookImpl(handle);
-  static int ISchemaClass<CTriggerLook>.Size => 2664;
+  static int ISchemaClass<CTriggerLook>.Size => 3400;
+  static string? ISchemaClass<CTriggerLook>.ClassName => "trigger_look";
 
   
   public ref CHandle<CBaseEntity> LookTarget { get; }

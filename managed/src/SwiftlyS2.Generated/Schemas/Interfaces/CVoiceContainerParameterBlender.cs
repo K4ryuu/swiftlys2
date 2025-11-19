@@ -12,6 +12,7 @@ public partial interface CVoiceContainerParameterBlender : CVoiceContainerBase, 
 
   static CVoiceContainerParameterBlender ISchemaClass<CVoiceContainerParameterBlender>.From(nint handle) => new CVoiceContainerParameterBlenderImpl(handle);
   static int ISchemaClass<CVoiceContainerParameterBlender>.Size => 504;
+  static string? ISchemaClass<CVoiceContainerParameterBlender>.ClassName => null;
 
   
   public CSoundContainerReference FirstSound { get; }

@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CSymbolAnimParameter : CConcreteAnimParameter, ISchemaClass<CSymbolAnimParameter> {
 
   static CSymbolAnimParameter ISchemaClass<CSymbolAnimParameter>.From(nint handle) => new CSymbolAnimParameterImpl(handle);
-  static int ISchemaClass<CSymbolAnimParameter>.Size => 136;
+  static int ISchemaClass<CSymbolAnimParameter>.Size => 128;
+  static string? ISchemaClass<CSymbolAnimParameter>.ClassName => null;
 
   
   public ref CGlobalSymbol DefaultValue { get; }

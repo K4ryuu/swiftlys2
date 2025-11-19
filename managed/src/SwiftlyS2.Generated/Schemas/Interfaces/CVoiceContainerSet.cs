@@ -12,6 +12,7 @@ public partial interface CVoiceContainerSet : CVoiceContainerBase, ISchemaClass<
 
   static CVoiceContainerSet ISchemaClass<CVoiceContainerSet>.From(nint handle) => new CVoiceContainerSetImpl(handle);
   static int ISchemaClass<CVoiceContainerSet>.Size => 208;
+  static string? ISchemaClass<CVoiceContainerSet>.ClassName => null;
 
   
   public ref CUtlVector<CVoiceContainerSetElement> SoundsToPlay { get; }

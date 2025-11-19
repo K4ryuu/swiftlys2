@@ -12,6 +12,7 @@ public partial interface CFootstepTableHandle : ISchemaClass<CFootstepTableHandl
 
   static CFootstepTableHandle ISchemaClass<CFootstepTableHandle>.From(nint handle) => new CFootstepTableHandleImpl(handle);
   static int ISchemaClass<CFootstepTableHandle>.Size => 8;
+  static string? ISchemaClass<CFootstepTableHandle>.ClassName => null;
 
 
 

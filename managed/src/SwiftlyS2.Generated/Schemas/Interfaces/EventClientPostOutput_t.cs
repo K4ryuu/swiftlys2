@@ -12,6 +12,7 @@ public partial interface EventClientPostOutput_t : ISchemaClass<EventClientPostO
 
   static EventClientPostOutput_t ISchemaClass<EventClientPostOutput_t>.From(nint handle) => new EventClientPostOutput_tImpl(handle);
   static int ISchemaClass<EventClientPostOutput_t>.Size => 64;
+  static string? ISchemaClass<EventClientPostOutput_t>.ClassName => null;
 
   
   public EngineLoopState_t LoopState { get; }

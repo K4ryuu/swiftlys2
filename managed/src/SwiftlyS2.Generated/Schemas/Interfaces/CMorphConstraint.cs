@@ -12,6 +12,7 @@ public partial interface CMorphConstraint : CBaseConstraint, ISchemaClass<CMorph
 
   static CMorphConstraint ISchemaClass<CMorphConstraint>.From(nint handle) => new CMorphConstraintImpl(handle);
   static int ISchemaClass<CMorphConstraint>.Size => 128;
+  static string? ISchemaClass<CMorphConstraint>.ClassName => null;
 
   
   public string TargetMorph { get; set; }

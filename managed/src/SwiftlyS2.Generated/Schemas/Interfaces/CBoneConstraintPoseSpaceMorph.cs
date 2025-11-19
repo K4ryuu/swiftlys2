@@ -12,6 +12,7 @@ public partial interface CBoneConstraintPoseSpaceMorph : CBoneConstraintBase, IS
 
   static CBoneConstraintPoseSpaceMorph ISchemaClass<CBoneConstraintPoseSpaceMorph>.From(nint handle) => new CBoneConstraintPoseSpaceMorphImpl(handle);
   static int ISchemaClass<CBoneConstraintPoseSpaceMorph>.Size => 160;
+  static string? ISchemaClass<CBoneConstraintPoseSpaceMorph>.ClassName => null;
 
   
   public string BoneName { get; set; }

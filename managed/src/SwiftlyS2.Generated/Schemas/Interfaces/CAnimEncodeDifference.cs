@@ -12,6 +12,7 @@ public partial interface CAnimEncodeDifference : ISchemaClass<CAnimEncodeDiffere
 
   static CAnimEncodeDifference ISchemaClass<CAnimEncodeDifference>.From(nint handle) => new CAnimEncodeDifferenceImpl(handle);
   static int ISchemaClass<CAnimEncodeDifference>.Size => 168;
+  static string? ISchemaClass<CAnimEncodeDifference>.ClassName => null;
 
   
   public ref CUtlVector<CAnimBoneDifference> BoneArray { get; }

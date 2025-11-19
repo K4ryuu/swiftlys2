@@ -12,6 +12,7 @@ public partial interface CBtActionParachutePositioning : CBtNode, ISchemaClass<C
 
   static CBtActionParachutePositioning ISchemaClass<CBtActionParachutePositioning>.From(nint handle) => new CBtActionParachutePositioningImpl(handle);
   static int ISchemaClass<CBtActionParachutePositioning>.Size => 120;
+  static string? ISchemaClass<CBtActionParachutePositioning>.ClassName => null;
 
   
   public CountdownTimer ActionTimer { get; }

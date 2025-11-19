@@ -12,6 +12,7 @@ public partial interface FootFixedSettings : ISchemaClass<FootFixedSettings> {
 
   static FootFixedSettings ISchemaClass<FootFixedSettings>.From(nint handle) => new FootFixedSettingsImpl(handle);
   static int ISchemaClass<FootFixedSettings>.Size => 64;
+  static string? ISchemaClass<FootFixedSettings>.ClassName => null;
 
   
   public TraceSettings_t TraceSettings { get; }

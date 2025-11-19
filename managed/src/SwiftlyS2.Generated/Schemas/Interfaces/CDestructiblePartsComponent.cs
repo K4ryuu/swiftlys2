@@ -12,6 +12,7 @@ public partial interface CDestructiblePartsComponent : ISchemaClass<CDestructibl
 
   static CDestructiblePartsComponent ISchemaClass<CDestructiblePartsComponent>.From(nint handle) => new CDestructiblePartsComponentImpl(handle);
   static int ISchemaClass<CDestructiblePartsComponent>.Size => 104;
+  static string? ISchemaClass<CDestructiblePartsComponent>.ClassName => null;
 
   
   public ref CNetworkVarChainer __m_pChainEntity { get; }

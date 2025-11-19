@@ -12,6 +12,7 @@ public partial interface CPhysSurfacePropertiesSoundNames : ISchemaClass<CPhysSu
 
   static CPhysSurfacePropertiesSoundNames ISchemaClass<CPhysSurfacePropertiesSoundNames>.From(nint handle) => new CPhysSurfacePropertiesSoundNamesImpl(handle);
   static int ISchemaClass<CPhysSurfacePropertiesSoundNames>.Size => 96;
+  static string? ISchemaClass<CPhysSurfacePropertiesSoundNames>.ClassName => null;
 
   
   public string ImpactSoft { get; set; }

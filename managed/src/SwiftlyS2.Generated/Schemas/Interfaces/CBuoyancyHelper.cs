@@ -12,6 +12,7 @@ public partial interface CBuoyancyHelper : ISchemaClass<CBuoyancyHelper> {
 
   static CBuoyancyHelper ISchemaClass<CBuoyancyHelper>.From(nint handle) => new CBuoyancyHelperImpl(handle);
   static int ISchemaClass<CBuoyancyHelper>.Size => 280;
+  static string? ISchemaClass<CBuoyancyHelper>.ClassName => null;
 
   
   public ref CUtlStringToken FluidType { get; }

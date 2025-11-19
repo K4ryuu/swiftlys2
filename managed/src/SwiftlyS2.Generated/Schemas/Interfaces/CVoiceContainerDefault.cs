@@ -12,6 +12,7 @@ public partial interface CVoiceContainerDefault : CVoiceContainerBase, ISchemaCl
 
   static CVoiceContainerDefault ISchemaClass<CVoiceContainerDefault>.From(nint handle) => new CVoiceContainerDefaultImpl(handle);
   static int ISchemaClass<CVoiceContainerDefault>.Size => 184;
+  static string? ISchemaClass<CVoiceContainerDefault>.ClassName => null;
 
 
 

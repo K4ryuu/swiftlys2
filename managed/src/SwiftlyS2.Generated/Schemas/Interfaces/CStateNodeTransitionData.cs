@@ -12,6 +12,7 @@ public partial interface CStateNodeTransitionData : ISchemaClass<CStateNodeTrans
 
   static CStateNodeTransitionData ISchemaClass<CStateNodeTransitionData>.From(nint handle) => new CStateNodeTransitionDataImpl(handle);
   static int ISchemaClass<CStateNodeTransitionData>.Size => 28;
+  static string? ISchemaClass<CStateNodeTransitionData>.ClassName => null;
 
   
   public CBlendCurve Curve { get; }

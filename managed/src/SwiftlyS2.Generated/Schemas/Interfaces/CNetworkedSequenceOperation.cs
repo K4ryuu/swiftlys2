@@ -12,6 +12,7 @@ public partial interface CNetworkedSequenceOperation : ISchemaClass<CNetworkedSe
 
   static CNetworkedSequenceOperation ISchemaClass<CNetworkedSequenceOperation>.From(nint handle) => new CNetworkedSequenceOperationImpl(handle);
   static int ISchemaClass<CNetworkedSequenceOperation>.Size => 40;
+  static string? ISchemaClass<CNetworkedSequenceOperation>.ClassName => null;
 
   
   public HSequence Sequence { get; }

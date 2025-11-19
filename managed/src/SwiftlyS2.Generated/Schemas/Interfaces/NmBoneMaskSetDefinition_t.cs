@@ -12,6 +12,7 @@ public partial interface NmBoneMaskSetDefinition_t : ISchemaClass<NmBoneMaskSetD
 
   static NmBoneMaskSetDefinition_t ISchemaClass<NmBoneMaskSetDefinition_t>.From(nint handle) => new NmBoneMaskSetDefinition_tImpl(handle);
   static int ISchemaClass<NmBoneMaskSetDefinition_t>.Size => 296;
+  static string? ISchemaClass<NmBoneMaskSetDefinition_t>.ClassName => null;
 
   
   public ref CGlobalSymbol ID { get; }

@@ -12,6 +12,7 @@ public partial interface constraint_hingeparams_t : ISchemaClass<constraint_hing
 
   static constraint_hingeparams_t ISchemaClass<constraint_hingeparams_t>.From(nint handle) => new constraint_hingeparams_tImpl(handle);
   static int ISchemaClass<constraint_hingeparams_t>.Size => 64;
+  static string? ISchemaClass<constraint_hingeparams_t>.ClassName => null;
 
   
   public ref Vector WorldPosition { get; }

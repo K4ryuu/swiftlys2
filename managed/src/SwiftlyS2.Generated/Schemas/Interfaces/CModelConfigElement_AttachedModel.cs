@@ -12,6 +12,7 @@ public partial interface CModelConfigElement_AttachedModel : CModelConfigElement
 
   static CModelConfigElement_AttachedModel ISchemaClass<CModelConfigElement_AttachedModel>.From(nint handle) => new CModelConfigElement_AttachedModelImpl(handle);
   static int ISchemaClass<CModelConfigElement_AttachedModel>.Size => 232;
+  static string? ISchemaClass<CModelConfigElement_AttachedModel>.ClassName => null;
 
   
   public string InstanceName { get; set; }

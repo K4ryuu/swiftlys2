@@ -12,6 +12,7 @@ public partial interface FeAntiTunnelProbe_t : ISchemaClass<FeAntiTunnelProbe_t>
 
   static FeAntiTunnelProbe_t ISchemaClass<FeAntiTunnelProbe_t>.From(nint handle) => new FeAntiTunnelProbe_tImpl(handle);
   static int ISchemaClass<FeAntiTunnelProbe_t>.Size => 28;
+  static string? ISchemaClass<FeAntiTunnelProbe_t>.ClassName => null;
 
   
   public ref float Weight { get; }

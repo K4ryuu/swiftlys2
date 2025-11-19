@@ -12,6 +12,7 @@ public partial interface CBoneConstraintDotToMorph : CBoneConstraintBase, ISchem
 
   static CBoneConstraintDotToMorph ISchemaClass<CBoneConstraintDotToMorph>.From(nint handle) => new CBoneConstraintDotToMorphImpl(handle);
   static int ISchemaClass<CBoneConstraintDotToMorph>.Size => 88;
+  static string? ISchemaClass<CBoneConstraintDotToMorph>.ClassName => null;
 
   
   public string BoneName { get; set; }

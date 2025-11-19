@@ -12,6 +12,7 @@ public partial interface FeSimdSpringIntegrator_t : ISchemaClass<FeSimdSpringInt
 
   static FeSimdSpringIntegrator_t ISchemaClass<FeSimdSpringIntegrator_t>.From(nint handle) => new FeSimdSpringIntegrator_tImpl(handle);
   static int ISchemaClass<FeSimdSpringIntegrator_t>.Size => 80;
+  static string? ISchemaClass<FeSimdSpringIntegrator_t>.ClassName => null;
 
   
   // uint16[4]

@@ -12,6 +12,7 @@ public partial interface CBoneMaskUpdateNode : CBinaryUpdateNode, ISchemaClass<C
 
   static CBoneMaskUpdateNode ISchemaClass<CBoneMaskUpdateNode>.From(nint handle) => new CBoneMaskUpdateNodeImpl(handle);
   static int ISchemaClass<CBoneMaskUpdateNode>.Size => 176;
+  static string? ISchemaClass<CBoneMaskUpdateNode>.ClassName => null;
 
   
   public ref int WeightListIndex { get; }

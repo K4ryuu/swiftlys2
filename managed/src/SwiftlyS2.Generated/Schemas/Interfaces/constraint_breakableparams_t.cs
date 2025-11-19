@@ -12,6 +12,7 @@ public partial interface constraint_breakableparams_t : ISchemaClass<constraint_
 
   static constraint_breakableparams_t ISchemaClass<constraint_breakableparams_t>.From(nint handle) => new constraint_breakableparams_tImpl(handle);
   static int ISchemaClass<constraint_breakableparams_t>.Size => 24;
+  static string? ISchemaClass<constraint_breakableparams_t>.ClassName => null;
 
   
   public ref float Strength { get; }

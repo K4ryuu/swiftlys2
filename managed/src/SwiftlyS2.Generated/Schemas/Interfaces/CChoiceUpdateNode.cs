@@ -12,6 +12,7 @@ public partial interface CChoiceUpdateNode : CAnimUpdateNodeBase, ISchemaClass<C
 
   static CChoiceUpdateNode ISchemaClass<CChoiceUpdateNode>.From(nint handle) => new CChoiceUpdateNodeImpl(handle);
   static int ISchemaClass<CChoiceUpdateNode>.Size => 192;
+  static string? ISchemaClass<CChoiceUpdateNode>.ClassName => null;
 
   
   public ref CUtlVector<CAnimUpdateNodeRef> Children { get; }

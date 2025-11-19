@@ -12,6 +12,7 @@ public partial interface CStopwatch : CStopwatchBase, ISchemaClass<CStopwatch> {
 
   static CStopwatch ISchemaClass<CStopwatch>.From(nint handle) => new CStopwatchImpl(handle);
   static int ISchemaClass<CStopwatch>.Size => 16;
+  static string? ISchemaClass<CStopwatch>.ClassName => null;
 
   
   public ref float Interval { get; }

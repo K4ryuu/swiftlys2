@@ -12,6 +12,7 @@ public partial interface PulseRegisterMap_t : ISchemaClass<PulseRegisterMap_t> {
 
   static PulseRegisterMap_t ISchemaClass<PulseRegisterMap_t>.From(nint handle) => new PulseRegisterMap_tImpl(handle);
   static int ISchemaClass<PulseRegisterMap_t>.Size => 48;
+  static string? ISchemaClass<PulseRegisterMap_t>.ClassName => null;
 
   
   // KeyValues3

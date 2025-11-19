@@ -12,6 +12,7 @@ public partial interface CNmLayerBlendNode__LayerDefinition_t : ISchemaClass<CNm
 
   static CNmLayerBlendNode__LayerDefinition_t ISchemaClass<CNmLayerBlendNode__LayerDefinition_t>.From(nint handle) => new CNmLayerBlendNode__LayerDefinition_tImpl(handle);
   static int ISchemaClass<CNmLayerBlendNode__LayerDefinition_t>.Size => 12;
+  static string? ISchemaClass<CNmLayerBlendNode__LayerDefinition_t>.ClassName => null;
 
   
   public ref short InputNodeIdx { get; }

@@ -12,6 +12,7 @@ public partial interface CNmSyncTrack__Event_t : ISchemaClass<CNmSyncTrack__Even
 
   static CNmSyncTrack__Event_t ISchemaClass<CNmSyncTrack__Event_t>.From(nint handle) => new CNmSyncTrack__Event_tImpl(handle);
   static int ISchemaClass<CNmSyncTrack__Event_t>.Size => 16;
+  static string? ISchemaClass<CNmSyncTrack__Event_t>.ClassName => null;
 
   
   public ref CGlobalSymbol ID { get; }

@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CServerOnlyModelEntity : CBaseModelEntity, ISchemaClass<CServerOnlyModelEntity> {
 
   static CServerOnlyModelEntity ISchemaClass<CServerOnlyModelEntity>.From(nint handle) => new CServerOnlyModelEntityImpl(handle);
-  static int ISchemaClass<CServerOnlyModelEntity>.Size => 2008;
+  static int ISchemaClass<CServerOnlyModelEntity>.Size => 2752;
+  static string? ISchemaClass<CServerOnlyModelEntity>.ClassName => null;
 
 
 

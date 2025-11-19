@@ -12,6 +12,7 @@ public partial interface CSlowDownOnSlopesUpdateNode : CUnaryUpdateNode, ISchema
 
   static CSlowDownOnSlopesUpdateNode ISchemaClass<CSlowDownOnSlopesUpdateNode>.From(nint handle) => new CSlowDownOnSlopesUpdateNodeImpl(handle);
   static int ISchemaClass<CSlowDownOnSlopesUpdateNode>.Size => 120;
+  static string? ISchemaClass<CSlowDownOnSlopesUpdateNode>.ClassName => null;
 
   
   public ref float SlowDownStrength { get; }

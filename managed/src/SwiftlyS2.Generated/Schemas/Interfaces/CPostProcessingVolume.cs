@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CPostProcessingVolume : CBaseTrigger, ISchemaClass<CPostProcessingVolume> {
 
   static CPostProcessingVolume ISchemaClass<CPostProcessingVolume>.From(nint handle) => new CPostProcessingVolumeImpl(handle);
-  static int ISchemaClass<CPostProcessingVolume>.Size => 2536;
+  static int ISchemaClass<CPostProcessingVolume>.Size => 3272;
+  static string? ISchemaClass<CPostProcessingVolume>.ClassName => "post_processing_volume";
 
   
   public ref CStrongHandle<InfoForResourceTypeCPostProcessingResource> PostSettings { get; }

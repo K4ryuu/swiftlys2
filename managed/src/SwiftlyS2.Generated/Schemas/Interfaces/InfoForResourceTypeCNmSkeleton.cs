@@ -12,6 +12,7 @@ public partial interface InfoForResourceTypeCNmSkeleton : ISchemaClass<InfoForRe
 
   static InfoForResourceTypeCNmSkeleton ISchemaClass<InfoForResourceTypeCNmSkeleton>.From(nint handle) => new InfoForResourceTypeCNmSkeletonImpl(handle);
   static int ISchemaClass<InfoForResourceTypeCNmSkeleton>.Size => 1;
+  static string? ISchemaClass<InfoForResourceTypeCNmSkeleton>.ClassName => null;
 
 
 

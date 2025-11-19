@@ -12,6 +12,7 @@ public partial interface MaterialVariable_t : ISchemaClass<MaterialVariable_t> {
 
   static MaterialVariable_t ISchemaClass<MaterialVariable_t>.From(nint handle) => new MaterialVariable_tImpl(handle);
   static int ISchemaClass<MaterialVariable_t>.Size => 16;
+  static string? ISchemaClass<MaterialVariable_t>.ClassName => null;
 
   
   public string StrVariable { get; set; }

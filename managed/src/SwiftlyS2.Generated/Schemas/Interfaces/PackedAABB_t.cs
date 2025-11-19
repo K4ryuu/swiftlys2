@@ -12,6 +12,7 @@ public partial interface PackedAABB_t : ISchemaClass<PackedAABB_t> {
 
   static PackedAABB_t ISchemaClass<PackedAABB_t>.From(nint handle) => new PackedAABB_tImpl(handle);
   static int ISchemaClass<PackedAABB_t>.Size => 8;
+  static string? ISchemaClass<PackedAABB_t>.ClassName => null;
 
   
   public ref uint PackedMin { get; }

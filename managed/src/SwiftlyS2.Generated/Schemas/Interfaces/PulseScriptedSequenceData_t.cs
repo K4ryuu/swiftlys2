@@ -12,6 +12,7 @@ public partial interface PulseScriptedSequenceData_t : ISchemaClass<PulseScripte
 
   static PulseScriptedSequenceData_t ISchemaClass<PulseScriptedSequenceData_t>.From(nint handle) => new PulseScriptedSequenceData_tImpl(handle);
   static int ISchemaClass<PulseScriptedSequenceData_t>.Size => 56;
+  static string? ISchemaClass<PulseScriptedSequenceData_t>.ClassName => null;
 
   
   public ref int ActorID { get; }

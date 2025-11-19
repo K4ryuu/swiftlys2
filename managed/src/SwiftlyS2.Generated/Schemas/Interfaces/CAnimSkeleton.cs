@@ -12,6 +12,7 @@ public partial interface CAnimSkeleton : ISchemaClass<CAnimSkeleton> {
 
   static CAnimSkeleton ISchemaClass<CAnimSkeleton>.From(nint handle) => new CAnimSkeletonImpl(handle);
   static int ISchemaClass<CAnimSkeleton>.Size => 208;
+  static string? ISchemaClass<CAnimSkeleton>.ClassName => null;
 
   
   public ref CUtlVector<CTransform> LocalSpaceTransforms { get; }

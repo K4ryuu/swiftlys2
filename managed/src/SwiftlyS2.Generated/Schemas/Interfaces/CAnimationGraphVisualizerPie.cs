@@ -12,6 +12,7 @@ public partial interface CAnimationGraphVisualizerPie : CAnimationGraphVisualize
 
   static CAnimationGraphVisualizerPie ISchemaClass<CAnimationGraphVisualizerPie>.From(nint handle) => new CAnimationGraphVisualizerPieImpl(handle);
   static int ISchemaClass<CAnimationGraphVisualizerPie>.Size => 128;
+  static string? ISchemaClass<CAnimationGraphVisualizerPie>.ClassName => null;
 
   
   public ref Vector WsCenter { get; }

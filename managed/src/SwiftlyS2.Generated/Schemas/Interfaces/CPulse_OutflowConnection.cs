@@ -12,6 +12,7 @@ public partial interface CPulse_OutflowConnection : ISchemaClass<CPulse_OutflowC
 
   static CPulse_OutflowConnection ISchemaClass<CPulse_OutflowConnection>.From(nint handle) => new CPulse_OutflowConnectionImpl(handle);
   static int ISchemaClass<CPulse_OutflowConnection>.Size => 72;
+  static string? ISchemaClass<CPulse_OutflowConnection>.ClassName => null;
 
   
   // PulseSymbol_t

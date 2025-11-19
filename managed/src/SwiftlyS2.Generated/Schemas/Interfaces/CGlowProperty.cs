@@ -12,6 +12,7 @@ public partial interface CGlowProperty : ISchemaClass<CGlowProperty> {
 
   static CGlowProperty ISchemaClass<CGlowProperty>.From(nint handle) => new CGlowPropertyImpl(handle);
   static int ISchemaClass<CGlowProperty>.Size => 88;
+  static string? ISchemaClass<CGlowProperty>.ClassName => null;
 
   
   public ref Vector GlowColor { get; }

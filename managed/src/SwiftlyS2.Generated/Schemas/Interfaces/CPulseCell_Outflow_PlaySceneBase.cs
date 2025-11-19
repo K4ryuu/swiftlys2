@@ -12,6 +12,7 @@ public partial interface CPulseCell_Outflow_PlaySceneBase : CPulseCell_BaseYield
 
   static CPulseCell_Outflow_PlaySceneBase ISchemaClass<CPulseCell_Outflow_PlaySceneBase>.From(nint handle) => new CPulseCell_Outflow_PlaySceneBaseImpl(handle);
   static int ISchemaClass<CPulseCell_Outflow_PlaySceneBase>.Size => 240;
+  static string? ISchemaClass<CPulseCell_Outflow_PlaySceneBase>.ClassName => null;
 
   
   public CPulse_ResumePoint OnFinished { get; }

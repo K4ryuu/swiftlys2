@@ -12,6 +12,7 @@ public partial interface CPlayer_FlashlightServices : CPlayerPawnComponent, ISch
 
   static CPlayer_FlashlightServices ISchemaClass<CPlayer_FlashlightServices>.From(nint handle) => new CPlayer_FlashlightServicesImpl(handle);
   static int ISchemaClass<CPlayer_FlashlightServices>.Size => 64;
+  static string? ISchemaClass<CPlayer_FlashlightServices>.ClassName => null;
 
 
 

@@ -12,6 +12,7 @@ public partial interface ParticleControlPointConfiguration_t : ISchemaClass<Part
 
   static ParticleControlPointConfiguration_t ISchemaClass<ParticleControlPointConfiguration_t>.From(nint handle) => new ParticleControlPointConfiguration_tImpl(handle);
   static int ISchemaClass<ParticleControlPointConfiguration_t>.Size => 136;
+  static string? ISchemaClass<ParticleControlPointConfiguration_t>.ClassName => null;
 
   
   public string Name { get; set; }

@@ -12,6 +12,7 @@ public partial interface FeBoxRigid_t : ISchemaClass<FeBoxRigid_t> {
 
   static FeBoxRigid_t ISchemaClass<FeBoxRigid_t>.From(nint handle) => new FeBoxRigid_tImpl(handle);
   static int ISchemaClass<FeBoxRigid_t>.Size => 64;
+  static string? ISchemaClass<FeBoxRigid_t>.ClassName => null;
 
   
   public ref CTransform TmFrame2 { get; }

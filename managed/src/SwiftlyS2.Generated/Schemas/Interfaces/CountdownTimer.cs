@@ -12,6 +12,7 @@ public partial interface CountdownTimer : ISchemaClass<CountdownTimer> {
 
   static CountdownTimer ISchemaClass<CountdownTimer>.From(nint handle) => new CountdownTimerImpl(handle);
   static int ISchemaClass<CountdownTimer>.Size => 24;
+  static string? ISchemaClass<CountdownTimer>.ClassName => null;
 
   
   public ref float Duration { get; }

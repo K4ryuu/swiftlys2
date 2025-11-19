@@ -12,6 +12,7 @@ public partial interface CAimCameraUpdateNode : CUnaryUpdateNode, ISchemaClass<C
 
   static CAimCameraUpdateNode ISchemaClass<CAimCameraUpdateNode>.From(nint handle) => new CAimCameraUpdateNodeImpl(handle);
   static int ISchemaClass<CAimCameraUpdateNode>.Size => 192;
+  static string? ISchemaClass<CAimCameraUpdateNode>.ClassName => null;
 
   
   public CAnimParamHandle ParameterPosition { get; }

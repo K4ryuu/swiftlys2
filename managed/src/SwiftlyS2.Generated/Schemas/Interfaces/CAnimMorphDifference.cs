@@ -12,6 +12,7 @@ public partial interface CAnimMorphDifference : ISchemaClass<CAnimMorphDifferenc
 
   static CAnimMorphDifference ISchemaClass<CAnimMorphDifference>.From(nint handle) => new CAnimMorphDifferenceImpl(handle);
   static int ISchemaClass<CAnimMorphDifference>.Size => 16;
+  static string? ISchemaClass<CAnimMorphDifference>.ClassName => null;
 
   
   public ref CBufferString Name { get; }

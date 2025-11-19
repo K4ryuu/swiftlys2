@@ -12,6 +12,7 @@ public partial interface CCPPScriptComponentUpdater : CAnimComponentUpdater, ISc
 
   static CCPPScriptComponentUpdater ISchemaClass<CCPPScriptComponentUpdater>.From(nint handle) => new CCPPScriptComponentUpdaterImpl(handle);
   static int ISchemaClass<CCPPScriptComponentUpdater>.Size => 96;
+  static string? ISchemaClass<CCPPScriptComponentUpdater>.ClassName => null;
 
   
   public ref CUtlVector<CGlobalSymbol> ScriptsToRun { get; }

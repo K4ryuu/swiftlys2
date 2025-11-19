@@ -12,6 +12,7 @@ public partial interface PulseCursorID_t : ISchemaClass<PulseCursorID_t> {
 
   static PulseCursorID_t ISchemaClass<PulseCursorID_t>.From(nint handle) => new PulseCursorID_tImpl(handle);
   static int ISchemaClass<PulseCursorID_t>.Size => 4;
+  static string? ISchemaClass<PulseCursorID_t>.ClassName => null;
 
   
   public ref int Value { get; }

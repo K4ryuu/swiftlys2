@@ -12,6 +12,7 @@ public partial interface CAnimGraphNetworkSettings : CAnimGraphSettingsGroup, IS
 
   static CAnimGraphNetworkSettings ISchemaClass<CAnimGraphNetworkSettings>.From(nint handle) => new CAnimGraphNetworkSettingsImpl(handle);
   static int ISchemaClass<CAnimGraphNetworkSettings>.Size => 40;
+  static string? ISchemaClass<CAnimGraphNetworkSettings>.ClassName => null;
 
   
   public ref bool NetworkingEnabled { get; }

@@ -12,6 +12,7 @@ public partial interface CEconItemView : IEconItemInterface, ISchemaClass<CEconI
 
   static CEconItemView ISchemaClass<CEconItemView>.From(nint handle) => new CEconItemViewImpl(handle);
   static int ISchemaClass<CEconItemView>.Size => 680;
+  static string? ISchemaClass<CEconItemView>.ClassName => null;
 
   
   public ref ushort ItemDefinitionIndex { get; }

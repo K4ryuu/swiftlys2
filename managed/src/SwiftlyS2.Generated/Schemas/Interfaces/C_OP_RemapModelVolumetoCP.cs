@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface C_OP_RemapModelVolumetoCP : CParticleFunctionPreEmission, ISchemaClass<C_OP_RemapModelVolumetoCP> {
 
   static C_OP_RemapModelVolumetoCP ISchemaClass<C_OP_RemapModelVolumetoCP>.From(nint handle) => new C_OP_RemapModelVolumetoCPImpl(handle);
-  static int ISchemaClass<C_OP_RemapModelVolumetoCP>.Size => 512;
+  static int ISchemaClass<C_OP_RemapModelVolumetoCP>.Size => 504;
+  static string? ISchemaClass<C_OP_RemapModelVolumetoCP>.ClassName => null;
 
   
   public ref BBoxVolumeType_t BBoxType { get; }

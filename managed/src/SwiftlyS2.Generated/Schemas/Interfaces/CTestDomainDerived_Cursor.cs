@@ -12,6 +12,7 @@ public partial interface CTestDomainDerived_Cursor : CPulseExecCursor, ISchemaCl
 
   static CTestDomainDerived_Cursor ISchemaClass<CTestDomainDerived_Cursor>.From(nint handle) => new CTestDomainDerived_CursorImpl(handle);
   static int ISchemaClass<CTestDomainDerived_Cursor>.Size => 216;
+  static string? ISchemaClass<CTestDomainDerived_Cursor>.ClassName => null;
 
   
   public ref int CursorValueA { get; }

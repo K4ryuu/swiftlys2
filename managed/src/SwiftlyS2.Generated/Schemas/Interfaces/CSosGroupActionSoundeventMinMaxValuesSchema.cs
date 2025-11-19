@@ -12,6 +12,7 @@ public partial interface CSosGroupActionSoundeventMinMaxValuesSchema : CSosGroup
 
   static CSosGroupActionSoundeventMinMaxValuesSchema ISchemaClass<CSosGroupActionSoundeventMinMaxValuesSchema>.From(nint handle) => new CSosGroupActionSoundeventMinMaxValuesSchemaImpl(handle);
   static int ISchemaClass<CSosGroupActionSoundeventMinMaxValuesSchema>.Size => 64;
+  static string? ISchemaClass<CSosGroupActionSoundeventMinMaxValuesSchema>.ClassName => null;
 
   
   public string StrQueryPublicFieldName { get; set; }

@@ -12,6 +12,7 @@ public partial interface CNmAndNode__CDefinition : CNmBoolValueNode__CDefinition
 
   static CNmAndNode__CDefinition ISchemaClass<CNmAndNode__CDefinition>.From(nint handle) => new CNmAndNode__CDefinitionImpl(handle);
   static int ISchemaClass<CNmAndNode__CDefinition>.Size => 32;
+  static string? ISchemaClass<CNmAndNode__CDefinition>.ClassName => null;
 
   
   // CUtlLeanVectorFixedGrowable< int16, 4 >

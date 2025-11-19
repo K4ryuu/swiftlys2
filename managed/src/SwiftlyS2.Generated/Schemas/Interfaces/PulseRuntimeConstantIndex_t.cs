@@ -12,6 +12,7 @@ public partial interface PulseRuntimeConstantIndex_t : ISchemaClass<PulseRuntime
 
   static PulseRuntimeConstantIndex_t ISchemaClass<PulseRuntimeConstantIndex_t>.From(nint handle) => new PulseRuntimeConstantIndex_tImpl(handle);
   static int ISchemaClass<PulseRuntimeConstantIndex_t>.Size => 2;
+  static string? ISchemaClass<PulseRuntimeConstantIndex_t>.ClassName => null;
 
   
   public ref short Value { get; }

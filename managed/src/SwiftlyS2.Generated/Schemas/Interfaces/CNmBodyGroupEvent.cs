@@ -12,6 +12,7 @@ public partial interface CNmBodyGroupEvent : CNmEvent, ISchemaClass<CNmBodyGroup
 
   static CNmBodyGroupEvent ISchemaClass<CNmBodyGroupEvent>.From(nint handle) => new CNmBodyGroupEventImpl(handle);
   static int ISchemaClass<CNmBodyGroupEvent>.Size => 40;
+  static string? ISchemaClass<CNmBodyGroupEvent>.ClassName => null;
 
   
   public string GroupName { get; set; }

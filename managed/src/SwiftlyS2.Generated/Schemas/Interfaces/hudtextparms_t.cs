@@ -12,6 +12,7 @@ public partial interface hudtextparms_t : ISchemaClass<hudtextparms_t> {
 
   static hudtextparms_t ISchemaClass<hudtextparms_t>.From(nint handle) => new hudtextparms_tImpl(handle);
   static int ISchemaClass<hudtextparms_t>.Size => 20;
+  static string? ISchemaClass<hudtextparms_t>.ClassName => null;
 
   
   public ref Color Color1 { get; }

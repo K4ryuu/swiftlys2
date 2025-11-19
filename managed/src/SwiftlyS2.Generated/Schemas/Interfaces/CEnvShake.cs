@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CEnvShake : CPointEntity, ISchemaClass<CEnvShake> {
 
   static CEnvShake ISchemaClass<CEnvShake>.From(nint handle) => new CEnvShakeImpl(handle);
-  static int ISchemaClass<CEnvShake>.Size => 1344;
+  static int ISchemaClass<CEnvShake>.Size => 2088;
+  static string? ISchemaClass<CEnvShake>.ClassName => "env_shake";
 
   
   public string LimitToEntity { get; set; }

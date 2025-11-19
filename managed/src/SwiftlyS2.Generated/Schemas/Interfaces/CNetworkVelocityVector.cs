@@ -12,6 +12,7 @@ public partial interface CNetworkVelocityVector : ISchemaClass<CNetworkVelocityV
 
   static CNetworkVelocityVector ISchemaClass<CNetworkVelocityVector>.From(nint handle) => new CNetworkVelocityVectorImpl(handle);
   static int ISchemaClass<CNetworkVelocityVector>.Size => 40;
+  static string? ISchemaClass<CNetworkVelocityVector>.ClassName => null;
 
   
   public ref CNetworkedQuantizedFloat X { get; }

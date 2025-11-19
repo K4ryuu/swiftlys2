@@ -12,6 +12,7 @@ public partial interface InfoForResourceTypeCCSGOEconItem : ISchemaClass<InfoFor
 
   static InfoForResourceTypeCCSGOEconItem ISchemaClass<InfoForResourceTypeCCSGOEconItem>.From(nint handle) => new InfoForResourceTypeCCSGOEconItemImpl(handle);
   static int ISchemaClass<InfoForResourceTypeCCSGOEconItem>.Size => 1;
+  static string? ISchemaClass<InfoForResourceTypeCCSGOEconItem>.ClassName => null;
 
 
 

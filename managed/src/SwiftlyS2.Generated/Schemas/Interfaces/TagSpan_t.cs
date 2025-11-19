@@ -12,6 +12,7 @@ public partial interface TagSpan_t : ISchemaClass<TagSpan_t> {
 
   static TagSpan_t ISchemaClass<TagSpan_t>.From(nint handle) => new TagSpan_tImpl(handle);
   static int ISchemaClass<TagSpan_t>.Size => 12;
+  static string? ISchemaClass<TagSpan_t>.ClassName => null;
 
   
   public ref int TagIndex { get; }

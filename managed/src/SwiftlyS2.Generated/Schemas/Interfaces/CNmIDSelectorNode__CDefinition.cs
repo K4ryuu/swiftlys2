@@ -12,6 +12,7 @@ public partial interface CNmIDSelectorNode__CDefinition : CNmIDValueNode__CDefin
 
   static CNmIDSelectorNode__CDefinition ISchemaClass<CNmIDSelectorNode__CDefinition>.From(nint handle) => new CNmIDSelectorNode__CDefinitionImpl(handle);
   static int ISchemaClass<CNmIDSelectorNode__CDefinition>.Size => 128;
+  static string? ISchemaClass<CNmIDSelectorNode__CDefinition>.ClassName => null;
 
   
   // CUtlVectorFixedGrowable< int16, 5 >

@@ -12,6 +12,7 @@ public partial interface World_t : ISchemaClass<World_t> {
 
   static World_t ISchemaClass<World_t>.From(nint handle) => new World_tImpl(handle);
   static int ISchemaClass<World_t>.Size => 216;
+  static string? ISchemaClass<World_t>.ClassName => null;
 
   
   public WorldBuilderParams_t BuilderParams { get; }

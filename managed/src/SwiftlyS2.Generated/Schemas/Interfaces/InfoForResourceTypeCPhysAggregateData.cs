@@ -12,6 +12,7 @@ public partial interface InfoForResourceTypeCPhysAggregateData : ISchemaClass<In
 
   static InfoForResourceTypeCPhysAggregateData ISchemaClass<InfoForResourceTypeCPhysAggregateData>.From(nint handle) => new InfoForResourceTypeCPhysAggregateDataImpl(handle);
   static int ISchemaClass<InfoForResourceTypeCPhysAggregateData>.Size => 1;
+  static string? ISchemaClass<InfoForResourceTypeCPhysAggregateData>.ClassName => null;
 
 
 

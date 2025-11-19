@@ -12,6 +12,7 @@ public partial interface CAnimFrameSegment : ISchemaClass<CAnimFrameSegment> {
 
   static CAnimFrameSegment ISchemaClass<CAnimFrameSegment>.From(nint handle) => new CAnimFrameSegmentImpl(handle);
   static int ISchemaClass<CAnimFrameSegment>.Size => 32;
+  static string? ISchemaClass<CAnimFrameSegment>.ClassName => null;
 
   
   public ref int UniqueFrameIndex { get; }

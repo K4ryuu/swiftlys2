@@ -12,6 +12,7 @@ public partial interface CSosGroupActionLimitSchema : CSosGroupActionSchema, ISc
 
   static CSosGroupActionLimitSchema ISchemaClass<CSosGroupActionLimitSchema>.From(nint handle) => new CSosGroupActionLimitSchemaImpl(handle);
   static int ISchemaClass<CSosGroupActionLimitSchema>.Size => 24;
+  static string? ISchemaClass<CSosGroupActionLimitSchema>.ClassName => null;
 
   
   public ref int MaxCount { get; }

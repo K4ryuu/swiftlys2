@@ -12,6 +12,7 @@ public partial interface CAnimEventDefinition : ISchemaClass<CAnimEventDefinitio
 
   static CAnimEventDefinition ISchemaClass<CAnimEventDefinition>.From(nint handle) => new CAnimEventDefinitionImpl(handle);
   static int ISchemaClass<CAnimEventDefinition>.Size => 64;
+  static string? ISchemaClass<CAnimEventDefinition>.ClassName => null;
 
   
   public ref int Frame { get; }

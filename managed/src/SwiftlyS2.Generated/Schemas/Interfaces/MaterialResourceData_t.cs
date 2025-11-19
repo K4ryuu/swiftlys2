@@ -12,6 +12,7 @@ public partial interface MaterialResourceData_t : ISchemaClass<MaterialResourceD
 
   static MaterialResourceData_t ISchemaClass<MaterialResourceData_t>.From(nint handle) => new MaterialResourceData_tImpl(handle);
   static int ISchemaClass<MaterialResourceData_t>.Size => 304;
+  static string? ISchemaClass<MaterialResourceData_t>.ClassName => null;
 
   
   public string MaterialName { get; set; }

@@ -12,6 +12,7 @@ public partial interface RnTriangle_t : ISchemaClass<RnTriangle_t> {
 
   static RnTriangle_t ISchemaClass<RnTriangle_t>.From(nint handle) => new RnTriangle_tImpl(handle);
   static int ISchemaClass<RnTriangle_t>.Size => 12;
+  static string? ISchemaClass<RnTriangle_t>.ClassName => null;
 
   
   public ISchemaFixedArray<int> Index { get; }

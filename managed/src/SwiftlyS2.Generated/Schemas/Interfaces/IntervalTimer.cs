@@ -12,6 +12,7 @@ public partial interface IntervalTimer : ISchemaClass<IntervalTimer> {
 
   static IntervalTimer ISchemaClass<IntervalTimer>.From(nint handle) => new IntervalTimerImpl(handle);
   static int ISchemaClass<IntervalTimer>.Size => 16;
+  static string? ISchemaClass<IntervalTimer>.ClassName => null;
 
   
   public GameTime_t Timestamp { get; }

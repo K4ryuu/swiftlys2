@@ -12,6 +12,7 @@ public partial interface CNewParticleEffect : IParticleEffect, ISchemaClass<CNew
 
   static CNewParticleEffect ISchemaClass<CNewParticleEffect>.From(nint handle) => new CNewParticleEffectImpl(handle);
   static int ISchemaClass<CNewParticleEffect>.Size => 216;
+  static string? ISchemaClass<CNewParticleEffect>.ClassName => null;
 
   
   public CNewParticleEffect? Next { get; }

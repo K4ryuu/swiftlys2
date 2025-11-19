@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CNmTargetWarpNode__CDefinition : CNmPoseNode__CDefinition, ISchemaClass<CNmTargetWarpNode__CDefinition> {
 
   static CNmTargetWarpNode__CDefinition ISchemaClass<CNmTargetWarpNode__CDefinition>.From(nint handle) => new CNmTargetWarpNode__CDefinitionImpl(handle);
-  static int ISchemaClass<CNmTargetWarpNode__CDefinition>.Size => 48;
+  static int ISchemaClass<CNmTargetWarpNode__CDefinition>.Size => 40;
+  static string? ISchemaClass<CNmTargetWarpNode__CDefinition>.ClassName => null;
 
   
   public ref short ClipReferenceNodeIdx { get; }

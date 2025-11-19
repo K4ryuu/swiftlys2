@@ -12,6 +12,7 @@ public partial interface CNmIKRig : ISchemaClass<CNmIKRig> {
 
   static CNmIKRig ISchemaClass<CNmIKRig>.From(nint handle) => new CNmIKRigImpl(handle);
   static int ISchemaClass<CNmIKRig>.Size => 56;
+  static string? ISchemaClass<CNmIKRig>.ClassName => null;
 
   
   public ref CStrongHandle<InfoForResourceTypeCNmSkeleton> Skeleton { get; }

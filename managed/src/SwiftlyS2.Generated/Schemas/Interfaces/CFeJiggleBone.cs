@@ -12,6 +12,7 @@ public partial interface CFeJiggleBone : ISchemaClass<CFeJiggleBone> {
 
   static CFeJiggleBone ISchemaClass<CFeJiggleBone>.From(nint handle) => new CFeJiggleBoneImpl(handle);
   static int ISchemaClass<CFeJiggleBone>.Size => 156;
+  static string? ISchemaClass<CFeJiggleBone>.ClassName => null;
 
   
   public ref uint Flags { get; }

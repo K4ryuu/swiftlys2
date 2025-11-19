@@ -12,6 +12,7 @@ public partial interface SkeletonAnimCapture_t__Camera_t : ISchemaClass<Skeleton
 
   static SkeletonAnimCapture_t__Camera_t ISchemaClass<SkeletonAnimCapture_t__Camera_t>.From(nint handle) => new SkeletonAnimCapture_t__Camera_tImpl(handle);
   static int ISchemaClass<SkeletonAnimCapture_t__Camera_t>.Size => 48;
+  static string? ISchemaClass<SkeletonAnimCapture_t__Camera_t>.ClassName => null;
 
   
   public ref CTransform TmCamera { get; }

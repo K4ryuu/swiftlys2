@@ -12,6 +12,7 @@ public partial interface CPhysSurfaceProperties : ISchemaClass<CPhysSurfacePrope
 
   static CPhysSurfaceProperties ISchemaClass<CPhysSurfaceProperties>.From(nint handle) => new CPhysSurfacePropertiesImpl(handle);
   static int ISchemaClass<CPhysSurfaceProperties>.Size => 200;
+  static string? ISchemaClass<CPhysSurfaceProperties>.ClassName => null;
 
   
   public string Name { get; set; }

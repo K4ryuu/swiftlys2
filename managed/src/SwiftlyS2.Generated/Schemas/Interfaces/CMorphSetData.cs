@@ -12,6 +12,7 @@ public partial interface CMorphSetData : ISchemaClass<CMorphSetData> {
 
   static CMorphSetData ISchemaClass<CMorphSetData>.From(nint handle) => new CMorphSetDataImpl(handle);
   static int ISchemaClass<CMorphSetData>.Size => 152;
+  static string? ISchemaClass<CMorphSetData>.ClassName => null;
 
   
   public ref int Width { get; }

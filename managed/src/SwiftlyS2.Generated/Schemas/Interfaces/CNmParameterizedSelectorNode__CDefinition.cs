@@ -12,6 +12,7 @@ public partial interface CNmParameterizedSelectorNode__CDefinition : CNmPoseNode
 
   static CNmParameterizedSelectorNode__CDefinition ISchemaClass<CNmParameterizedSelectorNode__CDefinition>.From(nint handle) => new CNmParameterizedSelectorNode__CDefinitionImpl(handle);
   static int ISchemaClass<CNmParameterizedSelectorNode__CDefinition>.Size => 64;
+  static string? ISchemaClass<CNmParameterizedSelectorNode__CDefinition>.ClassName => null;
 
   
   // CUtlLeanVectorFixedGrowable< int16, 5 >

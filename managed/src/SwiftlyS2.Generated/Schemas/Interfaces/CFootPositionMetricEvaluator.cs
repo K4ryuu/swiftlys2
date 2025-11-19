@@ -12,6 +12,7 @@ public partial interface CFootPositionMetricEvaluator : CMotionMetricEvaluator, 
 
   static CFootPositionMetricEvaluator ISchemaClass<CFootPositionMetricEvaluator>.From(nint handle) => new CFootPositionMetricEvaluatorImpl(handle);
   static int ISchemaClass<CFootPositionMetricEvaluator>.Size => 112;
+  static string? ISchemaClass<CFootPositionMetricEvaluator>.ClassName => null;
 
   
   public ref CUtlVector<int> FootIndices { get; }

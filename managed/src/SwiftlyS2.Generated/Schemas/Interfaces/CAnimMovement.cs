@@ -12,6 +12,7 @@ public partial interface CAnimMovement : ISchemaClass<CAnimMovement> {
 
   static CAnimMovement ISchemaClass<CAnimMovement>.From(nint handle) => new CAnimMovementImpl(handle);
   static int ISchemaClass<CAnimMovement>.Size => 44;
+  static string? ISchemaClass<CAnimMovement>.ClassName => null;
 
   
   public ref int Endframe { get; }

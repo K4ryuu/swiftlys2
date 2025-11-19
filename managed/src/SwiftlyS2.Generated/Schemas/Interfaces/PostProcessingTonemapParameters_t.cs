@@ -12,6 +12,7 @@ public partial interface PostProcessingTonemapParameters_t : ISchemaClass<PostPr
 
   static PostProcessingTonemapParameters_t ISchemaClass<PostProcessingTonemapParameters_t>.From(nint handle) => new PostProcessingTonemapParameters_tImpl(handle);
   static int ISchemaClass<PostProcessingTonemapParameters_t>.Size => 60;
+  static string? ISchemaClass<PostProcessingTonemapParameters_t>.ClassName => null;
 
   
   public ref float ExposureBias { get; }

@@ -12,6 +12,7 @@ public partial interface InfoForResourceTypeCResourceManifestInternal : ISchemaC
 
   static InfoForResourceTypeCResourceManifestInternal ISchemaClass<InfoForResourceTypeCResourceManifestInternal>.From(nint handle) => new InfoForResourceTypeCResourceManifestInternalImpl(handle);
   static int ISchemaClass<InfoForResourceTypeCResourceManifestInternal>.Size => 1;
+  static string? ISchemaClass<InfoForResourceTypeCResourceManifestInternal>.ClassName => null;
 
 
 

@@ -12,6 +12,7 @@ public partial interface PARTICLE_EHANDLE__ : ISchemaClass<PARTICLE_EHANDLE__> {
 
   static PARTICLE_EHANDLE__ ISchemaClass<PARTICLE_EHANDLE__>.From(nint handle) => new PARTICLE_EHANDLE__Impl(handle);
   static int ISchemaClass<PARTICLE_EHANDLE__>.Size => 4;
+  static string? ISchemaClass<PARTICLE_EHANDLE__>.ClassName => null;
 
   
   public ref int Unused { get; }

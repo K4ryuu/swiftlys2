@@ -12,6 +12,7 @@ public partial interface CFlexRule : ISchemaClass<CFlexRule> {
 
   static CFlexRule ISchemaClass<CFlexRule>.From(nint handle) => new CFlexRuleImpl(handle);
   static int ISchemaClass<CFlexRule>.Size => 32;
+  static string? ISchemaClass<CFlexRule>.ClassName => null;
 
   
   public ref int Flex { get; }

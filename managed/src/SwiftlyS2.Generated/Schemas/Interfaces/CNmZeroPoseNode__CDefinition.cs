@@ -12,6 +12,7 @@ public partial interface CNmZeroPoseNode__CDefinition : CNmPoseNode__CDefinition
 
   static CNmZeroPoseNode__CDefinition ISchemaClass<CNmZeroPoseNode__CDefinition>.From(nint handle) => new CNmZeroPoseNode__CDefinitionImpl(handle);
   static int ISchemaClass<CNmZeroPoseNode__CDefinition>.Size => 16;
+  static string? ISchemaClass<CNmZeroPoseNode__CDefinition>.ClassName => null;
 
 
 

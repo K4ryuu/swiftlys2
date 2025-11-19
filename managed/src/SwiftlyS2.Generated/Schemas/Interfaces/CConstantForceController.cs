@@ -12,6 +12,7 @@ public partial interface CConstantForceController : ISchemaClass<CConstantForceC
 
   static CConstantForceController ISchemaClass<CConstantForceController>.From(nint handle) => new CConstantForceControllerImpl(handle);
   static int ISchemaClass<CConstantForceController>.Size => 64;
+  static string? ISchemaClass<CConstantForceController>.ClassName => null;
 
   
   public ref Vector Linear { get; }

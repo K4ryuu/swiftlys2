@@ -12,6 +12,7 @@ public partial interface FeDynKinLink_t : ISchemaClass<FeDynKinLink_t> {
 
   static FeDynKinLink_t ISchemaClass<FeDynKinLink_t>.From(nint handle) => new FeDynKinLink_tImpl(handle);
   static int ISchemaClass<FeDynKinLink_t>.Size => 4;
+  static string? ISchemaClass<FeDynKinLink_t>.ClassName => null;
 
   
   public ref ushort Parent { get; }

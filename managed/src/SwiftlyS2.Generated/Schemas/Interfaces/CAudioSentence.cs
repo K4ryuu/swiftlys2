@@ -12,6 +12,7 @@ public partial interface CAudioSentence : ISchemaClass<CAudioSentence> {
 
   static CAudioSentence ISchemaClass<CAudioSentence>.From(nint handle) => new CAudioSentenceImpl(handle);
   static int ISchemaClass<CAudioSentence>.Size => 160;
+  static string? ISchemaClass<CAudioSentence>.ClassName => null;
 
   
   public ref bool ShouldVoiceDuck { get; }

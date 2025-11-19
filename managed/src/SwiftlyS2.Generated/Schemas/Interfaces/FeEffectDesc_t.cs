@@ -12,6 +12,7 @@ public partial interface FeEffectDesc_t : ISchemaClass<FeEffectDesc_t> {
 
   static FeEffectDesc_t ISchemaClass<FeEffectDesc_t>.From(nint handle) => new FeEffectDesc_tImpl(handle);
   static int ISchemaClass<FeEffectDesc_t>.Size => 32;
+  static string? ISchemaClass<FeEffectDesc_t>.ClassName => null;
 
   
   public string Name { get; set; }

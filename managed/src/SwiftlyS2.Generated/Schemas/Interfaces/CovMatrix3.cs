@@ -12,6 +12,7 @@ public partial interface CovMatrix3 : ISchemaClass<CovMatrix3> {
 
   static CovMatrix3 ISchemaClass<CovMatrix3>.From(nint handle) => new CovMatrix3Impl(handle);
   static int ISchemaClass<CovMatrix3>.Size => 24;
+  static string? ISchemaClass<CovMatrix3>.ClassName => null;
 
   
   public ref Vector Diag { get; }

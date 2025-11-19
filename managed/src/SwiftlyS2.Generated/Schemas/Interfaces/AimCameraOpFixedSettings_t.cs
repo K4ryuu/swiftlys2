@@ -12,6 +12,7 @@ public partial interface AimCameraOpFixedSettings_t : ISchemaClass<AimCameraOpFi
 
   static AimCameraOpFixedSettings_t ISchemaClass<AimCameraOpFixedSettings_t>.From(nint handle) => new AimCameraOpFixedSettings_tImpl(handle);
   static int ISchemaClass<AimCameraOpFixedSettings_t>.Size => 48;
+  static string? ISchemaClass<AimCameraOpFixedSettings_t>.ClassName => null;
 
   
   public ref int ChainIndex { get; }

@@ -12,6 +12,7 @@ public partial interface EventClientPreOutput_t : ISchemaClass<EventClientPreOut
 
   static EventClientPreOutput_t ISchemaClass<EventClientPreOutput_t>.From(nint handle) => new EventClientPreOutput_tImpl(handle);
   static int ISchemaClass<EventClientPreOutput_t>.Size => 72;
+  static string? ISchemaClass<EventClientPreOutput_t>.ClassName => null;
 
   
   public EngineLoopState_t LoopState { get; }

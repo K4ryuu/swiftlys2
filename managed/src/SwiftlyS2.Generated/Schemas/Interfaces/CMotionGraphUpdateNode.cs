@@ -12,6 +12,7 @@ public partial interface CMotionGraphUpdateNode : CLeafUpdateNode, ISchemaClass<
 
   static CMotionGraphUpdateNode ISchemaClass<CMotionGraphUpdateNode>.From(nint handle) => new CMotionGraphUpdateNodeImpl(handle);
   static int ISchemaClass<CMotionGraphUpdateNode>.Size => 104;
+  static string? ISchemaClass<CMotionGraphUpdateNode>.ClassName => null;
 
   
   // CSmartPtr< CMotionGraph >

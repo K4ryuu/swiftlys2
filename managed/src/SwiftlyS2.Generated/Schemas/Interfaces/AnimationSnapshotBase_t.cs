@@ -12,6 +12,7 @@ public partial interface AnimationSnapshotBase_t : ISchemaClass<AnimationSnapsho
 
   static AnimationSnapshotBase_t ISchemaClass<AnimationSnapshotBase_t>.From(nint handle) => new AnimationSnapshotBase_tImpl(handle);
   static int ISchemaClass<AnimationSnapshotBase_t>.Size => 272;
+  static string? ISchemaClass<AnimationSnapshotBase_t>.ClassName => null;
 
   
   public ref float RealTime { get; }

@@ -12,6 +12,7 @@ public partial interface CStepsRemainingMetricEvaluator : CMotionMetricEvaluator
 
   static CStepsRemainingMetricEvaluator ISchemaClass<CStepsRemainingMetricEvaluator>.From(nint handle) => new CStepsRemainingMetricEvaluatorImpl(handle);
   static int ISchemaClass<CStepsRemainingMetricEvaluator>.Size => 112;
+  static string? ISchemaClass<CStepsRemainingMetricEvaluator>.ClassName => null;
 
   
   public ref CUtlVector<int> FootIndices { get; }

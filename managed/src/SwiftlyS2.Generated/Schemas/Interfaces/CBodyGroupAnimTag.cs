@@ -12,6 +12,7 @@ public partial interface CBodyGroupAnimTag : CAnimTagBase, ISchemaClass<CBodyGro
 
   static CBodyGroupAnimTag ISchemaClass<CBodyGroupAnimTag>.From(nint handle) => new CBodyGroupAnimTagImpl(handle);
   static int ISchemaClass<CBodyGroupAnimTag>.Size => 120;
+  static string? ISchemaClass<CBodyGroupAnimTag>.ClassName => null;
 
   
   public ref int Priority { get; }

@@ -12,6 +12,7 @@ public partial interface IKTargetSettings_t : ISchemaClass<IKTargetSettings_t> {
 
   static IKTargetSettings_t ISchemaClass<IKTargetSettings_t>.From(nint handle) => new IKTargetSettings_tImpl(handle);
   static int ISchemaClass<IKTargetSettings_t>.Size => 40;
+  static string? ISchemaClass<IKTargetSettings_t>.ClassName => null;
 
   
   public ref IKTargetSource TargetSource { get; }

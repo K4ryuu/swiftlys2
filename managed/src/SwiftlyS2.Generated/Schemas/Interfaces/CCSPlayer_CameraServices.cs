@@ -12,6 +12,7 @@ public partial interface CCSPlayer_CameraServices : CCSPlayerBase_CameraServices
 
   static CCSPlayer_CameraServices ISchemaClass<CCSPlayer_CameraServices>.From(nint handle) => new CCSPlayer_CameraServicesImpl(handle);
   static int ISchemaClass<CCSPlayer_CameraServices>.Size => 424;
+  static string? ISchemaClass<CCSPlayer_CameraServices>.ClassName => null;
 
 
 

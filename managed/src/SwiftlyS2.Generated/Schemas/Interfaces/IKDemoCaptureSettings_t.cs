@@ -12,6 +12,7 @@ public partial interface IKDemoCaptureSettings_t : ISchemaClass<IKDemoCaptureSet
 
   static IKDemoCaptureSettings_t ISchemaClass<IKDemoCaptureSettings_t>.From(nint handle) => new IKDemoCaptureSettings_tImpl(handle);
   static int ISchemaClass<IKDemoCaptureSettings_t>.Size => 40;
+  static string? ISchemaClass<IKDemoCaptureSettings_t>.ClassName => null;
 
   
   public string ParentBoneName { get; set; }

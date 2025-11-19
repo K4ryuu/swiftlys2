@@ -12,6 +12,7 @@ public partial interface ragdoll_t : ISchemaClass<ragdoll_t> {
 
   static ragdoll_t ISchemaClass<ragdoll_t>.From(nint handle) => new ragdoll_tImpl(handle);
   static int ISchemaClass<ragdoll_t>.Size => 80;
+  static string? ISchemaClass<ragdoll_t>.ClassName => null;
 
   
   public ref CUtlVector<ragdollelement_t> List { get; }

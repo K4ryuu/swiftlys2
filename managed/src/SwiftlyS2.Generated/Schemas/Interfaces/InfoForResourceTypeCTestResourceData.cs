@@ -12,6 +12,7 @@ public partial interface InfoForResourceTypeCTestResourceData : ISchemaClass<Inf
 
   static InfoForResourceTypeCTestResourceData ISchemaClass<InfoForResourceTypeCTestResourceData>.From(nint handle) => new InfoForResourceTypeCTestResourceDataImpl(handle);
   static int ISchemaClass<InfoForResourceTypeCTestResourceData>.Size => 1;
+  static string? ISchemaClass<InfoForResourceTypeCTestResourceData>.ClassName => null;
 
 
 

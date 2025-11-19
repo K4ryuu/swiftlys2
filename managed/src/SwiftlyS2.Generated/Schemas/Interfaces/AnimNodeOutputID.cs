@@ -12,6 +12,7 @@ public partial interface AnimNodeOutputID : ISchemaClass<AnimNodeOutputID> {
 
   static AnimNodeOutputID ISchemaClass<AnimNodeOutputID>.From(nint handle) => new AnimNodeOutputIDImpl(handle);
   static int ISchemaClass<AnimNodeOutputID>.Size => 4;
+  static string? ISchemaClass<AnimNodeOutputID>.ClassName => null;
 
   
   public ref uint Id { get; }

@@ -12,6 +12,7 @@ public partial interface FeAntiTunnelGroupBuild_t : ISchemaClass<FeAntiTunnelGro
 
   static FeAntiTunnelGroupBuild_t ISchemaClass<FeAntiTunnelGroupBuild_t>.From(nint handle) => new FeAntiTunnelGroupBuild_tImpl(handle);
   static int ISchemaClass<FeAntiTunnelGroupBuild_t>.Size => 8;
+  static string? ISchemaClass<FeAntiTunnelGroupBuild_t>.ClassName => null;
 
   
   public ref uint VertexMapHash { get; }

@@ -12,6 +12,7 @@ public partial interface CSoundContainerReferenceArray : ISchemaClass<CSoundCont
 
   static CSoundContainerReferenceArray ISchemaClass<CSoundContainerReferenceArray>.From(nint handle) => new CSoundContainerReferenceArrayImpl(handle);
   static int ISchemaClass<CSoundContainerReferenceArray>.Size => 56;
+  static string? ISchemaClass<CSoundContainerReferenceArray>.ClassName => null;
 
   
   public ref bool UseReference { get; }

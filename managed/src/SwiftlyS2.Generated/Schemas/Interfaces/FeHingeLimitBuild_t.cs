@@ -12,6 +12,7 @@ public partial interface FeHingeLimitBuild_t : ISchemaClass<FeHingeLimitBuild_t>
 
   static FeHingeLimitBuild_t ISchemaClass<FeHingeLimitBuild_t>.From(nint handle) => new FeHingeLimitBuild_tImpl(handle);
   static int ISchemaClass<FeHingeLimitBuild_t>.Size => 24;
+  static string? ISchemaClass<FeHingeLimitBuild_t>.ClassName => null;
 
   
   public ISchemaFixedArray<ushort> Node { get; }

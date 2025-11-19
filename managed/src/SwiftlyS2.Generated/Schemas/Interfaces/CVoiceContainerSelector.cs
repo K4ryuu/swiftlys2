@@ -12,6 +12,7 @@ public partial interface CVoiceContainerSelector : CVoiceContainerBase, ISchemaC
 
   static CVoiceContainerSelector ISchemaClass<CVoiceContainerSelector>.From(nint handle) => new CVoiceContainerSelectorImpl(handle);
   static int ISchemaClass<CVoiceContainerSelector>.Size => 304;
+  static string? ISchemaClass<CVoiceContainerSelector>.ClassName => null;
 
   
   public ref PlayBackMode_t Mode { get; }

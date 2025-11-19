@@ -12,6 +12,7 @@ public partial interface CPulseCell_Timeline__TimelineEvent_t : ISchemaClass<CPu
 
   static CPulseCell_Timeline__TimelineEvent_t ISchemaClass<CPulseCell_Timeline__TimelineEvent_t>.From(nint handle) => new CPulseCell_Timeline__TimelineEvent_tImpl(handle);
   static int ISchemaClass<CPulseCell_Timeline__TimelineEvent_t>.Size => 80;
+  static string? ISchemaClass<CPulseCell_Timeline__TimelineEvent_t>.ClassName => null;
 
   
   public ref float TimeFromPrevious { get; }

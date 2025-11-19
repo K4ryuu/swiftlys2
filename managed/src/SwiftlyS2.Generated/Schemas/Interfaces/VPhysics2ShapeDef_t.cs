@@ -12,6 +12,7 @@ public partial interface VPhysics2ShapeDef_t : ISchemaClass<VPhysics2ShapeDef_t>
 
   static VPhysics2ShapeDef_t ISchemaClass<VPhysics2ShapeDef_t>.From(nint handle) => new VPhysics2ShapeDef_tImpl(handle);
   static int ISchemaClass<VPhysics2ShapeDef_t>.Size => 120;
+  static string? ISchemaClass<VPhysics2ShapeDef_t>.ClassName => null;
 
   
   public ref CUtlVector<RnSphereDesc_t> Spheres { get; }

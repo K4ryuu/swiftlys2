@@ -12,6 +12,7 @@ public partial interface CProductQuantizer : ISchemaClass<CProductQuantizer> {
 
   static CProductQuantizer ISchemaClass<CProductQuantizer>.From(nint handle) => new CProductQuantizerImpl(handle);
   static int ISchemaClass<CProductQuantizer>.Size => 32;
+  static string? ISchemaClass<CProductQuantizer>.ClassName => null;
 
   
   public ref CUtlVector<CVectorQuantizer> SubQuantizers { get; }

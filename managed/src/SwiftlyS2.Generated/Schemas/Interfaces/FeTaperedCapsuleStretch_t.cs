@@ -12,6 +12,7 @@ public partial interface FeTaperedCapsuleStretch_t : ISchemaClass<FeTaperedCapsu
 
   static FeTaperedCapsuleStretch_t ISchemaClass<FeTaperedCapsuleStretch_t>.From(nint handle) => new FeTaperedCapsuleStretch_tImpl(handle);
   static int ISchemaClass<FeTaperedCapsuleStretch_t>.Size => 16;
+  static string? ISchemaClass<FeTaperedCapsuleStretch_t>.ClassName => null;
 
   
   public ISchemaFixedArray<ushort> Node { get; }

@@ -12,6 +12,7 @@ public partial interface NmCompressionSettings_t : ISchemaClass<NmCompressionSet
 
   static NmCompressionSettings_t ISchemaClass<NmCompressionSettings_t>.From(nint handle) => new NmCompressionSettings_tImpl(handle);
   static int ISchemaClass<NmCompressionSettings_t>.Size => 64;
+  static string? ISchemaClass<NmCompressionSettings_t>.ClassName => null;
 
   
   public NmCompressionSettings_t__QuantizationRange_t TranslationRangeX { get; }

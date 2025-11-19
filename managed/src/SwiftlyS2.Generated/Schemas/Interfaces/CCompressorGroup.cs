@@ -12,6 +12,7 @@ public partial interface CCompressorGroup : ISchemaClass<CCompressorGroup> {
 
   static CCompressorGroup ISchemaClass<CCompressorGroup>.From(nint handle) => new CCompressorGroupImpl(handle);
   static int ISchemaClass<CCompressorGroup>.Size => 416;
+  static string? ISchemaClass<CCompressorGroup>.ClassName => null;
 
   
   public ref int TotalElementCount { get; }

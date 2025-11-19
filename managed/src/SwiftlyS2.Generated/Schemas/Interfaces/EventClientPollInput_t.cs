@@ -12,6 +12,7 @@ public partial interface EventClientPollInput_t : ISchemaClass<EventClientPollIn
 
   static EventClientPollInput_t ISchemaClass<EventClientPollInput_t>.From(nint handle) => new EventClientPollInput_tImpl(handle);
   static int ISchemaClass<EventClientPollInput_t>.Size => 48;
+  static string? ISchemaClass<EventClientPollInput_t>.ClassName => null;
 
   
   public EngineLoopState_t LoopState { get; }

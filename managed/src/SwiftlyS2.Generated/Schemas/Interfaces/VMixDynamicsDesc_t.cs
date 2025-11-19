@@ -12,6 +12,7 @@ public partial interface VMixDynamicsDesc_t : ISchemaClass<VMixDynamicsDesc_t> {
 
   static VMixDynamicsDesc_t ISchemaClass<VMixDynamicsDesc_t>.From(nint handle) => new VMixDynamicsDesc_tImpl(handle);
   static int ISchemaClass<VMixDynamicsDesc_t>.Size => 48;
+  static string? ISchemaClass<VMixDynamicsDesc_t>.ClassName => null;
 
   
   public ref float FldbGain { get; }

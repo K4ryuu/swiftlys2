@@ -12,6 +12,7 @@ public partial interface CCSPlayerController_InGameMoneyServices : CPlayerContro
 
   static CCSPlayerController_InGameMoneyServices ISchemaClass<CCSPlayerController_InGameMoneyServices>.From(nint handle) => new CCSPlayerController_InGameMoneyServicesImpl(handle);
   static int ISchemaClass<CCSPlayerController_InGameMoneyServices>.Size => 88;
+  static string? ISchemaClass<CCSPlayerController_InGameMoneyServices>.ClassName => null;
 
   
   public ref bool ReceivesMoneyNextRound { get; }

@@ -12,6 +12,7 @@ public partial interface CPulseCell_Outflow_PlayVCD : CPulseCell_Outflow_PlaySce
 
   static CPulseCell_Outflow_PlayVCD ISchemaClass<CPulseCell_Outflow_PlayVCD>.From(nint handle) => new CPulseCell_Outflow_PlayVCDImpl(handle);
   static int ISchemaClass<CPulseCell_Outflow_PlayVCD>.Size => 248;
+  static string? ISchemaClass<CPulseCell_Outflow_PlayVCD>.ClassName => null;
 
   
   public ref CStrongHandle<InfoForResourceTypeCChoreoSceneResource> ChoreoScene { get; }

@@ -12,6 +12,7 @@ public partial interface EventSetTime_t : ISchemaClass<EventSetTime_t> {
 
   static EventSetTime_t ISchemaClass<EventSetTime_t>.From(nint handle) => new EventSetTime_tImpl(handle);
   static int ISchemaClass<EventSetTime_t>.Size => 96;
+  static string? ISchemaClass<EventSetTime_t>.ClassName => null;
 
   
   public EngineLoopState_t LoopState { get; }

@@ -12,6 +12,7 @@ public partial interface CSeqS1SeqDesc : ISchemaClass<CSeqS1SeqDesc> {
 
   static CSeqS1SeqDesc ISchemaClass<CSeqS1SeqDesc>.From(nint handle) => new CSeqS1SeqDescImpl(handle);
   static int ISchemaClass<CSeqS1SeqDesc>.Size => 288;
+  static string? ISchemaClass<CSeqS1SeqDesc>.ClassName => null;
 
   
   public ref CBufferString Name { get; }

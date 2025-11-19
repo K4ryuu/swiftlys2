@@ -12,6 +12,7 @@ public partial interface CEntityComponentHelper : ISchemaClass<CEntityComponentH
 
   static CEntityComponentHelper ISchemaClass<CEntityComponentHelper>.From(nint handle) => new CEntityComponentHelperImpl(handle);
   static int ISchemaClass<CEntityComponentHelper>.Size => 40;
+  static string? ISchemaClass<CEntityComponentHelper>.ClassName => null;
 
   
   public ref uint Flags { get; }

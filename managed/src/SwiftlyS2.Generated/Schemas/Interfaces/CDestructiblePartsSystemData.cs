@@ -12,6 +12,7 @@ public partial interface CDestructiblePartsSystemData : ISchemaClass<CDestructib
 
   static CDestructiblePartsSystemData ISchemaClass<CDestructiblePartsSystemData>.From(nint handle) => new CDestructiblePartsSystemDataImpl(handle);
   static int ISchemaClass<CDestructiblePartsSystemData>.Size => 48;
+  static string? ISchemaClass<CDestructiblePartsSystemData>.ClassName => null;
 
   
   // CUtlOrderedMap< HitGroup_t, CDestructiblePart >

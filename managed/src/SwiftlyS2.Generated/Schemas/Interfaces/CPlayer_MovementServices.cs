@@ -12,6 +12,7 @@ public partial interface CPlayer_MovementServices : CPlayerPawnComponent, ISchem
 
   static CPlayer_MovementServices ISchemaClass<CPlayer_MovementServices>.From(nint handle) => new CPlayer_MovementServicesImpl(handle);
   static int ISchemaClass<CPlayer_MovementServices>.Size => 568;
+  static string? ISchemaClass<CPlayer_MovementServices>.ClassName => null;
 
   
   public ref int Impulse { get; }

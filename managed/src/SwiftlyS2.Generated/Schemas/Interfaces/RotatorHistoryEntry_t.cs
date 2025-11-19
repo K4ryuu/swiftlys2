@@ -12,6 +12,7 @@ public partial interface RotatorHistoryEntry_t : ISchemaClass<RotatorHistoryEntr
 
   static RotatorHistoryEntry_t ISchemaClass<RotatorHistoryEntry_t>.From(nint handle) => new RotatorHistoryEntry_tImpl(handle);
   static int ISchemaClass<RotatorHistoryEntry_t>.Size => 32;
+  static string? ISchemaClass<RotatorHistoryEntry_t>.ClassName => null;
 
   
   public ref Quaternion InvChange { get; }

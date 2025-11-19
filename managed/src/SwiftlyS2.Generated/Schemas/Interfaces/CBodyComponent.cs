@@ -12,6 +12,7 @@ public partial interface CBodyComponent : CEntityComponent, ISchemaClass<CBodyCo
 
   static CBodyComponent ISchemaClass<CBodyComponent>.From(nint handle) => new CBodyComponentImpl(handle);
   static int ISchemaClass<CBodyComponent>.Size => 120;
+  static string? ISchemaClass<CBodyComponent>.ClassName => null;
 
   
   public CGameSceneNode? SceneNode { get; }

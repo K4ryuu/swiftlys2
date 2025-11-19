@@ -12,6 +12,7 @@ public partial interface FeRodConstraint_t : ISchemaClass<FeRodConstraint_t> {
 
   static FeRodConstraint_t ISchemaClass<FeRodConstraint_t>.From(nint handle) => new FeRodConstraint_tImpl(handle);
   static int ISchemaClass<FeRodConstraint_t>.Size => 20;
+  static string? ISchemaClass<FeRodConstraint_t>.ClassName => null;
 
   
   public ISchemaFixedArray<ushort> Node { get; }

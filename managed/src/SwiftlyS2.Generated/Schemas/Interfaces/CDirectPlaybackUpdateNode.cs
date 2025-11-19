@@ -12,6 +12,7 @@ public partial interface CDirectPlaybackUpdateNode : CUnaryUpdateNode, ISchemaCl
 
   static CDirectPlaybackUpdateNode ISchemaClass<CDirectPlaybackUpdateNode>.From(nint handle) => new CDirectPlaybackUpdateNodeImpl(handle);
   static int ISchemaClass<CDirectPlaybackUpdateNode>.Size => 144;
+  static string? ISchemaClass<CDirectPlaybackUpdateNode>.ClassName => null;
 
   
   public ref bool FinishEarly { get; }

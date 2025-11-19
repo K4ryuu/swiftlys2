@@ -12,6 +12,7 @@ public partial interface WeaponPurchaseTracker_t : ISchemaClass<WeaponPurchaseTr
 
   static WeaponPurchaseTracker_t ISchemaClass<WeaponPurchaseTracker_t>.From(nint handle) => new WeaponPurchaseTracker_tImpl(handle);
   static int ISchemaClass<WeaponPurchaseTracker_t>.Size => 112;
+  static string? ISchemaClass<WeaponPurchaseTracker_t>.ClassName => null;
 
   
   public ref CUtlVector<WeaponPurchaseCount_t> WeaponPurchases { get; }

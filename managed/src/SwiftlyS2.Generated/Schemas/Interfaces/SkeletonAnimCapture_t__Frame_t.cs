@@ -12,6 +12,7 @@ public partial interface SkeletonAnimCapture_t__Frame_t : ISchemaClass<SkeletonA
 
   static SkeletonAnimCapture_t__Frame_t ISchemaClass<SkeletonAnimCapture_t__Frame_t>.From(nint handle) => new SkeletonAnimCapture_t__Frame_tImpl(handle);
   static int ISchemaClass<SkeletonAnimCapture_t__Frame_t>.Size => 192;
+  static string? ISchemaClass<SkeletonAnimCapture_t__Frame_t>.ClassName => null;
 
   
   public ref float Time { get; }

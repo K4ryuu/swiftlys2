@@ -12,6 +12,7 @@ public partial interface CSlopeComponentUpdater : CAnimComponentUpdater, ISchema
 
   static CSlopeComponentUpdater ISchemaClass<CSlopeComponentUpdater>.From(nint handle) => new CSlopeComponentUpdaterImpl(handle);
   static int ISchemaClass<CSlopeComponentUpdater>.Size => 72;
+  static string? ISchemaClass<CSlopeComponentUpdater>.ClassName => null;
 
   
   public ref float TraceDistance { get; }

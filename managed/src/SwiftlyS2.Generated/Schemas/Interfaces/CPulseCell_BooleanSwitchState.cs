@@ -12,6 +12,7 @@ public partial interface CPulseCell_BooleanSwitchState : CPulseCell_BaseState, I
 
   static CPulseCell_BooleanSwitchState ISchemaClass<CPulseCell_BooleanSwitchState>.From(nint handle) => new CPulseCell_BooleanSwitchStateImpl(handle);
   static int ISchemaClass<CPulseCell_BooleanSwitchState>.Size => 408;
+  static string? ISchemaClass<CPulseCell_BooleanSwitchState>.ClassName => null;
 
   
   public PulseObservableBoolExpression_t Condition { get; }

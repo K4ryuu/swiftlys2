@@ -12,6 +12,7 @@ public partial interface CCSPlayer_ActionTrackingServices : CPlayerPawnComponent
 
   static CCSPlayer_ActionTrackingServices ISchemaClass<CCSPlayer_ActionTrackingServices>.From(nint handle) => new CCSPlayer_ActionTrackingServicesImpl(handle);
   static int ISchemaClass<CCSPlayer_ActionTrackingServices>.Size => 776;
+  static string? ISchemaClass<CCSPlayer_ActionTrackingServices>.ClassName => null;
 
   
   public ref CHandle<CBasePlayerWeapon> LastWeaponBeforeC4AutoSwitch { get; }

@@ -12,6 +12,7 @@ public partial interface ActiveModelConfig_t : ISchemaClass<ActiveModelConfig_t>
 
   static ActiveModelConfig_t ISchemaClass<ActiveModelConfig_t>.From(nint handle) => new ActiveModelConfig_tImpl(handle);
   static int ISchemaClass<ActiveModelConfig_t>.Size => 112;
+  static string? ISchemaClass<ActiveModelConfig_t>.ClassName => null;
 
   
   public ModelConfigHandle_t Handle { get; }

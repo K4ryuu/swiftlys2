@@ -12,6 +12,7 @@ public partial interface CVoiceContainerEnvelope : CVoiceContainerBase, ISchemaC
 
   static CVoiceContainerEnvelope ISchemaClass<CVoiceContainerEnvelope>.From(nint handle) => new CVoiceContainerEnvelopeImpl(handle);
   static int ISchemaClass<CVoiceContainerEnvelope>.Size => 200;
+  static string? ISchemaClass<CVoiceContainerEnvelope>.ClassName => null;
 
   
   public ref CStrongHandle<InfoForResourceTypeCVoiceContainerBase> Sound { get; }

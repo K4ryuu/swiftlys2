@@ -12,6 +12,7 @@ public partial interface InfoForResourceTypeCWorldNode : ISchemaClass<InfoForRes
 
   static InfoForResourceTypeCWorldNode ISchemaClass<InfoForResourceTypeCWorldNode>.From(nint handle) => new InfoForResourceTypeCWorldNodeImpl(handle);
   static int ISchemaClass<InfoForResourceTypeCWorldNode>.Size => 1;
+  static string? ISchemaClass<InfoForResourceTypeCWorldNode>.ClassName => null;
 
 
 

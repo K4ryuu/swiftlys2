@@ -12,6 +12,7 @@ public partial interface RenderProjectedMaterial_t : ISchemaClass<RenderProjecte
 
   static RenderProjectedMaterial_t ISchemaClass<RenderProjectedMaterial_t>.From(nint handle) => new RenderProjectedMaterial_tImpl(handle);
   static int ISchemaClass<RenderProjectedMaterial_t>.Size => 8;
+  static string? ISchemaClass<RenderProjectedMaterial_t>.ClassName => null;
 
   
   public ref CStrongHandle<InfoForResourceTypeIMaterial2> Material { get; }

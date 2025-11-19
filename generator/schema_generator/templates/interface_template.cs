@@ -12,6 +12,7 @@ public partial interface $INTERFACE_NAME$ : $BASE_INTERFACE$ISchemaClass<$INTERF
 
   static $INTERFACE_NAME$ ISchemaClass<$INTERFACE_NAME$>.From(nint handle) => new $IMPL_TYPE$(handle);
   static int ISchemaClass<$INTERFACE_NAME$>.Size => $SIZE$;
+  static string? ISchemaClass<$INTERFACE_NAME$>.ClassName => $CLASSNAME$;
 
 $FIELDS$
 

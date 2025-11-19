@@ -12,6 +12,7 @@ public partial interface VMixDynamicsCompressorDesc_t : ISchemaClass<VMixDynamic
 
   static VMixDynamicsCompressorDesc_t ISchemaClass<VMixDynamicsCompressorDesc_t>.From(nint handle) => new VMixDynamicsCompressorDesc_tImpl(handle);
   static int ISchemaClass<VMixDynamicsCompressorDesc_t>.Size => 36;
+  static string? ISchemaClass<VMixDynamicsCompressorDesc_t>.ClassName => null;
 
   
   public ref float FldbOutputGain { get; }

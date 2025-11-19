@@ -12,6 +12,7 @@ public partial interface VMixAutoFilterDesc_t : ISchemaClass<VMixAutoFilterDesc_
 
   static VMixAutoFilterDesc_t ISchemaClass<VMixAutoFilterDesc_t>.From(nint handle) => new VMixAutoFilterDesc_tImpl(handle);
   static int ISchemaClass<VMixAutoFilterDesc_t>.Size => 44;
+  static string? ISchemaClass<VMixAutoFilterDesc_t>.ClassName => null;
 
   
   public ref float EnvelopeAmount { get; }

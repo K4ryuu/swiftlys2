@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface C_OP_ReadFromNeighboringParticle : CParticleFunctionOperator, ISchemaClass<C_OP_ReadFromNeighboringParticle> {
 
   static C_OP_ReadFromNeighboringParticle ISchemaClass<C_OP_ReadFromNeighboringParticle>.From(nint handle) => new C_OP_ReadFromNeighboringParticleImpl(handle);
-  static int ISchemaClass<C_OP_ReadFromNeighboringParticle>.Size => 1216;
+  static int ISchemaClass<C_OP_ReadFromNeighboringParticle>.Size => 1192;
+  static string? ISchemaClass<C_OP_ReadFromNeighboringParticle>.ClassName => null;
 
   
   public ParticleAttributeIndex_t FieldInput { get; }

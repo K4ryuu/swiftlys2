@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CNmSpeedScaleBaseNode__CDefinition : CNmPassthroughNode__CDefinition, ISchemaClass<CNmSpeedScaleBaseNode__CDefinition> {
 
   static CNmSpeedScaleBaseNode__CDefinition ISchemaClass<CNmSpeedScaleBaseNode__CDefinition>.From(nint handle) => new CNmSpeedScaleBaseNode__CDefinitionImpl(handle);
-  static int ISchemaClass<CNmSpeedScaleBaseNode__CDefinition>.Size => 32;
+  static int ISchemaClass<CNmSpeedScaleBaseNode__CDefinition>.Size => 24;
+  static string? ISchemaClass<CNmSpeedScaleBaseNode__CDefinition>.ClassName => null;
 
   
   public ref short InputValueNodeIdx { get; }

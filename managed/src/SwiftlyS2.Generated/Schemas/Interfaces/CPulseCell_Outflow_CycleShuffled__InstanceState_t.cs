@@ -12,6 +12,7 @@ public partial interface CPulseCell_Outflow_CycleShuffled__InstanceState_t : ISc
 
   static CPulseCell_Outflow_CycleShuffled__InstanceState_t ISchemaClass<CPulseCell_Outflow_CycleShuffled__InstanceState_t>.From(nint handle) => new CPulseCell_Outflow_CycleShuffled__InstanceState_tImpl(handle);
   static int ISchemaClass<CPulseCell_Outflow_CycleShuffled__InstanceState_t>.Size => 40;
+  static string? ISchemaClass<CPulseCell_Outflow_CycleShuffled__InstanceState_t>.ClassName => null;
 
   
   // CUtlVectorFixedGrowable< uint8, 8 >

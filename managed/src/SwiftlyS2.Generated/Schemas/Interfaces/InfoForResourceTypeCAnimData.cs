@@ -12,6 +12,7 @@ public partial interface InfoForResourceTypeCAnimData : ISchemaClass<InfoForReso
 
   static InfoForResourceTypeCAnimData ISchemaClass<InfoForResourceTypeCAnimData>.From(nint handle) => new InfoForResourceTypeCAnimDataImpl(handle);
   static int ISchemaClass<InfoForResourceTypeCAnimData>.Size => 1;
+  static string? ISchemaClass<InfoForResourceTypeCAnimData>.ClassName => null;
 
 
 

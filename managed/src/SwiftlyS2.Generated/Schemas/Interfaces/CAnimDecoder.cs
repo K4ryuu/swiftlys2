@@ -12,6 +12,7 @@ public partial interface CAnimDecoder : ISchemaClass<CAnimDecoder> {
 
   static CAnimDecoder ISchemaClass<CAnimDecoder>.From(nint handle) => new CAnimDecoderImpl(handle);
   static int ISchemaClass<CAnimDecoder>.Size => 24;
+  static string? ISchemaClass<CAnimDecoder>.ClassName => null;
 
   
   public ref CBufferString Name { get; }

@@ -12,6 +12,7 @@ public partial interface CPulseCell_Inflow_Method : CPulseCell_Inflow_BaseEntryp
 
   static CPulseCell_Inflow_Method ISchemaClass<CPulseCell_Inflow_Method>.From(nint handle) => new CPulseCell_Inflow_MethodImpl(handle);
   static int ISchemaClass<CPulseCell_Inflow_Method>.Size => 200;
+  static string? ISchemaClass<CPulseCell_Inflow_Method>.ClassName => null;
 
   
   // PulseSymbol_t

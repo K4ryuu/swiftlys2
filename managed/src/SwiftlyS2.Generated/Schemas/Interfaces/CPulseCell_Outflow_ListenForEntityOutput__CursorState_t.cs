@@ -12,6 +12,7 @@ public partial interface CPulseCell_Outflow_ListenForEntityOutput__CursorState_t
 
   static CPulseCell_Outflow_ListenForEntityOutput__CursorState_t ISchemaClass<CPulseCell_Outflow_ListenForEntityOutput__CursorState_t>.From(nint handle) => new CPulseCell_Outflow_ListenForEntityOutput__CursorState_tImpl(handle);
   static int ISchemaClass<CPulseCell_Outflow_ListenForEntityOutput__CursorState_t>.Size => 4;
+  static string? ISchemaClass<CPulseCell_Outflow_ListenForEntityOutput__CursorState_t>.ClassName => null;
 
   
   public ref CHandle<CBaseEntity> Entity { get; }

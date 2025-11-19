@@ -12,6 +12,7 @@ public partial interface SignatureOutflow_Continue : CPulse_OutflowConnection, I
 
   static SignatureOutflow_Continue ISchemaClass<SignatureOutflow_Continue>.From(nint handle) => new SignatureOutflow_ContinueImpl(handle);
   static int ISchemaClass<SignatureOutflow_Continue>.Size => 72;
+  static string? ISchemaClass<SignatureOutflow_Continue>.ClassName => null;
 
 
 

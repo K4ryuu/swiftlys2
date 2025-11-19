@@ -12,6 +12,7 @@ public partial interface CStateUpdateData : ISchemaClass<CStateUpdateData> {
 
   static CStateUpdateData ISchemaClass<CStateUpdateData>.From(nint handle) => new CStateUpdateDataImpl(handle);
   static int ISchemaClass<CStateUpdateData>.Size => 72;
+  static string? ISchemaClass<CStateUpdateData>.ClassName => null;
 
   
   public string Name { get; set; }

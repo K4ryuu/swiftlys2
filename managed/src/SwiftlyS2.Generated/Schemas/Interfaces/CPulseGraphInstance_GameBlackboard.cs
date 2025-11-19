@@ -12,6 +12,7 @@ public partial interface CPulseGraphInstance_GameBlackboard : CPulseGraphInstanc
 
   static CPulseGraphInstance_GameBlackboard ISchemaClass<CPulseGraphInstance_GameBlackboard>.From(nint handle) => new CPulseGraphInstance_GameBlackboardImpl(handle);
   static int ISchemaClass<CPulseGraphInstance_GameBlackboard>.Size => 456;
+  static string? ISchemaClass<CPulseGraphInstance_GameBlackboard>.ClassName => null;
 
 
 

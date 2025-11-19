@@ -12,6 +12,7 @@ public partial interface CFeMorphLayer : ISchemaClass<CFeMorphLayer> {
 
   static CFeMorphLayer ISchemaClass<CFeMorphLayer>.From(nint handle) => new CFeMorphLayerImpl(handle);
   static int ISchemaClass<CFeMorphLayer>.Size => 136;
+  static string? ISchemaClass<CFeMorphLayer>.ClassName => null;
 
   
   public string Name { get; set; }

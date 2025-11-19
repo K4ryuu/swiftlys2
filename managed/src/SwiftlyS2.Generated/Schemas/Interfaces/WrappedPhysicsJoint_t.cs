@@ -12,6 +12,7 @@ public partial interface WrappedPhysicsJoint_t : ISchemaClass<WrappedPhysicsJoin
 
   static WrappedPhysicsJoint_t ISchemaClass<WrappedPhysicsJoint_t>.From(nint handle) => new WrappedPhysicsJoint_tImpl(handle);
   static int ISchemaClass<WrappedPhysicsJoint_t>.Size => 8;
+  static string? ISchemaClass<WrappedPhysicsJoint_t>.ClassName => null;
 
 
 

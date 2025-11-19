@@ -12,6 +12,7 @@ public partial interface Extent : ISchemaClass<Extent> {
 
   static Extent ISchemaClass<Extent>.From(nint handle) => new ExtentImpl(handle);
   static int ISchemaClass<Extent>.Size => 24;
+  static string? ISchemaClass<Extent>.ClassName => null;
 
   
   public ref Vector Lo { get; }

@@ -12,6 +12,7 @@ public partial interface CRopeOverlapHit : ISchemaClass<CRopeOverlapHit> {
 
   static CRopeOverlapHit ISchemaClass<CRopeOverlapHit>.From(nint handle) => new CRopeOverlapHitImpl(handle);
   static int ISchemaClass<CRopeOverlapHit>.Size => 32;
+  static string? ISchemaClass<CRopeOverlapHit>.ClassName => null;
 
   
   public ref CHandle<CBaseEntity> Entity { get; }

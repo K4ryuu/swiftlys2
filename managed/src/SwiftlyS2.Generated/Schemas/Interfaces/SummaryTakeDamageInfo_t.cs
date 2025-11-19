@@ -12,6 +12,7 @@ public partial interface SummaryTakeDamageInfo_t : ISchemaClass<SummaryTakeDamag
 
   static SummaryTakeDamageInfo_t ISchemaClass<SummaryTakeDamageInfo_t>.From(nint handle) => new SummaryTakeDamageInfo_tImpl(handle);
   static int ISchemaClass<SummaryTakeDamageInfo_t>.Size => 352;
+  static string? ISchemaClass<SummaryTakeDamageInfo_t>.ClassName => null;
 
   
   public ref int SummarisedCount { get; }

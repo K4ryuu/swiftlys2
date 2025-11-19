@@ -12,6 +12,7 @@ public partial interface CPoseHandle : ISchemaClass<CPoseHandle> {
 
   static CPoseHandle ISchemaClass<CPoseHandle>.From(nint handle) => new CPoseHandleImpl(handle);
   static int ISchemaClass<CPoseHandle>.Size => 4;
+  static string? ISchemaClass<CPoseHandle>.ClassName => null;
 
   
   public ref ushort Index { get; }

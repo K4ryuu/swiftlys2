@@ -12,6 +12,7 @@ public partial interface CNmSkeleton__SecondarySkeleton_t : ISchemaClass<CNmSkel
 
   static CNmSkeleton__SecondarySkeleton_t ISchemaClass<CNmSkeleton__SecondarySkeleton_t>.From(nint handle) => new CNmSkeleton__SecondarySkeleton_tImpl(handle);
   static int ISchemaClass<CNmSkeleton__SecondarySkeleton_t>.Size => 16;
+  static string? ISchemaClass<CNmSkeleton__SecondarySkeleton_t>.ClassName => null;
 
   
   public ref CGlobalSymbol AttachToBoneID { get; }

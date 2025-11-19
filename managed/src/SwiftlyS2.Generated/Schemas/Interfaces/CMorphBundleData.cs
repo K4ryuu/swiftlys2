@@ -12,6 +12,7 @@ public partial interface CMorphBundleData : ISchemaClass<CMorphBundleData> {
 
   static CMorphBundleData ISchemaClass<CMorphBundleData>.From(nint handle) => new CMorphBundleDataImpl(handle);
   static int ISchemaClass<CMorphBundleData>.Size => 56;
+  static string? ISchemaClass<CMorphBundleData>.ClassName => null;
 
   
   public ref float ULeftSrc { get; }

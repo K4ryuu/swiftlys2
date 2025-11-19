@@ -12,6 +12,7 @@ public partial interface RenderSkeletonBone_t : ISchemaClass<RenderSkeletonBone_
 
   static RenderSkeletonBone_t ISchemaClass<RenderSkeletonBone_t>.From(nint handle) => new RenderSkeletonBone_tImpl(handle);
   static int ISchemaClass<RenderSkeletonBone_t>.Size => 96;
+  static string? ISchemaClass<RenderSkeletonBone_t>.ClassName => null;
 
   
   public string BoneName { get; set; }

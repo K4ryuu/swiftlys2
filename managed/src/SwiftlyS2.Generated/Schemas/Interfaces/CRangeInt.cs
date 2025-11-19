@@ -12,6 +12,7 @@ public partial interface CRangeInt : ISchemaClass<CRangeInt> {
 
   static CRangeInt ISchemaClass<CRangeInt>.From(nint handle) => new CRangeIntImpl(handle);
   static int ISchemaClass<CRangeInt>.Size => 8;
+  static string? ISchemaClass<CRangeInt>.ClassName => null;
 
   
   public ISchemaFixedArray<int> Value { get; }

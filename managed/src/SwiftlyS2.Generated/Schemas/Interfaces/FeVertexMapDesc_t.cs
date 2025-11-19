@@ -12,6 +12,7 @@ public partial interface FeVertexMapDesc_t : ISchemaClass<FeVertexMapDesc_t> {
 
   static FeVertexMapDesc_t ISchemaClass<FeVertexMapDesc_t>.From(nint handle) => new FeVertexMapDesc_tImpl(handle);
   static int ISchemaClass<FeVertexMapDesc_t>.Size => 56;
+  static string? ISchemaClass<FeVertexMapDesc_t>.ClassName => null;
 
   
   public string Name { get; set; }

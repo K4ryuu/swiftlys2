@@ -12,6 +12,7 @@ public partial interface InfoForResourceTypeCNmClip : ISchemaClass<InfoForResour
 
   static InfoForResourceTypeCNmClip ISchemaClass<InfoForResourceTypeCNmClip>.From(nint handle) => new InfoForResourceTypeCNmClipImpl(handle);
   static int ISchemaClass<InfoForResourceTypeCNmClip>.Size => 1;
+  static string? ISchemaClass<InfoForResourceTypeCNmClip>.ClassName => null;
 
 
 

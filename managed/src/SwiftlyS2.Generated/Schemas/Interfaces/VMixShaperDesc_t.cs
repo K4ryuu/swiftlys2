@@ -12,6 +12,7 @@ public partial interface VMixShaperDesc_t : ISchemaClass<VMixShaperDesc_t> {
 
   static VMixShaperDesc_t ISchemaClass<VMixShaperDesc_t>.From(nint handle) => new VMixShaperDesc_tImpl(handle);
   static int ISchemaClass<VMixShaperDesc_t>.Size => 20;
+  static string? ISchemaClass<VMixShaperDesc_t>.ClassName => null;
 
   
   public ref int Shape { get; }

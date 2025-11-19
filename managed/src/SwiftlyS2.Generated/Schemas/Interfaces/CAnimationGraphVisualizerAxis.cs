@@ -12,6 +12,7 @@ public partial interface CAnimationGraphVisualizerAxis : CAnimationGraphVisualiz
 
   static CAnimationGraphVisualizerAxis ISchemaClass<CAnimationGraphVisualizerAxis>.From(nint handle) => new CAnimationGraphVisualizerAxisImpl(handle);
   static int ISchemaClass<CAnimationGraphVisualizerAxis>.Size => 112;
+  static string? ISchemaClass<CAnimationGraphVisualizerAxis>.ClassName => null;
 
   
   public ref CTransform XWsTransform { get; }

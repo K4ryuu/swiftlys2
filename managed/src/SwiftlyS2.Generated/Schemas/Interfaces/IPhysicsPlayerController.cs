@@ -12,6 +12,7 @@ public partial interface IPhysicsPlayerController : ISchemaClass<IPhysicsPlayerC
 
   static IPhysicsPlayerController ISchemaClass<IPhysicsPlayerController>.From(nint handle) => new IPhysicsPlayerControllerImpl(handle);
   static int ISchemaClass<IPhysicsPlayerController>.Size => 8;
+  static string? ISchemaClass<IPhysicsPlayerController>.ClassName => null;
 
 
 

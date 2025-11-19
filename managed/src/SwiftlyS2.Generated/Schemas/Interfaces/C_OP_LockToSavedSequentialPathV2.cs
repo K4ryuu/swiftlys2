@@ -12,6 +12,7 @@ public partial interface C_OP_LockToSavedSequentialPathV2 : CParticleFunctionOpe
 
   static C_OP_LockToSavedSequentialPathV2 ISchemaClass<C_OP_LockToSavedSequentialPathV2>.From(nint handle) => new C_OP_LockToSavedSequentialPathV2Impl(handle);
   static int ISchemaClass<C_OP_LockToSavedSequentialPathV2>.Size => 544;
+  static string? ISchemaClass<C_OP_LockToSavedSequentialPathV2>.ClassName => null;
 
   
   public ref float FadeStart { get; }

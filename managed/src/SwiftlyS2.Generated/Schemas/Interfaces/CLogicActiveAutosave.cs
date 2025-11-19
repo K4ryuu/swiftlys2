@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CLogicActiveAutosave : CLogicAutosave, ISchemaClass<CLogicActiveAutosave> {
 
   static CLogicActiveAutosave ISchemaClass<CLogicActiveAutosave>.From(nint handle) => new CLogicActiveAutosaveImpl(handle);
-  static int ISchemaClass<CLogicActiveAutosave>.Size => 1296;
+  static int ISchemaClass<CLogicActiveAutosave>.Size => 2040;
+  static string? ISchemaClass<CLogicActiveAutosave>.ClassName => "logic_active_autosave";
 
   
   public ref int TriggerHitPoints { get; }

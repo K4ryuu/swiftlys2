@@ -12,6 +12,7 @@ public partial interface EventAdvanceTick_t : EventSimulate_t, ISchemaClass<Even
 
   static EventAdvanceTick_t ISchemaClass<EventAdvanceTick_t>.From(nint handle) => new EventAdvanceTick_tImpl(handle);
   static int ISchemaClass<EventAdvanceTick_t>.Size => 64;
+  static string? ISchemaClass<EventAdvanceTick_t>.ClassName => null;
 
   
   public ref int CurrentTick { get; }

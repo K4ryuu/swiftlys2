@@ -12,6 +12,7 @@ public partial interface CAI_ExpresserWithFollowup : CAI_Expresser, ISchemaClass
 
   static CAI_ExpresserWithFollowup ISchemaClass<CAI_ExpresserWithFollowup>.From(nint handle) => new CAI_ExpresserWithFollowupImpl(handle);
   static int ISchemaClass<CAI_ExpresserWithFollowup>.Size => 160;
+  static string? ISchemaClass<CAI_ExpresserWithFollowup>.ClassName => null;
 
 
 

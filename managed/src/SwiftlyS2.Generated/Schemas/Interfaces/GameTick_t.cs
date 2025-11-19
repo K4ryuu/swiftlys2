@@ -12,6 +12,7 @@ public partial interface GameTick_t : ISchemaClass<GameTick_t> {
 
   static GameTick_t ISchemaClass<GameTick_t>.From(nint handle) => new GameTick_tImpl(handle);
   static int ISchemaClass<GameTick_t>.Size => 4;
+  static string? ISchemaClass<GameTick_t>.ClassName => null;
 
   
   public ref int Value { get; }

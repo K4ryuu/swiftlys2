@@ -12,6 +12,7 @@ public partial interface RenderHairStrandInfo_t : ISchemaClass<RenderHairStrandI
 
   static RenderHairStrandInfo_t ISchemaClass<RenderHairStrandInfo_t>.From(nint handle) => new RenderHairStrandInfo_tImpl(handle);
   static int ISchemaClass<RenderHairStrandInfo_t>.Size => 40;
+  static string? ISchemaClass<RenderHairStrandInfo_t>.ClassName => null;
 
   
   public ISchemaFixedArray<uint> GuideHairIndices_nSurfaceTriIndex { get; }

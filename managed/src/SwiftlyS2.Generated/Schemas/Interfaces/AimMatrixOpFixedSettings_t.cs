@@ -12,6 +12,7 @@ public partial interface AimMatrixOpFixedSettings_t : ISchemaClass<AimMatrixOpFi
 
   static AimMatrixOpFixedSettings_t ISchemaClass<AimMatrixOpFixedSettings_t>.From(nint handle) => new AimMatrixOpFixedSettings_tImpl(handle);
   static int ISchemaClass<AimMatrixOpFixedSettings_t>.Size => 240;
+  static string? ISchemaClass<AimMatrixOpFixedSettings_t>.ClassName => null;
 
   
   public CAnimAttachment Attachment { get; }

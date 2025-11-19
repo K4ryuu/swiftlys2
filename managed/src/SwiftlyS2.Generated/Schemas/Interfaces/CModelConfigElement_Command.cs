@@ -12,6 +12,7 @@ public partial interface CModelConfigElement_Command : CModelConfigElement, ISch
 
   static CModelConfigElement_Command ISchemaClass<CModelConfigElement_Command>.From(nint handle) => new CModelConfigElement_CommandImpl(handle);
   static int ISchemaClass<CModelConfigElement_Command>.Size => 96;
+  static string? ISchemaClass<CModelConfigElement_Command>.ClassName => null;
 
   
   public string Command { get; set; }

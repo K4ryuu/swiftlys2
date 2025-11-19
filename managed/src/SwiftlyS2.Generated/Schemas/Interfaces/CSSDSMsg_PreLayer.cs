@@ -12,6 +12,7 @@ public partial interface CSSDSMsg_PreLayer : CSSDSMsg_LayerBase, ISchemaClass<CS
 
   static CSSDSMsg_PreLayer ISchemaClass<CSSDSMsg_PreLayer>.From(nint handle) => new CSSDSMsg_PreLayerImpl(handle);
   static int ISchemaClass<CSSDSMsg_PreLayer>.Size => 48;
+  static string? ISchemaClass<CSSDSMsg_PreLayer>.ClassName => null;
 
 
 

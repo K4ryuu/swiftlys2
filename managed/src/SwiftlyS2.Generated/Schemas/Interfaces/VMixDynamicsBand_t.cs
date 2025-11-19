@@ -12,6 +12,7 @@ public partial interface VMixDynamicsBand_t : ISchemaClass<VMixDynamicsBand_t> {
 
   static VMixDynamicsBand_t ISchemaClass<VMixDynamicsBand_t>.From(nint handle) => new VMixDynamicsBand_tImpl(handle);
   static int ISchemaClass<VMixDynamicsBand_t>.Size => 36;
+  static string? ISchemaClass<VMixDynamicsBand_t>.ClassName => null;
 
   
   public ref float FldbGainInput { get; }

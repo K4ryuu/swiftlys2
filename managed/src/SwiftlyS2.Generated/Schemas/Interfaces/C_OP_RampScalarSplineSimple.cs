@@ -12,6 +12,7 @@ public partial interface C_OP_RampScalarSplineSimple : CParticleFunctionOperator
 
   static C_OP_RampScalarSplineSimple ISchemaClass<C_OP_RampScalarSplineSimple>.From(nint handle) => new C_OP_RampScalarSplineSimpleImpl(handle);
   static int ISchemaClass<C_OP_RampScalarSplineSimple>.Size => 528;
+  static string? ISchemaClass<C_OP_RampScalarSplineSimple>.ClassName => null;
 
   
   public ref float Rate { get; }

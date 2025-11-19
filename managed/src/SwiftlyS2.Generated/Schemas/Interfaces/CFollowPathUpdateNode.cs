@@ -12,6 +12,7 @@ public partial interface CFollowPathUpdateNode : CUnaryUpdateNode, ISchemaClass<
 
   static CFollowPathUpdateNode ISchemaClass<CFollowPathUpdateNode>.From(nint handle) => new CFollowPathUpdateNodeImpl(handle);
   static int ISchemaClass<CFollowPathUpdateNode>.Size => 184;
+  static string? ISchemaClass<CFollowPathUpdateNode>.ClassName => null;
 
   
   public ref float BlendOutTime { get; }

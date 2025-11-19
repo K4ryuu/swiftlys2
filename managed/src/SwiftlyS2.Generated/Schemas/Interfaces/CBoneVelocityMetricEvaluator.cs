@@ -12,6 +12,7 @@ public partial interface CBoneVelocityMetricEvaluator : CMotionMetricEvaluator, 
 
   static CBoneVelocityMetricEvaluator ISchemaClass<CBoneVelocityMetricEvaluator>.From(nint handle) => new CBoneVelocityMetricEvaluatorImpl(handle);
   static int ISchemaClass<CBoneVelocityMetricEvaluator>.Size => 88;
+  static string? ISchemaClass<CBoneVelocityMetricEvaluator>.ClassName => null;
 
   
   public ref int BoneIndex { get; }

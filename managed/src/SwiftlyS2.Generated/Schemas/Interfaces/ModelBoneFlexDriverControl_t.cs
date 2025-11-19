@@ -12,6 +12,7 @@ public partial interface ModelBoneFlexDriverControl_t : ISchemaClass<ModelBoneFl
 
   static ModelBoneFlexDriverControl_t ISchemaClass<ModelBoneFlexDriverControl_t>.From(nint handle) => new ModelBoneFlexDriverControl_tImpl(handle);
   static int ISchemaClass<ModelBoneFlexDriverControl_t>.Size => 32;
+  static string? ISchemaClass<ModelBoneFlexDriverControl_t>.ClassName => null;
 
   
   public ref ModelBoneFlexComponent_t BoneComponent { get; }

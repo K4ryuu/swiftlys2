@@ -12,6 +12,7 @@ public partial interface IParticleEffect : ISchemaClass<IParticleEffect> {
 
   static IParticleEffect ISchemaClass<IParticleEffect>.From(nint handle) => new IParticleEffectImpl(handle);
   static int ISchemaClass<IParticleEffect>.Size => 8;
+  static string? ISchemaClass<IParticleEffect>.ClassName => null;
 
 
 

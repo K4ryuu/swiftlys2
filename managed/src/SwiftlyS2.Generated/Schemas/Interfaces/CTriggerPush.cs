@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CTriggerPush : CBaseTrigger, ISchemaClass<CTriggerPush> {
 
   static CTriggerPush ISchemaClass<CTriggerPush>.From(nint handle) => new CTriggerPushImpl(handle);
-  static int ISchemaClass<CTriggerPush>.Size => 2528;
+  static int ISchemaClass<CTriggerPush>.Size => 3256;
+  static string? ISchemaClass<CTriggerPush>.ClassName => "trigger_push";
 
   
   public ref QAngle PushEntitySpace { get; }

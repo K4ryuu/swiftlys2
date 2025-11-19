@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CEnvInstructorVRHint : CPointEntity, ISchemaClass<CEnvInstructorVRHint> {
 
   static CEnvInstructorVRHint ISchemaClass<CEnvInstructorVRHint>.From(nint handle) => new CEnvInstructorVRHintImpl(handle);
-  static int ISchemaClass<CEnvInstructorVRHint>.Size => 1328;
+  static int ISchemaClass<CEnvInstructorVRHint>.Size => 2072;
+  static string? ISchemaClass<CEnvInstructorVRHint>.ClassName => "env_instructor_vr_hint";
 
   
   public string Name { get; set; }

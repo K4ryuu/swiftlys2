@@ -12,6 +12,7 @@ public partial interface CCSPointPulseAPI : ISchemaClass<CCSPointPulseAPI> {
 
   static CCSPointPulseAPI ISchemaClass<CCSPointPulseAPI>.From(nint handle) => new CCSPointPulseAPIImpl(handle);
   static int ISchemaClass<CCSPointPulseAPI>.Size => 1;
+  static string? ISchemaClass<CCSPointPulseAPI>.ClassName => null;
 
 
 

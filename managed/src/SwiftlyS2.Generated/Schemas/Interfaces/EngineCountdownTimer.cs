@@ -12,6 +12,7 @@ public partial interface EngineCountdownTimer : ISchemaClass<EngineCountdownTime
 
   static EngineCountdownTimer ISchemaClass<EngineCountdownTimer>.From(nint handle) => new EngineCountdownTimerImpl(handle);
   static int ISchemaClass<EngineCountdownTimer>.Size => 24;
+  static string? ISchemaClass<EngineCountdownTimer>.ClassName => null;
 
   
   public ref float Duration { get; }

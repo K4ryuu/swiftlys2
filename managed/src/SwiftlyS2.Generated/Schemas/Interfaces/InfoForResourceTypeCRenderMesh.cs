@@ -12,6 +12,7 @@ public partial interface InfoForResourceTypeCRenderMesh : ISchemaClass<InfoForRe
 
   static InfoForResourceTypeCRenderMesh ISchemaClass<InfoForResourceTypeCRenderMesh>.From(nint handle) => new InfoForResourceTypeCRenderMeshImpl(handle);
   static int ISchemaClass<InfoForResourceTypeCRenderMesh>.Size => 1;
+  static string? ISchemaClass<InfoForResourceTypeCRenderMesh>.ClassName => null;
 
 
 

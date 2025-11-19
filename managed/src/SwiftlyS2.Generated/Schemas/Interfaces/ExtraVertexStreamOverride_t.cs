@@ -12,6 +12,7 @@ public partial interface ExtraVertexStreamOverride_t : BaseSceneObjectOverride_t
 
   static ExtraVertexStreamOverride_t ISchemaClass<ExtraVertexStreamOverride_t>.From(nint handle) => new ExtraVertexStreamOverride_tImpl(handle);
   static int ISchemaClass<ExtraVertexStreamOverride_t>.Size => 48;
+  static string? ISchemaClass<ExtraVertexStreamOverride_t>.ClassName => null;
 
   
   public ref uint SubSceneObject { get; }

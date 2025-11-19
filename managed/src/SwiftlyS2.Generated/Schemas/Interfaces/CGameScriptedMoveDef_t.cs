@@ -12,6 +12,7 @@ public partial interface CGameScriptedMoveDef_t : ISchemaClass<CGameScriptedMove
 
   static CGameScriptedMoveDef_t ISchemaClass<CGameScriptedMoveDef_t>.From(nint handle) => new CGameScriptedMoveDef_tImpl(handle);
   static int ISchemaClass<CGameScriptedMoveDef_t>.Size => 48;
+  static string? ISchemaClass<CGameScriptedMoveDef_t>.ClassName => null;
 
   
   public ref Vector DestOffset { get; }

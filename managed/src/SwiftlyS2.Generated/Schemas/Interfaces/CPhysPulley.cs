@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CPhysPulley : CPhysConstraint, ISchemaClass<CPhysPulley> {
 
   static CPhysPulley ISchemaClass<CPhysPulley>.From(nint handle) => new CPhysPulleyImpl(handle);
-  static int ISchemaClass<CPhysPulley>.Size => 1424;
+  static int ISchemaClass<CPhysPulley>.Size => 2168;
+  static string? ISchemaClass<CPhysPulley>.ClassName => "phys_pulleyconstraint";
 
   
   public ref Vector Position2 { get; }

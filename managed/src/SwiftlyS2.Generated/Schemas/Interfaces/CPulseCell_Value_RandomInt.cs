@@ -12,6 +12,7 @@ public partial interface CPulseCell_Value_RandomInt : CPulseCell_BaseValue, ISch
 
   static CPulseCell_Value_RandomInt ISchemaClass<CPulseCell_Value_RandomInt>.From(nint handle) => new CPulseCell_Value_RandomIntImpl(handle);
   static int ISchemaClass<CPulseCell_Value_RandomInt>.Size => 72;
+  static string? ISchemaClass<CPulseCell_Value_RandomInt>.ClassName => null;
 
 
 

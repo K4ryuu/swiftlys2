@@ -12,6 +12,7 @@ public partial interface CParticleVisibilityInputs : ISchemaClass<CParticleVisib
 
   static CParticleVisibilityInputs ISchemaClass<CParticleVisibilityInputs>.From(nint handle) => new CParticleVisibilityInputsImpl(handle);
   static int ISchemaClass<CParticleVisibilityInputs>.Size => 72;
+  static string? ISchemaClass<CParticleVisibilityInputs>.ClassName => null;
 
   
   public ref float CameraBias { get; }

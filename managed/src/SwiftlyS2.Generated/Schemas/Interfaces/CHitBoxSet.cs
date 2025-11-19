@@ -12,6 +12,7 @@ public partial interface CHitBoxSet : ISchemaClass<CHitBoxSet> {
 
   static CHitBoxSet ISchemaClass<CHitBoxSet>.From(nint handle) => new CHitBoxSetImpl(handle);
   static int ISchemaClass<CHitBoxSet>.Size => 48;
+  static string? ISchemaClass<CHitBoxSet>.ClassName => null;
 
   
   public string Name { get; set; }

@@ -12,6 +12,7 @@ public partial interface CModelConfigList : ISchemaClass<CModelConfigList> {
 
   static CModelConfigList ISchemaClass<CModelConfigList>.From(nint handle) => new CModelConfigListImpl(handle);
   static int ISchemaClass<CModelConfigList>.Size => 32;
+  static string? ISchemaClass<CModelConfigList>.ClassName => null;
 
   
   public ref bool HideMaterialGroupInTools { get; }

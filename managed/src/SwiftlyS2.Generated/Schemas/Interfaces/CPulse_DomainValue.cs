@@ -12,6 +12,7 @@ public partial interface CPulse_DomainValue : ISchemaClass<CPulse_DomainValue> {
 
   static CPulse_DomainValue ISchemaClass<CPulse_DomainValue>.From(nint handle) => new CPulse_DomainValueImpl(handle);
   static int ISchemaClass<CPulse_DomainValue>.Size => 48;
+  static string? ISchemaClass<CPulse_DomainValue>.ClassName => null;
 
   
   public ref PulseDomainValueType_t Type { get; }

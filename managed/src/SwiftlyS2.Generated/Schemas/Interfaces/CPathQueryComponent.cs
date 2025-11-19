@@ -12,6 +12,7 @@ public partial interface CPathQueryComponent : CEntityComponent, ISchemaClass<CP
 
   static CPathQueryComponent ISchemaClass<CPathQueryComponent>.From(nint handle) => new CPathQueryComponentImpl(handle);
   static int ISchemaClass<CPathQueryComponent>.Size => 160;
+  static string? ISchemaClass<CPathQueryComponent>.ClassName => null;
 
 
 

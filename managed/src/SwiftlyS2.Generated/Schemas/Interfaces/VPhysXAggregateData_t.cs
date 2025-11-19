@@ -12,6 +12,7 @@ public partial interface VPhysXAggregateData_t : ISchemaClass<VPhysXAggregateDat
 
   static VPhysXAggregateData_t ISchemaClass<VPhysXAggregateData_t>.From(nint handle) => new VPhysXAggregateData_tImpl(handle);
   static int ISchemaClass<VPhysXAggregateData_t>.Size => 336;
+  static string? ISchemaClass<VPhysXAggregateData_t>.ClassName => null;
 
   
   public ref ushort Flags { get; }

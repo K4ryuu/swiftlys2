@@ -12,6 +12,7 @@ public partial interface CPulseCell_Inflow_ObservableVariableListener : CPulseCe
 
   static CPulseCell_Inflow_ObservableVariableListener ISchemaClass<CPulseCell_Inflow_ObservableVariableListener>.From(nint handle) => new CPulseCell_Inflow_ObservableVariableListenerImpl(handle);
   static int ISchemaClass<CPulseCell_Inflow_ObservableVariableListener>.Size => 136;
+  static string? ISchemaClass<CPulseCell_Inflow_ObservableVariableListener>.ClassName => null;
 
   
   public PulseRuntimeBlackboardReferenceIndex_t BlackboardReference { get; }

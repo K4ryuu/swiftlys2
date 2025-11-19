@@ -12,6 +12,7 @@ public partial interface FeWorldCollisionParams_t : ISchemaClass<FeWorldCollisio
 
   static FeWorldCollisionParams_t ISchemaClass<FeWorldCollisionParams_t>.From(nint handle) => new FeWorldCollisionParams_tImpl(handle);
   static int ISchemaClass<FeWorldCollisionParams_t>.Size => 12;
+  static string? ISchemaClass<FeWorldCollisionParams_t>.ClassName => null;
 
   
   public ref float WorldFriction { get; }

@@ -12,6 +12,7 @@ public partial interface EventSimulate_t : ISchemaClass<EventSimulate_t> {
 
   static EventSimulate_t ISchemaClass<EventSimulate_t>.From(nint handle) => new EventSimulate_tImpl(handle);
   static int ISchemaClass<EventSimulate_t>.Size => 48;
+  static string? ISchemaClass<EventSimulate_t>.ClassName => null;
 
   
   public EngineLoopState_t LoopState { get; }

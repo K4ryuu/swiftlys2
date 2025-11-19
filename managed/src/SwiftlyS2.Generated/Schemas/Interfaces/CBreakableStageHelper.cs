@@ -12,6 +12,7 @@ public partial interface CBreakableStageHelper : ISchemaClass<CBreakableStageHel
 
   static CBreakableStageHelper ISchemaClass<CBreakableStageHelper>.From(nint handle) => new CBreakableStageHelperImpl(handle);
   static int ISchemaClass<CBreakableStageHelper>.Size => 24;
+  static string? ISchemaClass<CBreakableStageHelper>.ClassName => null;
 
   
   public ref int CurrentStage { get; }

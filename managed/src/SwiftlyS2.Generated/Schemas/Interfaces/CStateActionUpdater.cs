@@ -12,6 +12,7 @@ public partial interface CStateActionUpdater : ISchemaClass<CStateActionUpdater>
 
   static CStateActionUpdater ISchemaClass<CStateActionUpdater>.From(nint handle) => new CStateActionUpdaterImpl(handle);
   static int ISchemaClass<CStateActionUpdater>.Size => 16;
+  static string? ISchemaClass<CStateActionUpdater>.ClassName => null;
 
   
   // CSmartPtr< CAnimActionUpdater >

@@ -12,6 +12,7 @@ public partial interface CTargetWarpUpdateNode : CUnaryUpdateNode, ISchemaClass<
 
   static CTargetWarpUpdateNode ISchemaClass<CTargetWarpUpdateNode>.From(nint handle) => new CTargetWarpUpdateNodeImpl(handle);
   static int ISchemaClass<CTargetWarpUpdateNode>.Size => 152;
+  static string? ISchemaClass<CTargetWarpUpdateNode>.ClassName => null;
 
   
   public ref TargetWarpAngleMode_t AngleMode { get; }

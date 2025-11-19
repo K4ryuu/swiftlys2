@@ -12,6 +12,7 @@ public partial interface ControlPointReference_t : ISchemaClass<ControlPointRefe
 
   static ControlPointReference_t ISchemaClass<ControlPointReference_t>.From(nint handle) => new ControlPointReference_tImpl(handle);
   static int ISchemaClass<ControlPointReference_t>.Size => 20;
+  static string? ISchemaClass<ControlPointReference_t>.ClassName => null;
 
   
   public ref int ControlPointNameString { get; }

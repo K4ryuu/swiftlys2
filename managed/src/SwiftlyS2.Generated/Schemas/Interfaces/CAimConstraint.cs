@@ -12,6 +12,7 @@ public partial interface CAimConstraint : CBaseConstraint, ISchemaClass<CAimCons
 
   static CAimConstraint ISchemaClass<CAimConstraint>.From(nint handle) => new CAimConstraintImpl(handle);
   static int ISchemaClass<CAimConstraint>.Size => 128;
+  static string? ISchemaClass<CAimConstraint>.ClassName => null;
 
   
   public ref Quaternion AimOffset { get; }

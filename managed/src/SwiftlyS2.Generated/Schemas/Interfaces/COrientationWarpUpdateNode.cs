@@ -12,6 +12,7 @@ public partial interface COrientationWarpUpdateNode : CUnaryUpdateNode, ISchemaC
 
   static COrientationWarpUpdateNode ISchemaClass<COrientationWarpUpdateNode>.From(nint handle) => new COrientationWarpUpdateNodeImpl(handle);
   static int ISchemaClass<COrientationWarpUpdateNode>.Size => 192;
+  static string? ISchemaClass<COrientationWarpUpdateNode>.ClassName => null;
 
   
   public ref OrientationWarpMode_t Mode { get; }

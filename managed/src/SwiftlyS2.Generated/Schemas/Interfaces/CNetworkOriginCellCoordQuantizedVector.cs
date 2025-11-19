@@ -12,6 +12,7 @@ public partial interface CNetworkOriginCellCoordQuantizedVector : ISchemaClass<C
 
   static CNetworkOriginCellCoordQuantizedVector ISchemaClass<CNetworkOriginCellCoordQuantizedVector>.From(nint handle) => new CNetworkOriginCellCoordQuantizedVectorImpl(handle);
   static int ISchemaClass<CNetworkOriginCellCoordQuantizedVector>.Size => 48;
+  static string? ISchemaClass<CNetworkOriginCellCoordQuantizedVector>.ClassName => null;
 
   
   public ref ushort CellX { get; }

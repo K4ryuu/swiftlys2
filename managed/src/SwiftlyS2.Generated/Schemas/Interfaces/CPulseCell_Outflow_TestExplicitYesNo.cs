@@ -12,6 +12,7 @@ public partial interface CPulseCell_Outflow_TestExplicitYesNo : CPulseCell_BaseF
 
   static CPulseCell_Outflow_TestExplicitYesNo ISchemaClass<CPulseCell_Outflow_TestExplicitYesNo>.From(nint handle) => new CPulseCell_Outflow_TestExplicitYesNoImpl(handle);
   static int ISchemaClass<CPulseCell_Outflow_TestExplicitYesNo>.Size => 216;
+  static string? ISchemaClass<CPulseCell_Outflow_TestExplicitYesNo>.ClassName => null;
 
   
   public CPulse_OutflowConnection Yes { get; }

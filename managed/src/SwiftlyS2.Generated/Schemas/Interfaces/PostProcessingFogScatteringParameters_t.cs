@@ -12,6 +12,7 @@ public partial interface PostProcessingFogScatteringParameters_t : ISchemaClass<
 
   static PostProcessingFogScatteringParameters_t ISchemaClass<PostProcessingFogScatteringParameters_t>.From(nint handle) => new PostProcessingFogScatteringParameters_tImpl(handle);
   static int ISchemaClass<PostProcessingFogScatteringParameters_t>.Size => 20;
+  static string? ISchemaClass<PostProcessingFogScatteringParameters_t>.ClassName => null;
 
   
   public ref float Radius { get; }

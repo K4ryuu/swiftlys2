@@ -12,6 +12,7 @@ public partial interface CNmGraphDefinition__ReferencedGraphSlot_t : ISchemaClas
 
   static CNmGraphDefinition__ReferencedGraphSlot_t ISchemaClass<CNmGraphDefinition__ReferencedGraphSlot_t>.From(nint handle) => new CNmGraphDefinition__ReferencedGraphSlot_tImpl(handle);
   static int ISchemaClass<CNmGraphDefinition__ReferencedGraphSlot_t>.Size => 4;
+  static string? ISchemaClass<CNmGraphDefinition__ReferencedGraphSlot_t>.ClassName => null;
 
   
   public ref short NodeIdx { get; }

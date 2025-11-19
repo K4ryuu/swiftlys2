@@ -12,6 +12,7 @@ public partial interface InfoForResourceTypeIAnimGraphModelBinding : ISchemaClas
 
   static InfoForResourceTypeIAnimGraphModelBinding ISchemaClass<InfoForResourceTypeIAnimGraphModelBinding>.From(nint handle) => new InfoForResourceTypeIAnimGraphModelBindingImpl(handle);
   static int ISchemaClass<InfoForResourceTypeIAnimGraphModelBinding>.Size => 1;
+  static string? ISchemaClass<InfoForResourceTypeIAnimGraphModelBinding>.ClassName => null;
 
 
 

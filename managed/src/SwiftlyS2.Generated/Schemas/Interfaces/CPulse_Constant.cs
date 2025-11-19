@@ -12,6 +12,7 @@ public partial interface CPulse_Constant : ISchemaClass<CPulse_Constant> {
 
   static CPulse_Constant ISchemaClass<CPulse_Constant>.From(nint handle) => new CPulse_ConstantImpl(handle);
   static int ISchemaClass<CPulse_Constant>.Size => 48;
+  static string? ISchemaClass<CPulse_Constant>.ClassName => null;
 
   
   // CPulseValueFullType

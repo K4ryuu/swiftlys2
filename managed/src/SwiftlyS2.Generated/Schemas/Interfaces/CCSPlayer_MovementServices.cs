@@ -12,6 +12,7 @@ public partial interface CCSPlayer_MovementServices : CPlayer_MovementServices_H
 
   static CCSPlayer_MovementServices ISchemaClass<CCSPlayer_MovementServices>.From(nint handle) => new CCSPlayer_MovementServicesImpl(handle);
   static int ISchemaClass<CCSPlayer_MovementServices>.Size => 3600;
+  static string? ISchemaClass<CCSPlayer_MovementServices>.ClassName => null;
 
   
   public ref Vector LadderNormal { get; }

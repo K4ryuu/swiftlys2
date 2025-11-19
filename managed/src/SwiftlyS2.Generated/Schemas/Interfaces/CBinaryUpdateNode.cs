@@ -12,6 +12,7 @@ public partial interface CBinaryUpdateNode : CAnimUpdateNodeBase, ISchemaClass<C
 
   static CBinaryUpdateNode ISchemaClass<CBinaryUpdateNode>.From(nint handle) => new CBinaryUpdateNodeImpl(handle);
   static int ISchemaClass<CBinaryUpdateNode>.Size => 144;
+  static string? ISchemaClass<CBinaryUpdateNode>.ClassName => null;
 
   
   public CAnimUpdateNodeRef Child1 { get; }

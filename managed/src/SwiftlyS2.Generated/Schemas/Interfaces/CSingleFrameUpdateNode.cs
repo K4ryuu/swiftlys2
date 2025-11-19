@@ -12,6 +12,7 @@ public partial interface CSingleFrameUpdateNode : CLeafUpdateNode, ISchemaClass<
 
   static CSingleFrameUpdateNode ISchemaClass<CSingleFrameUpdateNode>.From(nint handle) => new CSingleFrameUpdateNodeImpl(handle);
   static int ISchemaClass<CSingleFrameUpdateNode>.Size => 128;
+  static string? ISchemaClass<CSingleFrameUpdateNode>.ClassName => null;
 
   
   public ref CUtlVector<SchemaUntypedField> Actions { get; }

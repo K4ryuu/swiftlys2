@@ -12,6 +12,7 @@ public partial interface CAnimFoot : ISchemaClass<CAnimFoot> {
 
   static CAnimFoot ISchemaClass<CAnimFoot>.From(nint handle) => new CAnimFootImpl(handle);
   static int ISchemaClass<CAnimFoot>.Size => 40;
+  static string? ISchemaClass<CAnimFoot>.ClassName => null;
 
   
   public string Name { get; set; }

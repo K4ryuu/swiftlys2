@@ -12,6 +12,7 @@ public partial interface CVoiceContainerRandomSampler : CVoiceContainerBase, ISc
 
   static CVoiceContainerRandomSampler ISchemaClass<CVoiceContainerRandomSampler>.From(nint handle) => new CVoiceContainerRandomSamplerImpl(handle);
   static int ISchemaClass<CVoiceContainerRandomSampler>.Size => 480;
+  static string? ISchemaClass<CVoiceContainerRandomSampler>.ClassName => null;
 
   
   public ref float Amplitude { get; }

@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface C_OP_RtEnvCull : CParticleFunctionOperator, ISchemaClass<C_OP_RtEnvCull> {
 
   static C_OP_RtEnvCull ISchemaClass<C_OP_RtEnvCull>.From(nint handle) => new C_OP_RtEnvCullImpl(handle);
-  static int ISchemaClass<C_OP_RtEnvCull>.Size => 632;
+  static int ISchemaClass<C_OP_RtEnvCull>.Size => 624;
+  static string? ISchemaClass<C_OP_RtEnvCull>.ClassName => null;
 
   
   public ref Vector TestDir { get; }

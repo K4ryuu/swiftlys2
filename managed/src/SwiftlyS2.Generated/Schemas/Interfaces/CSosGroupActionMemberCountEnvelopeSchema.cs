@@ -12,6 +12,7 @@ public partial interface CSosGroupActionMemberCountEnvelopeSchema : CSosGroupAct
 
   static CSosGroupActionMemberCountEnvelopeSchema ISchemaClass<CSosGroupActionMemberCountEnvelopeSchema>.From(nint handle) => new CSosGroupActionMemberCountEnvelopeSchemaImpl(handle);
   static int ISchemaClass<CSosGroupActionMemberCountEnvelopeSchema>.Size => 48;
+  static string? ISchemaClass<CSosGroupActionMemberCountEnvelopeSchema>.ClassName => null;
 
   
   public ref int BaseCount { get; }

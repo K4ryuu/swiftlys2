@@ -12,6 +12,7 @@ public partial interface CStateNodeStateData : ISchemaClass<CStateNodeStateData>
 
   static CStateNodeStateData ISchemaClass<CStateNodeStateData>.From(nint handle) => new CStateNodeStateDataImpl(handle);
   static int ISchemaClass<CStateNodeStateData>.Size => 24;
+  static string? ISchemaClass<CStateNodeStateData>.ClassName => null;
 
   
   public CAnimUpdateNodeRef Child { get; }

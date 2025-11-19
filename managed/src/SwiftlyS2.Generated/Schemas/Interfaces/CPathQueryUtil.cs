@@ -12,6 +12,7 @@ public partial interface CPathQueryUtil : ISchemaClass<CPathQueryUtil> {
 
   static CPathQueryUtil ISchemaClass<CPathQueryUtil>.From(nint handle) => new CPathQueryUtilImpl(handle);
   static int ISchemaClass<CPathQueryUtil>.Size => 128;
+  static string? ISchemaClass<CPathQueryUtil>.ClassName => null;
 
   
   public ref CTransform PathToEntityTransform { get; }

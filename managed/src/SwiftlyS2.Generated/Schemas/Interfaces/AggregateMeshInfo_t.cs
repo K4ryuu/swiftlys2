@@ -12,6 +12,7 @@ public partial interface AggregateMeshInfo_t : ISchemaClass<AggregateMeshInfo_t>
 
   static AggregateMeshInfo_t ISchemaClass<AggregateMeshInfo_t>.From(nint handle) => new AggregateMeshInfo_tImpl(handle);
   static int ISchemaClass<AggregateMeshInfo_t>.Size => 36;
+  static string? ISchemaClass<AggregateMeshInfo_t>.ClassName => null;
 
   
   public ref uint VisClusterMemberOffset { get; }

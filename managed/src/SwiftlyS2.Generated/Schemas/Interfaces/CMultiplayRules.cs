@@ -12,6 +12,7 @@ public partial interface CMultiplayRules : CGameRules, ISchemaClass<CMultiplayRu
 
   static CMultiplayRules ISchemaClass<CMultiplayRules>.From(nint handle) => new CMultiplayRulesImpl(handle);
   static int ISchemaClass<CMultiplayRules>.Size => 192;
+  static string? ISchemaClass<CMultiplayRules>.ClassName => null;
 
 
 

@@ -12,6 +12,7 @@ public partial interface ModelSkeletonData_t : ISchemaClass<ModelSkeletonData_t>
 
   static ModelSkeletonData_t ISchemaClass<ModelSkeletonData_t>.From(nint handle) => new ModelSkeletonData_tImpl(handle);
   static int ISchemaClass<ModelSkeletonData_t>.Size => 168;
+  static string? ISchemaClass<ModelSkeletonData_t>.ClassName => null;
 
   
   public ref CUtlVector<CUtlString> BoneName { get; }

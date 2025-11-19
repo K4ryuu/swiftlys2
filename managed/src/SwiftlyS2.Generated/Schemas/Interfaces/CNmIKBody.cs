@@ -12,6 +12,7 @@ public partial interface CNmIKBody : ISchemaClass<CNmIKBody> {
 
   static CNmIKBody ISchemaClass<CNmIKBody>.From(nint handle) => new CNmIKBodyImpl(handle);
   static int ISchemaClass<CNmIKBody>.Size => 32;
+  static string? ISchemaClass<CNmIKBody>.ClassName => null;
 
   
   public ref float Mass { get; }

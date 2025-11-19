@@ -12,6 +12,7 @@ public partial interface CSosGroupActionSoundeventPrioritySchema : CSosGroupActi
 
   static CSosGroupActionSoundeventPrioritySchema ISchemaClass<CSosGroupActionSoundeventPrioritySchema>.From(nint handle) => new CSosGroupActionSoundeventPrioritySchemaImpl(handle);
   static int ISchemaClass<CSosGroupActionSoundeventPrioritySchema>.Size => 56;
+  static string? ISchemaClass<CSosGroupActionSoundeventPrioritySchema>.ClassName => null;
 
   
   public string PriorityValue { get; set; }

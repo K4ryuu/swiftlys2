@@ -12,6 +12,7 @@ public partial interface PhysFeModelDesc_t : ISchemaClass<PhysFeModelDesc_t> {
 
   static PhysFeModelDesc_t ISchemaClass<PhysFeModelDesc_t>.From(nint handle) => new PhysFeModelDesc_tImpl(handle);
   static int ISchemaClass<PhysFeModelDesc_t>.Size => 1712;
+  static string? ISchemaClass<PhysFeModelDesc_t>.ClassName => null;
 
   
   public ref CUtlVector<uint> CtrlHash { get; }

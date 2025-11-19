@@ -12,6 +12,7 @@ public partial interface SkeletonBoneBounds_t : ISchemaClass<SkeletonBoneBounds_
 
   static SkeletonBoneBounds_t ISchemaClass<SkeletonBoneBounds_t>.From(nint handle) => new SkeletonBoneBounds_tImpl(handle);
   static int ISchemaClass<SkeletonBoneBounds_t>.Size => 24;
+  static string? ISchemaClass<SkeletonBoneBounds_t>.ClassName => null;
 
   
   public ref Vector Center { get; }

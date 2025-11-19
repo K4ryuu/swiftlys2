@@ -12,6 +12,7 @@ public partial interface NmSyncTrackTimeRange_t : ISchemaClass<NmSyncTrackTimeRa
 
   static NmSyncTrackTimeRange_t ISchemaClass<NmSyncTrackTimeRange_t>.From(nint handle) => new NmSyncTrackTimeRange_tImpl(handle);
   static int ISchemaClass<NmSyncTrackTimeRange_t>.Size => 16;
+  static string? ISchemaClass<NmSyncTrackTimeRange_t>.ClassName => null;
 
   
   public NmSyncTrackTime_t StartTime { get; }

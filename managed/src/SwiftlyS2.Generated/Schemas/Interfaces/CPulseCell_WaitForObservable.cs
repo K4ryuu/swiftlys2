@@ -12,6 +12,7 @@ public partial interface CPulseCell_WaitForObservable : CPulseCell_BaseYieldingI
 
   static CPulseCell_WaitForObservable ISchemaClass<CPulseCell_WaitForObservable>.From(nint handle) => new CPulseCell_WaitForObservableImpl(handle);
   static int ISchemaClass<CPulseCell_WaitForObservable>.Size => 264;
+  static string? ISchemaClass<CPulseCell_WaitForObservable>.ClassName => null;
 
   
   public PulseObservableBoolExpression_t Condition { get; }

@@ -12,6 +12,7 @@ public partial interface InfoForResourceTypeCCompositeMaterialKit : ISchemaClass
 
   static InfoForResourceTypeCCompositeMaterialKit ISchemaClass<InfoForResourceTypeCCompositeMaterialKit>.From(nint handle) => new InfoForResourceTypeCCompositeMaterialKitImpl(handle);
   static int ISchemaClass<InfoForResourceTypeCCompositeMaterialKit>.Size => 1;
+  static string? ISchemaClass<InfoForResourceTypeCCompositeMaterialKit>.ClassName => null;
 
 
 

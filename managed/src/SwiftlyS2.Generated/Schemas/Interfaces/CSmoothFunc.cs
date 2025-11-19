@@ -12,6 +12,7 @@ public partial interface CSmoothFunc : ISchemaClass<CSmoothFunc> {
 
   static CSmoothFunc ISchemaClass<CSmoothFunc>.From(nint handle) => new CSmoothFuncImpl(handle);
   static int ISchemaClass<CSmoothFunc>.Size => 32;
+  static string? ISchemaClass<CSmoothFunc>.ClassName => null;
 
   
   public ref float SmoothAmplitude { get; }

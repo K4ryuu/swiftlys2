@@ -12,6 +12,7 @@ public partial interface CPlayer_ObserverServices : CPlayerPawnComponent, ISchem
 
   static CPlayer_ObserverServices ISchemaClass<CPlayer_ObserverServices>.From(nint handle) => new CPlayer_ObserverServicesImpl(handle);
   static int ISchemaClass<CPlayer_ObserverServices>.Size => 80;
+  static string? ISchemaClass<CPlayer_ObserverServices>.ClassName => null;
 
   
   public ref byte ObserverMode { get; }

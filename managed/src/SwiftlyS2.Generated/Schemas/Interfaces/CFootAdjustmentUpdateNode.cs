@@ -12,6 +12,7 @@ public partial interface CFootAdjustmentUpdateNode : CUnaryUpdateNode, ISchemaCl
 
   static CFootAdjustmentUpdateNode ISchemaClass<CFootAdjustmentUpdateNode>.From(nint handle) => new CFootAdjustmentUpdateNodeImpl(handle);
   static int ISchemaClass<CFootAdjustmentUpdateNode>.Size => 176;
+  static string? ISchemaClass<CFootAdjustmentUpdateNode>.ClassName => null;
 
   
   public ref CUtlVector<HSequence> Clips { get; }

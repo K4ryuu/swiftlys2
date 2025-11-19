@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CTankTrainAI : CPointEntity, ISchemaClass<CTankTrainAI> {
 
   static CTankTrainAI ISchemaClass<CTankTrainAI>.From(nint handle) => new CTankTrainAIImpl(handle);
-  static int ISchemaClass<CTankTrainAI>.Size => 1328;
+  static int ISchemaClass<CTankTrainAI>.Size => 2072;
+  static string? ISchemaClass<CTankTrainAI>.ClassName => "tanktrain_ai";
 
   
   public ref CHandle<CFuncTrackTrain> Train { get; }

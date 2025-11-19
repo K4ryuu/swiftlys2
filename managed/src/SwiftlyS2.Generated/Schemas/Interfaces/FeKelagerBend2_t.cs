@@ -12,6 +12,7 @@ public partial interface FeKelagerBend2_t : ISchemaClass<FeKelagerBend2_t> {
 
   static FeKelagerBend2_t ISchemaClass<FeKelagerBend2_t>.From(nint handle) => new FeKelagerBend2_tImpl(handle);
   static int ISchemaClass<FeKelagerBend2_t>.Size => 24;
+  static string? ISchemaClass<FeKelagerBend2_t>.ClassName => null;
 
   
   public ISchemaFixedArray<float> Weight { get; }

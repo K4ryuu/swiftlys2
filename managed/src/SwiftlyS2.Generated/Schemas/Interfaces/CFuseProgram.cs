@@ -12,6 +12,7 @@ public partial interface CFuseProgram : ISchemaClass<CFuseProgram> {
 
   static CFuseProgram ISchemaClass<CFuseProgram>.From(nint handle) => new CFuseProgramImpl(handle);
   static int ISchemaClass<CFuseProgram>.Size => 80;
+  static string? ISchemaClass<CFuseProgram>.ClassName => null;
 
   
   public ref CUtlVector<byte> ProgramBuffer { get; }

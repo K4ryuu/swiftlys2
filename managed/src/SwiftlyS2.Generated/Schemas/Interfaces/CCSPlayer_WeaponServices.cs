@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CCSPlayer_WeaponServices : CPlayer_WeaponServices, ISchemaClass<CCSPlayer_WeaponServices> {
 
   static CCSPlayer_WeaponServices ISchemaClass<CCSPlayer_WeaponServices>.From(nint handle) => new CCSPlayer_WeaponServicesImpl(handle);
-  static int ISchemaClass<CCSPlayer_WeaponServices>.Size => 6392;
+  static int ISchemaClass<CCSPlayer_WeaponServices>.Size => 6312;
+  static string? ISchemaClass<CCSPlayer_WeaponServices>.ClassName => null;
 
   
   public GameTime_t NextAttack { get; }

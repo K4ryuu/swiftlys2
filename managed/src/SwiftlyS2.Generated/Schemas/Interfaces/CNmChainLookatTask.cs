@@ -12,6 +12,7 @@ public partial interface CNmChainLookatTask : CNmPoseTask, ISchemaClass<CNmChain
 
   static CNmChainLookatTask ISchemaClass<CNmChainLookatTask>.From(nint handle) => new CNmChainLookatTaskImpl(handle);
   static int ISchemaClass<CNmChainLookatTask>.Size => 144;
+  static string? ISchemaClass<CNmChainLookatTask>.ClassName => null;
 
   
   public ref int ChainEndBoneIdx { get; }

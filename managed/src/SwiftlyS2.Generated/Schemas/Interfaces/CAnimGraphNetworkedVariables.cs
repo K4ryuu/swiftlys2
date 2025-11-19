@@ -12,6 +12,7 @@ public partial interface CAnimGraphNetworkedVariables : ISchemaClass<CAnimGraphN
 
   static CAnimGraphNetworkedVariables ISchemaClass<CAnimGraphNetworkedVariables>.From(nint handle) => new CAnimGraphNetworkedVariablesImpl(handle);
   static int ISchemaClass<CAnimGraphNetworkedVariables>.Size => 520;
+  static string? ISchemaClass<CAnimGraphNetworkedVariables>.ClassName => null;
 
   
   public ref CUtlVector<uint> PredNetBoolVariables { get; }

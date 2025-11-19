@@ -12,6 +12,7 @@ public partial interface SkeletonAnimCapture_t__FrameStamp_t : ISchemaClass<Skel
 
   static SkeletonAnimCapture_t__FrameStamp_t ISchemaClass<SkeletonAnimCapture_t__FrameStamp_t>.From(nint handle) => new SkeletonAnimCapture_t__FrameStamp_tImpl(handle);
   static int ISchemaClass<SkeletonAnimCapture_t__FrameStamp_t>.Size => 28;
+  static string? ISchemaClass<SkeletonAnimCapture_t__FrameStamp_t>.ClassName => null;
 
   
   public ref float Time { get; }

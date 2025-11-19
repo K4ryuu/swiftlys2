@@ -12,6 +12,7 @@ public partial interface CModelConfig : ISchemaClass<CModelConfig> {
 
   static CModelConfig ISchemaClass<CModelConfig>.From(nint handle) => new CModelConfigImpl(handle);
   static int ISchemaClass<CModelConfig>.Size => 40;
+  static string? ISchemaClass<CModelConfig>.ClassName => null;
 
   
   public string ConfigName { get; set; }

@@ -12,6 +12,7 @@ public partial interface CAnimReplayFrame : ISchemaClass<CAnimReplayFrame> {
 
   static CAnimReplayFrame ISchemaClass<CAnimReplayFrame>.From(nint handle) => new CAnimReplayFrameImpl(handle);
   static int ISchemaClass<CAnimReplayFrame>.Size => 144;
+  static string? ISchemaClass<CAnimReplayFrame>.ClassName => null;
 
   
   public ref CUtlVector<CUtlBinaryBlock> InputDataBlocks { get; }

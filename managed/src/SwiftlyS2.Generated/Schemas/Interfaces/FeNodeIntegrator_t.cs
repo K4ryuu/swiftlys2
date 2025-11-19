@@ -12,6 +12,7 @@ public partial interface FeNodeIntegrator_t : ISchemaClass<FeNodeIntegrator_t> {
 
   static FeNodeIntegrator_t ISchemaClass<FeNodeIntegrator_t>.From(nint handle) => new FeNodeIntegrator_tImpl(handle);
   static int ISchemaClass<FeNodeIntegrator_t>.Size => 16;
+  static string? ISchemaClass<FeNodeIntegrator_t>.ClassName => null;
 
   
   public ref float PointDamping { get; }

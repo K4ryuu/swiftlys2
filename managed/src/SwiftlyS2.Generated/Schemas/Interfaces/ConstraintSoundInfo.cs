@@ -12,6 +12,7 @@ public partial interface ConstraintSoundInfo : ISchemaClass<ConstraintSoundInfo>
 
   static ConstraintSoundInfo ISchemaClass<ConstraintSoundInfo>.From(nint handle) => new ConstraintSoundInfoImpl(handle);
   static int ISchemaClass<ConstraintSoundInfo>.Size => 152;
+  static string? ISchemaClass<ConstraintSoundInfo>.ClassName => null;
 
   
   public VelocitySampler Sampler { get; }

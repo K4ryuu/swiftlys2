@@ -12,6 +12,7 @@ public partial interface CMovementComponentUpdater : CAnimComponentUpdater, ISch
 
   static CMovementComponentUpdater ISchemaClass<CMovementComponentUpdater>.From(nint handle) => new CMovementComponentUpdaterImpl(handle);
   static int ISchemaClass<CMovementComponentUpdater>.Size => 184;
+  static string? ISchemaClass<CMovementComponentUpdater>.ClassName => null;
 
   
   public ref CUtlVector<SchemaUntypedField> Motors { get; }

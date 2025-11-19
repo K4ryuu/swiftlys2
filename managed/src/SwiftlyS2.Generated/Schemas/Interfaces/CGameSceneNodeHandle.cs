@@ -12,6 +12,7 @@ public partial interface CGameSceneNodeHandle : ISchemaClass<CGameSceneNodeHandl
 
   static CGameSceneNodeHandle ISchemaClass<CGameSceneNodeHandle>.From(nint handle) => new CGameSceneNodeHandleImpl(handle);
   static int ISchemaClass<CGameSceneNodeHandle>.Size => 16;
+  static string? ISchemaClass<CGameSceneNodeHandle>.ClassName => null;
 
   
   public ref CHandle<CEntityInstance> Owner { get; }

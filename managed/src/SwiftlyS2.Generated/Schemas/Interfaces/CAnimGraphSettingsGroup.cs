@@ -12,6 +12,7 @@ public partial interface CAnimGraphSettingsGroup : ISchemaClass<CAnimGraphSettin
 
   static CAnimGraphSettingsGroup ISchemaClass<CAnimGraphSettingsGroup>.From(nint handle) => new CAnimGraphSettingsGroupImpl(handle);
   static int ISchemaClass<CAnimGraphSettingsGroup>.Size => 32;
+  static string? ISchemaClass<CAnimGraphSettingsGroup>.ClassName => null;
 
 
 

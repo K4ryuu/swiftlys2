@@ -12,6 +12,7 @@ public partial interface CGameRules : ISchemaClass<CGameRules> {
 
   static CGameRules ISchemaClass<CGameRules>.From(nint handle) => new CGameRulesImpl(handle);
   static int ISchemaClass<CGameRules>.Size => 192;
+  static string? ISchemaClass<CGameRules>.ClassName => null;
 
   
   public ref CNetworkVarChainer __m_pChainEntity { get; }

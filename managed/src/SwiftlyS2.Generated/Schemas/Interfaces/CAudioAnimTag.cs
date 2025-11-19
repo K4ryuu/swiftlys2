@@ -12,6 +12,7 @@ public partial interface CAudioAnimTag : CAnimTagBase, ISchemaClass<CAudioAnimTa
 
   static CAudioAnimTag ISchemaClass<CAudioAnimTag>.From(nint handle) => new CAudioAnimTagImpl(handle);
   static int ISchemaClass<CAudioAnimTag>.Size => 112;
+  static string? ISchemaClass<CAudioAnimTag>.ClassName => null;
 
   
   public string ClipName { get; set; }

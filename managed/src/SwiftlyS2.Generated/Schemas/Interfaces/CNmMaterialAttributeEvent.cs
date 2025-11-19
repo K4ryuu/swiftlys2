@@ -12,6 +12,7 @@ public partial interface CNmMaterialAttributeEvent : CNmEvent, ISchemaClass<CNmM
 
   static CNmMaterialAttributeEvent ISchemaClass<CNmMaterialAttributeEvent>.From(nint handle) => new CNmMaterialAttributeEventImpl(handle);
   static int ISchemaClass<CNmMaterialAttributeEvent>.Size => 304;
+  static string? ISchemaClass<CNmMaterialAttributeEvent>.ClassName => null;
 
   
   public string AttributeName { get; set; }

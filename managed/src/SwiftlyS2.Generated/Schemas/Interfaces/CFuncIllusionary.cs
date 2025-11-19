@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CFuncIllusionary : CBaseModelEntity, ISchemaClass<CFuncIllusionary> {
 
   static CFuncIllusionary ISchemaClass<CFuncIllusionary>.From(nint handle) => new CFuncIllusionaryImpl(handle);
-  static int ISchemaClass<CFuncIllusionary>.Size => 2008;
+  static int ISchemaClass<CFuncIllusionary>.Size => 2752;
+  static string? ISchemaClass<CFuncIllusionary>.ClassName => "func_illusionary";
 
 
 

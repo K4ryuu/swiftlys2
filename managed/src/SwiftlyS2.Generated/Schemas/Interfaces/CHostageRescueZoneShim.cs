@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CHostageRescueZoneShim : CBaseTrigger, ISchemaClass<CHostageRescueZoneShim> {
 
   static CHostageRescueZoneShim ISchemaClass<CHostageRescueZoneShim>.From(nint handle) => new CHostageRescueZoneShimImpl(handle);
-  static int ISchemaClass<CHostageRescueZoneShim>.Size => 2472;
+  static int ISchemaClass<CHostageRescueZoneShim>.Size => 3208;
+  static string? ISchemaClass<CHostageRescueZoneShim>.ClassName => null;
 
 
 

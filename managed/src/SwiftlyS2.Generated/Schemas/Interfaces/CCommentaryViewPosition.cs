@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CCommentaryViewPosition : CSprite, ISchemaClass<CCommentaryViewPosition> {
 
   static CCommentaryViewPosition ISchemaClass<CCommentaryViewPosition>.From(nint handle) => new CCommentaryViewPositionImpl(handle);
-  static int ISchemaClass<CCommentaryViewPosition>.Size => 2120;
+  static int ISchemaClass<CCommentaryViewPosition>.Size => 2864;
+  static string? ISchemaClass<CCommentaryViewPosition>.ClassName => "point_commentary_viewpoint";
 
 
 

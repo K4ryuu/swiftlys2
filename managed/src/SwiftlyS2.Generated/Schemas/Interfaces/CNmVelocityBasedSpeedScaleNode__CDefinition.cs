@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CNmVelocityBasedSpeedScaleNode__CDefinition : CNmSpeedScaleBaseNode__CDefinition, ISchemaClass<CNmVelocityBasedSpeedScaleNode__CDefinition> {
 
   static CNmVelocityBasedSpeedScaleNode__CDefinition ISchemaClass<CNmVelocityBasedSpeedScaleNode__CDefinition>.From(nint handle) => new CNmVelocityBasedSpeedScaleNode__CDefinitionImpl(handle);
-  static int ISchemaClass<CNmVelocityBasedSpeedScaleNode__CDefinition>.Size => 32;
+  static int ISchemaClass<CNmVelocityBasedSpeedScaleNode__CDefinition>.Size => 24;
+  static string? ISchemaClass<CNmVelocityBasedSpeedScaleNode__CDefinition>.ClassName => null;
 
 
 

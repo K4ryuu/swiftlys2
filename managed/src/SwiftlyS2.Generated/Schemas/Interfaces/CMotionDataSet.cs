@@ -12,6 +12,7 @@ public partial interface CMotionDataSet : ISchemaClass<CMotionDataSet> {
 
   static CMotionDataSet ISchemaClass<CMotionDataSet>.From(nint handle) => new CMotionDataSetImpl(handle);
   static int ISchemaClass<CMotionDataSet>.Size => 32;
+  static string? ISchemaClass<CMotionDataSet>.ClassName => null;
 
   
   public ref CUtlVector<CMotionGraphGroup> Groups { get; }

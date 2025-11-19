@@ -12,6 +12,7 @@ public partial interface CAimMatrixUpdateNode : CUnaryUpdateNode, ISchemaClass<C
 
   static CAimMatrixUpdateNode ISchemaClass<CAimMatrixUpdateNode>.From(nint handle) => new CAimMatrixUpdateNodeImpl(handle);
   static int ISchemaClass<CAimMatrixUpdateNode>.Size => 384;
+  static string? ISchemaClass<CAimMatrixUpdateNode>.ClassName => null;
 
   
   public AimMatrixOpFixedSettings_t OpFixedSettings { get; }

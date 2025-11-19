@@ -12,6 +12,7 @@ public partial interface CDSPMixgroupModifier : ISchemaClass<CDSPMixgroupModifie
 
   static CDSPMixgroupModifier ISchemaClass<CDSPMixgroupModifier>.From(nint handle) => new CDSPMixgroupModifierImpl(handle);
   static int ISchemaClass<CDSPMixgroupModifier>.Size => 32;
+  static string? ISchemaClass<CDSPMixgroupModifier>.ClassName => null;
 
   
   public string Mixgroup { get; set; }

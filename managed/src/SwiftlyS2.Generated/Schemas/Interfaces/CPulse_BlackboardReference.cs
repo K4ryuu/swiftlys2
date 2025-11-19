@@ -12,6 +12,7 @@ public partial interface CPulse_BlackboardReference : ISchemaClass<CPulse_Blackb
 
   static CPulse_BlackboardReference ISchemaClass<CPulse_BlackboardReference>.From(nint handle) => new CPulse_BlackboardReferenceImpl(handle);
   static int ISchemaClass<CPulse_BlackboardReference>.Size => 40;
+  static string? ISchemaClass<CPulse_BlackboardReference>.ClassName => null;
 
   
   public ref CStrongHandle<InfoForResourceTypeIPulseGraphDef> BlackboardResource { get; }

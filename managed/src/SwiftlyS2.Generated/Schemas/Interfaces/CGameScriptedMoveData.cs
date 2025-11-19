@@ -12,6 +12,7 @@ public partial interface CGameScriptedMoveData : ISchemaClass<CGameScriptedMoveD
 
   static CGameScriptedMoveData ISchemaClass<CGameScriptedMoveData>.From(nint handle) => new CGameScriptedMoveDataImpl(handle);
   static int ISchemaClass<CGameScriptedMoveData>.Size => 116;
+  static string? ISchemaClass<CGameScriptedMoveData>.ClassName => null;
 
   
   public ref Vector AccumulatedRootMotion { get; }

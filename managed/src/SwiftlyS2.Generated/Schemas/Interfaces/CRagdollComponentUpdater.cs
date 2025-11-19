@@ -12,6 +12,7 @@ public partial interface CRagdollComponentUpdater : CAnimComponentUpdater, ISche
 
   static CRagdollComponentUpdater ISchemaClass<CRagdollComponentUpdater>.From(nint handle) => new CRagdollComponentUpdaterImpl(handle);
   static int ISchemaClass<CRagdollComponentUpdater>.Size => 216;
+  static string? ISchemaClass<CRagdollComponentUpdater>.ClassName => null;
 
   
   public ref CUtlVector<CAnimNodePath> RagdollNodePaths { get; }

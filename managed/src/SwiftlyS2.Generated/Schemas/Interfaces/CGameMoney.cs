@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CGameMoney : CRulePointEntity, ISchemaClass<CGameMoney> {
 
   static CGameMoney ISchemaClass<CGameMoney>.From(nint handle) => new CGameMoneyImpl(handle);
-  static int ISchemaClass<CGameMoney>.Size => 2120;
+  static int ISchemaClass<CGameMoney>.Size => 2864;
+  static string? ISchemaClass<CGameMoney>.ClassName => "game_money";
 
   
   public CEntityIOOutput OnMoneySpent { get; }

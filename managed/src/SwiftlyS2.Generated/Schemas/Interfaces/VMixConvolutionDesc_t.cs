@@ -12,6 +12,7 @@ public partial interface VMixConvolutionDesc_t : ISchemaClass<VMixConvolutionDes
 
   static VMixConvolutionDesc_t ISchemaClass<VMixConvolutionDesc_t>.From(nint handle) => new VMixConvolutionDesc_tImpl(handle);
   static int ISchemaClass<VMixConvolutionDesc_t>.Size => 32;
+  static string? ISchemaClass<VMixConvolutionDesc_t>.ClassName => null;
 
   
   public ref float FldbGain { get; }

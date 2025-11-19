@@ -12,6 +12,7 @@ public partial interface VPhysXCollisionAttributes_t : ISchemaClass<VPhysXCollis
 
   static VPhysXCollisionAttributes_t ISchemaClass<VPhysXCollisionAttributes_t>.From(nint handle) => new VPhysXCollisionAttributes_tImpl(handle);
   static int ISchemaClass<VPhysXCollisionAttributes_t>.Size => 160;
+  static string? ISchemaClass<VPhysXCollisionAttributes_t>.ClassName => null;
 
   
   public ref uint CollisionGroup { get; }

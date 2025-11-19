@@ -12,6 +12,7 @@ public partial interface sky3dparams_t : ISchemaClass<sky3dparams_t> {
 
   static sky3dparams_t ISchemaClass<sky3dparams_t>.From(nint handle) => new sky3dparams_tImpl(handle);
   static int ISchemaClass<sky3dparams_t>.Size => 144;
+  static string? ISchemaClass<sky3dparams_t>.ClassName => null;
 
   
   public ref short Scale { get; }

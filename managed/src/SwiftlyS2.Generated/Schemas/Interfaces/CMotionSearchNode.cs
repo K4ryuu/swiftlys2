@@ -12,6 +12,7 @@ public partial interface CMotionSearchNode : ISchemaClass<CMotionSearchNode> {
 
   static CMotionSearchNode ISchemaClass<CMotionSearchNode>.From(nint handle) => new CMotionSearchNodeImpl(handle);
   static int ISchemaClass<CMotionSearchNode>.Size => 128;
+  static string? ISchemaClass<CMotionSearchNode>.ClassName => null;
 
   
   public ref CUtlVector<PointerTo<CMotionSearchNode>> Children { get; }

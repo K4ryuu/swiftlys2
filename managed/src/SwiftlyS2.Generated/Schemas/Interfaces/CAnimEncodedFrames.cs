@@ -12,6 +12,7 @@ public partial interface CAnimEncodedFrames : ISchemaClass<CAnimEncodedFrames> {
 
   static CAnimEncodedFrames ISchemaClass<CAnimEncodedFrames>.From(nint handle) => new CAnimEncodedFramesImpl(handle);
   static int ISchemaClass<CAnimEncodedFrames>.Size => 216;
+  static string? ISchemaClass<CAnimEncodedFrames>.ClassName => null;
 
   
   public ref CBufferString FileName { get; }

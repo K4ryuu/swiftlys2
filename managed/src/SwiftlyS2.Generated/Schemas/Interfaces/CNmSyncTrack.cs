@@ -12,6 +12,7 @@ public partial interface CNmSyncTrack : ISchemaClass<CNmSyncTrack> {
 
   static CNmSyncTrack ISchemaClass<CNmSyncTrack>.From(nint handle) => new CNmSyncTrackImpl(handle);
   static int ISchemaClass<CNmSyncTrack>.Size => 176;
+  static string? ISchemaClass<CNmSyncTrack>.ClassName => null;
 
   
   // CUtlLeanVectorFixedGrowable< CNmSyncTrack::Event_t, 10 >

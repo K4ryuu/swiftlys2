@@ -12,6 +12,7 @@ public partial interface VMixPitchShiftDesc_t : ISchemaClass<VMixPitchShiftDesc_
 
   static VMixPitchShiftDesc_t ISchemaClass<VMixPitchShiftDesc_t>.From(nint handle) => new VMixPitchShiftDesc_tImpl(handle);
   static int ISchemaClass<VMixPitchShiftDesc_t>.Size => 16;
+  static string? ISchemaClass<VMixPitchShiftDesc_t>.ClassName => null;
 
   
   public ref int GrainSampleCount { get; }

@@ -12,6 +12,7 @@ public partial interface CBoneConstraintRbf : CBoneConstraintBase, ISchemaClass<
 
   static CBoneConstraintRbf ISchemaClass<CBoneConstraintRbf>.From(nint handle) => new CBoneConstraintRbfImpl(handle);
   static int ISchemaClass<CBoneConstraintRbf>.Size => 200;
+  static string? ISchemaClass<CBoneConstraintRbf>.ClassName => null;
 
   
   public ref CUtlVector<SchemaUntypedField> InputBones { get; }

@@ -12,6 +12,7 @@ public partial interface CPulse_Chunk : ISchemaClass<CPulse_Chunk> {
 
   static CPulse_Chunk ISchemaClass<CPulse_Chunk>.From(nint handle) => new CPulse_ChunkImpl(handle);
   static int ISchemaClass<CPulse_Chunk>.Size => 88;
+  static string? ISchemaClass<CPulse_Chunk>.ClassName => null;
 
   
   public ref CUtlLeanVector<PGDInstruction_t, int> Instructions { get; }

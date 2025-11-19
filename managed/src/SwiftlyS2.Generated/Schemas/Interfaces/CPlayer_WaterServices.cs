@@ -12,6 +12,7 @@ public partial interface CPlayer_WaterServices : CPlayerPawnComponent, ISchemaCl
 
   static CPlayer_WaterServices ISchemaClass<CPlayer_WaterServices>.From(nint handle) => new CPlayer_WaterServicesImpl(handle);
   static int ISchemaClass<CPlayer_WaterServices>.Size => 64;
+  static string? ISchemaClass<CPlayer_WaterServices>.ClassName => null;
 
 
 

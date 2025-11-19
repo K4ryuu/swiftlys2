@@ -12,6 +12,7 @@ public partial interface CPhysSurfacePropertiesPhysics : ISchemaClass<CPhysSurfa
 
   static CPhysSurfacePropertiesPhysics ISchemaClass<CPhysSurfacePropertiesPhysics>.From(nint handle) => new CPhysSurfacePropertiesPhysicsImpl(handle);
   static int ISchemaClass<CPhysSurfacePropertiesPhysics>.Size => 24;
+  static string? ISchemaClass<CPhysSurfacePropertiesPhysics>.ClassName => null;
 
   
   public ref float Friction { get; }

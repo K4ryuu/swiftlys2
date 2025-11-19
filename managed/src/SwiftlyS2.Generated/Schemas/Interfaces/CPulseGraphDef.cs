@@ -12,6 +12,7 @@ public partial interface CPulseGraphDef : ISchemaClass<CPulseGraphDef> {
 
   static CPulseGraphDef ISchemaClass<CPulseGraphDef>.From(nint handle) => new CPulseGraphDefImpl(handle);
   static int ISchemaClass<CPulseGraphDef>.Size => 408;
+  static string? ISchemaClass<CPulseGraphDef>.ClassName => null;
 
   
   // PulseSymbol_t

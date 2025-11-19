@@ -12,6 +12,7 @@ public partial interface SceneObject_t : ISchemaClass<SceneObject_t> {
 
   static SceneObject_t ISchemaClass<SceneObject_t>.From(nint handle) => new SceneObject_tImpl(handle);
   static int ISchemaClass<SceneObject_t>.Size => 136;
+  static string? ISchemaClass<SceneObject_t>.ClassName => null;
 
   
   public ref uint ObjectID { get; }

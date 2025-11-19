@@ -12,6 +12,7 @@ public partial interface CNmBlend1DNode__CDefinition : CNmParameterizedBlendNode
 
   static CNmBlend1DNode__CDefinition ISchemaClass<CNmBlend1DNode__CDefinition>.From(nint handle) => new CNmBlend1DNode__CDefinitionImpl(handle);
   static int ISchemaClass<CNmBlend1DNode__CDefinition>.Size => 144;
+  static string? ISchemaClass<CNmBlend1DNode__CDefinition>.ClassName => null;
 
   
   public CNmParameterizedBlendNode__Parameterization_t Parameterization { get; }

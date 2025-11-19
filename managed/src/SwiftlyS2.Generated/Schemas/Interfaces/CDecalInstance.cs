@@ -12,6 +12,7 @@ public partial interface CDecalInstance : ISchemaClass<CDecalInstance> {
 
   static CDecalInstance ISchemaClass<CDecalInstance>.From(nint handle) => new CDecalInstanceImpl(handle);
   static int ISchemaClass<CDecalInstance>.Size => 136;
+  static string? ISchemaClass<CDecalInstance>.ClassName => null;
 
   
   public ref CGlobalSymbol DecalGroup { get; }

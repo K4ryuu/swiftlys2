@@ -12,6 +12,7 @@ public partial interface PointCameraSettings_t : ISchemaClass<PointCameraSetting
 
   static PointCameraSettings_t ISchemaClass<PointCameraSettings_t>.From(nint handle) => new PointCameraSettings_tImpl(handle);
   static int ISchemaClass<PointCameraSettings_t>.Size => 16;
+  static string? ISchemaClass<PointCameraSettings_t>.ClassName => null;
 
   
   public ref float NearBlurryDistance { get; }

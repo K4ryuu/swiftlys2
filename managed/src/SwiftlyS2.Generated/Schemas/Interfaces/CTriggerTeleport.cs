@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CTriggerTeleport : CBaseTrigger, ISchemaClass<CTriggerTeleport> {
 
   static CTriggerTeleport ISchemaClass<CTriggerTeleport>.From(nint handle) => new CTriggerTeleportImpl(handle);
-  static int ISchemaClass<CTriggerTeleport>.Size => 2488;
+  static int ISchemaClass<CTriggerTeleport>.Size => 3224;
+  static string? ISchemaClass<CTriggerTeleport>.ClassName => "trigger_teleport";
 
   
   public string Landmark { get; set; }

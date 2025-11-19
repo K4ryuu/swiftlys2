@@ -12,6 +12,7 @@ public partial interface CNmChainSolverTask : CNmPoseTask, ISchemaClass<CNmChain
 
   static CNmChainSolverTask ISchemaClass<CNmChainSolverTask>.From(nint handle) => new CNmChainSolverTaskImpl(handle);
   static int ISchemaClass<CNmChainSolverTask>.Size => 304;
+  static string? ISchemaClass<CNmChainSolverTask>.ClassName => null;
 
   
   public ref int EffectorBoneIdx { get; }

@@ -12,6 +12,7 @@ public partial interface CSeqAutoLayer : ISchemaClass<CSeqAutoLayer> {
 
   static CSeqAutoLayer ISchemaClass<CSeqAutoLayer>.From(nint handle) => new CSeqAutoLayerImpl(handle);
   static int ISchemaClass<CSeqAutoLayer>.Size => 28;
+  static string? ISchemaClass<CSeqAutoLayer>.ClassName => null;
 
   
   public ref short LocalReference { get; }

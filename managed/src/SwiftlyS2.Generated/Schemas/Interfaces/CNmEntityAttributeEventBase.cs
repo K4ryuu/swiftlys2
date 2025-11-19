@@ -12,6 +12,7 @@ public partial interface CNmEntityAttributeEventBase : CNmEvent, ISchemaClass<CN
 
   static CNmEntityAttributeEventBase ISchemaClass<CNmEntityAttributeEventBase>.From(nint handle) => new CNmEntityAttributeEventBaseImpl(handle);
   static int ISchemaClass<CNmEntityAttributeEventBase>.Size => 56;
+  static string? ISchemaClass<CNmEntityAttributeEventBase>.ClassName => null;
 
   
   public string AttributeName { get; set; }

@@ -12,6 +12,7 @@ public partial interface CMaterialAttributeAnimTag : CAnimTagBase, ISchemaClass<
 
   static CMaterialAttributeAnimTag ISchemaClass<CMaterialAttributeAnimTag>.From(nint handle) => new CMaterialAttributeAnimTagImpl(handle);
   static int ISchemaClass<CMaterialAttributeAnimTag>.Size => 112;
+  static string? ISchemaClass<CMaterialAttributeAnimTag>.ClassName => null;
 
   
   public string AttributeName { get; set; }

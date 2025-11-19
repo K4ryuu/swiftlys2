@@ -12,6 +12,7 @@ public partial interface CLeanMatrixUpdateNode : CLeafUpdateNode, ISchemaClass<C
 
   static CLeanMatrixUpdateNode ISchemaClass<CLeanMatrixUpdateNode>.From(nint handle) => new CLeanMatrixUpdateNodeImpl(handle);
   static int ISchemaClass<CLeanMatrixUpdateNode>.Size => 240;
+  static string? ISchemaClass<CLeanMatrixUpdateNode>.ClassName => null;
 
   
   // int32[3]

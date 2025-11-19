@@ -12,6 +12,7 @@ public partial interface CNmEventConsumerAttributes : CNmEventConsumer, ISchemaC
 
   static CNmEventConsumerAttributes ISchemaClass<CNmEventConsumerAttributes>.From(nint handle) => new CNmEventConsumerAttributesImpl(handle);
   static int ISchemaClass<CNmEventConsumerAttributes>.Size => 80;
+  static string? ISchemaClass<CNmEventConsumerAttributes>.ClassName => null;
 
 
 

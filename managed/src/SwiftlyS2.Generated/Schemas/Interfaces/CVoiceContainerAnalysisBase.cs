@@ -12,6 +12,7 @@ public partial interface CVoiceContainerAnalysisBase : ISchemaClass<CVoiceContai
 
   static CVoiceContainerAnalysisBase ISchemaClass<CVoiceContainerAnalysisBase>.From(nint handle) => new CVoiceContainerAnalysisBaseImpl(handle);
   static int ISchemaClass<CVoiceContainerAnalysisBase>.Size => 80;
+  static string? ISchemaClass<CVoiceContainerAnalysisBase>.ClassName => null;
 
   
   public ref bool RegenerateCurveOnCompile { get; }

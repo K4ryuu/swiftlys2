@@ -12,6 +12,7 @@ public partial interface CTestBlendContainer : CVoiceContainerBase, ISchemaClass
 
   static CTestBlendContainer ISchemaClass<CTestBlendContainer>.From(nint handle) => new CTestBlendContainerImpl(handle);
   static int ISchemaClass<CTestBlendContainer>.Size => 200;
+  static string? ISchemaClass<CTestBlendContainer>.ClassName => null;
 
   
   public ref CStrongHandle<InfoForResourceTypeCVoiceContainerBase> FirstSound { get; }

@@ -12,6 +12,7 @@ public partial interface CLODComponentUpdater : CAnimComponentUpdater, ISchemaCl
 
   static CLODComponentUpdater ISchemaClass<CLODComponentUpdater>.From(nint handle) => new CLODComponentUpdaterImpl(handle);
   static int ISchemaClass<CLODComponentUpdater>.Size => 56;
+  static string? ISchemaClass<CLODComponentUpdater>.ClassName => null;
 
   
   public ref int ServerLOD { get; }

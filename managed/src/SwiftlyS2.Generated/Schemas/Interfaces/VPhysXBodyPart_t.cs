@@ -12,6 +12,7 @@ public partial interface VPhysXBodyPart_t : ISchemaClass<VPhysXBodyPart_t> {
 
   static VPhysXBodyPart_t ISchemaClass<VPhysXBodyPart_t>.From(nint handle) => new VPhysXBodyPart_tImpl(handle);
   static int ISchemaClass<VPhysXBodyPart_t>.Size => 168;
+  static string? ISchemaClass<VPhysXBodyPart_t>.ClassName => null;
 
   
   public ref uint Flags { get; }

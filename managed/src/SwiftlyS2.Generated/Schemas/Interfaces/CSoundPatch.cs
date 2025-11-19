@@ -12,6 +12,7 @@ public partial interface CSoundPatch : ISchemaClass<CSoundPatch> {
 
   static CSoundPatch ISchemaClass<CSoundPatch>.From(nint handle) => new CSoundPatchImpl(handle);
   static int ISchemaClass<CSoundPatch>.Size => 176;
+  static string? ISchemaClass<CSoundPatch>.ClassName => null;
 
   
   public CSoundEnvelope Pitch { get; }

@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CEnvExplosion : CModelPointEntity, ISchemaClass<CEnvExplosion> {
 
   static CEnvExplosion ISchemaClass<CEnvExplosion>.From(nint handle) => new CEnvExplosionImpl(handle);
-  static int ISchemaClass<CEnvExplosion>.Size => 2096;
+  static int ISchemaClass<CEnvExplosion>.Size => 2832;
+  static string? ISchemaClass<CEnvExplosion>.ClassName => "env_explosion";
 
   
   public ref int Magnitude { get; }

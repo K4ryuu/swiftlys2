@@ -12,6 +12,7 @@ public partial interface CAnimScriptManager : ISchemaClass<CAnimScriptManager> {
 
   static CAnimScriptManager ISchemaClass<CAnimScriptManager>.From(nint handle) => new CAnimScriptManagerImpl(handle);
   static int ISchemaClass<CAnimScriptManager>.Size => 416;
+  static string? ISchemaClass<CAnimScriptManager>.ClassName => null;
 
   
   public ref CUtlVector<ScriptInfo_t> ScriptInfo { get; }

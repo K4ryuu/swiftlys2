@@ -12,6 +12,7 @@ public partial interface dynpitchvol_t : dynpitchvol_base_t, ISchemaClass<dynpit
 
   static dynpitchvol_t ISchemaClass<dynpitchvol_t>.From(nint handle) => new dynpitchvol_tImpl(handle);
   static int ISchemaClass<dynpitchvol_t>.Size => 100;
+  static string? ISchemaClass<dynpitchvol_t>.ClassName => null;
 
 
 

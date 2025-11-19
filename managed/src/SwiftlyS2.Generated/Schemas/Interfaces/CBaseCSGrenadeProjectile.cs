@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CBaseCSGrenadeProjectile : CBaseGrenade, ISchemaClass<CBaseCSGrenadeProjectile> {
 
   static CBaseCSGrenadeProjectile ISchemaClass<CBaseCSGrenadeProjectile>.From(nint handle) => new CBaseCSGrenadeProjectileImpl(handle);
-  static int ISchemaClass<CBaseCSGrenadeProjectile>.Size => 3136;
+  static int ISchemaClass<CBaseCSGrenadeProjectile>.Size => 3904;
+  static string? ISchemaClass<CBaseCSGrenadeProjectile>.ClassName => null;
 
   
   public ref Vector InitialPosition { get; }

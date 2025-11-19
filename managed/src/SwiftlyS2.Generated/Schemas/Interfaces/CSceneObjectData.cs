@@ -12,6 +12,7 @@ public partial interface CSceneObjectData : ISchemaClass<CSceneObjectData> {
 
   static CSceneObjectData ISchemaClass<CSceneObjectData>.From(nint handle) => new CSceneObjectDataImpl(handle);
   static int ISchemaClass<CSceneObjectData>.Size => 144;
+  static string? ISchemaClass<CSceneObjectData>.ClassName => null;
 
   
   public ref Vector MinBounds { get; }

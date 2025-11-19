@@ -12,6 +12,7 @@ public partial interface RnMesh_t : ISchemaClass<RnMesh_t> {
 
   static RnMesh_t ISchemaClass<RnMesh_t>.From(nint handle) => new RnMesh_tImpl(handle);
   static int ISchemaClass<RnMesh_t>.Size => 192;
+  static string? ISchemaClass<RnMesh_t>.ClassName => null;
 
   
   public ref Vector Min { get; }

@@ -12,6 +12,7 @@ public partial interface CTwoBoneIKUpdateNode : CUnaryUpdateNode, ISchemaClass<C
 
   static CTwoBoneIKUpdateNode ISchemaClass<CTwoBoneIKUpdateNode>.From(nint handle) => new CTwoBoneIKUpdateNodeImpl(handle);
   static int ISchemaClass<CTwoBoneIKUpdateNode>.Size => 480;
+  static string? ISchemaClass<CTwoBoneIKUpdateNode>.ClassName => null;
 
   
   public TwoBoneIKSettings_t OpFixedData { get; }

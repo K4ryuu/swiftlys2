@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface C_OP_RemapSpeed : CParticleFunctionOperator, ISchemaClass<C_OP_RemapSpeed> {
 
   static C_OP_RemapSpeed ISchemaClass<C_OP_RemapSpeed>.From(nint handle) => new C_OP_RemapSpeedImpl(handle);
-  static int ISchemaClass<C_OP_RemapSpeed>.Size => 496;
+  static int ISchemaClass<C_OP_RemapSpeed>.Size => 488;
+  static string? ISchemaClass<C_OP_RemapSpeed>.ClassName => null;
 
   
   public ParticleAttributeIndex_t FieldOutput { get; }

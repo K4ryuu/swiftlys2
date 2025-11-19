@@ -12,6 +12,7 @@ public partial interface VMixPlateverbDesc_t : ISchemaClass<VMixPlateverbDesc_t>
 
   static VMixPlateverbDesc_t ISchemaClass<VMixPlateverbDesc_t>.From(nint handle) => new VMixPlateverbDesc_tImpl(handle);
   static int ISchemaClass<VMixPlateverbDesc_t>.Size => 28;
+  static string? ISchemaClass<VMixPlateverbDesc_t>.ClassName => null;
 
   
   public ref float Prefilter { get; }

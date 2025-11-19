@@ -12,6 +12,7 @@ public partial interface CStanceScaleUpdateNode : CUnaryUpdateNode, ISchemaClass
 
   static CStanceScaleUpdateNode ISchemaClass<CStanceScaleUpdateNode>.From(nint handle) => new CStanceScaleUpdateNodeImpl(handle);
   static int ISchemaClass<CStanceScaleUpdateNode>.Size => 120;
+  static string? ISchemaClass<CStanceScaleUpdateNode>.ClassName => null;
 
   
   public CAnimParamHandle Param { get; }

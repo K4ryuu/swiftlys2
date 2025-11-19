@@ -12,6 +12,7 @@ public partial interface WorldBuilderParams_t : ISchemaClass<WorldBuilderParams_
 
   static WorldBuilderParams_t ISchemaClass<WorldBuilderParams_t>.From(nint handle) => new WorldBuilderParams_tImpl(handle);
   static int ISchemaClass<WorldBuilderParams_t>.Size => 96;
+  static string? ISchemaClass<WorldBuilderParams_t>.ClassName => null;
 
   
   public ref float MinDrawVolumeSize { get; }

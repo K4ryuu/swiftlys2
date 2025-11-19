@@ -12,6 +12,7 @@ public partial interface CSosGroupActionSoundeventCountSchema : CSosGroupActionS
 
   static CSosGroupActionSoundeventCountSchema ISchemaClass<CSosGroupActionSoundeventCountSchema>.From(nint handle) => new CSosGroupActionSoundeventCountSchemaImpl(handle);
   static int ISchemaClass<CSosGroupActionSoundeventCountSchema>.Size => 24;
+  static string? ISchemaClass<CSosGroupActionSoundeventCountSchema>.ClassName => null;
 
   
   public ref bool ExcludeStoppedSounds { get; }

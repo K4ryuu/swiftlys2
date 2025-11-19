@@ -12,6 +12,7 @@ public partial interface DynamicMeshDeformParams_t : ISchemaClass<DynamicMeshDef
 
   static DynamicMeshDeformParams_t ISchemaClass<DynamicMeshDeformParams_t>.From(nint handle) => new DynamicMeshDeformParams_tImpl(handle);
   static int ISchemaClass<DynamicMeshDeformParams_t>.Size => 12;
+  static string? ISchemaClass<DynamicMeshDeformParams_t>.ClassName => null;
 
   
   public ref float TensionCompressScale { get; }

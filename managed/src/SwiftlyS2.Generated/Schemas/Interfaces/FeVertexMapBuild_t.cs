@@ -12,6 +12,7 @@ public partial interface FeVertexMapBuild_t : ISchemaClass<FeVertexMapBuild_t> {
 
   static FeVertexMapBuild_t ISchemaClass<FeVertexMapBuild_t>.From(nint handle) => new FeVertexMapBuild_tImpl(handle);
   static int ISchemaClass<FeVertexMapBuild_t>.Size => 48;
+  static string? ISchemaClass<FeVertexMapBuild_t>.ClassName => null;
 
   
   public string VertexMapName { get; set; }

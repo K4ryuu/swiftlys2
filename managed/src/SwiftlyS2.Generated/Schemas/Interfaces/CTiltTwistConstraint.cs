@@ -12,6 +12,7 @@ public partial interface CTiltTwistConstraint : CBaseConstraint, ISchemaClass<CT
 
   static CTiltTwistConstraint ISchemaClass<CTiltTwistConstraint>.From(nint handle) => new CTiltTwistConstraintImpl(handle);
   static int ISchemaClass<CTiltTwistConstraint>.Size => 144;
+  static string? ISchemaClass<CTiltTwistConstraint>.ClassName => null;
 
   
   public ref int TargetAxis { get; }

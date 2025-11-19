@@ -12,6 +12,7 @@ public partial interface MaterialOverride_t : BaseSceneObjectOverride_t, ISchema
 
   static MaterialOverride_t ISchemaClass<MaterialOverride_t>.From(nint handle) => new MaterialOverride_tImpl(handle);
   static int ISchemaClass<MaterialOverride_t>.Size => 40;
+  static string? ISchemaClass<MaterialOverride_t>.ClassName => null;
 
   
   public ref uint SubSceneObject { get; }

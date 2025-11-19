@@ -12,6 +12,7 @@ public partial interface CVoiceContainerShapedNoise : CVoiceContainerBase, ISche
 
   static CVoiceContainerShapedNoise ISchemaClass<CVoiceContainerShapedNoise>.From(nint handle) => new CVoiceContainerShapedNoiseImpl(handle);
   static int ISchemaClass<CVoiceContainerShapedNoise>.Size => 400;
+  static string? ISchemaClass<CVoiceContainerShapedNoise>.ClassName => null;
 
   
   public ref bool UseCurveForFrequency { get; }

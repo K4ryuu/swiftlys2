@@ -12,6 +12,7 @@ public partial interface SoundeventPathCornerPairNetworked_t : ISchemaClass<Soun
 
   static SoundeventPathCornerPairNetworked_t ISchemaClass<SoundeventPathCornerPairNetworked_t>.From(nint handle) => new SoundeventPathCornerPairNetworked_tImpl(handle);
   static int ISchemaClass<SoundeventPathCornerPairNetworked_t>.Size => 36;
+  static string? ISchemaClass<SoundeventPathCornerPairNetworked_t>.ClassName => null;
 
   
   public ref Vector P1 { get; }

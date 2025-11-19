@@ -12,6 +12,7 @@ public partial interface C_OP_ConstrainDistanceToPath : CParticleFunctionConstra
 
   static C_OP_ConstrainDistanceToPath ISchemaClass<C_OP_ConstrainDistanceToPath>.From(nint handle) => new C_OP_ConstrainDistanceToPathImpl(handle);
   static int ISchemaClass<C_OP_ConstrainDistanceToPath>.Size => 560;
+  static string? ISchemaClass<C_OP_ConstrainDistanceToPath>.ClassName => null;
 
   
   public ref float MinDistance { get; }

@@ -12,6 +12,7 @@ public partial interface OutflowWithRequirements_t : ISchemaClass<OutflowWithReq
 
   static OutflowWithRequirements_t ISchemaClass<OutflowWithRequirements_t>.From(nint handle) => new OutflowWithRequirements_tImpl(handle);
   static int ISchemaClass<OutflowWithRequirements_t>.Size => 128;
+  static string? ISchemaClass<OutflowWithRequirements_t>.ClassName => null;
 
   
   public CPulse_OutflowConnection Connection { get; }

@@ -12,6 +12,7 @@ public partial interface CRetakeGameRules : ISchemaClass<CRetakeGameRules> {
 
   static CRetakeGameRules ISchemaClass<CRetakeGameRules>.From(nint handle) => new CRetakeGameRulesImpl(handle);
   static int ISchemaClass<CRetakeGameRules>.Size => 496;
+  static string? ISchemaClass<CRetakeGameRules>.ClassName => null;
 
   
   public ref int MatchSeed { get; }

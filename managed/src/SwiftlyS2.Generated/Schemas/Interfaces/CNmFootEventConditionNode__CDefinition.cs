@@ -12,6 +12,7 @@ public partial interface CNmFootEventConditionNode__CDefinition : CNmBoolValueNo
 
   static CNmFootEventConditionNode__CDefinition ISchemaClass<CNmFootEventConditionNode__CDefinition>.From(nint handle) => new CNmFootEventConditionNode__CDefinitionImpl(handle);
   static int ISchemaClass<CNmFootEventConditionNode__CDefinition>.Size => 24;
+  static string? ISchemaClass<CNmFootEventConditionNode__CDefinition>.ClassName => null;
 
   
   public ref short SourceStateNodeIdx { get; }

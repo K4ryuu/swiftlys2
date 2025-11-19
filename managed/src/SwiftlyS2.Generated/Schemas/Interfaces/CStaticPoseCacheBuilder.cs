@@ -12,6 +12,7 @@ public partial interface CStaticPoseCacheBuilder : CStaticPoseCache, ISchemaClas
 
   static CStaticPoseCacheBuilder ISchemaClass<CStaticPoseCacheBuilder>.From(nint handle) => new CStaticPoseCacheBuilderImpl(handle);
   static int ISchemaClass<CStaticPoseCacheBuilder>.Size => 56;
+  static string? ISchemaClass<CStaticPoseCacheBuilder>.ClassName => null;
 
 
 

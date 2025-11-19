@@ -12,6 +12,7 @@ public partial interface InfoForResourceTypeCPanoramaDynamicImages : ISchemaClas
 
   static InfoForResourceTypeCPanoramaDynamicImages ISchemaClass<InfoForResourceTypeCPanoramaDynamicImages>.From(nint handle) => new InfoForResourceTypeCPanoramaDynamicImagesImpl(handle);
   static int ISchemaClass<InfoForResourceTypeCPanoramaDynamicImages>.Size => 1;
+  static string? ISchemaClass<InfoForResourceTypeCPanoramaDynamicImages>.ClassName => null;
 
 
 

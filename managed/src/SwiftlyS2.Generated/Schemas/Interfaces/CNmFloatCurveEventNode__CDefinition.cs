@@ -12,6 +12,7 @@ public partial interface CNmFloatCurveEventNode__CDefinition : CNmFloatValueNode
 
   static CNmFloatCurveEventNode__CDefinition ISchemaClass<CNmFloatCurveEventNode__CDefinition>.From(nint handle) => new CNmFloatCurveEventNode__CDefinitionImpl(handle);
   static int ISchemaClass<CNmFloatCurveEventNode__CDefinition>.Size => 40;
+  static string? ISchemaClass<CNmFloatCurveEventNode__CDefinition>.ClassName => null;
 
   
   public ref CGlobalSymbol EventID { get; }

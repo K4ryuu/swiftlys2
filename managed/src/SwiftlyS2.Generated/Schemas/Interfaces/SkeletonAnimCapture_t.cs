@@ -12,6 +12,7 @@ public partial interface SkeletonAnimCapture_t : ISchemaClass<SkeletonAnimCaptur
 
   static SkeletonAnimCapture_t ISchemaClass<SkeletonAnimCapture_t>.From(nint handle) => new SkeletonAnimCapture_tImpl(handle);
   static int ISchemaClass<SkeletonAnimCapture_t>.Size => 192;
+  static string? ISchemaClass<SkeletonAnimCapture_t>.ClassName => null;
 
   
   public ref uint EntIndex { get; }

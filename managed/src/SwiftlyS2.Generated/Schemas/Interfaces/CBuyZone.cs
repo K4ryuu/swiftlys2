@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CBuyZone : CBaseTrigger, ISchemaClass<CBuyZone> {
 
   static CBuyZone ISchemaClass<CBuyZone>.From(nint handle) => new CBuyZoneImpl(handle);
-  static int ISchemaClass<CBuyZone>.Size => 2480;
+  static int ISchemaClass<CBuyZone>.Size => 3208;
+  static string? ISchemaClass<CBuyZone>.ClassName => "func_buyzone";
 
   
   public ref int LegacyTeamNum { get; }

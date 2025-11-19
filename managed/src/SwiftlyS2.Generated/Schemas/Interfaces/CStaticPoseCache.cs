@@ -12,6 +12,7 @@ public partial interface CStaticPoseCache : ISchemaClass<CStaticPoseCache> {
 
   static CStaticPoseCache ISchemaClass<CStaticPoseCache>.From(nint handle) => new CStaticPoseCacheImpl(handle);
   static int ISchemaClass<CStaticPoseCache>.Size => 48;
+  static string? ISchemaClass<CStaticPoseCache>.ClassName => null;
 
   
   public ref CUtlVector<CCachedPose> Poses { get; }

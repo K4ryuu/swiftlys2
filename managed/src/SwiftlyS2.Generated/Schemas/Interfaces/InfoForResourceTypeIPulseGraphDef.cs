@@ -12,6 +12,7 @@ public partial interface InfoForResourceTypeIPulseGraphDef : ISchemaClass<InfoFo
 
   static InfoForResourceTypeIPulseGraphDef ISchemaClass<InfoForResourceTypeIPulseGraphDef>.From(nint handle) => new InfoForResourceTypeIPulseGraphDefImpl(handle);
   static int ISchemaClass<InfoForResourceTypeIPulseGraphDef>.Size => 1;
+  static string? ISchemaClass<InfoForResourceTypeIPulseGraphDef>.ClassName => null;
 
 
 

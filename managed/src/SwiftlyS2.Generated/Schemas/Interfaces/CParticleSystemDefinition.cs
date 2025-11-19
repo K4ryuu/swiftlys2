@@ -12,6 +12,7 @@ public partial interface CParticleSystemDefinition : IParticleSystemDefinition, 
 
   static CParticleSystemDefinition ISchemaClass<CParticleSystemDefinition>.From(nint handle) => new CParticleSystemDefinitionImpl(handle);
   static int ISchemaClass<CParticleSystemDefinition>.Size => 1088;
+  static string? ISchemaClass<CParticleSystemDefinition>.ClassName => null;
 
   
   public ref int BehaviorVersion { get; }

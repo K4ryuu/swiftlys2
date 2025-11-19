@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CCSPlayerResource : CBaseEntity, ISchemaClass<CCSPlayerResource> {
 
   static CCSPlayerResource ISchemaClass<CCSPlayerResource>.From(nint handle) => new CCSPlayerResourceImpl(handle);
-  static int ISchemaClass<CCSPlayerResource>.Size => 1416;
+  static int ISchemaClass<CCSPlayerResource>.Size => 2160;
+  static string? ISchemaClass<CCSPlayerResource>.ClassName => "cs_player_manager";
 
   
   public ISchemaFixedArray<bool> HostageAlive { get; }

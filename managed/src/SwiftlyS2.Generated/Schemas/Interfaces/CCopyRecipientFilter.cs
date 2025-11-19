@@ -12,6 +12,7 @@ public partial interface CCopyRecipientFilter : ISchemaClass<CCopyRecipientFilte
 
   static CCopyRecipientFilter ISchemaClass<CCopyRecipientFilter>.From(nint handle) => new CCopyRecipientFilterImpl(handle);
   static int ISchemaClass<CCopyRecipientFilter>.Size => 56;
+  static string? ISchemaClass<CCopyRecipientFilter>.ClassName => null;
 
   
   public ref int Flags { get; }

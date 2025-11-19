@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CWeaponTaser : CCSWeaponBaseGun, ISchemaClass<CWeaponTaser> {
 
   static CWeaponTaser ISchemaClass<CWeaponTaser>.From(nint handle) => new CWeaponTaserImpl(handle);
-  static int ISchemaClass<CWeaponTaser>.Size => 4608;
+  static int ISchemaClass<CWeaponTaser>.Size => 5360;
+  static string? ISchemaClass<CWeaponTaser>.ClassName => "weapon_taser";
 
   
   public GameTime_t FireTime { get; }

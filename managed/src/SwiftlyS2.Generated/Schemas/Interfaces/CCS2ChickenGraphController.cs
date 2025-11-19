@@ -12,6 +12,7 @@ public partial interface CCS2ChickenGraphController : CAnimGraphControllerBase, 
 
   static CCS2ChickenGraphController ISchemaClass<CCS2ChickenGraphController>.From(nint handle) => new CCS2ChickenGraphControllerImpl(handle);
   static int ISchemaClass<CCS2ChickenGraphController>.Size => 344;
+  static string? ISchemaClass<CCS2ChickenGraphController>.ClassName => null;
 
   
   // CAnimGraph2ParamOptionalRef< CGlobalSymbol >

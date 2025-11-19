@@ -12,6 +12,7 @@ public partial interface CPhysSurfacePropertiesAudio : ISchemaClass<CPhysSurface
 
   static CPhysSurfacePropertiesAudio ISchemaClass<CPhysSurfacePropertiesAudio>.From(nint handle) => new CPhysSurfacePropertiesAudioImpl(handle);
   static int ISchemaClass<CPhysSurfacePropertiesAudio>.Size => 32;
+  static string? ISchemaClass<CPhysSurfacePropertiesAudio>.ClassName => null;
 
   
   public ref float Reflectivity { get; }

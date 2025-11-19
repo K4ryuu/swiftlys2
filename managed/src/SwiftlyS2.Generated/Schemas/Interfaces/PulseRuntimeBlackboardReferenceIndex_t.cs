@@ -12,6 +12,7 @@ public partial interface PulseRuntimeBlackboardReferenceIndex_t : ISchemaClass<P
 
   static PulseRuntimeBlackboardReferenceIndex_t ISchemaClass<PulseRuntimeBlackboardReferenceIndex_t>.From(nint handle) => new PulseRuntimeBlackboardReferenceIndex_tImpl(handle);
   static int ISchemaClass<PulseRuntimeBlackboardReferenceIndex_t>.Size => 2;
+  static string? ISchemaClass<PulseRuntimeBlackboardReferenceIndex_t>.ClassName => null;
 
   
   public ref short Value { get; }

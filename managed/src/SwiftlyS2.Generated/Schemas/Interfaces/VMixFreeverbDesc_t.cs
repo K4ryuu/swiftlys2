@@ -12,6 +12,7 @@ public partial interface VMixFreeverbDesc_t : ISchemaClass<VMixFreeverbDesc_t> {
 
   static VMixFreeverbDesc_t ISchemaClass<VMixFreeverbDesc_t>.From(nint handle) => new VMixFreeverbDesc_tImpl(handle);
   static int ISchemaClass<VMixFreeverbDesc_t>.Size => 16;
+  static string? ISchemaClass<VMixFreeverbDesc_t>.ClassName => null;
 
   
   public ref float RoomSize { get; }

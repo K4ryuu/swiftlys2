@@ -12,6 +12,7 @@ public partial interface CCSGOPlayerAnimGraphState : ISchemaClass<CCSGOPlayerAni
 
   static CCSGOPlayerAnimGraphState ISchemaClass<CCSGOPlayerAnimGraphState>.From(nint handle) => new CCSGOPlayerAnimGraphStateImpl(handle);
   static int ISchemaClass<CCSGOPlayerAnimGraphState>.Size => 1648;
+  static string? ISchemaClass<CCSGOPlayerAnimGraphState>.ClassName => null;
 
 
 

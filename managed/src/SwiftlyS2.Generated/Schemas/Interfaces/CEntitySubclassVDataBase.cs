@@ -12,6 +12,7 @@ public partial interface CEntitySubclassVDataBase : ISchemaClass<CEntitySubclass
 
   static CEntitySubclassVDataBase ISchemaClass<CEntitySubclassVDataBase>.From(nint handle) => new CEntitySubclassVDataBaseImpl(handle);
   static int ISchemaClass<CEntitySubclassVDataBase>.Size => 40;
+  static string? ISchemaClass<CEntitySubclassVDataBase>.ClassName => null;
 
 
 

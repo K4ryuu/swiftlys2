@@ -12,6 +12,7 @@ public partial interface TwoBoneIKSettings_t : ISchemaClass<TwoBoneIKSettings_t>
 
   static TwoBoneIKSettings_t ISchemaClass<TwoBoneIKSettings_t>.From(nint handle) => new TwoBoneIKSettings_tImpl(handle);
   static int ISchemaClass<TwoBoneIKSettings_t>.Size => 352;
+  static string? ISchemaClass<TwoBoneIKSettings_t>.ClassName => null;
 
   
   public ref IkEndEffectorType EndEffectorType { get; }

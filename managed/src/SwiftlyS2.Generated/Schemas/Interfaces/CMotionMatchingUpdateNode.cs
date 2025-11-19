@@ -12,6 +12,7 @@ public partial interface CMotionMatchingUpdateNode : CLeafUpdateNode, ISchemaCla
 
   static CMotionMatchingUpdateNode ISchemaClass<CMotionMatchingUpdateNode>.From(nint handle) => new CMotionMatchingUpdateNodeImpl(handle);
   static int ISchemaClass<CMotionMatchingUpdateNode>.Size => 328;
+  static string? ISchemaClass<CMotionMatchingUpdateNode>.ClassName => null;
 
   
   public CMotionDataSet DataSet { get; }

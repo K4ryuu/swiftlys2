@@ -12,6 +12,7 @@ public partial interface FuseFunctionIndex_t : ISchemaClass<FuseFunctionIndex_t>
 
   static FuseFunctionIndex_t ISchemaClass<FuseFunctionIndex_t>.From(nint handle) => new FuseFunctionIndex_tImpl(handle);
   static int ISchemaClass<FuseFunctionIndex_t>.Size => 2;
+  static string? ISchemaClass<FuseFunctionIndex_t>.ClassName => null;
 
   
   public ref ushort Value { get; }

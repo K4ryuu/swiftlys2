@@ -12,6 +12,7 @@ public partial interface CAnimParameterManagerUpdater : ISchemaClass<CAnimParame
 
   static CAnimParameterManagerUpdater ISchemaClass<CAnimParameterManagerUpdater>.From(nint handle) => new CAnimParameterManagerUpdaterImpl(handle);
   static int ISchemaClass<CAnimParameterManagerUpdater>.Size => 256;
+  static string? ISchemaClass<CAnimParameterManagerUpdater>.ClassName => null;
 
   
   public ref CUtlVector<SchemaUntypedField> Parameters { get; }

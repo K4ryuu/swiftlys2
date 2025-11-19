@@ -12,6 +12,7 @@ public partial interface CPulseCell_BaseRequirement : CPulseCell_Base, ISchemaCl
 
   static CPulseCell_BaseRequirement ISchemaClass<CPulseCell_BaseRequirement>.From(nint handle) => new CPulseCell_BaseRequirementImpl(handle);
   static int ISchemaClass<CPulseCell_BaseRequirement>.Size => 72;
+  static string? ISchemaClass<CPulseCell_BaseRequirement>.ClassName => null;
 
 
 

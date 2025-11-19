@@ -12,6 +12,7 @@ public partial interface EventClientProcessNetworking_t : ISchemaClass<EventClie
 
   static EventClientProcessNetworking_t ISchemaClass<EventClientProcessNetworking_t>.From(nint handle) => new EventClientProcessNetworking_tImpl(handle);
   static int ISchemaClass<EventClientProcessNetworking_t>.Size => 4;
+  static string? ISchemaClass<EventClientProcessNetworking_t>.ClassName => null;
 
   
   public ref int TickCount { get; }

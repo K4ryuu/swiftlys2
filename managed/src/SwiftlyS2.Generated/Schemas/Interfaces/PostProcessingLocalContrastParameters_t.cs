@@ -12,6 +12,7 @@ public partial interface PostProcessingLocalContrastParameters_t : ISchemaClass<
 
   static PostProcessingLocalContrastParameters_t ISchemaClass<PostProcessingLocalContrastParameters_t>.From(nint handle) => new PostProcessingLocalContrastParameters_tImpl(handle);
   static int ISchemaClass<PostProcessingLocalContrastParameters_t>.Size => 20;
+  static string? ISchemaClass<PostProcessingLocalContrastParameters_t>.ClassName => null;
 
   
   public ref float LocalContrastStrength { get; }

@@ -12,6 +12,7 @@ public partial interface PulseCursorYieldToken_t : ISchemaClass<PulseCursorYield
 
   static PulseCursorYieldToken_t ISchemaClass<PulseCursorYieldToken_t>.From(nint handle) => new PulseCursorYieldToken_tImpl(handle);
   static int ISchemaClass<PulseCursorYieldToken_t>.Size => 4;
+  static string? ISchemaClass<PulseCursorYieldToken_t>.ClassName => null;
 
   
   public ref int Value { get; }

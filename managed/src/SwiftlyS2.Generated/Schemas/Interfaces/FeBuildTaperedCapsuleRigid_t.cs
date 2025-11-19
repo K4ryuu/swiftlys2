@@ -12,6 +12,7 @@ public partial interface FeBuildTaperedCapsuleRigid_t : FeTaperedCapsuleRigid_t,
 
   static FeBuildTaperedCapsuleRigid_t ISchemaClass<FeBuildTaperedCapsuleRigid_t>.From(nint handle) => new FeBuildTaperedCapsuleRigid_tImpl(handle);
   static int ISchemaClass<FeBuildTaperedCapsuleRigid_t>.Size => 64;
+  static string? ISchemaClass<FeBuildTaperedCapsuleRigid_t>.ClassName => null;
 
   
   public ref int Priority { get; }

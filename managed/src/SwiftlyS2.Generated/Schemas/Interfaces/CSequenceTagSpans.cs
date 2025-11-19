@@ -12,6 +12,7 @@ public partial interface CSequenceTagSpans : ISchemaClass<CSequenceTagSpans> {
 
   static CSequenceTagSpans ISchemaClass<CSequenceTagSpans>.From(nint handle) => new CSequenceTagSpansImpl(handle);
   static int ISchemaClass<CSequenceTagSpans>.Size => 32;
+  static string? ISchemaClass<CSequenceTagSpans>.ClassName => null;
 
   
   public ref CGlobalSymbol SequenceName { get; }

@@ -12,6 +12,7 @@ public partial interface CBtNodeComposite : CBtNode, ISchemaClass<CBtNodeComposi
 
   static CBtNodeComposite ISchemaClass<CBtNodeComposite>.From(nint handle) => new CBtNodeCompositeImpl(handle);
   static int ISchemaClass<CBtNodeComposite>.Size => 88;
+  static string? ISchemaClass<CBtNodeComposite>.ClassName => null;
 
 
 

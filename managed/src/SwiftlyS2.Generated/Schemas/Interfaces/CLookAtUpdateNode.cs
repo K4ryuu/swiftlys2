@@ -12,6 +12,7 @@ public partial interface CLookAtUpdateNode : CUnaryUpdateNode, ISchemaClass<CLoo
 
   static CLookAtUpdateNode ISchemaClass<CLookAtUpdateNode>.From(nint handle) => new CLookAtUpdateNodeImpl(handle);
   static int ISchemaClass<CLookAtUpdateNode>.Size => 352;
+  static string? ISchemaClass<CLookAtUpdateNode>.ClassName => null;
 
   
   public LookAtOpFixedSettings_t OpFixedSettings { get; }

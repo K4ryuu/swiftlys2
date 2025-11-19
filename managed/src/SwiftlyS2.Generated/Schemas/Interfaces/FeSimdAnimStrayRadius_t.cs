@@ -12,6 +12,7 @@ public partial interface FeSimdAnimStrayRadius_t : ISchemaClass<FeSimdAnimStrayR
 
   static FeSimdAnimStrayRadius_t ISchemaClass<FeSimdAnimStrayRadius_t>.From(nint handle) => new FeSimdAnimStrayRadius_tImpl(handle);
   static int ISchemaClass<FeSimdAnimStrayRadius_t>.Size => 48;
+  static string? ISchemaClass<FeSimdAnimStrayRadius_t>.ClassName => null;
 
   
   // uint16[4]

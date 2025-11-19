@@ -12,6 +12,7 @@ public partial interface MaterialParamFloat_t : MaterialParam_t, ISchemaClass<Ma
 
   static MaterialParamFloat_t ISchemaClass<MaterialParamFloat_t>.From(nint handle) => new MaterialParamFloat_tImpl(handle);
   static int ISchemaClass<MaterialParamFloat_t>.Size => 16;
+  static string? ISchemaClass<MaterialParamFloat_t>.ClassName => null;
 
   
   public ref float Value { get; }

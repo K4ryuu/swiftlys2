@@ -12,6 +12,7 @@ public partial interface CPulseCell_Inflow_Yield : CPulseCell_BaseYieldingInflow
 
   static CPulseCell_Inflow_Yield ISchemaClass<CPulseCell_Inflow_Yield>.From(nint handle) => new CPulseCell_Inflow_YieldImpl(handle);
   static int ISchemaClass<CPulseCell_Inflow_Yield>.Size => 144;
+  static string? ISchemaClass<CPulseCell_Inflow_Yield>.ClassName => null;
 
   
   public CPulse_ResumePoint UnyieldResume { get; }

@@ -12,6 +12,7 @@ public partial interface CPulseCell_IntervalTimer__CursorState_t : ISchemaClass<
 
   static CPulseCell_IntervalTimer__CursorState_t ISchemaClass<CPulseCell_IntervalTimer__CursorState_t>.From(nint handle) => new CPulseCell_IntervalTimer__CursorState_tImpl(handle);
   static int ISchemaClass<CPulseCell_IntervalTimer__CursorState_t>.Size => 20;
+  static string? ISchemaClass<CPulseCell_IntervalTimer__CursorState_t>.ClassName => null;
 
   
   public GameTime_t StartTime { get; }

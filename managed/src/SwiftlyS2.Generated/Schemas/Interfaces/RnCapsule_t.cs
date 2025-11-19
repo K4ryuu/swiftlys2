@@ -12,6 +12,7 @@ public partial interface RnCapsule_t : ISchemaClass<RnCapsule_t> {
 
   static RnCapsule_t ISchemaClass<RnCapsule_t>.From(nint handle) => new RnCapsule_tImpl(handle);
   static int ISchemaClass<RnCapsule_t>.Size => 28;
+  static string? ISchemaClass<RnCapsule_t>.ClassName => null;
 
   
   public ISchemaFixedArray<Vector> Center { get; }

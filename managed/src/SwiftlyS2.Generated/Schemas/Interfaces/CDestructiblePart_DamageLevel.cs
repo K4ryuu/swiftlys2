@@ -12,6 +12,7 @@ public partial interface CDestructiblePart_DamageLevel : ISchemaClass<CDestructi
 
   static CDestructiblePart_DamageLevel ISchemaClass<CDestructiblePart_DamageLevel>.From(nint handle) => new CDestructiblePart_DamageLevelImpl(handle);
   static int ISchemaClass<CDestructiblePart_DamageLevel>.Size => 72;
+  static string? ISchemaClass<CDestructiblePart_DamageLevel>.ClassName => null;
 
   
   public string Name { get; set; }

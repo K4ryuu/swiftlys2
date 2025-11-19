@@ -12,6 +12,7 @@ public partial interface RnSphereDesc_t : RnShapeDesc_t, ISchemaClass<RnSphereDe
 
   static RnSphereDesc_t ISchemaClass<RnSphereDesc_t>.From(nint handle) => new RnSphereDesc_tImpl(handle);
   static int ISchemaClass<RnSphereDesc_t>.Size => 40;
+  static string? ISchemaClass<RnSphereDesc_t>.ClassName => null;
 
   
   // SphereBase_t< float32 >

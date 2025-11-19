@@ -12,6 +12,7 @@ public partial interface CHintMessageQueue : ISchemaClass<CHintMessageQueue> {
 
   static CHintMessageQueue ISchemaClass<CHintMessageQueue>.From(nint handle) => new CHintMessageQueueImpl(handle);
   static int ISchemaClass<CHintMessageQueue>.Size => 40;
+  static string? ISchemaClass<CHintMessageQueue>.ClassName => null;
 
   
   public ref float TmMessageEnd { get; }

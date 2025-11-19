@@ -12,6 +12,7 @@ public partial interface EventClientProcessInput_t : ISchemaClass<EventClientPro
 
   static EventClientProcessInput_t ISchemaClass<EventClientProcessInput_t>.From(nint handle) => new EventClientProcessInput_tImpl(handle);
   static int ISchemaClass<EventClientProcessInput_t>.Size => 56;
+  static string? ISchemaClass<EventClientProcessInput_t>.ClassName => null;
 
   
   public EngineLoopState_t LoopState { get; }

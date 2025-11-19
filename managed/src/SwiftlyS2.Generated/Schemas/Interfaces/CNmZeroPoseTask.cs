@@ -12,6 +12,7 @@ public partial interface CNmZeroPoseTask : CNmPoseTask, ISchemaClass<CNmZeroPose
 
   static CNmZeroPoseTask ISchemaClass<CNmZeroPoseTask>.From(nint handle) => new CNmZeroPoseTaskImpl(handle);
   static int ISchemaClass<CNmZeroPoseTask>.Size => 88;
+  static string? ISchemaClass<CNmZeroPoseTask>.ClassName => null;
 
 
 

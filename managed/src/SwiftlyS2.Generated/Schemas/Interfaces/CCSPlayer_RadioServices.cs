@@ -12,6 +12,7 @@ public partial interface CCSPlayer_RadioServices : CPlayerPawnComponent, ISchema
 
   static CCSPlayer_RadioServices ISchemaClass<CCSPlayer_RadioServices>.From(nint handle) => new CCSPlayer_RadioServicesImpl(handle);
   static int ISchemaClass<CCSPlayer_RadioServices>.Size => 96;
+  static string? ISchemaClass<CCSPlayer_RadioServices>.ClassName => null;
 
   
   public GameTime_t GotHostageTalkTimer { get; }

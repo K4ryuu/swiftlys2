@@ -12,6 +12,7 @@ public partial interface CWorldCompositionChunkReferenceElement_t : ISchemaClass
 
   static CWorldCompositionChunkReferenceElement_t ISchemaClass<CWorldCompositionChunkReferenceElement_t>.From(nint handle) => new CWorldCompositionChunkReferenceElement_tImpl(handle);
   static int ISchemaClass<CWorldCompositionChunkReferenceElement_t>.Size => 16;
+  static string? ISchemaClass<CWorldCompositionChunkReferenceElement_t>.ClassName => null;
 
   
   public string StrMapToLoad { get; set; }

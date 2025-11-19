@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CHandshakeAnimTagBase : CAnimTagBase, ISchemaClass<CHandshakeAnimTagBase> {
 
   static CHandshakeAnimTagBase ISchemaClass<CHandshakeAnimTagBase>.From(nint handle) => new CHandshakeAnimTagBaseImpl(handle);
-  static int ISchemaClass<CHandshakeAnimTagBase>.Size => 88;
+  static int ISchemaClass<CHandshakeAnimTagBase>.Size => 80;
+  static string? ISchemaClass<CHandshakeAnimTagBase>.ClassName => null;
 
   
   public ref bool IsDisableTag { get; }

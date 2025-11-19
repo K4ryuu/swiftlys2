@@ -12,6 +12,7 @@ public partial interface SkeletonDemoDb_t : ISchemaClass<SkeletonDemoDb_t> {
 
   static SkeletonDemoDb_t ISchemaClass<SkeletonDemoDb_t>.From(nint handle) => new SkeletonDemoDb_tImpl(handle);
   static int ISchemaClass<SkeletonDemoDb_t>.Size => 56;
+  static string? ISchemaClass<SkeletonDemoDb_t>.ClassName => null;
 
   
   public ref CUtlVector<PointerTo<SkeletonAnimCapture_t>> AnimCaptures { get; }

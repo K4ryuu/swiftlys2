@@ -12,6 +12,7 @@ public partial interface CNmParameterizedBlendNode__BlendRange_t : ISchemaClass<
 
   static CNmParameterizedBlendNode__BlendRange_t ISchemaClass<CNmParameterizedBlendNode__BlendRange_t>.From(nint handle) => new CNmParameterizedBlendNode__BlendRange_tImpl(handle);
   static int ISchemaClass<CNmParameterizedBlendNode__BlendRange_t>.Size => 12;
+  static string? ISchemaClass<CNmParameterizedBlendNode__BlendRange_t>.ClassName => null;
 
   
   public ref short InputIdx0 { get; }

@@ -12,6 +12,7 @@ public partial interface CDspPresetModifierList : ISchemaClass<CDspPresetModifie
 
   static CDspPresetModifierList ISchemaClass<CDspPresetModifierList>.From(nint handle) => new CDspPresetModifierListImpl(handle);
   static int ISchemaClass<CDspPresetModifierList>.Size => 32;
+  static string? ISchemaClass<CDspPresetModifierList>.ClassName => null;
 
   
   public string DspName { get; set; }

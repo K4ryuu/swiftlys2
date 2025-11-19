@@ -12,6 +12,7 @@ public partial interface CMorphRectData : ISchemaClass<CMorphRectData> {
 
   static CMorphRectData ISchemaClass<CMorphRectData>.From(nint handle) => new CMorphRectDataImpl(handle);
   static int ISchemaClass<CMorphRectData>.Size => 40;
+  static string? ISchemaClass<CMorphRectData>.ClassName => null;
 
   
   public ref short XLeftDst { get; }

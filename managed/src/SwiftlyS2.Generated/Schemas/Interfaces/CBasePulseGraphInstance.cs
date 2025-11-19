@@ -12,6 +12,7 @@ public partial interface CBasePulseGraphInstance : ISchemaClass<CBasePulseGraphI
 
   static CBasePulseGraphInstance ISchemaClass<CBasePulseGraphInstance>.From(nint handle) => new CBasePulseGraphInstanceImpl(handle);
   static int ISchemaClass<CBasePulseGraphInstance>.Size => 280;
+  static string? ISchemaClass<CBasePulseGraphInstance>.ClassName => null;
 
 
 

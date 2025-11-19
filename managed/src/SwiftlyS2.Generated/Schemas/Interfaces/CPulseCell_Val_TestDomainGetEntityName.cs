@@ -12,6 +12,7 @@ public partial interface CPulseCell_Val_TestDomainGetEntityName : CPulseCell_Bas
 
   static CPulseCell_Val_TestDomainGetEntityName ISchemaClass<CPulseCell_Val_TestDomainGetEntityName>.From(nint handle) => new CPulseCell_Val_TestDomainGetEntityNameImpl(handle);
   static int ISchemaClass<CPulseCell_Val_TestDomainGetEntityName>.Size => 72;
+  static string? ISchemaClass<CPulseCell_Val_TestDomainGetEntityName>.ClassName => null;
 
 
 

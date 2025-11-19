@@ -12,6 +12,7 @@ public partial interface ServerAuthoritativeWeaponSlot_t : ISchemaClass<ServerAu
 
   static ServerAuthoritativeWeaponSlot_t ISchemaClass<ServerAuthoritativeWeaponSlot_t>.From(nint handle) => new ServerAuthoritativeWeaponSlot_tImpl(handle);
   static int ISchemaClass<ServerAuthoritativeWeaponSlot_t>.Size => 56;
+  static string? ISchemaClass<ServerAuthoritativeWeaponSlot_t>.ClassName => null;
 
   
   public ref ushort Class { get; }

@@ -12,6 +12,7 @@ public partial interface FollowTargetOpFixedSettings_t : ISchemaClass<FollowTarg
 
   static FollowTargetOpFixedSettings_t ISchemaClass<FollowTargetOpFixedSettings_t>.From(nint handle) => new FollowTargetOpFixedSettings_tImpl(handle);
   static int ISchemaClass<FollowTargetOpFixedSettings_t>.Size => 16;
+  static string? ISchemaClass<FollowTargetOpFixedSettings_t>.ClassName => null;
 
   
   public ref int BoneIndex { get; }

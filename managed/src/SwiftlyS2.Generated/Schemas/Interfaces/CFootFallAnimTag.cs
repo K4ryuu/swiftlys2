@@ -12,6 +12,7 @@ public partial interface CFootFallAnimTag : CAnimTagBase, ISchemaClass<CFootFall
 
   static CFootFallAnimTag ISchemaClass<CFootFallAnimTag>.From(nint handle) => new CFootFallAnimTagImpl(handle);
   static int ISchemaClass<CFootFallAnimTag>.Size => 96;
+  static string? ISchemaClass<CFootFallAnimTag>.ClassName => null;
 
   
   public ref FootFallTagFoot_t Foot { get; }

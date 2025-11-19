@@ -12,6 +12,7 @@ public partial interface CVariantDefaultAllocator : ISchemaClass<CVariantDefault
 
   static CVariantDefaultAllocator ISchemaClass<CVariantDefaultAllocator>.From(nint handle) => new CVariantDefaultAllocatorImpl(handle);
   static int ISchemaClass<CVariantDefaultAllocator>.Size => 1;
+  static string? ISchemaClass<CVariantDefaultAllocator>.ClassName => null;
 
 
 

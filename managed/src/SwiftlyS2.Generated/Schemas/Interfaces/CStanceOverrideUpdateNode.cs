@@ -12,6 +12,7 @@ public partial interface CStanceOverrideUpdateNode : CUnaryUpdateNode, ISchemaCl
 
   static CStanceOverrideUpdateNode ISchemaClass<CStanceOverrideUpdateNode>.From(nint handle) => new CStanceOverrideUpdateNodeImpl(handle);
   static int ISchemaClass<CStanceOverrideUpdateNode>.Size => 160;
+  static string? ISchemaClass<CStanceOverrideUpdateNode>.ClassName => null;
 
   
   public ref CUtlVector<StanceInfo_t> FootStanceInfo { get; }

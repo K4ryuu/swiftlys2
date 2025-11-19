@@ -12,6 +12,7 @@ public partial interface CNmSyncTrack__EventMarker_t : ISchemaClass<CNmSyncTrack
 
   static CNmSyncTrack__EventMarker_t ISchemaClass<CNmSyncTrack__EventMarker_t>.From(nint handle) => new CNmSyncTrack__EventMarker_tImpl(handle);
   static int ISchemaClass<CNmSyncTrack__EventMarker_t>.Size => 16;
+  static string? ISchemaClass<CNmSyncTrack__EventMarker_t>.ClassName => null;
 
   
   public NmPercent_t StartTime { get; }

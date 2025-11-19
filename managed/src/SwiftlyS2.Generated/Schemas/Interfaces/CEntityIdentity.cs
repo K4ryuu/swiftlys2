@@ -12,6 +12,7 @@ public partial interface CEntityIdentity : ISchemaClass<CEntityIdentity> {
 
   static CEntityIdentity ISchemaClass<CEntityIdentity>.From(nint handle) => new CEntityIdentityImpl(handle);
   static int ISchemaClass<CEntityIdentity>.Size => 112;
+  static string? ISchemaClass<CEntityIdentity>.ClassName => null;
 
   
   public ref int NameStringableIndex { get; }

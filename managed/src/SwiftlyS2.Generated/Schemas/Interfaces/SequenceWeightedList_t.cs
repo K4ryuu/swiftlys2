@@ -12,6 +12,7 @@ public partial interface SequenceWeightedList_t : ISchemaClass<SequenceWeightedL
 
   static SequenceWeightedList_t ISchemaClass<SequenceWeightedList_t>.From(nint handle) => new SequenceWeightedList_tImpl(handle);
   static int ISchemaClass<SequenceWeightedList_t>.Size => 8;
+  static string? ISchemaClass<SequenceWeightedList_t>.ClassName => null;
 
   
   public ref int Sequence { get; }

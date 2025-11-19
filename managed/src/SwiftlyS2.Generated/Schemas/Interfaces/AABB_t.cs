@@ -12,6 +12,7 @@ public partial interface AABB_t : ISchemaClass<AABB_t> {
 
   static AABB_t ISchemaClass<AABB_t>.From(nint handle) => new AABB_tImpl(handle);
   static int ISchemaClass<AABB_t>.Size => 24;
+  static string? ISchemaClass<AABB_t>.ClassName => null;
 
   
   public ref Vector MinBounds { get; }

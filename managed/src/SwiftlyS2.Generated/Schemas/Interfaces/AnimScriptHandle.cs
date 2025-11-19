@@ -12,6 +12,7 @@ public partial interface AnimScriptHandle : ISchemaClass<AnimScriptHandle> {
 
   static AnimScriptHandle ISchemaClass<AnimScriptHandle>.From(nint handle) => new AnimScriptHandleImpl(handle);
   static int ISchemaClass<AnimScriptHandle>.Size => 4;
+  static string? ISchemaClass<AnimScriptHandle>.ClassName => null;
 
   
   public ref uint Id { get; }

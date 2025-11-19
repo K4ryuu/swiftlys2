@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CFuncPlatRot : CFuncPlat, ISchemaClass<CFuncPlatRot> {
 
   static CFuncPlatRot ISchemaClass<CFuncPlatRot>.From(nint handle) => new CFuncPlatRotImpl(handle);
-  static int ISchemaClass<CFuncPlatRot>.Size => 2208;
+  static int ISchemaClass<CFuncPlatRot>.Size => 2944;
+  static string? ISchemaClass<CFuncPlatRot>.ClassName => "func_platrot";
 
   
   public ref QAngle End { get; }

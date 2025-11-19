@@ -12,6 +12,7 @@ public partial interface CPulseRuntimeMethodArg : ISchemaClass<CPulseRuntimeMeth
 
   static CPulseRuntimeMethodArg ISchemaClass<CPulseRuntimeMethodArg>.From(nint handle) => new CPulseRuntimeMethodArgImpl(handle);
   static int ISchemaClass<CPulseRuntimeMethodArg>.Size => 128;
+  static string? ISchemaClass<CPulseRuntimeMethodArg>.ClassName => null;
 
   
   // CKV3MemberNameWithStorage

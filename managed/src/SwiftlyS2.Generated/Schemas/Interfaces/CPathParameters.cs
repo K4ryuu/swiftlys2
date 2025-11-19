@@ -12,6 +12,7 @@ public partial interface CPathParameters : ISchemaClass<CPathParameters> {
 
   static CPathParameters ISchemaClass<CPathParameters>.From(nint handle) => new CPathParametersImpl(handle);
   static int ISchemaClass<CPathParameters>.Size => 64;
+  static string? ISchemaClass<CPathParameters>.ClassName => null;
 
   
   public ref int StartControlPointNumber { get; }

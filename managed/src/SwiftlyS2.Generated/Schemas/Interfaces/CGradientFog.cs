@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CGradientFog : CBaseEntity, ISchemaClass<CGradientFog> {
 
   static CGradientFog ISchemaClass<CGradientFog>.From(nint handle) => new CGradientFogImpl(handle);
-  static int ISchemaClass<CGradientFog>.Size => 1328;
+  static int ISchemaClass<CGradientFog>.Size => 2072;
+  static string? ISchemaClass<CGradientFog>.ClassName => "env_gradient_fog";
 
   
   public ref CStrongHandle<InfoForResourceTypeCTextureBase> GradientFogTexture { get; }

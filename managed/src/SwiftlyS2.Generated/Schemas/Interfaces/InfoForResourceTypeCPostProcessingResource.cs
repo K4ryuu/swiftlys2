@@ -12,6 +12,7 @@ public partial interface InfoForResourceTypeCPostProcessingResource : ISchemaCla
 
   static InfoForResourceTypeCPostProcessingResource ISchemaClass<InfoForResourceTypeCPostProcessingResource>.From(nint handle) => new InfoForResourceTypeCPostProcessingResourceImpl(handle);
   static int ISchemaClass<InfoForResourceTypeCPostProcessingResource>.Size => 1;
+  static string? ISchemaClass<InfoForResourceTypeCPostProcessingResource>.ClassName => null;
 
 
 

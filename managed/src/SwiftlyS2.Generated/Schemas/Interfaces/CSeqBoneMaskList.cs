@@ -12,6 +12,7 @@ public partial interface CSeqBoneMaskList : ISchemaClass<CSeqBoneMaskList> {
 
   static CSeqBoneMaskList ISchemaClass<CSeqBoneMaskList>.From(nint handle) => new CSeqBoneMaskListImpl(handle);
   static int ISchemaClass<CSeqBoneMaskList>.Size => 96;
+  static string? ISchemaClass<CSeqBoneMaskList>.ClassName => null;
 
   
   public ref CBufferString Name { get; }

@@ -12,6 +12,7 @@ public partial interface CPulseArraylib : ISchemaClass<CPulseArraylib> {
 
   static CPulseArraylib ISchemaClass<CPulseArraylib>.From(nint handle) => new CPulseArraylibImpl(handle);
   static int ISchemaClass<CPulseArraylib>.Size => 1;
+  static string? ISchemaClass<CPulseArraylib>.ClassName => null;
 
 
 

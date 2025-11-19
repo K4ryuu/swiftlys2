@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CVectorAnimParameter : CConcreteAnimParameter, ISchemaClass<CVectorAnimParameter> {
 
   static CVectorAnimParameter ISchemaClass<CVectorAnimParameter>.From(nint handle) => new CVectorAnimParameterImpl(handle);
-  static int ISchemaClass<CVectorAnimParameter>.Size => 152;
+  static int ISchemaClass<CVectorAnimParameter>.Size => 144;
+  static string? ISchemaClass<CVectorAnimParameter>.ClassName => null;
 
   
   public ref Vector DefaultValue { get; }

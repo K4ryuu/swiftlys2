@@ -12,6 +12,7 @@ public partial interface FootStepTrigger : ISchemaClass<FootStepTrigger> {
 
   static FootStepTrigger ISchemaClass<FootStepTrigger>.From(nint handle) => new FootStepTriggerImpl(handle);
   static int ISchemaClass<FootStepTrigger>.Size => 32;
+  static string? ISchemaClass<FootStepTrigger>.ClassName => null;
 
   
   public ref CUtlVector<int> Tags { get; }

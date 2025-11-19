@@ -12,6 +12,7 @@ public partial interface CParticleVariableRef : ISchemaClass<CParticleVariableRe
 
   static CParticleVariableRef ISchemaClass<CParticleVariableRef>.From(nint handle) => new CParticleVariableRefImpl(handle);
   static int ISchemaClass<CParticleVariableRef>.Size => 80;
+  static string? ISchemaClass<CParticleVariableRef>.ClassName => null;
 
   
   // CKV3MemberNameWithStorage

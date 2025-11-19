@@ -12,6 +12,7 @@ public partial interface SimpleConstraintSoundProfile : ISchemaClass<SimpleConst
 
   static SimpleConstraintSoundProfile ISchemaClass<SimpleConstraintSoundProfile>.From(nint handle) => new SimpleConstraintSoundProfileImpl(handle);
   static int ISchemaClass<SimpleConstraintSoundProfile>.Size => 32;
+  static string? ISchemaClass<SimpleConstraintSoundProfile>.ClassName => null;
 
   
   public ref SimpleConstraintSoundProfile__SimpleConstraintsSoundProfileKeypoints_t Keypoints { get; }

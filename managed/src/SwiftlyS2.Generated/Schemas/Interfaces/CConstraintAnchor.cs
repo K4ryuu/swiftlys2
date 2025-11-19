@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CConstraintAnchor : CBaseAnimGraph, ISchemaClass<CConstraintAnchor> {
 
   static CConstraintAnchor ISchemaClass<CConstraintAnchor>.From(nint handle) => new CConstraintAnchorImpl(handle);
-  static int ISchemaClass<CConstraintAnchor>.Size => 2720;
+  static int ISchemaClass<CConstraintAnchor>.Size => 3504;
+  static string? ISchemaClass<CConstraintAnchor>.ClassName => "info_constraint_anchor";
 
   
   public ref float MassScale { get; }

@@ -12,6 +12,7 @@ public partial interface MotionBlendItem : ISchemaClass<MotionBlendItem> {
 
   static MotionBlendItem ISchemaClass<MotionBlendItem>.From(nint handle) => new MotionBlendItemImpl(handle);
   static int ISchemaClass<MotionBlendItem>.Size => 16;
+  static string? ISchemaClass<MotionBlendItem>.ClassName => null;
 
   
   // CSmartPtr< CMotionNode >

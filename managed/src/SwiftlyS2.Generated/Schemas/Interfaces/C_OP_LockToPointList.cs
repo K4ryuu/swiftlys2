@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface C_OP_LockToPointList : CParticleFunctionOperator, ISchemaClass<C_OP_LockToPointList> {
 
   static C_OP_LockToPointList ISchemaClass<C_OP_LockToPointList>.From(nint handle) => new C_OP_LockToPointListImpl(handle);
-  static int ISchemaClass<C_OP_LockToPointList>.Size => 504;
+  static int ISchemaClass<C_OP_LockToPointList>.Size => 496;
+  static string? ISchemaClass<C_OP_LockToPointList>.ClassName => null;
 
   
   public ParticleAttributeIndex_t FieldOutput { get; }

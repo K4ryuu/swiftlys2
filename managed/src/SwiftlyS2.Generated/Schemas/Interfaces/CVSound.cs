@@ -12,6 +12,7 @@ public partial interface CVSound : ISchemaClass<CVSound> {
 
   static CVSound ISchemaClass<CVSound>.From(nint handle) => new CVSoundImpl(handle);
   static int ISchemaClass<CVSound>.Size => 120;
+  static string? ISchemaClass<CVSound>.ClassName => null;
 
   
   public ref int Rate { get; }

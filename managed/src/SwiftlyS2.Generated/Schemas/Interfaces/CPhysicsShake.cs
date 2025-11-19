@@ -12,6 +12,7 @@ public partial interface CPhysicsShake : ISchemaClass<CPhysicsShake> {
 
   static CPhysicsShake ISchemaClass<CPhysicsShake>.From(nint handle) => new CPhysicsShakeImpl(handle);
   static int ISchemaClass<CPhysicsShake>.Size => 24;
+  static string? ISchemaClass<CPhysicsShake>.ClassName => null;
 
   
   public ref Vector Force { get; }

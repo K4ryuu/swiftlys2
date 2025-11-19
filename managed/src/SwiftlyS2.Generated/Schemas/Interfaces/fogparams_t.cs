@@ -12,6 +12,7 @@ public partial interface fogparams_t : ISchemaClass<fogparams_t> {
 
   static fogparams_t ISchemaClass<fogparams_t>.From(nint handle) => new fogparams_tImpl(handle);
   static int ISchemaClass<fogparams_t>.Size => 104;
+  static string? ISchemaClass<fogparams_t>.ClassName => null;
 
   
   public ref Vector DirPrimary { get; }

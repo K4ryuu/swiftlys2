@@ -12,6 +12,7 @@ public partial interface CBaseAnimGraphAnimGraphController : CAnimGraphControlle
 
   static CBaseAnimGraphAnimGraphController ISchemaClass<CBaseAnimGraphAnimGraphController>.From(nint handle) => new CBaseAnimGraphAnimGraphControllerImpl(handle);
   static int ISchemaClass<CBaseAnimGraphAnimGraphController>.Size => 616;
+  static string? ISchemaClass<CBaseAnimGraphAnimGraphController>.ClassName => null;
 
   
   // CAnimGraphParamOptionalRef< CGlobalSymbol >

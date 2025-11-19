@@ -12,6 +12,7 @@ public partial interface CPulseTurtleGraphicsCursor : CPulseExecCursor, ISchemaC
 
   static CPulseTurtleGraphicsCursor ISchemaClass<CPulseTurtleGraphicsCursor>.From(nint handle) => new CPulseTurtleGraphicsCursorImpl(handle);
   static int ISchemaClass<CPulseTurtleGraphicsCursor>.Size => 232;
+  static string? ISchemaClass<CPulseTurtleGraphicsCursor>.ClassName => null;
 
   
   public ref Color Color { get; }

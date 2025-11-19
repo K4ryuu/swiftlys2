@@ -12,6 +12,7 @@ public partial interface CCSPlayer_WaterServices : CPlayer_WaterServices, ISchem
 
   static CCSPlayer_WaterServices ISchemaClass<CCSPlayer_WaterServices>.From(nint handle) => new CCSPlayer_WaterServicesImpl(handle);
   static int ISchemaClass<CCSPlayer_WaterServices>.Size => 120;
+  static string? ISchemaClass<CCSPlayer_WaterServices>.ClassName => null;
 
   
   public GameTime_t NextDrownDamageTime { get; }

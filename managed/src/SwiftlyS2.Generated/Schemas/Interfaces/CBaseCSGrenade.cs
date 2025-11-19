@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CBaseCSGrenade : CCSWeaponBase, ISchemaClass<CBaseCSGrenade> {
 
   static CBaseCSGrenade ISchemaClass<CBaseCSGrenade>.From(nint handle) => new CBaseCSGrenadeImpl(handle);
-  static int ISchemaClass<CBaseCSGrenade>.Size => 4624;
+  static int ISchemaClass<CBaseCSGrenade>.Size => 5376;
+  static string? ISchemaClass<CBaseCSGrenade>.ClassName => "weapon_basecsgrenade";
 
   
   public ref bool Redraw { get; }

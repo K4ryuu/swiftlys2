@@ -12,6 +12,7 @@ public partial interface CNmParameterizedBlendNode__CDefinition : CNmPoseNode__C
 
   static CNmParameterizedBlendNode__CDefinition ISchemaClass<CNmParameterizedBlendNode__CDefinition>.From(nint handle) => new CNmParameterizedBlendNode__CDefinitionImpl(handle);
   static int ISchemaClass<CNmParameterizedBlendNode__CDefinition>.Size => 64;
+  static string? ISchemaClass<CNmParameterizedBlendNode__CDefinition>.ClassName => null;
 
   
   // CUtlVectorFixedGrowable< int16, 5 >

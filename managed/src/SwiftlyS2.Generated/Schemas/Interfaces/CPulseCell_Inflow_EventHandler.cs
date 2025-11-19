@@ -12,6 +12,7 @@ public partial interface CPulseCell_Inflow_EventHandler : CPulseCell_Inflow_Base
 
   static CPulseCell_Inflow_EventHandler ISchemaClass<CPulseCell_Inflow_EventHandler>.From(nint handle) => new CPulseCell_Inflow_EventHandlerImpl(handle);
   static int ISchemaClass<CPulseCell_Inflow_EventHandler>.Size => 144;
+  static string? ISchemaClass<CPulseCell_Inflow_EventHandler>.ClassName => null;
 
   
   // PulseSymbol_t

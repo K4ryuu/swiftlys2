@@ -12,6 +12,7 @@ public partial interface WorldNodeOnDiskBufferData_t : ISchemaClass<WorldNodeOnD
 
   static WorldNodeOnDiskBufferData_t ISchemaClass<WorldNodeOnDiskBufferData_t>.From(nint handle) => new WorldNodeOnDiskBufferData_tImpl(handle);
   static int ISchemaClass<WorldNodeOnDiskBufferData_t>.Size => 56;
+  static string? ISchemaClass<WorldNodeOnDiskBufferData_t>.ClassName => null;
 
   
   public ref int ElementCount { get; }

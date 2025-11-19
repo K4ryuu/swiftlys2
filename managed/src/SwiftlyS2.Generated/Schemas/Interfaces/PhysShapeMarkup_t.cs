@@ -12,6 +12,7 @@ public partial interface PhysShapeMarkup_t : ISchemaClass<PhysShapeMarkup_t> {
 
   static PhysShapeMarkup_t ISchemaClass<PhysShapeMarkup_t>.From(nint handle) => new PhysShapeMarkup_tImpl(handle);
   static int ISchemaClass<PhysShapeMarkup_t>.Size => 16;
+  static string? ISchemaClass<PhysShapeMarkup_t>.ClassName => null;
 
   
   public ref int BodyInAggregate { get; }

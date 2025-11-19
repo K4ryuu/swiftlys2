@@ -12,6 +12,7 @@ public partial interface ParticlePreviewBodyGroup_t : ISchemaClass<ParticlePrevi
 
   static ParticlePreviewBodyGroup_t ISchemaClass<ParticlePreviewBodyGroup_t>.From(nint handle) => new ParticlePreviewBodyGroup_tImpl(handle);
   static int ISchemaClass<ParticlePreviewBodyGroup_t>.Size => 16;
+  static string? ISchemaClass<ParticlePreviewBodyGroup_t>.ClassName => null;
 
   
   public string BodyGroupName { get; set; }

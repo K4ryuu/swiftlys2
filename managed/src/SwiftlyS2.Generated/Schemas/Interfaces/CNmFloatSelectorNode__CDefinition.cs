@@ -12,6 +12,7 @@ public partial interface CNmFloatSelectorNode__CDefinition : CNmFloatValueNode__
 
   static CNmFloatSelectorNode__CDefinition ISchemaClass<CNmFloatSelectorNode__CDefinition>.From(nint handle) => new CNmFloatSelectorNode__CDefinitionImpl(handle);
   static int ISchemaClass<CNmFloatSelectorNode__CDefinition>.Size => 120;
+  static string? ISchemaClass<CNmFloatSelectorNode__CDefinition>.ClassName => null;
 
   
   // CUtlVectorFixedGrowable< int16, 5 >

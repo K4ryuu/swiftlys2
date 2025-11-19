@@ -12,6 +12,7 @@ public partial interface VariableInfo_t : ISchemaClass<VariableInfo_t> {
 
   static VariableInfo_t ISchemaClass<VariableInfo_t>.From(nint handle) => new VariableInfo_tImpl(handle);
   static int ISchemaClass<VariableInfo_t>.Size => 24;
+  static string? ISchemaClass<VariableInfo_t>.ClassName => null;
 
   
   public string Name { get; set; }

@@ -12,6 +12,7 @@ public partial interface CBtNodeDecorator : CBtNode, ISchemaClass<CBtNodeDecorat
 
   static CBtNodeDecorator ISchemaClass<CBtNodeDecorator>.From(nint handle) => new CBtNodeDecoratorImpl(handle);
   static int ISchemaClass<CBtNodeDecorator>.Size => 88;
+  static string? ISchemaClass<CBtNodeDecorator>.ClassName => null;
 
 
 

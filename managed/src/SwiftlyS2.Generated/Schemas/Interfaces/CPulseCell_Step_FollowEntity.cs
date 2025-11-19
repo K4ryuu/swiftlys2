@@ -12,6 +12,7 @@ public partial interface CPulseCell_Step_FollowEntity : CPulseCell_BaseFlow, ISc
 
   static CPulseCell_Step_FollowEntity ISchemaClass<CPulseCell_Step_FollowEntity>.From(nint handle) => new CPulseCell_Step_FollowEntityImpl(handle);
   static int ISchemaClass<CPulseCell_Step_FollowEntity>.Size => 88;
+  static string? ISchemaClass<CPulseCell_Step_FollowEntity>.ClassName => null;
 
   
   public string ParamBoneOrAttachName { get; set; }

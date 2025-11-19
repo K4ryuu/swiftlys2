@@ -12,6 +12,7 @@ public partial interface ParticlePreviewState_t : ISchemaClass<ParticlePreviewSt
 
   static ParticlePreviewState_t ISchemaClass<ParticlePreviewState_t>.From(nint handle) => new ParticlePreviewState_tImpl(handle);
   static int ISchemaClass<ParticlePreviewState_t>.Size => 104;
+  static string? ISchemaClass<ParticlePreviewState_t>.ClassName => null;
 
   
   public string PreviewModel { get; set; }

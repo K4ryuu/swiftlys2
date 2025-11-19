@@ -12,6 +12,7 @@ public partial interface CStopAtGoalUpdateNode : CUnaryUpdateNode, ISchemaClass<
 
   static CStopAtGoalUpdateNode ISchemaClass<CStopAtGoalUpdateNode>.From(nint handle) => new CStopAtGoalUpdateNodeImpl(handle);
   static int ISchemaClass<CStopAtGoalUpdateNode>.Size => 160;
+  static string? ISchemaClass<CStopAtGoalUpdateNode>.ClassName => null;
 
   
   public ref float OuterRadius { get; }

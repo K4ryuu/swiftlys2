@@ -12,6 +12,7 @@ public partial interface CNmTarget : ISchemaClass<CNmTarget> {
 
   static CNmTarget ISchemaClass<CNmTarget>.From(nint handle) => new CNmTargetImpl(handle);
   static int ISchemaClass<CNmTarget>.Size => 48;
+  static string? ISchemaClass<CNmTarget>.ClassName => null;
 
   
   public ref CTransform Transform { get; }

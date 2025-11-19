@@ -12,6 +12,7 @@ public partial interface CNmBlend2DNode__CDefinition : CNmPoseNode__CDefinition,
 
   static CNmBlend2DNode__CDefinition ISchemaClass<CNmBlend2DNode__CDefinition>.From(nint handle) => new CNmBlend2DNode__CDefinitionImpl(handle);
   static int ISchemaClass<CNmBlend2DNode__CDefinition>.Size => 272;
+  static string? ISchemaClass<CNmBlend2DNode__CDefinition>.ClassName => null;
 
   
   // CUtlVectorFixedGrowable< int16, 5 >

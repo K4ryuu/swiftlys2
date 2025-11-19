@@ -12,6 +12,7 @@ public partial interface FakeEntityDerivedB_tAPI : ISchemaClass<FakeEntityDerive
 
   static FakeEntityDerivedB_tAPI ISchemaClass<FakeEntityDerivedB_tAPI>.From(nint handle) => new FakeEntityDerivedB_tAPIImpl(handle);
   static int ISchemaClass<FakeEntityDerivedB_tAPI>.Size => 8;
+  static string? ISchemaClass<FakeEntityDerivedB_tAPI>.ClassName => null;
 
 
 

@@ -12,6 +12,7 @@ public partial interface SoundOpvarTraceResult_t : ISchemaClass<SoundOpvarTraceR
 
   static SoundOpvarTraceResult_t ISchemaClass<SoundOpvarTraceResult_t>.From(nint handle) => new SoundOpvarTraceResult_tImpl(handle);
   static int ISchemaClass<SoundOpvarTraceResult_t>.Size => 20;
+  static string? ISchemaClass<SoundOpvarTraceResult_t>.ClassName => null;
 
   
   public ref Vector Pos { get; }

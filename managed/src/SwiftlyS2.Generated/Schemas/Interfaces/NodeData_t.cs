@@ -12,6 +12,7 @@ public partial interface NodeData_t : ISchemaClass<NodeData_t> {
 
   static NodeData_t ISchemaClass<NodeData_t>.From(nint handle) => new NodeData_tImpl(handle);
   static int ISchemaClass<NodeData_t>.Size => 80;
+  static string? ISchemaClass<NodeData_t>.ClassName => null;
 
   
   public ref int Parent { get; }

@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CEnvEntityIgniter : CBaseEntity, ISchemaClass<CEnvEntityIgniter> {
 
   static CEnvEntityIgniter ISchemaClass<CEnvEntityIgniter>.From(nint handle) => new CEnvEntityIgniterImpl(handle);
-  static int ISchemaClass<CEnvEntityIgniter>.Size => 1272;
+  static int ISchemaClass<CEnvEntityIgniter>.Size => 2016;
+  static string? ISchemaClass<CEnvEntityIgniter>.ClassName => "env_entity_igniter";
 
   
   public ref float Lifetime { get; }

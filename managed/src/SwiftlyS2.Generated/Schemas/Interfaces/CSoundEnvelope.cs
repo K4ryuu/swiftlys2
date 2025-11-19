@@ -12,6 +12,7 @@ public partial interface CSoundEnvelope : ISchemaClass<CSoundEnvelope> {
 
   static CSoundEnvelope ISchemaClass<CSoundEnvelope>.From(nint handle) => new CSoundEnvelopeImpl(handle);
   static int ISchemaClass<CSoundEnvelope>.Size => 16;
+  static string? ISchemaClass<CSoundEnvelope>.ClassName => null;
 
   
   public ref float Current { get; }

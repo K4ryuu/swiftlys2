@@ -12,6 +12,7 @@ public partial interface CAnimGraphSettingsManager : ISchemaClass<CAnimGraphSett
 
   static CAnimGraphSettingsManager ISchemaClass<CAnimGraphSettingsManager>.From(nint handle) => new CAnimGraphSettingsManagerImpl(handle);
   static int ISchemaClass<CAnimGraphSettingsManager>.Size => 48;
+  static string? ISchemaClass<CAnimGraphSettingsManager>.ClassName => null;
 
   
   public ref CUtlVector<SchemaUntypedField> SettingsGroups { get; }

@@ -12,6 +12,7 @@ public partial interface CAnimCycle : CCycleBase, ISchemaClass<CAnimCycle> {
 
   static CAnimCycle ISchemaClass<CAnimCycle>.From(nint handle) => new CAnimCycleImpl(handle);
   static int ISchemaClass<CAnimCycle>.Size => 4;
+  static string? ISchemaClass<CAnimCycle>.ClassName => null;
 
 
 

@@ -12,6 +12,7 @@ public partial interface CMotionGraphGroup : ISchemaClass<CMotionGraphGroup> {
 
   static CMotionGraphGroup ISchemaClass<CMotionGraphGroup>.From(nint handle) => new CMotionGraphGroupImpl(handle);
   static int ISchemaClass<CMotionGraphGroup>.Size => 264;
+  static string? ISchemaClass<CMotionGraphGroup>.ClassName => null;
 
   
   public CMotionSearchDB SearchDB { get; }

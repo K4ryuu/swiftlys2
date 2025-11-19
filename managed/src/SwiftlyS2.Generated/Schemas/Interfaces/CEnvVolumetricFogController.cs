@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CEnvVolumetricFogController : CBaseEntity, ISchemaClass<CEnvVolumetricFogController> {
 
   static CEnvVolumetricFogController ISchemaClass<CEnvVolumetricFogController>.From(nint handle) => new CEnvVolumetricFogControllerImpl(handle);
-  static int ISchemaClass<CEnvVolumetricFogController>.Size => 1440;
+  static int ISchemaClass<CEnvVolumetricFogController>.Size => 2184;
+  static string? ISchemaClass<CEnvVolumetricFogController>.ClassName => "env_volumetric_fog_controller";
 
   
   public ref float Scattering { get; }

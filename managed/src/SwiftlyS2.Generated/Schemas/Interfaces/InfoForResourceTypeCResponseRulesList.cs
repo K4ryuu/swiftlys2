@@ -12,6 +12,7 @@ public partial interface InfoForResourceTypeCResponseRulesList : ISchemaClass<In
 
   static InfoForResourceTypeCResponseRulesList ISchemaClass<InfoForResourceTypeCResponseRulesList>.From(nint handle) => new InfoForResourceTypeCResponseRulesListImpl(handle);
   static int ISchemaClass<InfoForResourceTypeCResponseRulesList>.Size => 1;
+  static string? ISchemaClass<InfoForResourceTypeCResponseRulesList>.ClassName => null;
 
 
 

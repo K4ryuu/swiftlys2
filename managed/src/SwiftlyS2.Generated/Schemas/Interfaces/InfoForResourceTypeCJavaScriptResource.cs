@@ -12,6 +12,7 @@ public partial interface InfoForResourceTypeCJavaScriptResource : ISchemaClass<I
 
   static InfoForResourceTypeCJavaScriptResource ISchemaClass<InfoForResourceTypeCJavaScriptResource>.From(nint handle) => new InfoForResourceTypeCJavaScriptResourceImpl(handle);
   static int ISchemaClass<InfoForResourceTypeCJavaScriptResource>.Size => 1;
+  static string? ISchemaClass<InfoForResourceTypeCJavaScriptResource>.ClassName => null;
 
 
 

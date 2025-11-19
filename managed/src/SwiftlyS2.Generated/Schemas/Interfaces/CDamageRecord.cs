@@ -12,6 +12,7 @@ public partial interface CDamageRecord : ISchemaClass<CDamageRecord> {
 
   static CDamageRecord ISchemaClass<CDamageRecord>.From(nint handle) => new CDamageRecordImpl(handle);
   static int ISchemaClass<CDamageRecord>.Size => 120;
+  static string? ISchemaClass<CDamageRecord>.ClassName => null;
 
   
   public ref CHandle<CCSPlayerPawn> PlayerDamager { get; }

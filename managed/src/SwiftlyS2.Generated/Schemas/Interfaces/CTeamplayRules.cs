@@ -12,6 +12,7 @@ public partial interface CTeamplayRules : CMultiplayRules, ISchemaClass<CTeampla
 
   static CTeamplayRules ISchemaClass<CTeamplayRules>.From(nint handle) => new CTeamplayRulesImpl(handle);
   static int ISchemaClass<CTeamplayRules>.Size => 192;
+  static string? ISchemaClass<CTeamplayRules>.ClassName => null;
 
 
 

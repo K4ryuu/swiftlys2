@@ -12,6 +12,7 @@ public partial interface FeMorphLayerDepr_t : ISchemaClass<FeMorphLayerDepr_t> {
 
   static FeMorphLayerDepr_t ISchemaClass<FeMorphLayerDepr_t>.From(nint handle) => new FeMorphLayerDepr_tImpl(handle);
   static int ISchemaClass<FeMorphLayerDepr_t>.Size => 144;
+  static string? ISchemaClass<FeMorphLayerDepr_t>.ClassName => null;
 
   
   public string Name { get; set; }

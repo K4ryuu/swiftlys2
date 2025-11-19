@@ -12,6 +12,7 @@ public partial interface CCSPlayer_PingServices : CPlayerPawnComponent, ISchemaC
 
   static CCSPlayer_PingServices ISchemaClass<CCSPlayer_PingServices>.From(nint handle) => new CCSPlayer_PingServicesImpl(handle);
   static int ISchemaClass<CCSPlayer_PingServices>.Size => 88;
+  static string? ISchemaClass<CCSPlayer_PingServices>.ClassName => null;
 
   
   // GameTime_t

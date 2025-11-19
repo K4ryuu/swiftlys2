@@ -12,6 +12,7 @@ public partial interface CPlayer_ItemServices : CPlayerPawnComponent, ISchemaCla
 
   static CPlayer_ItemServices ISchemaClass<CPlayer_ItemServices>.From(nint handle) => new CPlayer_ItemServicesImpl(handle);
   static int ISchemaClass<CPlayer_ItemServices>.Size => 64;
+  static string? ISchemaClass<CPlayer_ItemServices>.ClassName => null;
 
 
 

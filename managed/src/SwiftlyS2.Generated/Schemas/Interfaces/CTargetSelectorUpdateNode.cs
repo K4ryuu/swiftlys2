@@ -12,6 +12,7 @@ public partial interface CTargetSelectorUpdateNode : CAnimUpdateNodeBase, ISchem
 
   static CTargetSelectorUpdateNode ISchemaClass<CTargetSelectorUpdateNode>.From(nint handle) => new CTargetSelectorUpdateNodeImpl(handle);
   static int ISchemaClass<CTargetSelectorUpdateNode>.Size => 160;
+  static string? ISchemaClass<CTargetSelectorUpdateNode>.ClassName => null;
 
   
   public ref TargetSelectorAngleMode_t AngleMode { get; }

@@ -12,6 +12,7 @@ public partial interface VMixSubgraphSwitchDesc_t : ISchemaClass<VMixSubgraphSwi
 
   static VMixSubgraphSwitchDesc_t ISchemaClass<VMixSubgraphSwitchDesc_t>.From(nint handle) => new VMixSubgraphSwitchDesc_tImpl(handle);
   static int ISchemaClass<VMixSubgraphSwitchDesc_t>.Size => 12;
+  static string? ISchemaClass<VMixSubgraphSwitchDesc_t>.ClassName => null;
 
   
   public ref VMixSubgraphSwitchInterpolationType_t InterpolationMode { get; }

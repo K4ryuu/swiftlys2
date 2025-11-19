@@ -12,6 +12,7 @@ public partial interface CNmGraphDefinition : ISchemaClass<CNmGraphDefinition> {
 
   static CNmGraphDefinition ISchemaClass<CNmGraphDefinition>.From(nint handle) => new CNmGraphDefinitionImpl(handle);
   static int ISchemaClass<CNmGraphDefinition>.Size => 384;
+  static string? ISchemaClass<CNmGraphDefinition>.ClassName => null;
 
   
   public ref CGlobalSymbol VariationID { get; }

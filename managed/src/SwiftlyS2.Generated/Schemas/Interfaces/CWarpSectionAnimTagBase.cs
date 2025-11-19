@@ -12,6 +12,7 @@ public partial interface CWarpSectionAnimTagBase : CAnimTagBase, ISchemaClass<CW
 
   static CWarpSectionAnimTagBase ISchemaClass<CWarpSectionAnimTagBase>.From(nint handle) => new CWarpSectionAnimTagBaseImpl(handle);
   static int ISchemaClass<CWarpSectionAnimTagBase>.Size => 80;
+  static string? ISchemaClass<CWarpSectionAnimTagBase>.ClassName => null;
 
 
 

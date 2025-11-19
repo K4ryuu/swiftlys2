@@ -12,6 +12,7 @@ public partial interface CPulseCell_Outflow_CycleOrdered__InstanceState_t : ISch
 
   static CPulseCell_Outflow_CycleOrdered__InstanceState_t ISchemaClass<CPulseCell_Outflow_CycleOrdered__InstanceState_t>.From(nint handle) => new CPulseCell_Outflow_CycleOrdered__InstanceState_tImpl(handle);
   static int ISchemaClass<CPulseCell_Outflow_CycleOrdered__InstanceState_t>.Size => 4;
+  static string? ISchemaClass<CPulseCell_Outflow_CycleOrdered__InstanceState_t>.ClassName => null;
 
   
   public ref int NextIndex { get; }

@@ -12,6 +12,7 @@ public partial interface CNmClipNode__CDefinition : CNmClipReferenceNode__CDefin
 
   static CNmClipNode__CDefinition ISchemaClass<CNmClipNode__CDefinition>.From(nint handle) => new CNmClipNode__CDefinitionImpl(handle);
   static int ISchemaClass<CNmClipNode__CDefinition>.Size => 32;
+  static string? ISchemaClass<CNmClipNode__CDefinition>.ClassName => null;
 
   
   public ref short PlayInReverseValueNodeIdx { get; }

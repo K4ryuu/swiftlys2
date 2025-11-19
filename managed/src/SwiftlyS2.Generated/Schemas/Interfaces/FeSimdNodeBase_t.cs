@@ -12,6 +12,7 @@ public partial interface FeSimdNodeBase_t : ISchemaClass<FeSimdNodeBase_t> {
 
   static FeSimdNodeBase_t ISchemaClass<FeSimdNodeBase_t>.From(nint handle) => new FeSimdNodeBase_tImpl(handle);
   static int ISchemaClass<FeSimdNodeBase_t>.Size => 112;
+  static string? ISchemaClass<FeSimdNodeBase_t>.ClassName => null;
 
   
   public ISchemaFixedArray<ushort> Node { get; }

@@ -12,6 +12,7 @@ public partial interface PulseSelectorOutflowList_t : ISchemaClass<PulseSelector
 
   static PulseSelectorOutflowList_t ISchemaClass<PulseSelectorOutflowList_t>.From(nint handle) => new PulseSelectorOutflowList_tImpl(handle);
   static int ISchemaClass<PulseSelectorOutflowList_t>.Size => 24;
+  static string? ISchemaClass<PulseSelectorOutflowList_t>.ClassName => null;
 
   
   public ref CUtlVector<OutflowWithRequirements_t> Outflows { get; }

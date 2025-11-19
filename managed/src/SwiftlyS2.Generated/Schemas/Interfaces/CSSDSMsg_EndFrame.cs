@@ -12,6 +12,7 @@ public partial interface CSSDSMsg_EndFrame : ISchemaClass<CSSDSMsg_EndFrame> {
 
   static CSSDSMsg_EndFrame ISchemaClass<CSSDSMsg_EndFrame>.From(nint handle) => new CSSDSMsg_EndFrameImpl(handle);
   static int ISchemaClass<CSSDSMsg_EndFrame>.Size => 24;
+  static string? ISchemaClass<CSSDSMsg_EndFrame>.ClassName => null;
 
   
   public ref CUtlVector<CSSDSEndFrameViewInfo> Views { get; }

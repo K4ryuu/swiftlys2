@@ -12,6 +12,7 @@ public partial interface CModelConfigElement_RandomColor : CModelConfigElement, 
 
   static CModelConfigElement_RandomColor ISchemaClass<CModelConfigElement_RandomColor>.From(nint handle) => new CModelConfigElement_RandomColorImpl(handle);
   static int ISchemaClass<CModelConfigElement_RandomColor>.Size => 96;
+  static string? ISchemaClass<CModelConfigElement_RandomColor>.ClassName => null;
 
   
   // CColorGradient

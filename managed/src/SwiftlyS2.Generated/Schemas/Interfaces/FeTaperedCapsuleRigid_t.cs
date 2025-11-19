@@ -12,6 +12,7 @@ public partial interface FeTaperedCapsuleRigid_t : ISchemaClass<FeTaperedCapsule
 
   static FeTaperedCapsuleRigid_t ISchemaClass<FeTaperedCapsuleRigid_t>.From(nint handle) => new FeTaperedCapsuleRigid_tImpl(handle);
   static int ISchemaClass<FeTaperedCapsuleRigid_t>.Size => 48;
+  static string? ISchemaClass<FeTaperedCapsuleRigid_t>.ClassName => null;
 
   
   public ISchemaFixedArray<fltx4> Sphere { get; }

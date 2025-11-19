@@ -12,6 +12,7 @@ public partial interface CAnimLocalHierarchy : ISchemaClass<CAnimLocalHierarchy>
 
   static CAnimLocalHierarchy ISchemaClass<CAnimLocalHierarchy>.From(nint handle) => new CAnimLocalHierarchyImpl(handle);
   static int ISchemaClass<CAnimLocalHierarchy>.Size => 48;
+  static string? ISchemaClass<CAnimLocalHierarchy>.ClassName => null;
 
   
   public ref CBufferString Bone { get; }

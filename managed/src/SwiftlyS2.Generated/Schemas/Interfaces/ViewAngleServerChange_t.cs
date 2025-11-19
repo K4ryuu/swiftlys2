@@ -12,6 +12,7 @@ public partial interface ViewAngleServerChange_t : ISchemaClass<ViewAngleServerC
 
   static ViewAngleServerChange_t ISchemaClass<ViewAngleServerChange_t>.From(nint handle) => new ViewAngleServerChange_tImpl(handle);
   static int ISchemaClass<ViewAngleServerChange_t>.Size => 72;
+  static string? ISchemaClass<ViewAngleServerChange_t>.ClassName => null;
 
   
   public ref FixAngleSet_t Type { get; }

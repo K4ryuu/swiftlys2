@@ -12,6 +12,7 @@ public partial interface CPropDataComponent : CEntityComponent, ISchemaClass<CPr
 
   static CPropDataComponent ISchemaClass<CPropDataComponent>.From(nint handle) => new CPropDataComponentImpl(handle);
   static int ISchemaClass<CPropDataComponent>.Size => 64;
+  static string? ISchemaClass<CPropDataComponent>.ClassName => null;
 
   
   public ref float DmgModBullet { get; }

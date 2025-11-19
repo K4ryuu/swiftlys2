@@ -12,6 +12,7 @@ public partial interface CJumpHelperUpdateNode : CSequenceUpdateNode, ISchemaCla
 
   static CJumpHelperUpdateNode ISchemaClass<CJumpHelperUpdateNode>.From(nint handle) => new CJumpHelperUpdateNodeImpl(handle);
   static int ISchemaClass<CJumpHelperUpdateNode>.Size => 216;
+  static string? ISchemaClass<CJumpHelperUpdateNode>.ClassName => null;
 
   
   public CAnimParamHandle TargetParam { get; }

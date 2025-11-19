@@ -12,6 +12,7 @@ public partial interface MotionDBIndex : ISchemaClass<MotionDBIndex> {
 
   static MotionDBIndex ISchemaClass<MotionDBIndex>.From(nint handle) => new MotionDBIndexImpl(handle);
   static int ISchemaClass<MotionDBIndex>.Size => 4;
+  static string? ISchemaClass<MotionDBIndex>.ClassName => null;
 
   
   public ref uint Index { get; }

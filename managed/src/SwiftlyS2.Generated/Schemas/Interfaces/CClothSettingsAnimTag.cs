@@ -12,6 +12,7 @@ public partial interface CClothSettingsAnimTag : CAnimTagBase, ISchemaClass<CClo
 
   static CClothSettingsAnimTag ISchemaClass<CClothSettingsAnimTag>.From(nint handle) => new CClothSettingsAnimTagImpl(handle);
   static int ISchemaClass<CClothSettingsAnimTag>.Size => 112;
+  static string? ISchemaClass<CClothSettingsAnimTag>.ClassName => null;
 
   
   public ref float Stiffness { get; }

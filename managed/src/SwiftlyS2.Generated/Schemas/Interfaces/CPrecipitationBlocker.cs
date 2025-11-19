@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CPrecipitationBlocker : CBaseModelEntity, ISchemaClass<CPrecipitationBlocker> {
 
   static CPrecipitationBlocker ISchemaClass<CPrecipitationBlocker>.From(nint handle) => new CPrecipitationBlockerImpl(handle);
-  static int ISchemaClass<CPrecipitationBlocker>.Size => 2008;
+  static int ISchemaClass<CPrecipitationBlocker>.Size => 2752;
+  static string? ISchemaClass<CPrecipitationBlocker>.ClassName => "func_precipitation_blocker";
 
 
 

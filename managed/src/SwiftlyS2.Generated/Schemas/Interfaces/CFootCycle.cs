@@ -12,6 +12,7 @@ public partial interface CFootCycle : CCycleBase, ISchemaClass<CFootCycle> {
 
   static CFootCycle ISchemaClass<CFootCycle>.From(nint handle) => new CFootCycleImpl(handle);
   static int ISchemaClass<CFootCycle>.Size => 4;
+  static string? ISchemaClass<CFootCycle>.ClassName => null;
 
 
 

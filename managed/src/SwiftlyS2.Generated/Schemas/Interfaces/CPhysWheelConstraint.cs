@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CPhysWheelConstraint : CPhysConstraint, ISchemaClass<CPhysWheelConstraint> {
 
   static CPhysWheelConstraint ISchemaClass<CPhysWheelConstraint>.From(nint handle) => new CPhysWheelConstraintImpl(handle);
-  static int ISchemaClass<CPhysWheelConstraint>.Size => 1432;
+  static int ISchemaClass<CPhysWheelConstraint>.Size => 2176;
+  static string? ISchemaClass<CPhysWheelConstraint>.ClassName => "phys_wheelconstraint";
 
   
   public ref float SuspensionFrequency { get; }

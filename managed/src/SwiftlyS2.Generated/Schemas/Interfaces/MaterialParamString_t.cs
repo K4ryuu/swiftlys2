@@ -12,6 +12,7 @@ public partial interface MaterialParamString_t : MaterialParam_t, ISchemaClass<M
 
   static MaterialParamString_t ISchemaClass<MaterialParamString_t>.From(nint handle) => new MaterialParamString_tImpl(handle);
   static int ISchemaClass<MaterialParamString_t>.Size => 16;
+  static string? ISchemaClass<MaterialParamString_t>.ClassName => null;
 
   
   public string Value { get; set; }

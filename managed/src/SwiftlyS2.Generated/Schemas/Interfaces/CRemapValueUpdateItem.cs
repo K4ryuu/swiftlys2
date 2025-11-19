@@ -12,6 +12,7 @@ public partial interface CRemapValueUpdateItem : ISchemaClass<CRemapValueUpdateI
 
   static CRemapValueUpdateItem ISchemaClass<CRemapValueUpdateItem>.From(nint handle) => new CRemapValueUpdateItemImpl(handle);
   static int ISchemaClass<CRemapValueUpdateItem>.Size => 20;
+  static string? ISchemaClass<CRemapValueUpdateItem>.ClassName => null;
 
   
   public CAnimParamHandle ParamIn { get; }

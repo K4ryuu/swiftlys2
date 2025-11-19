@@ -12,6 +12,7 @@ public partial interface lerpdata_t : ISchemaClass<lerpdata_t> {
 
   static lerpdata_t ISchemaClass<lerpdata_t>.From(nint handle) => new lerpdata_tImpl(handle);
   static int ISchemaClass<lerpdata_t>.Size => 80;
+  static string? ISchemaClass<lerpdata_t>.ClassName => null;
 
   
   public ref CHandle<CBaseEntity> Ent { get; }

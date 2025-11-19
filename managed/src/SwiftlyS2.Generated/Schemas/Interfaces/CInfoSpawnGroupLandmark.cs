@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CInfoSpawnGroupLandmark : CPointEntity, ISchemaClass<CInfoSpawnGroupLandmark> {
 
   static CInfoSpawnGroupLandmark ISchemaClass<CInfoSpawnGroupLandmark>.From(nint handle) => new CInfoSpawnGroupLandmarkImpl(handle);
-  static int ISchemaClass<CInfoSpawnGroupLandmark>.Size => 1264;
+  static int ISchemaClass<CInfoSpawnGroupLandmark>.Size => 2008;
+  static string? ISchemaClass<CInfoSpawnGroupLandmark>.ClassName => "info_spawngroup_landmark";
 
 
 

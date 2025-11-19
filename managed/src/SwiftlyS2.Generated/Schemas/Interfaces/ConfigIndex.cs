@@ -12,6 +12,7 @@ public partial interface ConfigIndex : ISchemaClass<ConfigIndex> {
 
   static ConfigIndex ISchemaClass<ConfigIndex>.From(nint handle) => new ConfigIndexImpl(handle);
   static int ISchemaClass<ConfigIndex>.Size => 4;
+  static string? ISchemaClass<ConfigIndex>.ClassName => null;
 
   
   public ref ushort Group { get; }

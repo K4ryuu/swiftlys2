@@ -12,6 +12,7 @@ public partial interface CVoiceContainerStaticAdditiveSynth__CHarmonic : ISchema
 
   static CVoiceContainerStaticAdditiveSynth__CHarmonic ISchemaClass<CVoiceContainerStaticAdditiveSynth__CHarmonic>.From(nint handle) => new CVoiceContainerStaticAdditiveSynth__CHarmonicImpl(handle);
   static int ISchemaClass<CVoiceContainerStaticAdditiveSynth__CHarmonic>.Size => 104;
+  static string? ISchemaClass<CVoiceContainerStaticAdditiveSynth__CHarmonic>.ClassName => null;
 
   
   public ref EWaveform Waveform { get; }

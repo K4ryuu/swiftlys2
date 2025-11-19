@@ -12,6 +12,7 @@ public partial interface CNmBoneWeightList : ISchemaClass<CNmBoneWeightList> {
 
   static CNmBoneWeightList ISchemaClass<CNmBoneWeightList>.From(nint handle) => new CNmBoneWeightListImpl(handle);
   static int ISchemaClass<CNmBoneWeightList>.Size => 272;
+  static string? ISchemaClass<CNmBoneWeightList>.ClassName => null;
 
   
   // CResourceName

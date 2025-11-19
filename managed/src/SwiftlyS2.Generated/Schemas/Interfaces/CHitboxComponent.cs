@@ -12,6 +12,7 @@ public partial interface CHitboxComponent : CEntityComponent, ISchemaClass<CHitb
 
   static CHitboxComponent ISchemaClass<CHitboxComponent>.From(nint handle) => new CHitboxComponentImpl(handle);
   static int ISchemaClass<CHitboxComponent>.Size => 24;
+  static string? ISchemaClass<CHitboxComponent>.ClassName => null;
 
   
   public ref float BoundsExpandRadius { get; }

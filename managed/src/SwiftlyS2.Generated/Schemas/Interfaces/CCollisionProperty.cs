@@ -12,6 +12,7 @@ public partial interface CCollisionProperty : ISchemaClass<CCollisionProperty> {
 
   static CCollisionProperty ISchemaClass<CCollisionProperty>.From(nint handle) => new CCollisionPropertyImpl(handle);
   static int ISchemaClass<CCollisionProperty>.Size => 176;
+  static string? ISchemaClass<CCollisionProperty>.ClassName => null;
 
   
   public VPhysicsCollisionAttribute_t CollisionAttribute { get; }

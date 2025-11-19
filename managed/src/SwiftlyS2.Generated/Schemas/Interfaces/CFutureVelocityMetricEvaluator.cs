@@ -12,6 +12,7 @@ public partial interface CFutureVelocityMetricEvaluator : CMotionMetricEvaluator
 
   static CFutureVelocityMetricEvaluator ISchemaClass<CFutureVelocityMetricEvaluator>.From(nint handle) => new CFutureVelocityMetricEvaluatorImpl(handle);
   static int ISchemaClass<CFutureVelocityMetricEvaluator>.Size => 96;
+  static string? ISchemaClass<CFutureVelocityMetricEvaluator>.ClassName => null;
 
   
   public ref float Distance { get; }

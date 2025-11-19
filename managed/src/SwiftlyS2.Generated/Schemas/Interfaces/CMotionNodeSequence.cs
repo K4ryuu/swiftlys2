@@ -12,6 +12,7 @@ public partial interface CMotionNodeSequence : CMotionNode, ISchemaClass<CMotion
 
   static CMotionNodeSequence ISchemaClass<CMotionNodeSequence>.From(nint handle) => new CMotionNodeSequenceImpl(handle);
   static int ISchemaClass<CMotionNodeSequence>.Size => 72;
+  static string? ISchemaClass<CMotionNodeSequence>.ClassName => null;
 
   
   public ref CUtlVector<TagSpan_t> Tags { get; }

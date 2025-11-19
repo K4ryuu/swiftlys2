@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CNmVirtualParameterTargetNode__CDefinition : CNmTargetValueNode__CDefinition, ISchemaClass<CNmVirtualParameterTargetNode__CDefinition> {
 
   static CNmVirtualParameterTargetNode__CDefinition ISchemaClass<CNmVirtualParameterTargetNode__CDefinition>.From(nint handle) => new CNmVirtualParameterTargetNode__CDefinitionImpl(handle);
-  static int ISchemaClass<CNmVirtualParameterTargetNode__CDefinition>.Size => 24;
+  static int ISchemaClass<CNmVirtualParameterTargetNode__CDefinition>.Size => 16;
+  static string? ISchemaClass<CNmVirtualParameterTargetNode__CDefinition>.ClassName => null;
 
   
   public ref short ChildNodeIdx { get; }

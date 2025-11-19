@@ -12,6 +12,7 @@ public partial interface CNmOrientationWarpNode__CDefinition : CNmPoseNode__CDef
 
   static CNmOrientationWarpNode__CDefinition ISchemaClass<CNmOrientationWarpNode__CDefinition>.From(nint handle) => new CNmOrientationWarpNode__CDefinitionImpl(handle);
   static int ISchemaClass<CNmOrientationWarpNode__CDefinition>.Size => 24;
+  static string? ISchemaClass<CNmOrientationWarpNode__CDefinition>.ClassName => null;
 
   
   public ref short ClipReferenceNodeIdx { get; }

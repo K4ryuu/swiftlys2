@@ -12,6 +12,7 @@ public partial interface DestructibleHitGroupToDestroy_t : ISchemaClass<Destruct
 
   static DestructibleHitGroupToDestroy_t ISchemaClass<DestructibleHitGroupToDestroy_t>.From(nint handle) => new DestructibleHitGroupToDestroy_tImpl(handle);
   static int ISchemaClass<DestructibleHitGroupToDestroy_t>.Size => 8;
+  static string? ISchemaClass<DestructibleHitGroupToDestroy_t>.ClassName => null;
 
   
   public ref HitGroup_t HitGroup { get; }

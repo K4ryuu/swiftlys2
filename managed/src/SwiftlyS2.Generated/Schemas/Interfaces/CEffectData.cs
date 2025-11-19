@@ -12,6 +12,7 @@ public partial interface CEffectData : ISchemaClass<CEffectData> {
 
   static CEffectData ISchemaClass<CEffectData>.From(nint handle) => new CEffectDataImpl(handle);
   static int ISchemaClass<CEffectData>.Size => 112;
+  static string? ISchemaClass<CEffectData>.ClassName => null;
 
   
   public ref Vector Origin { get; }

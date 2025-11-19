@@ -12,6 +12,7 @@ public partial interface CAudioPhonemeTag : ISchemaClass<CAudioPhonemeTag> {
 
   static CAudioPhonemeTag ISchemaClass<CAudioPhonemeTag>.From(nint handle) => new CAudioPhonemeTagImpl(handle);
   static int ISchemaClass<CAudioPhonemeTag>.Size => 12;
+  static string? ISchemaClass<CAudioPhonemeTag>.ClassName => null;
 
   
   public ref float StartTime { get; }

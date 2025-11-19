@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CNmVirtualParameterFloatNode__CDefinition : CNmFloatValueNode__CDefinition, ISchemaClass<CNmVirtualParameterFloatNode__CDefinition> {
 
   static CNmVirtualParameterFloatNode__CDefinition ISchemaClass<CNmVirtualParameterFloatNode__CDefinition>.From(nint handle) => new CNmVirtualParameterFloatNode__CDefinitionImpl(handle);
-  static int ISchemaClass<CNmVirtualParameterFloatNode__CDefinition>.Size => 24;
+  static int ISchemaClass<CNmVirtualParameterFloatNode__CDefinition>.Size => 16;
+  static string? ISchemaClass<CNmVirtualParameterFloatNode__CDefinition>.ClassName => null;
 
   
   public ref short ChildNodeIdx { get; }

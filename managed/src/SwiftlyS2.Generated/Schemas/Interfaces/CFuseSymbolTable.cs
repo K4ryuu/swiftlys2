@@ -12,6 +12,7 @@ public partial interface CFuseSymbolTable : ISchemaClass<CFuseSymbolTable> {
 
   static CFuseSymbolTable ISchemaClass<CFuseSymbolTable>.From(nint handle) => new CFuseSymbolTableImpl(handle);
   static int ISchemaClass<CFuseSymbolTable>.Size => 176;
+  static string? ISchemaClass<CFuseSymbolTable>.ClassName => null;
 
   
   public ref CUtlVector<ConstantInfo_t> Constants { get; }

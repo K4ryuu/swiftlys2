@@ -12,6 +12,7 @@ public partial interface InfoForResourceTypeCNmGraphDefinition : ISchemaClass<In
 
   static InfoForResourceTypeCNmGraphDefinition ISchemaClass<InfoForResourceTypeCNmGraphDefinition>.From(nint handle) => new InfoForResourceTypeCNmGraphDefinitionImpl(handle);
   static int ISchemaClass<InfoForResourceTypeCNmGraphDefinition>.Size => 1;
+  static string? ISchemaClass<InfoForResourceTypeCNmGraphDefinition>.ClassName => null;
 
 
 

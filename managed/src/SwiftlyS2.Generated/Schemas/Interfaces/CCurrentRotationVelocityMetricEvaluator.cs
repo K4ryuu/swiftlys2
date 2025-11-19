@@ -12,6 +12,7 @@ public partial interface CCurrentRotationVelocityMetricEvaluator : CMotionMetric
 
   static CCurrentRotationVelocityMetricEvaluator ISchemaClass<CCurrentRotationVelocityMetricEvaluator>.From(nint handle) => new CCurrentRotationVelocityMetricEvaluatorImpl(handle);
   static int ISchemaClass<CCurrentRotationVelocityMetricEvaluator>.Size => 80;
+  static string? ISchemaClass<CCurrentRotationVelocityMetricEvaluator>.ClassName => null;
 
 
 

@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CInfoParticleTarget : CPointEntity, ISchemaClass<CInfoParticleTarget> {
 
   static CInfoParticleTarget ISchemaClass<CInfoParticleTarget>.From(nint handle) => new CInfoParticleTargetImpl(handle);
-  static int ISchemaClass<CInfoParticleTarget>.Size => 1264;
+  static int ISchemaClass<CInfoParticleTarget>.Size => 2008;
+  static string? ISchemaClass<CInfoParticleTarget>.ClassName => "info_particle_target";
 
 
 

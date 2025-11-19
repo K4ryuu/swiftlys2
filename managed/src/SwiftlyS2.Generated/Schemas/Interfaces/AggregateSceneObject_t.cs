@@ -12,6 +12,7 @@ public partial interface AggregateSceneObject_t : ISchemaClass<AggregateSceneObj
 
   static AggregateSceneObject_t ISchemaClass<AggregateSceneObject_t>.From(nint handle) => new AggregateSceneObject_tImpl(handle);
   static int ISchemaClass<AggregateSceneObject_t>.Size => 120;
+  static string? ISchemaClass<AggregateSceneObject_t>.ClassName => null;
 
   
   public ref ObjectTypeFlags_t AllFlags { get; }

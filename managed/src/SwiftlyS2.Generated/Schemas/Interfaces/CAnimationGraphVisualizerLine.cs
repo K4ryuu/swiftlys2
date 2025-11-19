@@ -12,6 +12,7 @@ public partial interface CAnimationGraphVisualizerLine : CAnimationGraphVisualiz
 
   static CAnimationGraphVisualizerLine ISchemaClass<CAnimationGraphVisualizerLine>.From(nint handle) => new CAnimationGraphVisualizerLineImpl(handle);
   static int ISchemaClass<CAnimationGraphVisualizerLine>.Size => 112;
+  static string? ISchemaClass<CAnimationGraphVisualizerLine>.ClassName => null;
 
   
   public ref Vector WsPositionStart { get; }

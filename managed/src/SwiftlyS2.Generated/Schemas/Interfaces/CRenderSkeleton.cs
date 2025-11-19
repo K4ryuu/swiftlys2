@@ -12,6 +12,7 @@ public partial interface CRenderSkeleton : ISchemaClass<CRenderSkeleton> {
 
   static CRenderSkeleton ISchemaClass<CRenderSkeleton>.From(nint handle) => new CRenderSkeletonImpl(handle);
   static int ISchemaClass<CRenderSkeleton>.Size => 80;
+  static string? ISchemaClass<CRenderSkeleton>.ClassName => null;
 
   
   public ref CUtlVector<RenderSkeletonBone_t> Bones { get; }

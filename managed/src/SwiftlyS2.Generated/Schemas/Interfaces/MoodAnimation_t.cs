@@ -12,6 +12,7 @@ public partial interface MoodAnimation_t : ISchemaClass<MoodAnimation_t> {
 
   static MoodAnimation_t ISchemaClass<MoodAnimation_t>.From(nint handle) => new MoodAnimation_tImpl(handle);
   static int ISchemaClass<MoodAnimation_t>.Size => 16;
+  static string? ISchemaClass<MoodAnimation_t>.ClassName => null;
 
   
   // CModelAnimNameWithDeltas

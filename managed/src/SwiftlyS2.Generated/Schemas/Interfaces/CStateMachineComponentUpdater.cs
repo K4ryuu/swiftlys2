@@ -12,6 +12,7 @@ public partial interface CStateMachineComponentUpdater : CAnimComponentUpdater, 
 
   static CStateMachineComponentUpdater ISchemaClass<CStateMachineComponentUpdater>.From(nint handle) => new CStateMachineComponentUpdaterImpl(handle);
   static int ISchemaClass<CStateMachineComponentUpdater>.Size => 136;
+  static string? ISchemaClass<CStateMachineComponentUpdater>.ClassName => null;
 
   
   public CAnimStateMachineUpdater StateMachine { get; }

@@ -12,6 +12,7 @@ public partial interface FootFixedData_t : ISchemaClass<FootFixedData_t> {
 
   static FootFixedData_t ISchemaClass<FootFixedData_t>.From(nint handle) => new FootFixedData_tImpl(handle);
   static int ISchemaClass<FootFixedData_t>.Size => 80;
+  static string? ISchemaClass<FootFixedData_t>.ClassName => null;
 
   
   public ref Vector ToeOffset { get; }

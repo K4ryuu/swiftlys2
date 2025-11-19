@@ -12,6 +12,7 @@ public partial interface PulseGraphExecutionHistoryEntry_t : ISchemaClass<PulseG
 
   static PulseGraphExecutionHistoryEntry_t ISchemaClass<PulseGraphExecutionHistoryEntry_t>.From(nint handle) => new PulseGraphExecutionHistoryEntry_tImpl(handle);
   static int ISchemaClass<PulseGraphExecutionHistoryEntry_t>.Size => 32;
+  static string? ISchemaClass<PulseGraphExecutionHistoryEntry_t>.ClassName => null;
 
   
   public PulseCursorID_t CursorID { get; }

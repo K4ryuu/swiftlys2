@@ -12,6 +12,7 @@ public partial interface CNmStateNode__TimedEvent_t : ISchemaClass<CNmStateNode_
 
   static CNmStateNode__TimedEvent_t ISchemaClass<CNmStateNode__TimedEvent_t>.From(nint handle) => new CNmStateNode__TimedEvent_tImpl(handle);
   static int ISchemaClass<CNmStateNode__TimedEvent_t>.Size => 16;
+  static string? ISchemaClass<CNmStateNode__TimedEvent_t>.ClassName => null;
 
   
   public ref CGlobalSymbol ID { get; }

@@ -12,6 +12,7 @@ public partial interface CSequenceFinishedAnimTag : CAnimTagBase, ISchemaClass<C
 
   static CSequenceFinishedAnimTag ISchemaClass<CSequenceFinishedAnimTag>.From(nint handle) => new CSequenceFinishedAnimTagImpl(handle);
   static int ISchemaClass<CSequenceFinishedAnimTag>.Size => 96;
+  static string? ISchemaClass<CSequenceFinishedAnimTag>.ClassName => null;
 
   
   public string SequenceName { get; set; }

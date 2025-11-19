@@ -12,6 +12,7 @@ public partial interface CParticleAnimTag : CAnimTagBase, ISchemaClass<CParticle
 
   static CParticleAnimTag ISchemaClass<CParticleAnimTag>.From(nint handle) => new CParticleAnimTagImpl(handle);
   static int ISchemaClass<CParticleAnimTag>.Size => 152;
+  static string? ISchemaClass<CParticleAnimTag>.ClassName => null;
 
   
   public ref CStrongHandle<InfoForResourceTypeIParticleSystemDefinition> ParticleSystem { get; }

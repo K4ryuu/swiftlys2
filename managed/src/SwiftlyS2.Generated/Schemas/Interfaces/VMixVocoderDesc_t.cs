@@ -12,6 +12,7 @@ public partial interface VMixVocoderDesc_t : ISchemaClass<VMixVocoderDesc_t> {
 
   static VMixVocoderDesc_t ISchemaClass<VMixVocoderDesc_t>.From(nint handle) => new VMixVocoderDesc_tImpl(handle);
   static int ISchemaClass<VMixVocoderDesc_t>.Size => 40;
+  static string? ISchemaClass<VMixVocoderDesc_t>.ClassName => null;
 
   
   public ref int BandCount { get; }

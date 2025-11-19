@@ -12,6 +12,7 @@ public partial interface RenderInputLayoutField_t : ISchemaClass<RenderInputLayo
 
   static RenderInputLayoutField_t ISchemaClass<RenderInputLayoutField_t>.From(nint handle) => new RenderInputLayoutField_tImpl(handle);
   static int ISchemaClass<RenderInputLayoutField_t>.Size => 76;
+  static string? ISchemaClass<RenderInputLayoutField_t>.ClassName => null;
 
   
   public string SemanticName { get; set; }

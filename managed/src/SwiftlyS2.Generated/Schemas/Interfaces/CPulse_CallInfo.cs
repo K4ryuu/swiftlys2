@@ -12,6 +12,7 @@ public partial interface CPulse_CallInfo : ISchemaClass<CPulse_CallInfo> {
 
   static CPulse_CallInfo ISchemaClass<CPulse_CallInfo>.From(nint handle) => new CPulse_CallInfoImpl(handle);
   static int ISchemaClass<CPulse_CallInfo>.Size => 88;
+  static string? ISchemaClass<CPulse_CallInfo>.ClassName => null;
 
   
   // PulseSymbol_t

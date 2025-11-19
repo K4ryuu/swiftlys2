@@ -12,6 +12,7 @@ public partial interface CSequenceUpdateNode : CSequenceUpdateNodeBase, ISchemaC
 
   static CSequenceUpdateNode ISchemaClass<CSequenceUpdateNode>.From(nint handle) => new CSequenceUpdateNodeImpl(handle);
   static int ISchemaClass<CSequenceUpdateNode>.Size => 176;
+  static string? ISchemaClass<CSequenceUpdateNode>.ClassName => null;
 
   
   public HSequence Sequence { get; }

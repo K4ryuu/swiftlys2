@@ -12,6 +12,7 @@ public partial interface CAttributeManager : ISchemaClass<CAttributeManager> {
 
   static CAttributeManager ISchemaClass<CAttributeManager>.From(nint handle) => new CAttributeManagerImpl(handle);
   static int ISchemaClass<CAttributeManager>.Size => 80;
+  static string? ISchemaClass<CAttributeManager>.ClassName => null;
 
   
   public ref CUtlVector<CHandle<CBaseEntity>> Providers { get; }

@@ -12,6 +12,7 @@ public partial interface CFilterMultipleAPI : ISchemaClass<CFilterMultipleAPI> {
 
   static CFilterMultipleAPI ISchemaClass<CFilterMultipleAPI>.From(nint handle) => new CFilterMultipleAPIImpl(handle);
   static int ISchemaClass<CFilterMultipleAPI>.Size => 8;
+  static string? ISchemaClass<CFilterMultipleAPI>.ClassName => null;
 
 
 

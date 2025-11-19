@@ -12,6 +12,7 @@ public partial interface FollowAttachmentSettings_t : ISchemaClass<FollowAttachm
 
   static FollowAttachmentSettings_t ISchemaClass<FollowAttachmentSettings_t>.From(nint handle) => new FollowAttachmentSettings_tImpl(handle);
   static int ISchemaClass<FollowAttachmentSettings_t>.Size => 144;
+  static string? ISchemaClass<FollowAttachmentSettings_t>.ClassName => null;
 
   
   public CAnimAttachment Attachment { get; }

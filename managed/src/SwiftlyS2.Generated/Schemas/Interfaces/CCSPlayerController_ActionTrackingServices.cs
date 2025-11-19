@@ -12,6 +12,7 @@ public partial interface CCSPlayerController_ActionTrackingServices : CPlayerCon
 
   static CCSPlayerController_ActionTrackingServices ISchemaClass<CCSPlayerController_ActionTrackingServices>.From(nint handle) => new CCSPlayerController_ActionTrackingServicesImpl(handle);
   static int ISchemaClass<CCSPlayerController_ActionTrackingServices>.Size => 624;
+  static string? ISchemaClass<CCSPlayerController_ActionTrackingServices>.ClassName => null;
 
   
   public ref CUtlVector<CSPerRoundStats_t> PerRoundStats { get; }

@@ -12,6 +12,7 @@ public partial interface CVoiceContainerNull : CVoiceContainerBase, ISchemaClass
 
   static CVoiceContainerNull ISchemaClass<CVoiceContainerNull>.From(nint handle) => new CVoiceContainerNullImpl(handle);
   static int ISchemaClass<CVoiceContainerNull>.Size => 184;
+  static string? ISchemaClass<CVoiceContainerNull>.ClassName => null;
 
 
 

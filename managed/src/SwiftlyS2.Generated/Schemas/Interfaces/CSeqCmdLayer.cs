@@ -12,6 +12,7 @@ public partial interface CSeqCmdLayer : ISchemaClass<CSeqCmdLayer> {
 
   static CSeqCmdLayer ISchemaClass<CSeqCmdLayer>.From(nint handle) => new CSeqCmdLayerImpl(handle);
   static int ISchemaClass<CSeqCmdLayer>.Size => 24;
+  static string? ISchemaClass<CSeqCmdLayer>.ClassName => null;
 
   
   public ref short Cmd { get; }

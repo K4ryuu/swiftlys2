@@ -12,6 +12,7 @@ public partial interface CAttachment : ISchemaClass<CAttachment> {
 
   static CAttachment ISchemaClass<CAttachment>.From(nint handle) => new CAttachmentImpl(handle);
   static int ISchemaClass<CAttachment>.Size => 144;
+  static string? ISchemaClass<CAttachment>.ClassName => null;
 
   
   public string Name { get; set; }

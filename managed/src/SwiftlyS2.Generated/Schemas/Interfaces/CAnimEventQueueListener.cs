@@ -12,6 +12,7 @@ public partial interface CAnimEventQueueListener : CAnimEventListenerBase, ISche
 
   static CAnimEventQueueListener ISchemaClass<CAnimEventQueueListener>.From(nint handle) => new CAnimEventQueueListenerImpl(handle);
   static int ISchemaClass<CAnimEventQueueListener>.Size => 80;
+  static string? ISchemaClass<CAnimEventQueueListener>.ClassName => null;
 
 
 

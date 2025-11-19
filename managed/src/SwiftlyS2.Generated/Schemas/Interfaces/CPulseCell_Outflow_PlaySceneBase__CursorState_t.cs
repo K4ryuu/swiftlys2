@@ -12,6 +12,7 @@ public partial interface CPulseCell_Outflow_PlaySceneBase__CursorState_t : ISche
 
   static CPulseCell_Outflow_PlaySceneBase__CursorState_t ISchemaClass<CPulseCell_Outflow_PlaySceneBase__CursorState_t>.From(nint handle) => new CPulseCell_Outflow_PlaySceneBase__CursorState_tImpl(handle);
   static int ISchemaClass<CPulseCell_Outflow_PlaySceneBase__CursorState_t>.Size => 8;
+  static string? ISchemaClass<CPulseCell_Outflow_PlaySceneBase__CursorState_t>.ClassName => null;
 
   
   public ref CHandle<CBaseEntity> SceneInstance { get; }

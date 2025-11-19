@@ -12,6 +12,7 @@ public partial interface CNmParticleEvent : CNmEvent, ISchemaClass<CNmParticleEv
 
   static CNmParticleEvent ISchemaClass<CNmParticleEvent>.From(nint handle) => new CNmParticleEventImpl(handle);
   static int ISchemaClass<CNmParticleEvent>.Size => 112;
+  static string? ISchemaClass<CNmParticleEvent>.ClassName => null;
 
   
   public ref CNmEventRelevance_t Relevance { get; }

@@ -12,6 +12,7 @@ public partial interface CVoiceContainerStaticAdditiveSynth__CTone : ISchemaClas
 
   static CVoiceContainerStaticAdditiveSynth__CTone ISchemaClass<CVoiceContainerStaticAdditiveSynth__CTone>.From(nint handle) => new CVoiceContainerStaticAdditiveSynth__CToneImpl(handle);
   static int ISchemaClass<CVoiceContainerStaticAdditiveSynth__CTone>.Size => 96;
+  static string? ISchemaClass<CVoiceContainerStaticAdditiveSynth__CTone>.ClassName => null;
 
   
   public ref CUtlVector<CVoiceContainerStaticAdditiveSynth__CHarmonic> Harmonics { get; }

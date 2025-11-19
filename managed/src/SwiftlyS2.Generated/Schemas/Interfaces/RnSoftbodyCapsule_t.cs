@@ -12,6 +12,7 @@ public partial interface RnSoftbodyCapsule_t : ISchemaClass<RnSoftbodyCapsule_t>
 
   static RnSoftbodyCapsule_t ISchemaClass<RnSoftbodyCapsule_t>.From(nint handle) => new RnSoftbodyCapsule_tImpl(handle);
   static int ISchemaClass<RnSoftbodyCapsule_t>.Size => 32;
+  static string? ISchemaClass<RnSoftbodyCapsule_t>.ClassName => null;
 
   
   public ISchemaFixedArray<Vector> Center { get; }

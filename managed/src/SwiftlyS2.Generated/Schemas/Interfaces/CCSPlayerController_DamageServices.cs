@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CCSPlayerController_DamageServices : CPlayerControllerComponent, ISchemaClass<CCSPlayerController_DamageServices> {
 
   static CCSPlayerController_DamageServices ISchemaClass<CCSPlayerController_DamageServices>.From(nint handle) => new CCSPlayerController_DamageServicesImpl(handle);
-  static int ISchemaClass<CCSPlayerController_DamageServices>.Size => 208;
+  static int ISchemaClass<CCSPlayerController_DamageServices>.Size => 216;
+  static string? ISchemaClass<CCSPlayerController_DamageServices>.ClassName => null;
 
   
   public ref int SendUpdate { get; }

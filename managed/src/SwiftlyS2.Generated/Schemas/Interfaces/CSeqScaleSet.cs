@@ -12,6 +12,7 @@ public partial interface CSeqScaleSet : ISchemaClass<CSeqScaleSet> {
 
   static CSeqScaleSet ISchemaClass<CSeqScaleSet>.From(nint handle) => new CSeqScaleSetImpl(handle);
   static int ISchemaClass<CSeqScaleSet>.Size => 80;
+  static string? ISchemaClass<CSeqScaleSet>.ClassName => null;
 
   
   public ref CBufferString Name { get; }

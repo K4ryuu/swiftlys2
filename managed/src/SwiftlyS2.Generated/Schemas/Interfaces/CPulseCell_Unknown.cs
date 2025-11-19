@@ -12,6 +12,7 @@ public partial interface CPulseCell_Unknown : CPulseCell_Base, ISchemaClass<CPul
 
   static CPulseCell_Unknown ISchemaClass<CPulseCell_Unknown>.From(nint handle) => new CPulseCell_UnknownImpl(handle);
   static int ISchemaClass<CPulseCell_Unknown>.Size => 88;
+  static string? ISchemaClass<CPulseCell_Unknown>.ClassName => null;
 
   
   // KeyValues3

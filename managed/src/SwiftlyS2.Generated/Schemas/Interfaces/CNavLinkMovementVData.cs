@@ -12,6 +12,7 @@ public partial interface CNavLinkMovementVData : ISchemaClass<CNavLinkMovementVD
 
   static CNavLinkMovementVData ISchemaClass<CNavLinkMovementVData>.From(nint handle) => new CNavLinkMovementVDataImpl(handle);
   static int ISchemaClass<CNavLinkMovementVData>.Size => 256;
+  static string? ISchemaClass<CNavLinkMovementVData>.ClassName => null;
 
   
   // CResourceNameTyped< CWeakHandle< InfoForResourceTypeCModel > >

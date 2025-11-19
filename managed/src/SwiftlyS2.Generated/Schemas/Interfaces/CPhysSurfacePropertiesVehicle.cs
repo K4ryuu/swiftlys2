@@ -12,6 +12,7 @@ public partial interface CPhysSurfacePropertiesVehicle : ISchemaClass<CPhysSurfa
 
   static CPhysSurfacePropertiesVehicle ISchemaClass<CPhysSurfacePropertiesVehicle>.From(nint handle) => new CPhysSurfacePropertiesVehicleImpl(handle);
   static int ISchemaClass<CPhysSurfacePropertiesVehicle>.Size => 8;
+  static string? ISchemaClass<CPhysSurfacePropertiesVehicle>.ClassName => null;
 
   
   public ref float WheelDrag { get; }

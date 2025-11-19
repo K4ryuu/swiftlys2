@@ -12,6 +12,7 @@ public partial interface EventSimpleLoopFrameUpdate_t : ISchemaClass<EventSimple
 
   static EventSimpleLoopFrameUpdate_t ISchemaClass<EventSimpleLoopFrameUpdate_t>.From(nint handle) => new EventSimpleLoopFrameUpdate_tImpl(handle);
   static int ISchemaClass<EventSimpleLoopFrameUpdate_t>.Size => 48;
+  static string? ISchemaClass<EventSimpleLoopFrameUpdate_t>.ClassName => null;
 
   
   public EngineLoopState_t LoopState { get; }

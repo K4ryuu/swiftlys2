@@ -12,6 +12,7 @@ public partial interface CAnimGraphDebugReplay : ISchemaClass<CAnimGraphDebugRep
 
   static CAnimGraphDebugReplay ISchemaClass<CAnimGraphDebugReplay>.From(nint handle) => new CAnimGraphDebugReplayImpl(handle);
   static int ISchemaClass<CAnimGraphDebugReplay>.Size => 112;
+  static string? ISchemaClass<CAnimGraphDebugReplay>.ClassName => null;
 
   
   public string AnimGraphFileName { get; set; }

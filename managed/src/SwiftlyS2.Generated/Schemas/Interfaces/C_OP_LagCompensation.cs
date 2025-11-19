@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface C_OP_LagCompensation : CParticleFunctionOperator, ISchemaClass<C_OP_LagCompensation> {
 
   static C_OP_LagCompensation ISchemaClass<C_OP_LagCompensation>.From(nint handle) => new C_OP_LagCompensationImpl(handle);
-  static int ISchemaClass<C_OP_LagCompensation>.Size => 480;
+  static int ISchemaClass<C_OP_LagCompensation>.Size => 472;
+  static string? ISchemaClass<C_OP_LagCompensation>.ClassName => null;
 
   
   public ref int DesiredVelocityCP { get; }

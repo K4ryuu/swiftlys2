@@ -12,6 +12,7 @@ public partial interface CSetParameterActionUpdater : CAnimActionUpdater, ISchem
 
   static CSetParameterActionUpdater ISchemaClass<CSetParameterActionUpdater>.From(nint handle) => new CSetParameterActionUpdaterImpl(handle);
   static int ISchemaClass<CSetParameterActionUpdater>.Size => 48;
+  static string? ISchemaClass<CSetParameterActionUpdater>.ClassName => null;
 
   
   public CAnimParamHandle Param { get; }

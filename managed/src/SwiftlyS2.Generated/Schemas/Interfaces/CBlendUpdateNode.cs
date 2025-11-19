@@ -12,6 +12,7 @@ public partial interface CBlendUpdateNode : CAnimUpdateNodeBase, ISchemaClass<CB
 
   static CBlendUpdateNode ISchemaClass<CBlendUpdateNode>.From(nint handle) => new CBlendUpdateNodeImpl(handle);
   static int ISchemaClass<CBlendUpdateNode>.Size => 224;
+  static string? ISchemaClass<CBlendUpdateNode>.ClassName => null;
 
   
   public ref CUtlVector<CAnimUpdateNodeRef> Children { get; }

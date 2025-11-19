@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CBodyComponentSkeletonInstance : CBodyComponent, ISchemaClass<CBodyComponentSkeletonInstance> {
 
   static CBodyComponentSkeletonInstance ISchemaClass<CBodyComponentSkeletonInstance>.From(nint handle) => new CBodyComponentSkeletonInstanceImpl(handle);
-  static int ISchemaClass<CBodyComponentSkeletonInstance>.Size => 1296;
+  static int ISchemaClass<CBodyComponentSkeletonInstance>.Size => 1312;
+  static string? ISchemaClass<CBodyComponentSkeletonInstance>.ClassName => null;
 
   
   public CSkeletonInstance SkeletonInstance { get; }

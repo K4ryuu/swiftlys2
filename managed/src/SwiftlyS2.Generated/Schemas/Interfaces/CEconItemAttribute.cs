@@ -12,6 +12,7 @@ public partial interface CEconItemAttribute : ISchemaClass<CEconItemAttribute> {
 
   static CEconItemAttribute ISchemaClass<CEconItemAttribute>.From(nint handle) => new CEconItemAttributeImpl(handle);
   static int ISchemaClass<CEconItemAttribute>.Size => 72;
+  static string? ISchemaClass<CEconItemAttribute>.ClassName => null;
 
   
   public ref ushort AttributeDefinitionIndex { get; }

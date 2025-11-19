@@ -12,6 +12,7 @@ public partial interface CNmEntityAttributeFloatEvent : CNmEntityAttributeEventB
 
   static CNmEntityAttributeFloatEvent ISchemaClass<CNmEntityAttributeFloatEvent>.From(nint handle) => new CNmEntityAttributeFloatEventImpl(handle);
   static int ISchemaClass<CNmEntityAttributeFloatEvent>.Size => 120;
+  static string? ISchemaClass<CNmEntityAttributeFloatEvent>.ClassName => null;
 
   
   // CPiecewiseCurve

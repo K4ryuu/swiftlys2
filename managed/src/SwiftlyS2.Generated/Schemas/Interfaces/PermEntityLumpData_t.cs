@@ -12,6 +12,7 @@ public partial interface PermEntityLumpData_t : ISchemaClass<PermEntityLumpData_
 
   static PermEntityLumpData_t ISchemaClass<PermEntityLumpData_t>.From(nint handle) => new PermEntityLumpData_tImpl(handle);
   static int ISchemaClass<PermEntityLumpData_t>.Size => 56;
+  static string? ISchemaClass<PermEntityLumpData_t>.ClassName => null;
 
   
   public string Name { get; set; }

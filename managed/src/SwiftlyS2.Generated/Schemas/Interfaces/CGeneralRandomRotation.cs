@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CGeneralRandomRotation : CParticleFunctionInitializer, ISchemaClass<CGeneralRandomRotation> {
 
   static CGeneralRandomRotation ISchemaClass<CGeneralRandomRotation>.From(nint handle) => new CGeneralRandomRotationImpl(handle);
-  static int ISchemaClass<CGeneralRandomRotation>.Size => 504;
+  static int ISchemaClass<CGeneralRandomRotation>.Size => 496;
+  static string? ISchemaClass<CGeneralRandomRotation>.ClassName => null;
 
   
   public ParticleAttributeIndex_t FieldOutput { get; }

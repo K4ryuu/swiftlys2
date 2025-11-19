@@ -12,6 +12,7 @@ public partial interface RsRasterizerStateDesc_t : ISchemaClass<RsRasterizerStat
 
   static RsRasterizerStateDesc_t ISchemaClass<RsRasterizerStateDesc_t>.From(nint handle) => new RsRasterizerStateDesc_tImpl(handle);
   static int ISchemaClass<RsRasterizerStateDesc_t>.Size => 16;
+  static string? ISchemaClass<RsRasterizerStateDesc_t>.ClassName => null;
 
   
   public ref RsFillMode_t FillMode { get; }

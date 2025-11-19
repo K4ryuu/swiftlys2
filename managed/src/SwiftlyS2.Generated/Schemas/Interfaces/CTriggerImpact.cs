@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CTriggerImpact : CTriggerMultiple, ISchemaClass<CTriggerImpact> {
 
   static CTriggerImpact ISchemaClass<CTriggerImpact>.From(nint handle) => new CTriggerImpactImpl(handle);
-  static int ISchemaClass<CTriggerImpact>.Size => 2568;
+  static int ISchemaClass<CTriggerImpact>.Size => 3304;
+  static string? ISchemaClass<CTriggerImpact>.ClassName => "trigger_impact";
 
   
   public ref float Magnitude { get; }

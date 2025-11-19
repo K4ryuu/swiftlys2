@@ -12,6 +12,7 @@ public partial interface CSequenceGroupData : ISchemaClass<CSequenceGroupData> {
 
   static CSequenceGroupData ISchemaClass<CSequenceGroupData>.From(nint handle) => new CSequenceGroupDataImpl(handle);
   static int ISchemaClass<CSequenceGroupData>.Size => 312;
+  static string? ISchemaClass<CSequenceGroupData>.ClassName => null;
 
   
   public ref CBufferString Name { get; }

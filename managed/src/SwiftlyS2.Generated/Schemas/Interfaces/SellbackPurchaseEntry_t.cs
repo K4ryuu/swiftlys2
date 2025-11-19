@@ -12,6 +12,7 @@ public partial interface SellbackPurchaseEntry_t : ISchemaClass<SellbackPurchase
 
   static SellbackPurchaseEntry_t ISchemaClass<SellbackPurchaseEntry_t>.From(nint handle) => new SellbackPurchaseEntry_tImpl(handle);
   static int ISchemaClass<SellbackPurchaseEntry_t>.Size => 72;
+  static string? ISchemaClass<SellbackPurchaseEntry_t>.ClassName => null;
 
   
   public ref ushort DefIdx { get; }

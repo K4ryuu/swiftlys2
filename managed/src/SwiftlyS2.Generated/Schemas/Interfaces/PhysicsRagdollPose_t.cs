@@ -12,6 +12,7 @@ public partial interface PhysicsRagdollPose_t : ISchemaClass<PhysicsRagdollPose_
 
   static PhysicsRagdollPose_t ISchemaClass<PhysicsRagdollPose_t>.From(nint handle) => new PhysicsRagdollPose_tImpl(handle);
   static int ISchemaClass<PhysicsRagdollPose_t>.Size => 40;
+  static string? ISchemaClass<PhysicsRagdollPose_t>.ClassName => null;
 
   
   public ref CUtlVector<CTransform> Transforms { get; }

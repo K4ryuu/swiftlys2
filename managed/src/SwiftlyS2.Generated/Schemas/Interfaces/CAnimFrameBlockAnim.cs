@@ -12,6 +12,7 @@ public partial interface CAnimFrameBlockAnim : ISchemaClass<CAnimFrameBlockAnim>
 
   static CAnimFrameBlockAnim ISchemaClass<CAnimFrameBlockAnim>.From(nint handle) => new CAnimFrameBlockAnimImpl(handle);
   static int ISchemaClass<CAnimFrameBlockAnim>.Size => 32;
+  static string? ISchemaClass<CAnimFrameBlockAnim>.ClassName => null;
 
   
   public ref int StartFrame { get; }

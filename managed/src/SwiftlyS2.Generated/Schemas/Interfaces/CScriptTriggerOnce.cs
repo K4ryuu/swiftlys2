@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CScriptTriggerOnce : CTriggerOnce, ISchemaClass<CScriptTriggerOnce> {
 
   static CScriptTriggerOnce ISchemaClass<CScriptTriggerOnce>.From(nint handle) => new CScriptTriggerOnceImpl(handle);
-  static int ISchemaClass<CScriptTriggerOnce>.Size => 2528;
+  static int ISchemaClass<CScriptTriggerOnce>.Size => 3264;
+  static string? ISchemaClass<CScriptTriggerOnce>.ClassName => "script_trigger_once";
 
   
   public ref Vector Extent { get; }

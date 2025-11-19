@@ -12,6 +12,7 @@ public partial interface CFootstepLandedAnimTag : CAnimTagBase, ISchemaClass<CFo
 
   static CFootstepLandedAnimTag ISchemaClass<CFootstepLandedAnimTag>.From(nint handle) => new CFootstepLandedAnimTagImpl(handle);
   static int ISchemaClass<CFootstepLandedAnimTag>.Size => 120;
+  static string? ISchemaClass<CFootstepLandedAnimTag>.ClassName => null;
 
   
   public ref FootstepLandedFootSoundType_t FootstepType { get; }

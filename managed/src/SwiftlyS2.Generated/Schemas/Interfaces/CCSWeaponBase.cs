@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CCSWeaponBase : CBasePlayerWeapon, ISchemaClass<CCSWeaponBase> {
 
   static CCSWeaponBase ISchemaClass<CCSWeaponBase>.From(nint handle) => new CCSWeaponBaseImpl(handle);
-  static int ISchemaClass<CCSWeaponBase>.Size => 4560;
+  static int ISchemaClass<CCSWeaponBase>.Size => 5328;
+  static string? ISchemaClass<CCSWeaponBase>.ClassName => "weapon_cs_base";
 
   
   public ref bool Removeable { get; }

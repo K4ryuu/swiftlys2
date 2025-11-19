@@ -12,6 +12,7 @@ public partial interface CWayPointHelperUpdateNode : CUnaryUpdateNode, ISchemaCl
 
   static CWayPointHelperUpdateNode ISchemaClass<CWayPointHelperUpdateNode>.From(nint handle) => new CWayPointHelperUpdateNodeImpl(handle);
   static int ISchemaClass<CWayPointHelperUpdateNode>.Size => 128;
+  static string? ISchemaClass<CWayPointHelperUpdateNode>.ClassName => null;
 
   
   public ref float StartCycle { get; }

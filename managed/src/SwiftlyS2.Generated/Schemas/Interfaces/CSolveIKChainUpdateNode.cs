@@ -12,6 +12,7 @@ public partial interface CSolveIKChainUpdateNode : CUnaryUpdateNode, ISchemaClas
 
   static CSolveIKChainUpdateNode ISchemaClass<CSolveIKChainUpdateNode>.From(nint handle) => new CSolveIKChainUpdateNodeImpl(handle);
   static int ISchemaClass<CSolveIKChainUpdateNode>.Size => 168;
+  static string? ISchemaClass<CSolveIKChainUpdateNode>.ClassName => null;
 
   
   public ref CUtlVector<CSolveIKTargetHandle_t> TargetHandles { get; }

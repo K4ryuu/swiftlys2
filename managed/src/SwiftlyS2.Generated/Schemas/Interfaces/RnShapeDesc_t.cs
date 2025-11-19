@@ -12,6 +12,7 @@ public partial interface RnShapeDesc_t : ISchemaClass<RnShapeDesc_t> {
 
   static RnShapeDesc_t ISchemaClass<RnShapeDesc_t>.From(nint handle) => new RnShapeDesc_tImpl(handle);
   static int ISchemaClass<RnShapeDesc_t>.Size => 24;
+  static string? ISchemaClass<RnShapeDesc_t>.ClassName => null;
 
   
   public ref uint CollisionAttributeIndex { get; }

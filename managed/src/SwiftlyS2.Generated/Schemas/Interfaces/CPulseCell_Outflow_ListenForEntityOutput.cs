@@ -12,6 +12,7 @@ public partial interface CPulseCell_Outflow_ListenForEntityOutput : CPulseCell_B
 
   static CPulseCell_Outflow_ListenForEntityOutput ISchemaClass<CPulseCell_Outflow_ListenForEntityOutput>.From(nint handle) => new CPulseCell_Outflow_ListenForEntityOutputImpl(handle);
   static int ISchemaClass<CPulseCell_Outflow_ListenForEntityOutput>.Size => 240;
+  static string? ISchemaClass<CPulseCell_Outflow_ListenForEntityOutput>.ClassName => null;
 
   
   public SignatureOutflow_Resume OnFired { get; }

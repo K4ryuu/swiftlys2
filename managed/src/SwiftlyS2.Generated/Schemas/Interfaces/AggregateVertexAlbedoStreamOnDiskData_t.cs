@@ -12,6 +12,7 @@ public partial interface AggregateVertexAlbedoStreamOnDiskData_t : ISchemaClass<
 
   static AggregateVertexAlbedoStreamOnDiskData_t ISchemaClass<AggregateVertexAlbedoStreamOnDiskData_t>.From(nint handle) => new AggregateVertexAlbedoStreamOnDiskData_tImpl(handle);
   static int ISchemaClass<AggregateVertexAlbedoStreamOnDiskData_t>.Size => 16;
+  static string? ISchemaClass<AggregateVertexAlbedoStreamOnDiskData_t>.ClassName => null;
 
   
   public ref CUtlBinaryBlock BufferData { get; }

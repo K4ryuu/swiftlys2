@@ -12,6 +12,7 @@ public partial interface CPulseCell_LerpCameraSettings__CursorState_t : CPulseCe
 
   static CPulseCell_LerpCameraSettings__CursorState_t ISchemaClass<CPulseCell_LerpCameraSettings__CursorState_t>.From(nint handle) => new CPulseCell_LerpCameraSettings__CursorState_tImpl(handle);
   static int ISchemaClass<CPulseCell_LerpCameraSettings__CursorState_t>.Size => 44;
+  static string? ISchemaClass<CPulseCell_LerpCameraSettings__CursorState_t>.ClassName => null;
 
   
   public ref CHandle<CPointCamera> Camera { get; }

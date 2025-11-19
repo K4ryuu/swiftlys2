@@ -12,6 +12,7 @@ public partial interface CNmFloatCurveEvent : CNmEvent, ISchemaClass<CNmFloatCur
 
   static CNmFloatCurveEvent ISchemaClass<CNmFloatCurveEvent>.From(nint handle) => new CNmFloatCurveEventImpl(handle);
   static int ISchemaClass<CNmFloatCurveEvent>.Size => 104;
+  static string? ISchemaClass<CNmFloatCurveEvent>.ClassName => null;
 
   
   public ref CGlobalSymbol ID { get; }

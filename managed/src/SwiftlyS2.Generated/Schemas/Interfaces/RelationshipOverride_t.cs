@@ -12,6 +12,7 @@ public partial interface RelationshipOverride_t : Relationship_t, ISchemaClass<R
 
   static RelationshipOverride_t ISchemaClass<RelationshipOverride_t>.From(nint handle) => new RelationshipOverride_tImpl(handle);
   static int ISchemaClass<RelationshipOverride_t>.Size => 16;
+  static string? ISchemaClass<RelationshipOverride_t>.ClassName => null;
 
   
   public ref CHandle<CBaseEntity> Entity { get; }

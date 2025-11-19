@@ -12,6 +12,7 @@ public partial interface InfoForResourceTypeCVMixListResource : ISchemaClass<Inf
 
   static InfoForResourceTypeCVMixListResource ISchemaClass<InfoForResourceTypeCVMixListResource>.From(nint handle) => new InfoForResourceTypeCVMixListResourceImpl(handle);
   static int ISchemaClass<InfoForResourceTypeCVMixListResource>.Size => 1;
+  static string? ISchemaClass<InfoForResourceTypeCVMixListResource>.ClassName => null;
 
 
 

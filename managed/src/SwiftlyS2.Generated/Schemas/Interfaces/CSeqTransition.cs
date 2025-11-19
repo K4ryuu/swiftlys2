@@ -12,6 +12,7 @@ public partial interface CSeqTransition : ISchemaClass<CSeqTransition> {
 
   static CSeqTransition ISchemaClass<CSeqTransition>.From(nint handle) => new CSeqTransitionImpl(handle);
   static int ISchemaClass<CSeqTransition>.Size => 8;
+  static string? ISchemaClass<CSeqTransition>.ClassName => null;
 
   
   public ref float FadeInTime { get; }

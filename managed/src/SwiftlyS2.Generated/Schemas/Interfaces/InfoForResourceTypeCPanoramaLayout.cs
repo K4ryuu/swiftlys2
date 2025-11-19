@@ -12,6 +12,7 @@ public partial interface InfoForResourceTypeCPanoramaLayout : ISchemaClass<InfoF
 
   static InfoForResourceTypeCPanoramaLayout ISchemaClass<InfoForResourceTypeCPanoramaLayout>.From(nint handle) => new InfoForResourceTypeCPanoramaLayoutImpl(handle);
   static int ISchemaClass<InfoForResourceTypeCPanoramaLayout>.Size => 1;
+  static string? ISchemaClass<InfoForResourceTypeCPanoramaLayout>.ClassName => null;
 
 
 

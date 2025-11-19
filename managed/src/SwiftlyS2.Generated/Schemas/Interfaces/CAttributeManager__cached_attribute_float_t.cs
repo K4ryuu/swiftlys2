@@ -12,6 +12,7 @@ public partial interface CAttributeManager__cached_attribute_float_t : ISchemaCl
 
   static CAttributeManager__cached_attribute_float_t ISchemaClass<CAttributeManager__cached_attribute_float_t>.From(nint handle) => new CAttributeManager__cached_attribute_float_tImpl(handle);
   static int ISchemaClass<CAttributeManager__cached_attribute_float_t>.Size => 24;
+  static string? ISchemaClass<CAttributeManager__cached_attribute_float_t>.ClassName => null;
 
   
   public ref float In { get; }

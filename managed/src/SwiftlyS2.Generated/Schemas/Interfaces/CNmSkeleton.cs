@@ -12,6 +12,7 @@ public partial interface CNmSkeleton : ISchemaClass<CNmSkeleton> {
 
   static CNmSkeleton ISchemaClass<CNmSkeleton>.From(nint handle) => new CNmSkeletonImpl(handle);
   static int ISchemaClass<CNmSkeleton>.Size => 192;
+  static string? ISchemaClass<CNmSkeleton>.ClassName => null;
 
   
   public ref CGlobalSymbol ID { get; }

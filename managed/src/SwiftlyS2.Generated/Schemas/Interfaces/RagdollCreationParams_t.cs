@@ -12,6 +12,7 @@ public partial interface RagdollCreationParams_t : ISchemaClass<RagdollCreationP
 
   static RagdollCreationParams_t ISchemaClass<RagdollCreationParams_t>.From(nint handle) => new RagdollCreationParams_tImpl(handle);
   static int ISchemaClass<RagdollCreationParams_t>.Size => 24;
+  static string? ISchemaClass<RagdollCreationParams_t>.ClassName => null;
 
   
   public ref Vector Force { get; }

@@ -12,6 +12,7 @@ public partial interface CAnimUpdateNodeBase : ISchemaClass<CAnimUpdateNodeBase>
 
   static CAnimUpdateNodeBase ISchemaClass<CAnimUpdateNodeBase>.From(nint handle) => new CAnimUpdateNodeBaseImpl(handle);
   static int ISchemaClass<CAnimUpdateNodeBase>.Size => 88;
+  static string? ISchemaClass<CAnimUpdateNodeBase>.ClassName => null;
 
   
   public CAnimNodePath NodePath { get; }

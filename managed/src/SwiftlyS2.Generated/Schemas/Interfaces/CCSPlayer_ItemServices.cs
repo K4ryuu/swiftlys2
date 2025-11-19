@@ -12,6 +12,7 @@ public partial interface CCSPlayer_ItemServices : CPlayer_ItemServices, ISchemaC
 
   static CCSPlayer_ItemServices ISchemaClass<CCSPlayer_ItemServices>.From(nint handle) => new CCSPlayer_ItemServicesImpl(handle);
   static int ISchemaClass<CCSPlayer_ItemServices>.Size => 72;
+  static string? ISchemaClass<CCSPlayer_ItemServices>.ClassName => null;
 
   
   public ref bool HasDefuser { get; }

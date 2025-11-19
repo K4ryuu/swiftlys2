@@ -1,3 +1,5 @@
+using SwiftlyS2.Shared.Schemas;
+
 namespace SwiftlyS2.Shared.SchemaDefinitions;
 
 public partial interface CPlayer_WeaponServices
@@ -61,17 +63,17 @@ public partial interface CPlayer_WeaponServices
   /// Drop all weapons with the specified class.
   /// </summary>
   /// <typeparam name="T">The weapon class.</typeparam>
-  public void DropWeaponByClass<T>() where T : CBasePlayerWeapon;
+  public void DropWeaponByClass<T>() where T : class, ISchemaClass<T>;
 
   /// <summary>
   /// Drop and remove all weapons with the specified class.
   /// </summary>
   /// <typeparam name="T">The weapon class.</typeparam>
-  public void RemoveWeaponByClass<T>() where T : CBasePlayerWeapon;
+  public void RemoveWeaponByClass<T>() where T : class, ISchemaClass<T>;
 
   /// <summary>
   /// Select a weapon by class.
   /// </summary>
   /// <typeparam name="T">The weapon class.</typeparam>
-  public void SelectWeaponByClass<T>() where T : CBasePlayerWeapon;
+  public void SelectWeaponByClass<T>() where T : class, ISchemaClass<T>;
 }

@@ -12,6 +12,7 @@ public partial interface CDistanceRemainingMetricEvaluator : CMotionMetricEvalua
 
   static CDistanceRemainingMetricEvaluator ISchemaClass<CDistanceRemainingMetricEvaluator>.From(nint handle) => new CDistanceRemainingMetricEvaluatorImpl(handle);
   static int ISchemaClass<CDistanceRemainingMetricEvaluator>.Size => 104;
+  static string? ISchemaClass<CDistanceRemainingMetricEvaluator>.ClassName => null;
 
   
   public ref float MaxDistance { get; }

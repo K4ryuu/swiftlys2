@@ -12,6 +12,7 @@ public partial interface BlendItem_t : ISchemaClass<BlendItem_t> {
 
   static BlendItem_t ISchemaClass<BlendItem_t>.From(nint handle) => new BlendItem_tImpl(handle);
   static int ISchemaClass<BlendItem_t>.Size => 64;
+  static string? ISchemaClass<BlendItem_t>.ClassName => null;
 
   
   public ref CUtlVector<TagSpan_t> Tags { get; }

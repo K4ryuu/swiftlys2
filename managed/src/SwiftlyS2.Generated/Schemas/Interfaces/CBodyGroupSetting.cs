@@ -12,6 +12,7 @@ public partial interface CBodyGroupSetting : ISchemaClass<CBodyGroupSetting> {
 
   static CBodyGroupSetting ISchemaClass<CBodyGroupSetting>.From(nint handle) => new CBodyGroupSettingImpl(handle);
   static int ISchemaClass<CBodyGroupSetting>.Size => 16;
+  static string? ISchemaClass<CBodyGroupSetting>.ClassName => null;
 
   
   public string BodyGroupName { get; set; }

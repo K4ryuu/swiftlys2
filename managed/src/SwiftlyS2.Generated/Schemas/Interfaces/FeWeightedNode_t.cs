@@ -12,6 +12,7 @@ public partial interface FeWeightedNode_t : ISchemaClass<FeWeightedNode_t> {
 
   static FeWeightedNode_t ISchemaClass<FeWeightedNode_t>.From(nint handle) => new FeWeightedNode_tImpl(handle);
   static int ISchemaClass<FeWeightedNode_t>.Size => 4;
+  static string? ISchemaClass<FeWeightedNode_t>.ClassName => null;
 
   
   public ref ushort Node { get; }

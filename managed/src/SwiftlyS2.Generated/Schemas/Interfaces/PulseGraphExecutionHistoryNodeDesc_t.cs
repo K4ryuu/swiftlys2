@@ -12,6 +12,7 @@ public partial interface PulseGraphExecutionHistoryNodeDesc_t : ISchemaClass<Pul
 
   static PulseGraphExecutionHistoryNodeDesc_t ISchemaClass<PulseGraphExecutionHistoryNodeDesc_t>.From(nint handle) => new PulseGraphExecutionHistoryNodeDesc_tImpl(handle);
   static int ISchemaClass<PulseGraphExecutionHistoryNodeDesc_t>.Size => 32;
+  static string? ISchemaClass<PulseGraphExecutionHistoryNodeDesc_t>.ClassName => null;
 
   
   public ref CBufferString StrCellDesc { get; }

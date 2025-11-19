@@ -12,6 +12,7 @@ public partial interface EntOutput_t : ISchemaClass<EntOutput_t> {
 
   static EntOutput_t ISchemaClass<EntOutput_t>.From(nint handle) => new EntOutput_tImpl(handle);
   static int ISchemaClass<EntOutput_t>.Size => 16;
+  static string? ISchemaClass<EntOutput_t>.ClassName => null;
 
 
 

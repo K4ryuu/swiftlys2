@@ -12,6 +12,7 @@ public partial interface COrientConstraint : CBaseConstraint, ISchemaClass<COrie
 
   static COrientConstraint ISchemaClass<COrientConstraint>.From(nint handle) => new COrientConstraintImpl(handle);
   static int ISchemaClass<COrientConstraint>.Size => 96;
+  static string? ISchemaClass<COrientConstraint>.ClassName => null;
 
 
 

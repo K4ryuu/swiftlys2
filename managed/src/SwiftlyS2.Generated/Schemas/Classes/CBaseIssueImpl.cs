@@ -33,7 +33,7 @@ internal partial class CBaseIssueImpl : SchemaClass, CBaseIssue {
       var ptr = _Handle + _DetailsStringOffset.Value;
       return Schema.GetString(ptr);
     }
-    set => Schema.SetFixedString(_Handle, _DetailsStringOffset.Value, value, 260);
+    set => Schema.SetFixedString(_Handle, _DetailsStringOffset.Value, value, 4096);
   } 
   private static readonly Lazy<nint> _NumYesVotesOffset = new(() => Schema.GetOffset(0xE0727D1E7ED4202C), LazyThreadSafetyMode.None);
 

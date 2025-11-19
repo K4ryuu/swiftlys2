@@ -12,6 +12,7 @@ public partial interface FeRigidColliderIndices_t : ISchemaClass<FeRigidCollider
 
   static FeRigidColliderIndices_t ISchemaClass<FeRigidColliderIndices_t>.From(nint handle) => new FeRigidColliderIndices_tImpl(handle);
   static int ISchemaClass<FeRigidColliderIndices_t>.Size => 10;
+  static string? ISchemaClass<FeRigidColliderIndices_t>.ClassName => null;
 
   
   public ref ushort TaperedCapsuleRigidIndex { get; }

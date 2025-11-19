@@ -12,6 +12,7 @@ public partial interface CEnvWindShared : ISchemaClass<CEnvWindShared> {
 
   static CEnvWindShared ISchemaClass<CEnvWindShared>.From(nint handle) => new CEnvWindSharedImpl(handle);
   static int ISchemaClass<CEnvWindShared>.Size => 336;
+  static string? ISchemaClass<CEnvWindShared>.ClassName => null;
 
   
   public GameTime_t StartTime { get; }

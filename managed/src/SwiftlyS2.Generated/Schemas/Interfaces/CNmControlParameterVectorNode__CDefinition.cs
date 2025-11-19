@@ -12,6 +12,7 @@ public partial interface CNmControlParameterVectorNode__CDefinition : CNmVectorV
 
   static CNmControlParameterVectorNode__CDefinition ISchemaClass<CNmControlParameterVectorNode__CDefinition>.From(nint handle) => new CNmControlParameterVectorNode__CDefinitionImpl(handle);
   static int ISchemaClass<CNmControlParameterVectorNode__CDefinition>.Size => 16;
+  static string? ISchemaClass<CNmControlParameterVectorNode__CDefinition>.ClassName => null;
 
 
 

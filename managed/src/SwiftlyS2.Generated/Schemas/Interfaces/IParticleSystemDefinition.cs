@@ -12,6 +12,7 @@ public partial interface IParticleSystemDefinition : ISchemaClass<IParticleSyste
 
   static IParticleSystemDefinition ISchemaClass<IParticleSystemDefinition>.From(nint handle) => new IParticleSystemDefinitionImpl(handle);
   static int ISchemaClass<IParticleSystemDefinition>.Size => 8;
+  static string? ISchemaClass<IParticleSystemDefinition>.ClassName => null;
 
 
 

@@ -12,6 +12,7 @@ public partial interface CBlendCurve : ISchemaClass<CBlendCurve> {
 
   static CBlendCurve ISchemaClass<CBlendCurve>.From(nint handle) => new CBlendCurveImpl(handle);
   static int ISchemaClass<CBlendCurve>.Size => 8;
+  static string? ISchemaClass<CBlendCurve>.ClassName => null;
 
   
   public ref float ControlPoint1 { get; }

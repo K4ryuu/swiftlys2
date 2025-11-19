@@ -12,6 +12,7 @@ public partial interface CPulseCell_WaitForCursorsWithTagBase : CPulseCell_BaseY
 
   static CPulseCell_WaitForCursorsWithTagBase ISchemaClass<CPulseCell_WaitForCursorsWithTagBase>.From(nint handle) => new CPulseCell_WaitForCursorsWithTagBaseImpl(handle);
   static int ISchemaClass<CPulseCell_WaitForCursorsWithTagBase>.Size => 152;
+  static string? ISchemaClass<CPulseCell_WaitForCursorsWithTagBase>.ClassName => null;
 
   
   public ref int CursorsAllowedToWait { get; }

@@ -12,6 +12,7 @@ public partial interface JiggleBoneSettings_t : ISchemaClass<JiggleBoneSettings_
 
   static JiggleBoneSettings_t ISchemaClass<JiggleBoneSettings_t>.From(nint handle) => new JiggleBoneSettings_tImpl(handle);
   static int ISchemaClass<JiggleBoneSettings_t>.Size => 44;
+  static string? ISchemaClass<JiggleBoneSettings_t>.ClassName => null;
 
   
   public ref int BoneIndex { get; }

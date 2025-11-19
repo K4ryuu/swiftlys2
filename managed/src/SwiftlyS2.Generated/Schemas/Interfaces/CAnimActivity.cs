@@ -12,6 +12,7 @@ public partial interface CAnimActivity : ISchemaClass<CAnimActivity> {
 
   static CAnimActivity ISchemaClass<CAnimActivity>.From(nint handle) => new CAnimActivityImpl(handle);
   static int ISchemaClass<CAnimActivity>.Size => 32;
+  static string? ISchemaClass<CAnimActivity>.ClassName => null;
 
   
   public ref CBufferString Name { get; }

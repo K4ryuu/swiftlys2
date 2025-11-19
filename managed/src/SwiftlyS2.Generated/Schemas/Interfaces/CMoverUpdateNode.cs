@@ -12,6 +12,7 @@ public partial interface CMoverUpdateNode : CUnaryUpdateNode, ISchemaClass<CMove
 
   static CMoverUpdateNode ISchemaClass<CMoverUpdateNode>.From(nint handle) => new CMoverUpdateNodeImpl(handle);
   static int ISchemaClass<CMoverUpdateNode>.Size => 176;
+  static string? ISchemaClass<CMoverUpdateNode>.ClassName => null;
 
   
   public CAnimInputDamping Damping { get; }

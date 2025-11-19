@@ -12,6 +12,7 @@ public partial interface FeSpringIntegrator_t : ISchemaClass<FeSpringIntegrator_
 
   static FeSpringIntegrator_t ISchemaClass<FeSpringIntegrator_t>.From(nint handle) => new FeSpringIntegrator_tImpl(handle);
   static int ISchemaClass<FeSpringIntegrator_t>.Size => 20;
+  static string? ISchemaClass<FeSpringIntegrator_t>.ClassName => null;
 
   
   public ISchemaFixedArray<ushort> Node { get; }

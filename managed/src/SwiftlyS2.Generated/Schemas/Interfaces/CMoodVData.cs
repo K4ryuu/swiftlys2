@@ -12,6 +12,7 @@ public partial interface CMoodVData : ISchemaClass<CMoodVData> {
 
   static CMoodVData ISchemaClass<CMoodVData>.From(nint handle) => new CMoodVDataImpl(handle);
   static int ISchemaClass<CMoodVData>.Size => 256;
+  static string? ISchemaClass<CMoodVData>.ClassName => null;
 
   
   // CResourceNameTyped< CWeakHandle< InfoForResourceTypeCModel > >

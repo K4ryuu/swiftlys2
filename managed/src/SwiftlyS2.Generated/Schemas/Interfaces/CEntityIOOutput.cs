@@ -12,6 +12,7 @@ public partial interface CEntityIOOutput : ISchemaClass<CEntityIOOutput> {
 
   static CEntityIOOutput ISchemaClass<CEntityIOOutput>.From(nint handle) => new CEntityIOOutputImpl(handle);
   static int ISchemaClass<CEntityIOOutput>.Size => 40;
+  static string? ISchemaClass<CEntityIOOutput>.ClassName => null;
 
   
   // CVariantBase< CVariantDefaultAllocator >

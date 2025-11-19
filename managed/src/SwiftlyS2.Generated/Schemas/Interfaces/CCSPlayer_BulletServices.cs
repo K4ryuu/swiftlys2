@@ -12,6 +12,7 @@ public partial interface CCSPlayer_BulletServices : CPlayerPawnComponent, ISchem
 
   static CCSPlayer_BulletServices ISchemaClass<CCSPlayer_BulletServices>.From(nint handle) => new CCSPlayer_BulletServicesImpl(handle);
   static int ISchemaClass<CCSPlayer_BulletServices>.Size => 104;
+  static string? ISchemaClass<CCSPlayer_BulletServices>.ClassName => null;
 
   
   public ref int TotalHitsOnServer { get; }

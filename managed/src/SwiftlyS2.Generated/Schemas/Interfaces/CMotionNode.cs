@@ -12,6 +12,7 @@ public partial interface CMotionNode : ISchemaClass<CMotionNode> {
 
   static CMotionNode ISchemaClass<CMotionNode>.From(nint handle) => new CMotionNodeImpl(handle);
   static int ISchemaClass<CMotionNode>.Size => 40;
+  static string? ISchemaClass<CMotionNode>.ClassName => null;
 
   
   public string Name { get; set; }

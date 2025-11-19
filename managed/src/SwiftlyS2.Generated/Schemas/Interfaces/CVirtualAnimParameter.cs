@@ -12,6 +12,7 @@ public partial interface CVirtualAnimParameter : CAnimParameterBase, ISchemaClas
 
   static CVirtualAnimParameter ISchemaClass<CVirtualAnimParameter>.From(nint handle) => new CVirtualAnimParameterImpl(handle);
   static int ISchemaClass<CVirtualAnimParameter>.Size => 128;
+  static string? ISchemaClass<CVirtualAnimParameter>.ClassName => null;
 
   
   public string ExpressionString { get; set; }

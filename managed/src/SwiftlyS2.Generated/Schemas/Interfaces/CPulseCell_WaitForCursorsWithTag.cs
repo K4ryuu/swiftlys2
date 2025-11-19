@@ -12,6 +12,7 @@ public partial interface CPulseCell_WaitForCursorsWithTag : CPulseCell_WaitForCu
 
   static CPulseCell_WaitForCursorsWithTag ISchemaClass<CPulseCell_WaitForCursorsWithTag>.From(nint handle) => new CPulseCell_WaitForCursorsWithTagImpl(handle);
   static int ISchemaClass<CPulseCell_WaitForCursorsWithTag>.Size => 160;
+  static string? ISchemaClass<CPulseCell_WaitForCursorsWithTag>.ClassName => null;
 
   
   public ref bool TagSelfWhenComplete { get; }

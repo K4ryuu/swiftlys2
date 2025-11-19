@@ -12,6 +12,7 @@ public partial interface CVoiceContainerDecayingSineWave : CVoiceContainerBase, 
 
   static CVoiceContainerDecayingSineWave ISchemaClass<CVoiceContainerDecayingSineWave>.From(nint handle) => new CVoiceContainerDecayingSineWaveImpl(handle);
   static int ISchemaClass<CVoiceContainerDecayingSineWave>.Size => 192;
+  static string? ISchemaClass<CVoiceContainerDecayingSineWave>.ClassName => null;
 
   
   public ref float Frequency { get; }

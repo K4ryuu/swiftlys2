@@ -12,6 +12,7 @@ public partial interface CVoiceContainerLoopTrigger : CVoiceContainerBase, ISche
 
   static CVoiceContainerLoopTrigger ISchemaClass<CVoiceContainerLoopTrigger>.From(nint handle) => new CVoiceContainerLoopTriggerImpl(handle);
   static int ISchemaClass<CVoiceContainerLoopTrigger>.Size => 224;
+  static string? ISchemaClass<CVoiceContainerLoopTrigger>.ClassName => null;
 
   
   public CSoundContainerReference Sound { get; }

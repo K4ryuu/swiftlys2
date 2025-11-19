@@ -12,6 +12,7 @@ public partial interface CNmOrientationWarpEvent : CNmEvent, ISchemaClass<CNmOri
 
   static CNmOrientationWarpEvent ISchemaClass<CNmOrientationWarpEvent>.From(nint handle) => new CNmOrientationWarpEventImpl(handle);
   static int ISchemaClass<CNmOrientationWarpEvent>.Size => 32;
+  static string? ISchemaClass<CNmOrientationWarpEvent>.ClassName => null;
 
 
 

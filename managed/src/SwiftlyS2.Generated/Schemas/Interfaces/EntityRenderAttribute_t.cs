@@ -12,6 +12,7 @@ public partial interface EntityRenderAttribute_t : ISchemaClass<EntityRenderAttr
 
   static EntityRenderAttribute_t ISchemaClass<EntityRenderAttribute_t>.From(nint handle) => new EntityRenderAttribute_tImpl(handle);
   static int ISchemaClass<EntityRenderAttribute_t>.Size => 72;
+  static string? ISchemaClass<EntityRenderAttribute_t>.ClassName => null;
 
   
   public ref CUtlStringToken ID { get; }

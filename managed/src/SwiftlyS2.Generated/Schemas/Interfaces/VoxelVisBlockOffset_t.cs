@@ -12,6 +12,7 @@ public partial interface VoxelVisBlockOffset_t : ISchemaClass<VoxelVisBlockOffse
 
   static VoxelVisBlockOffset_t ISchemaClass<VoxelVisBlockOffset_t>.From(nint handle) => new VoxelVisBlockOffset_tImpl(handle);
   static int ISchemaClass<VoxelVisBlockOffset_t>.Size => 8;
+  static string? ISchemaClass<VoxelVisBlockOffset_t>.ClassName => null;
 
   
   public ref uint Offset { get; }

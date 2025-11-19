@@ -12,6 +12,7 @@ public partial interface GameAmmoTypeInfo_t : AmmoTypeInfo_t, ISchemaClass<GameA
 
   static GameAmmoTypeInfo_t ISchemaClass<GameAmmoTypeInfo_t>.From(nint handle) => new GameAmmoTypeInfo_tImpl(handle);
   static int ISchemaClass<GameAmmoTypeInfo_t>.Size => 80;
+  static string? ISchemaClass<GameAmmoTypeInfo_t>.ClassName => null;
 
   
   public ref int BuySize { get; }

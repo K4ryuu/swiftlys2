@@ -12,6 +12,7 @@ public partial interface CSchemaSystemInternalRegistration : ISchemaClass<CSchem
 
   static CSchemaSystemInternalRegistration ISchemaClass<CSchemaSystemInternalRegistration>.From(nint handle) => new CSchemaSystemInternalRegistrationImpl(handle);
   static int ISchemaClass<CSchemaSystemInternalRegistration>.Size => 384;
+  static string? ISchemaClass<CSchemaSystemInternalRegistration>.ClassName => null;
 
   
   public ref Vector2D Vector2D { get; }

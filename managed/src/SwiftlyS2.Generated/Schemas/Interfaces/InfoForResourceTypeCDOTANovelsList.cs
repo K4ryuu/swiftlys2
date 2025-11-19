@@ -12,6 +12,7 @@ public partial interface InfoForResourceTypeCDOTANovelsList : ISchemaClass<InfoF
 
   static InfoForResourceTypeCDOTANovelsList ISchemaClass<InfoForResourceTypeCDOTANovelsList>.From(nint handle) => new InfoForResourceTypeCDOTANovelsListImpl(handle);
   static int ISchemaClass<InfoForResourceTypeCDOTANovelsList>.Size => 1;
+  static string? ISchemaClass<InfoForResourceTypeCDOTANovelsList>.ClassName => null;
 
 
 

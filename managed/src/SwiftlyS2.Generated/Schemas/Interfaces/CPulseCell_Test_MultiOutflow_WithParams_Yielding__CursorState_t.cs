@@ -12,6 +12,7 @@ public partial interface CPulseCell_Test_MultiOutflow_WithParams_Yielding__Curso
 
   static CPulseCell_Test_MultiOutflow_WithParams_Yielding__CursorState_t ISchemaClass<CPulseCell_Test_MultiOutflow_WithParams_Yielding__CursorState_t>.From(nint handle) => new CPulseCell_Test_MultiOutflow_WithParams_Yielding__CursorState_tImpl(handle);
   static int ISchemaClass<CPulseCell_Test_MultiOutflow_WithParams_Yielding__CursorState_t>.Size => 4;
+  static string? ISchemaClass<CPulseCell_Test_MultiOutflow_WithParams_Yielding__CursorState_t>.ClassName => null;
 
   
   public ref int TestStep { get; }

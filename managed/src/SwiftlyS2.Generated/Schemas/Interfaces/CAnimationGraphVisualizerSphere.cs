@@ -12,6 +12,7 @@ public partial interface CAnimationGraphVisualizerSphere : CAnimationGraphVisual
 
   static CAnimationGraphVisualizerSphere ISchemaClass<CAnimationGraphVisualizerSphere>.From(nint handle) => new CAnimationGraphVisualizerSphereImpl(handle);
   static int ISchemaClass<CAnimationGraphVisualizerSphere>.Size => 96;
+  static string? ISchemaClass<CAnimationGraphVisualizerSphere>.ClassName => null;
 
   
   public ref Vector WsPosition { get; }

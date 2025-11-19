@@ -12,6 +12,7 @@ public partial interface CNmVectorCreateNode__CDefinition : CNmVectorValueNode__
 
   static CNmVectorCreateNode__CDefinition ISchemaClass<CNmVectorCreateNode__CDefinition>.From(nint handle) => new CNmVectorCreateNode__CDefinitionImpl(handle);
   static int ISchemaClass<CNmVectorCreateNode__CDefinition>.Size => 24;
+  static string? ISchemaClass<CNmVectorCreateNode__CDefinition>.ClassName => null;
 
   
   public ref short InputVectorValueNodeIdx { get; }

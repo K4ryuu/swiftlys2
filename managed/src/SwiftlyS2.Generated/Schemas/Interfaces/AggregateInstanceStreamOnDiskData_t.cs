@@ -12,6 +12,7 @@ public partial interface AggregateInstanceStreamOnDiskData_t : ISchemaClass<Aggr
 
   static AggregateInstanceStreamOnDiskData_t ISchemaClass<AggregateInstanceStreamOnDiskData_t>.From(nint handle) => new AggregateInstanceStreamOnDiskData_tImpl(handle);
   static int ISchemaClass<AggregateInstanceStreamOnDiskData_t>.Size => 24;
+  static string? ISchemaClass<AggregateInstanceStreamOnDiskData_t>.ClassName => null;
 
   
   public ref uint DecodedSize { get; }

@@ -12,6 +12,7 @@ public partial interface CConstraintTarget : ISchemaClass<CConstraintTarget> {
 
   static CConstraintTarget ISchemaClass<CConstraintTarget>.From(nint handle) => new CConstraintTargetImpl(handle);
   static int ISchemaClass<CConstraintTarget>.Size => 96;
+  static string? ISchemaClass<CConstraintTarget>.ClassName => null;
 
   
   public ref Quaternion Offset { get; }

@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CBodyComponentBaseAnimGraph : CBodyComponentSkeletonInstance, ISchemaClass<CBodyComponentBaseAnimGraph> {
 
   static CBodyComponentBaseAnimGraph ISchemaClass<CBodyComponentBaseAnimGraph>.From(nint handle) => new CBodyComponentBaseAnimGraphImpl(handle);
-  static int ISchemaClass<CBodyComponentBaseAnimGraph>.Size => 3264;
+  static int ISchemaClass<CBodyComponentBaseAnimGraph>.Size => 3312;
+  static string? ISchemaClass<CBodyComponentBaseAnimGraph>.ClassName => null;
 
   
   public CBaseAnimGraphController AnimationController { get; }

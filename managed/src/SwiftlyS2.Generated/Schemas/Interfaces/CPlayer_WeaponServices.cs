@@ -12,6 +12,7 @@ public partial interface CPlayer_WeaponServices : CPlayerPawnComponent, ISchemaC
 
   static CPlayer_WeaponServices ISchemaClass<CPlayer_WeaponServices>.From(nint handle) => new CPlayer_WeaponServicesImpl(handle);
   static int ISchemaClass<CPlayer_WeaponServices>.Size => 168;
+  static string? ISchemaClass<CPlayer_WeaponServices>.ClassName => null;
 
   
   public ref CUtlVector<CHandle<CBasePlayerWeapon>> MyWeapons { get; }

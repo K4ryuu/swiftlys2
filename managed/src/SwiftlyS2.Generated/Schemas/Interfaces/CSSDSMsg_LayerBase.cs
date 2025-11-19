@@ -12,6 +12,7 @@ public partial interface CSSDSMsg_LayerBase : ISchemaClass<CSSDSMsg_LayerBase> {
 
   static CSSDSMsg_LayerBase ISchemaClass<CSSDSMsg_LayerBase>.From(nint handle) => new CSSDSMsg_LayerBaseImpl(handle);
   static int ISchemaClass<CSSDSMsg_LayerBase>.Size => 48;
+  static string? ISchemaClass<CSSDSMsg_LayerBase>.ClassName => null;
 
   
   public SceneViewId_t ViewId { get; }

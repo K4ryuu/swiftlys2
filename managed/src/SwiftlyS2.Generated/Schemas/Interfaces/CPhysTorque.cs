@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CPhysTorque : CPhysForce, ISchemaClass<CPhysTorque> {
 
   static CPhysTorque ISchemaClass<CPhysTorque>.From(nint handle) => new CPhysTorqueImpl(handle);
-  static int ISchemaClass<CPhysTorque>.Size => 1376;
+  static int ISchemaClass<CPhysTorque>.Size => 2120;
+  static string? ISchemaClass<CPhysTorque>.ClassName => "phys_torque";
 
   
   public ref Vector Axis { get; }

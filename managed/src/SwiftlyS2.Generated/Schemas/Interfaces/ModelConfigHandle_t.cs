@@ -12,6 +12,7 @@ public partial interface ModelConfigHandle_t : ISchemaClass<ModelConfigHandle_t>
 
   static ModelConfigHandle_t ISchemaClass<ModelConfigHandle_t>.From(nint handle) => new ModelConfigHandle_tImpl(handle);
   static int ISchemaClass<ModelConfigHandle_t>.Size => 4;
+  static string? ISchemaClass<ModelConfigHandle_t>.ClassName => null;
 
   
   public ref uint Value { get; }

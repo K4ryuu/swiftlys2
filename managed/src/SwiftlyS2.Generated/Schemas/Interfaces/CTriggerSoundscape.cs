@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CTriggerSoundscape : CBaseTrigger, ISchemaClass<CTriggerSoundscape> {
 
   static CTriggerSoundscape ISchemaClass<CTriggerSoundscape>.From(nint handle) => new CTriggerSoundscapeImpl(handle);
-  static int ISchemaClass<CTriggerSoundscape>.Size => 2512;
+  static int ISchemaClass<CTriggerSoundscape>.Size => 3240;
+  static string? ISchemaClass<CTriggerSoundscape>.ClassName => "trigger_soundscape";
 
   
   public ref CHandle<CEnvSoundscapeTriggerable> Soundscape { get; }

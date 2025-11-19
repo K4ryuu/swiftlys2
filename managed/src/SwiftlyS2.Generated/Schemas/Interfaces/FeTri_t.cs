@@ -12,6 +12,7 @@ public partial interface FeTri_t : ISchemaClass<FeTri_t> {
 
   static FeTri_t ISchemaClass<FeTri_t>.From(nint handle) => new FeTri_tImpl(handle);
   static int ISchemaClass<FeTri_t>.Size => 28;
+  static string? ISchemaClass<FeTri_t>.ClassName => null;
 
   
   public ISchemaFixedArray<ushort> Node { get; }

@@ -12,6 +12,7 @@ public partial interface CNmStateMachineNode__TransitionDefinition_t : ISchemaCl
 
   static CNmStateMachineNode__TransitionDefinition_t ISchemaClass<CNmStateMachineNode__TransitionDefinition_t>.From(nint handle) => new CNmStateMachineNode__TransitionDefinition_tImpl(handle);
   static int ISchemaClass<CNmStateMachineNode__TransitionDefinition_t>.Size => 8;
+  static string? ISchemaClass<CNmStateMachineNode__TransitionDefinition_t>.ClassName => null;
 
   
   public ref short TargetStateIdx { get; }

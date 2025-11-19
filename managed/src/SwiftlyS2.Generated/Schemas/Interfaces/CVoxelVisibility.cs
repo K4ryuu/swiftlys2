@@ -12,6 +12,7 @@ public partial interface CVoxelVisibility : ISchemaClass<CVoxelVisibility> {
 
   static CVoxelVisibility ISchemaClass<CVoxelVisibility>.From(nint handle) => new CVoxelVisibilityImpl(handle);
   static int ISchemaClass<CVoxelVisibility>.Size => 160;
+  static string? ISchemaClass<CVoxelVisibility>.ClassName => null;
 
   
   public ref uint BaseClusterCount { get; }

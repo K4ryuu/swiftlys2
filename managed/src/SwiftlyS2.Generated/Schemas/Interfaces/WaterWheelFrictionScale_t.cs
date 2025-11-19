@@ -12,6 +12,7 @@ public partial interface WaterWheelFrictionScale_t : ISchemaClass<WaterWheelFric
 
   static WaterWheelFrictionScale_t ISchemaClass<WaterWheelFrictionScale_t>.From(nint handle) => new WaterWheelFrictionScale_tImpl(handle);
   static int ISchemaClass<WaterWheelFrictionScale_t>.Size => 8;
+  static string? ISchemaClass<WaterWheelFrictionScale_t>.ClassName => null;
 
   
   public ref float FractionOfWheelSubmerged { get; }

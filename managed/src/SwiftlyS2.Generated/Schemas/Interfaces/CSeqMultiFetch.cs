@@ -12,6 +12,7 @@ public partial interface CSeqMultiFetch : ISchemaClass<CSeqMultiFetch> {
 
   static CSeqMultiFetch ISchemaClass<CSeqMultiFetch>.From(nint handle) => new CSeqMultiFetchImpl(handle);
   static int ISchemaClass<CSeqMultiFetch>.Size => 112;
+  static string? ISchemaClass<CSeqMultiFetch>.ClassName => null;
 
   
   public CSeqMultiFetchFlag Flags { get; }

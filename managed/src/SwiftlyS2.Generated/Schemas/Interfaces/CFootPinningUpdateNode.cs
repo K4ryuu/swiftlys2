@@ -12,6 +12,7 @@ public partial interface CFootPinningUpdateNode : CUnaryUpdateNode, ISchemaClass
 
   static CFootPinningUpdateNode ISchemaClass<CFootPinningUpdateNode>.From(nint handle) => new CFootPinningUpdateNodeImpl(handle);
   static int ISchemaClass<CFootPinningUpdateNode>.Size => 208;
+  static string? ISchemaClass<CFootPinningUpdateNode>.ClassName => null;
 
   
   public FootPinningPoseOpFixedData_t PoseOpFixedData { get; }

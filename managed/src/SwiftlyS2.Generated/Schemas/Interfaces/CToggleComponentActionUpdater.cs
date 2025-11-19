@@ -12,6 +12,7 @@ public partial interface CToggleComponentActionUpdater : CAnimActionUpdater, ISc
 
   static CToggleComponentActionUpdater ISchemaClass<CToggleComponentActionUpdater>.From(nint handle) => new CToggleComponentActionUpdaterImpl(handle);
   static int ISchemaClass<CToggleComponentActionUpdater>.Size => 32;
+  static string? ISchemaClass<CToggleComponentActionUpdater>.ClassName => null;
 
   
   public AnimComponentID ComponentID { get; }

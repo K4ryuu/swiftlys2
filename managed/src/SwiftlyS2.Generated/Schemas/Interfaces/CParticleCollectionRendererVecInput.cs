@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CParticleCollectionRendererVecInput : CParticleCollectionVecInput, ISchemaClass<CParticleCollectionRendererVecInput> {
 
   static CParticleCollectionRendererVecInput ISchemaClass<CParticleCollectionRendererVecInput>.From(nint handle) => new CParticleCollectionRendererVecInputImpl(handle);
-  static int ISchemaClass<CParticleCollectionRendererVecInput>.Size => 1720;
+  static int ISchemaClass<CParticleCollectionRendererVecInput>.Size => 1680;
+  static string? ISchemaClass<CParticleCollectionRendererVecInput>.ClassName => null;
 
 
 

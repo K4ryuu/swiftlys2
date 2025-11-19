@@ -12,6 +12,7 @@ public partial interface EventClientFrameSimulate_t : ISchemaClass<EventClientFr
 
   static EventClientFrameSimulate_t ISchemaClass<EventClientFrameSimulate_t>.From(nint handle) => new EventClientFrameSimulate_tImpl(handle);
   static int ISchemaClass<EventClientFrameSimulate_t>.Size => 56;
+  static string? ISchemaClass<EventClientFrameSimulate_t>.ClassName => null;
 
   
   public EngineLoopState_t LoopState { get; }

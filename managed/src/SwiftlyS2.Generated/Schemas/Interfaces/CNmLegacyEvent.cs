@@ -12,6 +12,7 @@ public partial interface CNmLegacyEvent : CNmEvent, ISchemaClass<CNmLegacyEvent>
 
   static CNmLegacyEvent ISchemaClass<CNmLegacyEvent>.From(nint handle) => new CNmLegacyEventImpl(handle);
   static int ISchemaClass<CNmLegacyEvent>.Size => 64;
+  static string? ISchemaClass<CNmLegacyEvent>.ClassName => null;
 
   
   public string AnimEventClassName { get; set; }

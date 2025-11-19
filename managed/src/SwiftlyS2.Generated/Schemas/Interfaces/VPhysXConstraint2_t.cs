@@ -12,6 +12,7 @@ public partial interface VPhysXConstraint2_t : ISchemaClass<VPhysXConstraint2_t>
 
   static VPhysXConstraint2_t ISchemaClass<VPhysXConstraint2_t>.From(nint handle) => new VPhysXConstraint2_tImpl(handle);
   static int ISchemaClass<VPhysXConstraint2_t>.Size => 256;
+  static string? ISchemaClass<VPhysXConstraint2_t>.ClassName => null;
 
   
   public ref uint Flags { get; }

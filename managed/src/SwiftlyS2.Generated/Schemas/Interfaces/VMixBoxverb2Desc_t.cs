@@ -12,6 +12,7 @@ public partial interface VMixBoxverb2Desc_t : ISchemaClass<VMixBoxverb2Desc_t> {
 
   static VMixBoxverb2Desc_t ISchemaClass<VMixBoxverb2Desc_t>.From(nint handle) => new VMixBoxverb2Desc_tImpl(handle);
   static int ISchemaClass<VMixBoxverb2Desc_t>.Size => 80;
+  static string? ISchemaClass<VMixBoxverb2Desc_t>.ClassName => null;
 
   
   public ref float SizeMax { get; }

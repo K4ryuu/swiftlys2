@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CLogicNPCCounter : CBaseEntity, ISchemaClass<CLogicNPCCounter> {
 
   static CLogicNPCCounter ISchemaClass<CLogicNPCCounter>.From(nint handle) => new CLogicNPCCounterImpl(handle);
-  static int ISchemaClass<CLogicNPCCounter>.Size => 2096;
+  static int ISchemaClass<CLogicNPCCounter>.Size => 2840;
+  static string? ISchemaClass<CLogicNPCCounter>.ClassName => "logic_npc_counter_radius";
 
   
   public CEntityIOOutput OnMinCountAll { get; }

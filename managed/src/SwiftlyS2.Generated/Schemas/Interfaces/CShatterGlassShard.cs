@@ -12,6 +12,7 @@ public partial interface CShatterGlassShard : ISchemaClass<CShatterGlassShard> {
 
   static CShatterGlassShard ISchemaClass<CShatterGlassShard>.From(nint handle) => new CShatterGlassShardImpl(handle);
   static int ISchemaClass<CShatterGlassShard>.Size => 184;
+  static string? ISchemaClass<CShatterGlassShard>.ClassName => null;
 
   
   public ref uint ShardHandle { get; }

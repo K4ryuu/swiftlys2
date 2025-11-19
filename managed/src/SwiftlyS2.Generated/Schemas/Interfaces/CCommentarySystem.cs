@@ -12,6 +12,7 @@ public partial interface CCommentarySystem : ISchemaClass<CCommentarySystem> {
 
   static CCommentarySystem ISchemaClass<CCommentarySystem>.From(nint handle) => new CCommentarySystemImpl(handle);
   static int ISchemaClass<CCommentarySystem>.Size => 96;
+  static string? ISchemaClass<CCommentarySystem>.ClassName => null;
 
   
   public ref bool CommentaryConvarsChanging { get; }

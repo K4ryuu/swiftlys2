@@ -12,6 +12,7 @@ public partial interface InfoForResourceTypeIParticleSystemDefinition : ISchemaC
 
   static InfoForResourceTypeIParticleSystemDefinition ISchemaClass<InfoForResourceTypeIParticleSystemDefinition>.From(nint handle) => new InfoForResourceTypeIParticleSystemDefinitionImpl(handle);
   static int ISchemaClass<InfoForResourceTypeIParticleSystemDefinition>.Size => 1;
+  static string? ISchemaClass<InfoForResourceTypeIParticleSystemDefinition>.ClassName => null;
 
 
 

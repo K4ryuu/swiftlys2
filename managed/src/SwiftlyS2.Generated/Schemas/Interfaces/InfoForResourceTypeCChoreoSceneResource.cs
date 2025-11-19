@@ -12,6 +12,7 @@ public partial interface InfoForResourceTypeCChoreoSceneResource : ISchemaClass<
 
   static InfoForResourceTypeCChoreoSceneResource ISchemaClass<InfoForResourceTypeCChoreoSceneResource>.From(nint handle) => new InfoForResourceTypeCChoreoSceneResourceImpl(handle);
   static int ISchemaClass<InfoForResourceTypeCChoreoSceneResource>.Size => 1;
+  static string? ISchemaClass<InfoForResourceTypeCChoreoSceneResource>.ClassName => null;
 
 
 

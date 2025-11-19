@@ -12,6 +12,7 @@ public partial interface InfoForResourceTypeCNmIKRig : ISchemaClass<InfoForResou
 
   static InfoForResourceTypeCNmIKRig ISchemaClass<InfoForResourceTypeCNmIKRig>.From(nint handle) => new InfoForResourceTypeCNmIKRigImpl(handle);
   static int ISchemaClass<InfoForResourceTypeCNmIKRig>.Size => 1;
+  static string? ISchemaClass<InfoForResourceTypeCNmIKRig>.ClassName => null;
 
 
 

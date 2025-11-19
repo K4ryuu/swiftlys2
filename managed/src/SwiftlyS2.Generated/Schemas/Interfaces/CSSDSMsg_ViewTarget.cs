@@ -12,6 +12,7 @@ public partial interface CSSDSMsg_ViewTarget : ISchemaClass<CSSDSMsg_ViewTarget>
 
   static CSSDSMsg_ViewTarget ISchemaClass<CSSDSMsg_ViewTarget>.From(nint handle) => new CSSDSMsg_ViewTargetImpl(handle);
   static int ISchemaClass<CSSDSMsg_ViewTarget>.Size => 48;
+  static string? ISchemaClass<CSSDSMsg_ViewTarget>.ClassName => null;
 
   
   public string Name { get; set; }

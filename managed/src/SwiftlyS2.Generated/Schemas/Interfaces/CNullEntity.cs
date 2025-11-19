@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CNullEntity : CBaseEntity, ISchemaClass<CNullEntity> {
 
   static CNullEntity ISchemaClass<CNullEntity>.From(nint handle) => new CNullEntityImpl(handle);
-  static int ISchemaClass<CNullEntity>.Size => 1264;
+  static int ISchemaClass<CNullEntity>.Size => 2008;
+  static string? ISchemaClass<CNullEntity>.ClassName => "info_null";
 
 
 

@@ -12,6 +12,7 @@ public partial interface CSosGroupActionSoundeventClusterSchema : CSosGroupActio
 
   static CSosGroupActionSoundeventClusterSchema ISchemaClass<CSosGroupActionSoundeventClusterSchema>.From(nint handle) => new CSosGroupActionSoundeventClusterSchemaImpl(handle);
   static int ISchemaClass<CSosGroupActionSoundeventClusterSchema>.Size => 80;
+  static string? ISchemaClass<CSosGroupActionSoundeventClusterSchema>.ClassName => null;
 
   
   public ref int MinNearby { get; }

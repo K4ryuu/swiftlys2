@@ -12,6 +12,7 @@ public partial interface CUnaryUpdateNode : CAnimUpdateNodeBase, ISchemaClass<CU
 
   static CUnaryUpdateNode ISchemaClass<CUnaryUpdateNode>.From(nint handle) => new CUnaryUpdateNodeImpl(handle);
   static int ISchemaClass<CUnaryUpdateNode>.Size => 112;
+  static string? ISchemaClass<CUnaryUpdateNode>.ClassName => null;
 
   
   public CAnimUpdateNodeRef ChildNode { get; }

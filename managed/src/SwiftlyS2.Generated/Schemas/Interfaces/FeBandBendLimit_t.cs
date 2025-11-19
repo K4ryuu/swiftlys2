@@ -12,6 +12,7 @@ public partial interface FeBandBendLimit_t : ISchemaClass<FeBandBendLimit_t> {
 
   static FeBandBendLimit_t ISchemaClass<FeBandBendLimit_t>.From(nint handle) => new FeBandBendLimit_tImpl(handle);
   static int ISchemaClass<FeBandBendLimit_t>.Size => 20;
+  static string? ISchemaClass<FeBandBendLimit_t>.ClassName => null;
 
   
   public ref float DistMin { get; }

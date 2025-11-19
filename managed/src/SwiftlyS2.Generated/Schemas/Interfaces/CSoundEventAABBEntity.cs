@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CSoundEventAABBEntity : CSoundEventEntity, ISchemaClass<CSoundEventAABBEntity> {
 
   static CSoundEventAABBEntity ISchemaClass<CSoundEventAABBEntity>.From(nint handle) => new CSoundEventAABBEntityImpl(handle);
-  static int ISchemaClass<CSoundEventAABBEntity>.Size => 1488;
+  static int ISchemaClass<CSoundEventAABBEntity>.Size => 2232;
+  static string? ISchemaClass<CSoundEventAABBEntity>.ClassName => "snd_event_alignedbox";
 
   
   public ref Vector Mins { get; }

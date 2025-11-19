@@ -12,6 +12,7 @@ public partial interface CPlayer_AutoaimServices : CPlayerPawnComponent, ISchema
 
   static CPlayer_AutoaimServices ISchemaClass<CPlayer_AutoaimServices>.From(nint handle) => new CPlayer_AutoaimServicesImpl(handle);
   static int ISchemaClass<CPlayer_AutoaimServices>.Size => 64;
+  static string? ISchemaClass<CPlayer_AutoaimServices>.ClassName => null;
 
 
 

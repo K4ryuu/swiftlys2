@@ -12,6 +12,7 @@ public partial interface PermModelExtPart_t : ISchemaClass<PermModelExtPart_t> {
 
   static PermModelExtPart_t ISchemaClass<PermModelExtPart_t>.From(nint handle) => new PermModelExtPart_tImpl(handle);
   static int ISchemaClass<PermModelExtPart_t>.Size => 64;
+  static string? ISchemaClass<PermModelExtPart_t>.ClassName => null;
 
   
   public ref CTransform Transform { get; }

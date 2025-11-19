@@ -12,6 +12,7 @@ public partial interface FeNodeBase_t : ISchemaClass<FeNodeBase_t> {
 
   static FeNodeBase_t ISchemaClass<FeNodeBase_t>.From(nint handle) => new FeNodeBase_tImpl(handle);
   static int ISchemaClass<FeNodeBase_t>.Size => 32;
+  static string? ISchemaClass<FeNodeBase_t>.ClassName => null;
 
   
   public ref ushort Node { get; }

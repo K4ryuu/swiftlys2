@@ -12,6 +12,7 @@ public partial interface PulseRuntimeChunkIndex_t : ISchemaClass<PulseRuntimeChu
 
   static PulseRuntimeChunkIndex_t ISchemaClass<PulseRuntimeChunkIndex_t>.From(nint handle) => new PulseRuntimeChunkIndex_tImpl(handle);
   static int ISchemaClass<PulseRuntimeChunkIndex_t>.Size => 4;
+  static string? ISchemaClass<PulseRuntimeChunkIndex_t>.ClassName => null;
 
   
   public ref int Value { get; }

@@ -12,6 +12,7 @@ public partial interface CSeqSeqDescFlag : ISchemaClass<CSeqSeqDescFlag> {
 
   static CSeqSeqDescFlag ISchemaClass<CSeqSeqDescFlag>.From(nint handle) => new CSeqSeqDescFlagImpl(handle);
   static int ISchemaClass<CSeqSeqDescFlag>.Size => 11;
+  static string? ISchemaClass<CSeqSeqDescFlag>.ClassName => null;
 
   
   public ref bool Looping { get; }

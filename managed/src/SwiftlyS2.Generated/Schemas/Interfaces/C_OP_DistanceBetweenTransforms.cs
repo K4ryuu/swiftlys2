@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface C_OP_DistanceBetweenTransforms : CParticleFunctionOperator, ISchemaClass<C_OP_DistanceBetweenTransforms> {
 
   static C_OP_DistanceBetweenTransforms ISchemaClass<C_OP_DistanceBetweenTransforms>.From(nint handle) => new C_OP_DistanceBetweenTransformsImpl(handle);
-  static int ISchemaClass<C_OP_DistanceBetweenTransforms>.Size => 2304;
+  static int ISchemaClass<C_OP_DistanceBetweenTransforms>.Size => 2248;
+  static string? ISchemaClass<C_OP_DistanceBetweenTransforms>.ClassName => null;
 
   
   public ParticleAttributeIndex_t FieldOutput { get; }

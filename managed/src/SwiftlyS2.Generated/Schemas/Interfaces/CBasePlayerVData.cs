@@ -12,6 +12,7 @@ public partial interface CBasePlayerVData : CEntitySubclassVDataBase, ISchemaCla
 
   static CBasePlayerVData ISchemaClass<CBasePlayerVData>.From(nint handle) => new CBasePlayerVDataImpl(handle);
   static int ISchemaClass<CBasePlayerVData>.Size => 376;
+  static string? ISchemaClass<CBasePlayerVData>.ClassName => null;
 
   
   // CResourceNameTyped< CWeakHandle< InfoForResourceTypeCModel > >

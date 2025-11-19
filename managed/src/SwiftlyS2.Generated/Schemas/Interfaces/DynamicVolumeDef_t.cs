@@ -12,6 +12,7 @@ public partial interface DynamicVolumeDef_t : ISchemaClass<DynamicVolumeDef_t> {
 
   static DynamicVolumeDef_t ISchemaClass<DynamicVolumeDef_t>.From(nint handle) => new DynamicVolumeDef_tImpl(handle);
   static int ISchemaClass<DynamicVolumeDef_t>.Size => 48;
+  static string? ISchemaClass<DynamicVolumeDef_t>.ClassName => null;
 
   
   public ref CHandle<CBaseEntity> Source { get; }

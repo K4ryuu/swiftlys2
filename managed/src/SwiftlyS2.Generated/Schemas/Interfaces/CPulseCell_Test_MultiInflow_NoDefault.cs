@@ -12,6 +12,7 @@ public partial interface CPulseCell_Test_MultiInflow_NoDefault : CPulseCell_Base
 
   static CPulseCell_Test_MultiInflow_NoDefault ISchemaClass<CPulseCell_Test_MultiInflow_NoDefault>.From(nint handle) => new CPulseCell_Test_MultiInflow_NoDefaultImpl(handle);
   static int ISchemaClass<CPulseCell_Test_MultiInflow_NoDefault>.Size => 72;
+  static string? ISchemaClass<CPulseCell_Test_MultiInflow_NoDefault>.ClassName => null;
 
 
 

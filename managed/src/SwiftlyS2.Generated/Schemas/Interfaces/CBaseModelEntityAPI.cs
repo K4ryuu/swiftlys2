@@ -12,6 +12,7 @@ public partial interface CBaseModelEntityAPI : ISchemaClass<CBaseModelEntityAPI>
 
   static CBaseModelEntityAPI ISchemaClass<CBaseModelEntityAPI>.From(nint handle) => new CBaseModelEntityAPIImpl(handle);
   static int ISchemaClass<CBaseModelEntityAPI>.Size => 8;
+  static string? ISchemaClass<CBaseModelEntityAPI>.ClassName => null;
 
 
 

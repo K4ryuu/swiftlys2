@@ -12,6 +12,7 @@ public partial interface VMixEffectChainDesc_t : ISchemaClass<VMixEffectChainDes
 
   static VMixEffectChainDesc_t ISchemaClass<VMixEffectChainDesc_t>.From(nint handle) => new VMixEffectChainDesc_tImpl(handle);
   static int ISchemaClass<VMixEffectChainDesc_t>.Size => 4;
+  static string? ISchemaClass<VMixEffectChainDesc_t>.ClassName => null;
 
   
   public ref float CrossfadeTime { get; }

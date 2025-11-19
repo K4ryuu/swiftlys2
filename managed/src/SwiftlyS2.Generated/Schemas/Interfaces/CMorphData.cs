@@ -12,6 +12,7 @@ public partial interface CMorphData : ISchemaClass<CMorphData> {
 
   static CMorphData ISchemaClass<CMorphData>.From(nint handle) => new CMorphDataImpl(handle);
   static int ISchemaClass<CMorphData>.Size => 32;
+  static string? ISchemaClass<CMorphData>.ClassName => null;
 
   
   public string Name { get; set; }

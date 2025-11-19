@@ -12,6 +12,7 @@ public partial interface RsDepthStencilStateDesc_t : ISchemaClass<RsDepthStencil
 
   static RsDepthStencilStateDesc_t ISchemaClass<RsDepthStencilStateDesc_t>.From(nint handle) => new RsDepthStencilStateDesc_tImpl(handle);
   static int ISchemaClass<RsDepthStencilStateDesc_t>.Size => 8;
+  static string? ISchemaClass<RsDepthStencilStateDesc_t>.ClassName => null;
 
   
   // bitfield

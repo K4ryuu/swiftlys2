@@ -12,6 +12,7 @@ public partial interface CFootLockUpdateNode : CUnaryUpdateNode, ISchemaClass<CF
 
   static CFootLockUpdateNode ISchemaClass<CFootLockUpdateNode>.From(nint handle) => new CFootLockUpdateNodeImpl(handle);
   static int ISchemaClass<CFootLockUpdateNode>.Size => 344;
+  static string? ISchemaClass<CFootLockUpdateNode>.ClassName => null;
 
   
   public FootLockPoseOpFixedSettings OpFixedSettings { get; }

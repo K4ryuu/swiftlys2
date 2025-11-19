@@ -12,6 +12,7 @@ public partial interface CNmStateMachineNode__CDefinition : CNmPoseNode__CDefini
 
   static CNmStateMachineNode__CDefinition ISchemaClass<CNmStateMachineNode__CDefinition>.From(nint handle) => new CNmStateMachineNode__CDefinitionImpl(handle);
   static int ISchemaClass<CNmStateMachineNode__CDefinition>.Size => 312;
+  static string? ISchemaClass<CNmStateMachineNode__CDefinition>.ClassName => null;
 
   
   // CUtlLeanVectorFixedGrowable< CNmStateMachineNode::StateDefinition_t, 5 >

@@ -12,6 +12,7 @@ public partial interface CNmTransitionEventConditionNode__CDefinition : CNmBoolV
 
   static CNmTransitionEventConditionNode__CDefinition ISchemaClass<CNmTransitionEventConditionNode__CDefinition>.From(nint handle) => new CNmTransitionEventConditionNode__CDefinitionImpl(handle);
   static int ISchemaClass<CNmTransitionEventConditionNode__CDefinition>.Size => 32;
+  static string? ISchemaClass<CNmTransitionEventConditionNode__CDefinition>.ClassName => null;
 
   
   public ref CGlobalSymbol RequireRuleID { get; }

@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CChicken : CDynamicProp, ISchemaClass<CChicken> {
 
   static CChicken ISchemaClass<CChicken>.From(nint handle) => new CChickenImpl(handle);
-  static int ISchemaClass<CChicken>.Size => 12960;
+  static int ISchemaClass<CChicken>.Size => 13728;
+  static string? ISchemaClass<CChicken>.ClassName => "chicken";
 
   
   public CAttributeContainer AttributeManager { get; }

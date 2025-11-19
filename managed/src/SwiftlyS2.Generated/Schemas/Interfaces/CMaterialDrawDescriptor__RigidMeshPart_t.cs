@@ -12,6 +12,7 @@ public partial interface CMaterialDrawDescriptor__RigidMeshPart_t : ISchemaClass
 
   static CMaterialDrawDescriptor__RigidMeshPart_t ISchemaClass<CMaterialDrawDescriptor__RigidMeshPart_t>.From(nint handle) => new CMaterialDrawDescriptor__RigidMeshPart_tImpl(handle);
   static int ISchemaClass<CMaterialDrawDescriptor__RigidMeshPart_t>.Size => 12;
+  static string? ISchemaClass<CMaterialDrawDescriptor__RigidMeshPart_t>.ClassName => null;
 
   
   public ref ushort RigidBLASIndex { get; }

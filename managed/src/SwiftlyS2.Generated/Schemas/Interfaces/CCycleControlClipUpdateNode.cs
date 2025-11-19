@@ -12,6 +12,7 @@ public partial interface CCycleControlClipUpdateNode : CLeafUpdateNode, ISchemaC
 
   static CCycleControlClipUpdateNode ISchemaClass<CCycleControlClipUpdateNode>.From(nint handle) => new CCycleControlClipUpdateNodeImpl(handle);
   static int ISchemaClass<CCycleControlClipUpdateNode>.Size => 144;
+  static string? ISchemaClass<CCycleControlClipUpdateNode>.ClassName => null;
 
   
   public ref CUtlVector<TagSpan_t> Tags { get; }

@@ -12,6 +12,7 @@ public partial interface CAnimStateMachineUpdater : ISchemaClass<CAnimStateMachi
 
   static CAnimStateMachineUpdater ISchemaClass<CAnimStateMachineUpdater>.From(nint handle) => new CAnimStateMachineUpdaterImpl(handle);
   static int ISchemaClass<CAnimStateMachineUpdater>.Size => 88;
+  static string? ISchemaClass<CAnimStateMachineUpdater>.ClassName => null;
 
   
   public ref CUtlVector<CStateUpdateData> States { get; }

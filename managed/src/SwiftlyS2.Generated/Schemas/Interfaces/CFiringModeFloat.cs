@@ -12,6 +12,7 @@ public partial interface CFiringModeFloat : ISchemaClass<CFiringModeFloat> {
 
   static CFiringModeFloat ISchemaClass<CFiringModeFloat>.From(nint handle) => new CFiringModeFloatImpl(handle);
   static int ISchemaClass<CFiringModeFloat>.Size => 8;
+  static string? ISchemaClass<CFiringModeFloat>.ClassName => null;
 
   
   public ISchemaFixedArray<float> Values { get; }

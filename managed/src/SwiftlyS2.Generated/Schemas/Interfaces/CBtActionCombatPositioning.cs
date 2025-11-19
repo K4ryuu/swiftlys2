@@ -12,6 +12,7 @@ public partial interface CBtActionCombatPositioning : CBtNode, ISchemaClass<CBtA
 
   static CBtActionCombatPositioning ISchemaClass<CBtActionCombatPositioning>.From(nint handle) => new CBtActionCombatPositioningImpl(handle);
   static int ISchemaClass<CBtActionCombatPositioning>.Size => 176;
+  static string? ISchemaClass<CBtActionCombatPositioning>.ClassName => null;
 
   
   public string SensorInputKey { get; set; }

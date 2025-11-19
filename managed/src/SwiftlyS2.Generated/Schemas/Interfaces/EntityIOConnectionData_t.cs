@@ -12,6 +12,7 @@ public partial interface EntityIOConnectionData_t : ISchemaClass<EntityIOConnect
 
   static EntityIOConnectionData_t ISchemaClass<EntityIOConnectionData_t>.From(nint handle) => new EntityIOConnectionData_tImpl(handle);
   static int ISchemaClass<EntityIOConnectionData_t>.Size => 64;
+  static string? ISchemaClass<EntityIOConnectionData_t>.ClassName => null;
 
   
   public string OutputName { get; set; }

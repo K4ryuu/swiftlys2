@@ -12,6 +12,7 @@ public partial interface MaterialGroup_t : ISchemaClass<MaterialGroup_t> {
 
   static MaterialGroup_t ISchemaClass<MaterialGroup_t>.From(nint handle) => new MaterialGroup_tImpl(handle);
   static int ISchemaClass<MaterialGroup_t>.Size => 32;
+  static string? ISchemaClass<MaterialGroup_t>.ClassName => null;
 
   
   public string Name { get; set; }

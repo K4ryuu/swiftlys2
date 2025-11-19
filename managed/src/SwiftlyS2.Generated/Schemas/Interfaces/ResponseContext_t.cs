@@ -12,6 +12,7 @@ public partial interface ResponseContext_t : ISchemaClass<ResponseContext_t> {
 
   static ResponseContext_t ISchemaClass<ResponseContext_t>.From(nint handle) => new ResponseContext_tImpl(handle);
   static int ISchemaClass<ResponseContext_t>.Size => 24;
+  static string? ISchemaClass<ResponseContext_t>.ClassName => null;
 
   
   public string Name { get; set; }

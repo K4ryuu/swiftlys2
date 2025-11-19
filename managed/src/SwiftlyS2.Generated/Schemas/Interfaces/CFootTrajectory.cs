@@ -12,6 +12,7 @@ public partial interface CFootTrajectory : ISchemaClass<CFootTrajectory> {
 
   static CFootTrajectory ISchemaClass<CFootTrajectory>.From(nint handle) => new CFootTrajectoryImpl(handle);
   static int ISchemaClass<CFootTrajectory>.Size => 32;
+  static string? ISchemaClass<CFootTrajectory>.ClassName => null;
 
   
   public ref Vector Offset { get; }

@@ -12,6 +12,7 @@ public partial interface CSosGroupActionSetSoundeventParameterSchema : CSosGroup
 
   static CSosGroupActionSetSoundeventParameterSchema ISchemaClass<CSosGroupActionSetSoundeventParameterSchema>.From(nint handle) => new CSosGroupActionSetSoundeventParameterSchemaImpl(handle);
   static int ISchemaClass<CSosGroupActionSetSoundeventParameterSchema>.Size => 40;
+  static string? ISchemaClass<CSosGroupActionSetSoundeventParameterSchema>.ClassName => null;
 
   
   public ref int MaxCount { get; }

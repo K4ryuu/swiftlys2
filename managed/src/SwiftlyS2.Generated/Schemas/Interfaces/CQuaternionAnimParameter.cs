@@ -12,6 +12,7 @@ public partial interface CQuaternionAnimParameter : CConcreteAnimParameter, ISch
 
   static CQuaternionAnimParameter ISchemaClass<CQuaternionAnimParameter>.From(nint handle) => new CQuaternionAnimParameterImpl(handle);
   static int ISchemaClass<CQuaternionAnimParameter>.Size => 160;
+  static string? ISchemaClass<CQuaternionAnimParameter>.ClassName => null;
 
   
   public ref Quaternion DefaultValue { get; }

@@ -12,6 +12,7 @@ public partial interface CStateMachineUpdateNode : CAnimUpdateNodeBase, ISchemaC
 
   static CStateMachineUpdateNode ISchemaClass<CStateMachineUpdateNode>.From(nint handle) => new CStateMachineUpdateNodeImpl(handle);
   static int ISchemaClass<CStateMachineUpdateNode>.Size => 256;
+  static string? ISchemaClass<CStateMachineUpdateNode>.ClassName => null;
 
   
   public CAnimStateMachineUpdater StateMachine { get; }

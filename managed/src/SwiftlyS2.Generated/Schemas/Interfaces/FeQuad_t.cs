@@ -12,6 +12,7 @@ public partial interface FeQuad_t : ISchemaClass<FeQuad_t> {
 
   static FeQuad_t ISchemaClass<FeQuad_t>.From(nint handle) => new FeQuad_tImpl(handle);
   static int ISchemaClass<FeQuad_t>.Size => 76;
+  static string? ISchemaClass<FeQuad_t>.ClassName => null;
 
   
   public ISchemaFixedArray<ushort> Node { get; }

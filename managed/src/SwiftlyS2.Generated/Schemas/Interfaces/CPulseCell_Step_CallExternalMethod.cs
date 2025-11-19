@@ -12,6 +12,7 @@ public partial interface CPulseCell_Step_CallExternalMethod : CPulseCell_BaseYie
 
   static CPulseCell_Step_CallExternalMethod ISchemaClass<CPulseCell_Step_CallExternalMethod>.From(nint handle) => new CPulseCell_Step_CallExternalMethodImpl(handle);
   static int ISchemaClass<CPulseCell_Step_CallExternalMethod>.Size => 200;
+  static string? ISchemaClass<CPulseCell_Step_CallExternalMethod>.ClassName => null;
 
   
   // PulseSymbol_t

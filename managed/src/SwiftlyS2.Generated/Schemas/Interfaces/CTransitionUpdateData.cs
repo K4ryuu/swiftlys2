@@ -12,6 +12,7 @@ public partial interface CTransitionUpdateData : ISchemaClass<CTransitionUpdateD
 
   static CTransitionUpdateData ISchemaClass<CTransitionUpdateData>.From(nint handle) => new CTransitionUpdateDataImpl(handle);
   static int ISchemaClass<CTransitionUpdateData>.Size => 3;
+  static string? ISchemaClass<CTransitionUpdateData>.ClassName => null;
 
   
   public ref byte SrcStateIndex { get; }

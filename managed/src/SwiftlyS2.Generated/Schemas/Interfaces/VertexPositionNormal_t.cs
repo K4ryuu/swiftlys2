@@ -12,6 +12,7 @@ public partial interface VertexPositionNormal_t : ISchemaClass<VertexPositionNor
 
   static VertexPositionNormal_t ISchemaClass<VertexPositionNormal_t>.From(nint handle) => new VertexPositionNormal_tImpl(handle);
   static int ISchemaClass<VertexPositionNormal_t>.Size => 24;
+  static string? ISchemaClass<VertexPositionNormal_t>.ClassName => null;
 
   
   public ref Vector Position { get; }

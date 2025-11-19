@@ -12,6 +12,7 @@ public partial interface CScriptComponent : CEntityComponent, ISchemaClass<CScri
 
   static CScriptComponent ISchemaClass<CScriptComponent>.From(nint handle) => new CScriptComponentImpl(handle);
   static int ISchemaClass<CScriptComponent>.Size => 56;
+  static string? ISchemaClass<CScriptComponent>.ClassName => null;
 
   
   public string ScriptClassName { get; set; }

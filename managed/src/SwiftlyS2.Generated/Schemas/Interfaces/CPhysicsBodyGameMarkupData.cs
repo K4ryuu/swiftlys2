@@ -12,6 +12,7 @@ public partial interface CPhysicsBodyGameMarkupData : ISchemaClass<CPhysicsBodyG
 
   static CPhysicsBodyGameMarkupData ISchemaClass<CPhysicsBodyGameMarkupData>.From(nint handle) => new CPhysicsBodyGameMarkupDataImpl(handle);
   static int ISchemaClass<CPhysicsBodyGameMarkupData>.Size => 40;
+  static string? ISchemaClass<CPhysicsBodyGameMarkupData>.ClassName => null;
 
   
   // CUtlOrderedMap< CUtlString, CPhysicsBodyGameMarkup >

@@ -12,6 +12,7 @@ public partial interface CSosGroupActionTimeBlockLimitSchema : CSosGroupActionSc
 
   static CSosGroupActionTimeBlockLimitSchema ISchemaClass<CSosGroupActionTimeBlockLimitSchema>.From(nint handle) => new CSosGroupActionTimeBlockLimitSchemaImpl(handle);
   static int ISchemaClass<CSosGroupActionTimeBlockLimitSchema>.Size => 16;
+  static string? ISchemaClass<CSosGroupActionTimeBlockLimitSchema>.ClassName => null;
 
   
   public ref int MaxCount { get; }

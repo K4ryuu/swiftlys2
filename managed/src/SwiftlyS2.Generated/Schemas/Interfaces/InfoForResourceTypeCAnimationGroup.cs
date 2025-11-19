@@ -12,6 +12,7 @@ public partial interface InfoForResourceTypeCAnimationGroup : ISchemaClass<InfoF
 
   static InfoForResourceTypeCAnimationGroup ISchemaClass<InfoForResourceTypeCAnimationGroup>.From(nint handle) => new InfoForResourceTypeCAnimationGroupImpl(handle);
   static int ISchemaClass<InfoForResourceTypeCAnimationGroup>.Size => 1;
+  static string? ISchemaClass<InfoForResourceTypeCAnimationGroup>.ClassName => null;
 
 
 

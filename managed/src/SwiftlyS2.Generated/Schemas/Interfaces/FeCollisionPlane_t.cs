@@ -12,6 +12,7 @@ public partial interface FeCollisionPlane_t : ISchemaClass<FeCollisionPlane_t> {
 
   static FeCollisionPlane_t ISchemaClass<FeCollisionPlane_t>.From(nint handle) => new FeCollisionPlane_tImpl(handle);
   static int ISchemaClass<FeCollisionPlane_t>.Size => 24;
+  static string? ISchemaClass<FeCollisionPlane_t>.ClassName => null;
 
   
   public ref ushort CtrlParent { get; }

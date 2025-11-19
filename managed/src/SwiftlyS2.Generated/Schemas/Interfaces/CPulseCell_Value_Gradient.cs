@@ -12,6 +12,7 @@ public partial interface CPulseCell_Value_Gradient : CPulseCell_BaseValue, ISche
 
   static CPulseCell_Value_Gradient ISchemaClass<CPulseCell_Value_Gradient>.From(nint handle) => new CPulseCell_Value_GradientImpl(handle);
   static int ISchemaClass<CPulseCell_Value_Gradient>.Size => 96;
+  static string? ISchemaClass<CPulseCell_Value_Gradient>.ClassName => null;
 
   
   // CColorGradient

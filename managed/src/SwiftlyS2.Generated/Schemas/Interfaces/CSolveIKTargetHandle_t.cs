@@ -12,6 +12,7 @@ public partial interface CSolveIKTargetHandle_t : ISchemaClass<CSolveIKTargetHan
 
   static CSolveIKTargetHandle_t ISchemaClass<CSolveIKTargetHandle_t>.From(nint handle) => new CSolveIKTargetHandle_tImpl(handle);
   static int ISchemaClass<CSolveIKTargetHandle_t>.Size => 4;
+  static string? ISchemaClass<CSolveIKTargetHandle_t>.ClassName => null;
 
   
   public CAnimParamHandle PositionHandle { get; }

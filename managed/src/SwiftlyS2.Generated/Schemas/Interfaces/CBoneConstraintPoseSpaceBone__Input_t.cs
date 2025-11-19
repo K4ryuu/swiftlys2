@@ -12,6 +12,7 @@ public partial interface CBoneConstraintPoseSpaceBone__Input_t : ISchemaClass<CB
 
   static CBoneConstraintPoseSpaceBone__Input_t ISchemaClass<CBoneConstraintPoseSpaceBone__Input_t>.From(nint handle) => new CBoneConstraintPoseSpaceBone__Input_tImpl(handle);
   static int ISchemaClass<CBoneConstraintPoseSpaceBone__Input_t>.Size => 40;
+  static string? ISchemaClass<CBoneConstraintPoseSpaceBone__Input_t>.ClassName => null;
 
   
   public ref Vector InputValue { get; }

@@ -12,6 +12,7 @@ public partial interface constraint_axislimit_t : ISchemaClass<constraint_axisli
 
   static constraint_axislimit_t ISchemaClass<constraint_axislimit_t>.From(nint handle) => new constraint_axislimit_tImpl(handle);
   static int ISchemaClass<constraint_axislimit_t>.Size => 16;
+  static string? ISchemaClass<constraint_axislimit_t>.ClassName => null;
 
   
   public ref float MinRotation { get; }

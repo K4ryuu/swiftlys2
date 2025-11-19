@@ -12,6 +12,7 @@ public partial interface InfoForResourceTypeCVoxelVisibility : ISchemaClass<Info
 
   static InfoForResourceTypeCVoxelVisibility ISchemaClass<InfoForResourceTypeCVoxelVisibility>.From(nint handle) => new InfoForResourceTypeCVoxelVisibilityImpl(handle);
   static int ISchemaClass<InfoForResourceTypeCVoxelVisibility>.Size => 1;
+  static string? ISchemaClass<InfoForResourceTypeCVoxelVisibility>.ClassName => null;
 
 
 

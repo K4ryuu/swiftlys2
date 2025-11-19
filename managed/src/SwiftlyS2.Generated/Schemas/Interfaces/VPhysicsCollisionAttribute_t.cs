@@ -12,6 +12,7 @@ public partial interface VPhysicsCollisionAttribute_t : ISchemaClass<VPhysicsCol
 
   static VPhysicsCollisionAttribute_t ISchemaClass<VPhysicsCollisionAttribute_t>.From(nint handle) => new VPhysicsCollisionAttribute_tImpl(handle);
   static int ISchemaClass<VPhysicsCollisionAttribute_t>.Size => 48;
+  static string? ISchemaClass<VPhysicsCollisionAttribute_t>.ClassName => null;
 
   
   public ref ulong InteractsAs { get; }

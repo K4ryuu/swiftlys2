@@ -12,6 +12,7 @@ public partial interface CAnimationGraphVisualizerPrimitiveBase : ISchemaClass<C
 
   static CAnimationGraphVisualizerPrimitiveBase ISchemaClass<CAnimationGraphVisualizerPrimitiveBase>.From(nint handle) => new CAnimationGraphVisualizerPrimitiveBaseImpl(handle);
   static int ISchemaClass<CAnimationGraphVisualizerPrimitiveBase>.Size => 64;
+  static string? ISchemaClass<CAnimationGraphVisualizerPrimitiveBase>.ClassName => null;
 
   
   public ref CAnimationGraphVisualizerPrimitiveType Type { get; }

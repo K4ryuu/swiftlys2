@@ -12,6 +12,7 @@ public partial interface CSSDSMsg_PostLayer : CSSDSMsg_LayerBase, ISchemaClass<C
 
   static CSSDSMsg_PostLayer ISchemaClass<CSSDSMsg_PostLayer>.From(nint handle) => new CSSDSMsg_PostLayerImpl(handle);
   static int ISchemaClass<CSSDSMsg_PostLayer>.Size => 48;
+  static string? ISchemaClass<CSSDSMsg_PostLayer>.ClassName => null;
 
 
 

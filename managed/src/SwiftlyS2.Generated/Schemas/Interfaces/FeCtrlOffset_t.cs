@@ -12,6 +12,7 @@ public partial interface FeCtrlOffset_t : ISchemaClass<FeCtrlOffset_t> {
 
   static FeCtrlOffset_t ISchemaClass<FeCtrlOffset_t>.From(nint handle) => new FeCtrlOffset_tImpl(handle);
   static int ISchemaClass<FeCtrlOffset_t>.Size => 16;
+  static string? ISchemaClass<FeCtrlOffset_t>.ClassName => null;
 
   
   public ref Vector Offset { get; }

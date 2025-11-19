@@ -12,6 +12,7 @@ public partial interface MaterialParamVector_t : MaterialParam_t, ISchemaClass<M
 
   static MaterialParamVector_t ISchemaClass<MaterialParamVector_t>.From(nint handle) => new MaterialParamVector_tImpl(handle);
   static int ISchemaClass<MaterialParamVector_t>.Size => 24;
+  static string? ISchemaClass<MaterialParamVector_t>.ClassName => null;
 
   
   public ref Vector4D Value { get; }

@@ -12,6 +12,7 @@ public partial interface CRelativeLocation : ISchemaClass<CRelativeLocation> {
 
   static CRelativeLocation ISchemaClass<CRelativeLocation>.From(nint handle) => new CRelativeLocationImpl(handle);
   static int ISchemaClass<CRelativeLocation>.Size => 56;
+  static string? ISchemaClass<CRelativeLocation>.ClassName => null;
 
   
   public ref RelativeLocationType_t Type { get; }

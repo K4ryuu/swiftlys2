@@ -12,6 +12,7 @@ public partial interface FeCtrlSoftOffset_t : ISchemaClass<FeCtrlSoftOffset_t> {
 
   static FeCtrlSoftOffset_t ISchemaClass<FeCtrlSoftOffset_t>.From(nint handle) => new FeCtrlSoftOffset_tImpl(handle);
   static int ISchemaClass<FeCtrlSoftOffset_t>.Size => 20;
+  static string? ISchemaClass<FeCtrlSoftOffset_t>.ClassName => null;
 
   
   public ref ushort CtrlParent { get; }

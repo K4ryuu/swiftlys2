@@ -12,6 +12,7 @@ public partial interface fogplayerparams_t : ISchemaClass<fogplayerparams_t> {
 
   static fogplayerparams_t ISchemaClass<fogplayerparams_t>.From(nint handle) => new fogplayerparams_tImpl(handle);
   static int ISchemaClass<fogplayerparams_t>.Size => 64;
+  static string? ISchemaClass<fogplayerparams_t>.ClassName => null;
 
   
   public ref CHandle<CFogController> Ctrl { get; }

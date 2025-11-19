@@ -12,6 +12,7 @@ public partial interface AttachmentHandle_t : ISchemaClass<AttachmentHandle_t> {
 
   static AttachmentHandle_t ISchemaClass<AttachmentHandle_t>.From(nint handle) => new AttachmentHandle_tImpl(handle);
   static int ISchemaClass<AttachmentHandle_t>.Size => 1;
+  static string? ISchemaClass<AttachmentHandle_t>.ClassName => null;
 
   
   public ref byte Value { get; }

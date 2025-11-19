@@ -12,6 +12,7 @@ public partial interface CPulseCell_CursorQueue : CPulseCell_WaitForCursorsWithT
 
   static CPulseCell_CursorQueue ISchemaClass<CPulseCell_CursorQueue>.From(nint handle) => new CPulseCell_CursorQueueImpl(handle);
   static int ISchemaClass<CPulseCell_CursorQueue>.Size => 160;
+  static string? ISchemaClass<CPulseCell_CursorQueue>.ClassName => null;
 
   
   public ref int CursorsAllowedToRunParallel { get; }

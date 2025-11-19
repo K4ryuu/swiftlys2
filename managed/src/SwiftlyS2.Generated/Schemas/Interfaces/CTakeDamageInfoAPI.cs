@@ -12,6 +12,7 @@ public partial interface CTakeDamageInfoAPI : ISchemaClass<CTakeDamageInfoAPI> {
 
   static CTakeDamageInfoAPI ISchemaClass<CTakeDamageInfoAPI>.From(nint handle) => new CTakeDamageInfoAPIImpl(handle);
   static int ISchemaClass<CTakeDamageInfoAPI>.Size => 8;
+  static string? ISchemaClass<CTakeDamageInfoAPI>.ClassName => null;
 
 
 

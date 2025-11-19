@@ -12,6 +12,7 @@ public partial interface CSequenceUpdateNodeBase : CLeafUpdateNode, ISchemaClass
 
   static CSequenceUpdateNodeBase ISchemaClass<CSequenceUpdateNodeBase>.From(nint handle) => new CSequenceUpdateNodeBaseImpl(handle);
   static int ISchemaClass<CSequenceUpdateNodeBase>.Size => 120;
+  static string? ISchemaClass<CSequenceUpdateNodeBase>.ClassName => null;
 
   
   public ref float PlaybackSpeed { get; }

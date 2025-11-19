@@ -12,6 +12,7 @@ public partial interface CPulseCell_ExampleCriteria__Criteria_t : ISchemaClass<C
 
   static CPulseCell_ExampleCriteria__Criteria_t ISchemaClass<CPulseCell_ExampleCriteria__Criteria_t>.From(nint handle) => new CPulseCell_ExampleCriteria__Criteria_tImpl(handle);
   static int ISchemaClass<CPulseCell_ExampleCriteria__Criteria_t>.Size => 12;
+  static string? ISchemaClass<CPulseCell_ExampleCriteria__Criteria_t>.ClassName => null;
 
   
   public ref float FloatValue1 { get; }

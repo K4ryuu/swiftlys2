@@ -12,6 +12,7 @@ public partial interface CCSWeaponBaseVData : CBasePlayerWeaponVData, ISchemaCla
 
   static CCSWeaponBaseVData ISchemaClass<CCSWeaponBaseVData>.From(nint handle) => new CCSWeaponBaseVDataImpl(handle);
   static int ISchemaClass<CCSWeaponBaseVData>.Size => 2208;
+  static string? ISchemaClass<CCSWeaponBaseVData>.ClassName => null;
 
   
   public ref CSWeaponType WeaponType { get; }

@@ -12,6 +12,7 @@ public partial interface CBaseConstraint : CBoneConstraintBase, ISchemaClass<CBa
 
   static CBaseConstraint ISchemaClass<CBaseConstraint>.From(nint handle) => new CBaseConstraintImpl(handle);
   static int ISchemaClass<CBaseConstraint>.Size => 96;
+  static string? ISchemaClass<CBaseConstraint>.ClassName => null;
 
   
   public string Name { get; set; }

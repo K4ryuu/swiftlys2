@@ -11,7 +11,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CBombTarget : CBaseTrigger, ISchemaClass<CBombTarget> {
 
   static CBombTarget ISchemaClass<CBombTarget>.From(nint handle) => new CBombTargetImpl(handle);
-  static int ISchemaClass<CBombTarget>.Size => 2616;
+  static int ISchemaClass<CBombTarget>.Size => 3352;
+  static string? ISchemaClass<CBombTarget>.ClassName => "func_bomb_target";
 
   
   public CEntityIOOutput OnBombExplode { get; }

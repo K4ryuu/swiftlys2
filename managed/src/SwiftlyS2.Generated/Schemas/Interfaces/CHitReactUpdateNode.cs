@@ -12,6 +12,7 @@ public partial interface CHitReactUpdateNode : CUnaryUpdateNode, ISchemaClass<CH
 
   static CHitReactUpdateNode ISchemaClass<CHitReactUpdateNode>.From(nint handle) => new CHitReactUpdateNodeImpl(handle);
   static int ISchemaClass<CHitReactUpdateNode>.Size => 208;
+  static string? ISchemaClass<CHitReactUpdateNode>.ClassName => null;
 
   
   public HitReactFixedSettings_t OpFixedSettings { get; }

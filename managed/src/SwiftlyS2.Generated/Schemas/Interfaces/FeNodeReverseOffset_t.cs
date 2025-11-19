@@ -12,6 +12,7 @@ public partial interface FeNodeReverseOffset_t : ISchemaClass<FeNodeReverseOffse
 
   static FeNodeReverseOffset_t ISchemaClass<FeNodeReverseOffset_t>.From(nint handle) => new FeNodeReverseOffset_tImpl(handle);
   static int ISchemaClass<FeNodeReverseOffset_t>.Size => 16;
+  static string? ISchemaClass<FeNodeReverseOffset_t>.ClassName => null;
 
   
   public ref Vector Offset { get; }

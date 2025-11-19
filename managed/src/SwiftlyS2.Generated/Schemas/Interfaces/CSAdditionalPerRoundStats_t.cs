@@ -12,6 +12,7 @@ public partial interface CSAdditionalPerRoundStats_t : ISchemaClass<CSAdditional
 
   static CSAdditionalPerRoundStats_t ISchemaClass<CSAdditionalPerRoundStats_t>.From(nint handle) => new CSAdditionalPerRoundStats_tImpl(handle);
   static int ISchemaClass<CSAdditionalPerRoundStats_t>.Size => 24;
+  static string? ISchemaClass<CSAdditionalPerRoundStats_t>.ClassName => null;
 
   
   public ref int NumChickensKilled { get; }

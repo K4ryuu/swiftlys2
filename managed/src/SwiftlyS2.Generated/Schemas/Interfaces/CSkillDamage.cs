@@ -12,6 +12,7 @@ public partial interface CSkillDamage : ISchemaClass<CSkillDamage> {
 
   static CSkillDamage ISchemaClass<CSkillDamage>.From(nint handle) => new CSkillDamageImpl(handle);
   static int ISchemaClass<CSkillDamage>.Size => 24;
+  static string? ISchemaClass<CSkillDamage>.ClassName => null;
 
   
   public CSkillFloat Damage { get; }

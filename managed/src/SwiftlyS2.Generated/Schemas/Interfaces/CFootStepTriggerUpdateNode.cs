@@ -12,6 +12,7 @@ public partial interface CFootStepTriggerUpdateNode : CUnaryUpdateNode, ISchemaC
 
   static CFootStepTriggerUpdateNode ISchemaClass<CFootStepTriggerUpdateNode>.From(nint handle) => new CFootStepTriggerUpdateNodeImpl(handle);
   static int ISchemaClass<CFootStepTriggerUpdateNode>.Size => 144;
+  static string? ISchemaClass<CFootStepTriggerUpdateNode>.ClassName => null;
 
   
   public ref CUtlVector<FootStepTrigger> Triggers { get; }
