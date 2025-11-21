@@ -1,4 +1,5 @@
 using SwiftlyS2.Shared.Menus;
+using System.Threading;
 
 namespace SwiftlyS2.Core.Menus.OptionsBase.Helpers;
 
@@ -10,7 +11,7 @@ internal sealed class DynamicTextUpdater : IDisposable
     private readonly Func<float> getMaxWidth;
     private readonly Action<string> setDynamicText;
     private readonly CancellationTokenSource cancellationTokenSource;
-    private readonly ManualResetEventSlim resumeEvent;
+    private readonly SemaphoreSlim pauseSemaphore;
 
     private volatile bool disposed;
 
@@ -31,7 +32,7 @@ internal sealed class DynamicTextUpdater : IDisposable
 
         processor = new();
         cancellationTokenSource = new();
-        resumeEvent = new(false); // Initially paused, need manual Resume() to start
+        pauseSemaphore = new(0); // Initially paused (0 count), need manual Resume() to start
 
         _ = Task.Run(() => UpdateLoopAsync(updateIntervalMs, pauseIntervalMs, cancellationTokenSource.Token), cancellationTokenSource.Token);
     }
@@ -49,12 +50,12 @@ internal sealed class DynamicTextUpdater : IDisposable
         }
 
         // Console.WriteLine($"{GetType().Name} has been disposed.");
-        resumeEvent.Set(); // Ensure any waiting thread can exit
+        _ = pauseSemaphore.Release(); // Ensure any waiting thread can exit
 
         cancellationTokenSource.Cancel();
         cancellationTokenSource.Dispose();
 
-        resumeEvent.Dispose();
+        pauseSemaphore.Dispose();
         processor.Dispose();
 
         disposed = true;
@@ -63,17 +64,17 @@ internal sealed class DynamicTextUpdater : IDisposable
 
     public void Pause()
     {
-        if (!disposed)
+        if (!disposed && pauseSemaphore.CurrentCount > 0)
         {
-            resumeEvent.Reset();
+            pauseSemaphore.Wait();
         }
     }
 
     public void Resume()
     {
-        if (!disposed)
+        if (!disposed && pauseSemaphore.CurrentCount == 0)
         {
-            resumeEvent.Set();
+            _ = pauseSemaphore.Release();
         }
     }
 
@@ -84,7 +85,8 @@ internal sealed class DynamicTextUpdater : IDisposable
             try
             {
                 // Wait if paused
-                resumeEvent.Wait(token);
+                await pauseSemaphore.WaitAsync(token);
+                _ = pauseSemaphore.Release();
 
                 await Task.Delay(intervalMs, token);
                 var sourceText = getSourceText();

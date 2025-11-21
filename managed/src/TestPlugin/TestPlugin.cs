@@ -999,7 +999,7 @@ public class TestPlugin : BasePlugin
             _ = mainMenu.AddOption(new SubmenuMenuOption($"Menu #{i + 1}", menus[menuIndex]));
         }
 
-        Core.MenusAPI.OpenMenu(mainMenu.Build());
+        Core.MenusAPI.OpenMenuForPlayer(context.Sender!, mainMenu.Build());
     }
 
     public override void Unload()

@@ -119,8 +119,8 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
 
     // private readonly ConcurrentDictionary<int, string> renderCache = new();
     private readonly CancellationTokenSource renderLoopCancellationTokenSource = new();
-    private readonly Lock viewerCountLock = new();
-    private int viewerCount = 0;
+    private readonly Lock viewersLock = new();
+    private readonly HashSet<int> viewers = new();
 
     private volatile bool disposed;
 
@@ -449,10 +449,12 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
             return;
         }
 
-        // Increment viewer count, resume animations if first viewer
-        lock (viewerCountLock)
+        // Add viewer, resume animations if first viewer
+        lock (viewersLock)
         {
-            if (++viewerCount >= 1)
+            _ = viewers.Add(player.PlayerID);
+
+            if (viewers.Count == 1)
             {
                 lock (optionsLock)
                 {
@@ -495,12 +497,12 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
             NativePlayer.ClearCenterMenuRender(player.PlayerID);
             core.Scheduler.NextTick(() => NativePlayer.ClearCenterMenuRender(player.PlayerID));
 
-            // Decrement viewer count, pause animations if no viewers left
-            lock (viewerCountLock)
+            // Remove viewer, pause animations if no viewers left
+            lock (viewersLock)
             {
-                viewerCount = Math.Max(0, viewerCount - 1);
+                _ = viewers.Remove(player.PlayerID);
 
-                if (viewerCount == 0)
+                if (viewers.Count == 0)
                 {
                     lock (optionsLock)
                     {
