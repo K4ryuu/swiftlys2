@@ -87,7 +87,7 @@ internal partial class CEntityInstanceImpl : CEntityInstance
 
     public bool IsTransmitting( int playerId )
     {
-        return NativePlayer.IsTransmitEntityBlocked(playerId, (int)Index);
+        return !NativePlayer.IsTransmitEntityBlocked(playerId, (int)Index);
     }
 
     public void DispatchSpawn( CEntityKeyValues? entityKV = null )
