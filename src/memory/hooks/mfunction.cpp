@@ -17,27 +17,18 @@
  ************************************************************************************************/
 
 #include "mfunction.h"
-#include <Windows.h>
-#include <cstdio>
 
 MFunctionHook* MFunctionHook::s_currentInstance = nullptr;
 
-static void CppMidHookWrapper(safetyhook::Context& ctx)
+static void MidHookWrapper(safetyhook::Context& ctx)
 {
     if (!MFunctionHook::s_currentInstance || !MFunctionHook::s_currentInstance->m_userCallback)
     {
         return;
     }
 
-    __try
-    {
-        auto callback = (void (*)(void*))MFunctionHook::s_currentInstance->m_userCallback;
-        callback(&ctx);
-    }
-    __except (EXCEPTION_EXECUTE_HANDLER)
-    {
-        printf("[MFunctionHook::CppWrapper] EXCEPTION during callback! Code: 0x%X\n", GetExceptionCode());
-    }
+    auto callback = (void (*)(void*))MFunctionHook::s_currentInstance->m_userCallback;
+    callback(&ctx);
 }
 
 void MFunctionHook::SetHookFunction(void* addr, void* callback)
@@ -49,7 +40,7 @@ void MFunctionHook::SetHookFunction(void* addr, void* callback)
 
     m_userCallback = callback;
     s_currentInstance = this;
-    m_oHook = safetyhook::create_mid(addr, CppMidHookWrapper, safetyhook::MidHook::StartDisabled);
+    m_oHook = safetyhook::create_mid(addr, MidHookWrapper, safetyhook::MidHook::StartDisabled);
 }
 
 void MFunctionHook::Enable()
