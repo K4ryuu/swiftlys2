@@ -122,7 +122,7 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
     private readonly Lock viewersLock = new();
     private readonly HashSet<int> viewers = [];
 
-    private volatile bool disposed;
+    private volatile bool disposed = false;
 
     // [SetsRequiredMembers]
     public MenuAPI( ISwiftlyCore core, MenuConfiguration configuration, MenuKeybindOverrides keybindOverrides, IMenuBuilderAPI? builder = null/*, IMenuAPI? parent = null*/, MenuOptionScrollStyle optionScrollStyle = MenuOptionScrollStyle.CenterFixed/*, MenuOptionTextStyle optionTextStyle = MenuOptionTextStyle.TruncateEnd*/ )
@@ -168,6 +168,11 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
             return;
         }
 
+        disposed = true;
+        GC.SuppressFinalize(this);
+
+        if (core == null) return;
+
         // Console.WriteLine($"{GetType().Name} has been disposed.");
         core.PlayerManager
             .GetAllPlayers()
@@ -210,9 +215,6 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
             }
         });
         renderLoopTasks.Clear();
-
-        disposed = true;
-        GC.SuppressFinalize(this);
     }
 
     // private void OnTick()

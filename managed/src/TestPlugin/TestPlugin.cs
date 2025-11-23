@@ -95,6 +95,31 @@ public class TestPlugin : BasePlugin
         return HookResult.Continue;
     }
 
+    public override void OnAllPluginsLoaded()
+    {
+        base.OnAllPluginsLoaded();
+
+        for (var x = 0; x < 30; x++)
+        {
+            var builder = Core.MenusAPI
+                .CreateBuilder()
+                .Design.SetMenuTitle($"Test Menu {x + 1}");
+            for (var j = 0; j < 5; j++)
+            {
+                var optionText = $"Menu # {x + 1} - Option # {j + 1}";
+                var button = new ButtonMenuOption(optionText) { TextStyle = MenuOptionTextStyle.ScrollLeftLoop, MaxWidth = 16f };
+                button.Click += ( sender, args ) =>
+                {
+                    args.Player.SendChat($"Clicked: {optionText}");
+                    return ValueTask.CompletedTask;
+                };
+                _ = builder.AddOption(button);
+            }
+
+            var menu = builder.Build();
+        }
+    }
+
     public override void Load( bool hotReload )
     {
         // Core.Command.HookClientCommand((playerId, commandLine) =>
