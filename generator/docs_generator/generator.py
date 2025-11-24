@@ -31,18 +31,22 @@ def convert_to_path(s):
         s = s[10:]
         s = s[:-5]
     path = "/".join(s.split(".")).lower()
+    # Transform -NUMBER to t repeated NUMBER times
+    parts = path.split("/")
+    parts[-1] = transform_filename(parts[-1])
+    path = "/".join(parts)
     return path
 
 def transform_filename(base_name):
     """
-    If filename ends with -NUMBER, replace with NUMBER times 'T'.
-    Example: class-3 -> classTTT
+    If filename ends with -NUMBER, replace with NUMBER times 't'.
+    Example: class-3 -> classttt
     """
     match = re.match(r"^(.*?)-(\d+)$", base_name)
     if match:
         name, num = match.groups()
         num = int(num)
-        return name + ("T" * num)
+        return name + ("t" * num)
     return base_name
 
 def generate_markdown(yaml_data):
@@ -94,6 +98,7 @@ def generate_markdown(yaml_data):
             api3_title = re.sub(r'\[[^\]]+\]', '', api3_title)
             md += f"### {api3_title}\n\n"
             if src != '':
+                src = src.replace('/blob/main', '/blob/master')
                 md += f"[Source Code]({src})\n\n"
     return md
 
