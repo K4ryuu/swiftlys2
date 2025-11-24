@@ -56,7 +56,7 @@ public unsafe struct CGameTrace
 
     public readonly CEntityInstance Entity => new CEntityInstanceImpl((nint)pEntity);
 
-    public readonly bool DidHit => Fraction < 1.0f && StartInSolid == false;
+    public readonly bool DidHit => Fraction < 1.0f || StartInSolid;
     public readonly float Distance => EndPos.Distance(StartPos);
     public readonly Vector Direction {
         get {

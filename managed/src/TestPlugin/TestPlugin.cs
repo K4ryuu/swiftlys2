@@ -338,6 +338,12 @@ public class TestPlugin : BasePlugin
     CEntityKeyValues kv { get; set; }
     CEntityInstance entity { get; set; }
 
+    [Command("gd")]
+    public void TestCommandGD( ICommandContext ctx )
+    {
+        var player = ctx.Sender;
+        ctx.Reply($"Ground distance: {player!.RequiredPawn.GroundDistance}");
+    }
 
     [Command("hh")]
     public void TestCommandHH( ICommandContext _ )

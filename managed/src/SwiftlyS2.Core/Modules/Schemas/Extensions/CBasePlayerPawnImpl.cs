@@ -1,4 +1,5 @@
 ﻿using SwiftlyS2.Core.Natives;
+using SwiftlyS2.Core.Services;
 using SwiftlyS2.Shared.Natives;
 using SwiftlyS2.Shared.SchemaDefinitions;
 
@@ -31,30 +32,36 @@ internal partial class CBasePlayerPawnImpl : CBasePlayerPawn
             if (AbsOrigin == null) return -1f;
 
             var start = AbsOrigin.Value;
-
-            var angle = new QAngle(90, 0, 0);
-            var rads = angle.ToRadianEuler();
+            var angle = new QAngle(90f, 0f, 0f);
+            angle.ToDirectionVectors(out var fwd, out var _, out var _);
             var end = start + new Vector(
-                rads.X * 8192f,
-                rads.Y * 8192f,
-                rads.Z * 8192f
+                fwd.X * 8192f,
+                fwd.Y * 8192f,
+                fwd.Z * 8192f
             );
 
-            var ray = new Ray_t();
-            ray.Init(start, end);
-
-            var filter = new CTraceFilter();
-            filter.QueryShapeAttributes.ObjectSetMask = RnQueryObjectSet.All;
-            filter.QueryShapeAttributes.InteractsWith = MaskTrace.Sky;
-
             var trace = new CGameTrace();
-
-            unsafe
-            {
-                GameFunctions.TraceShape(NativeEngineHelpers.GetTraceManager(), &ray, start, end, &filter, &trace);
-            }
+            TraceManager.SimpleTrace(start, end, RayType_t.RAY_TYPE_HULL, RnQueryObjectSet.All, MaskTrace.Sky, MaskTrace.Empty, MaskTrace.Empty, CollisionGroup.Always, ref trace, Address, nint.Zero);
 
             return trace.Distance;
+        }
+    }
+
+    public MaskTrace InteractsWith {
+        get {
+            return !IsValid ? MaskTrace.Empty : (MaskTrace)Collision.CollisionAttribute.InteractsWith;
+        }
+    }
+
+    public MaskTrace InteractsAs {
+        get {
+            return !IsValid ? MaskTrace.Empty : (MaskTrace)Collision.CollisionAttribute.InteractsAs;
+        }
+    }
+
+    public MaskTrace InteractsExclude {
+        get {
+            return !IsValid ? MaskTrace.Empty : (MaskTrace)Collision.CollisionAttribute.InteractsExclude;
         }
     }
 }

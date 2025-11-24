@@ -11,4 +11,7 @@ public partial interface CBasePlayerPawn
 
     public Vector? EyePosition { get; }
     public float GroundDistance { get; }
+    public MaskTrace InteractsWith { get; }
+    public MaskTrace InteractsAs { get; }
+    public MaskTrace InteractsExclude { get; }
 }

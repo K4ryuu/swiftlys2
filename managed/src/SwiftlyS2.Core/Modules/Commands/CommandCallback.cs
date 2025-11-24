@@ -45,7 +45,6 @@ internal class CommandCallback : CommandCallbackBase
   private CommandCallbackDelegate _unmanagedCallback;
 
   private nint _unmanagedCallbackPtr;
-  private GCHandle _delegateHandle;
   private ulong _nativeListenerId;
   private string _permissions;
 
@@ -95,7 +94,6 @@ internal class CommandCallback : CommandCallbackBase
     };
 
     _unmanagedCallbackPtr = Marshal.GetFunctionPointerForDelegate(_unmanagedCallback);
-    _delegateHandle = GCHandle.Alloc(_unmanagedCallback);
 
     _nativeListenerId = NativeCommands.RegisterCommand(commandName, _unmanagedCallbackPtr, registerRaw);
   }
@@ -103,7 +101,6 @@ internal class CommandCallback : CommandCallbackBase
   public override void Dispose()
   {
     NativeCommands.UnregisterCommand(_nativeListenerId);
-    if (_delegateHandle.IsAllocated) _delegateHandle.Free();
   }
 }
 
@@ -113,7 +110,6 @@ internal class ClientCommandListenerCallback : CommandCallbackBase
   private ICommandService.ClientCommandHandler _handler;
   private ClientCommandListenerCallbackDelegate _unmanagedCallback;
   private nint _unmanagedCallbackPtr;
-  private GCHandle _delegateHandle;
   private ulong _nativeListenerId;
   private ILogger<ClientCommandListenerCallback> _logger;
 
@@ -146,8 +142,6 @@ internal class ClientCommandListenerCallback : CommandCallbackBase
 
     _unmanagedCallbackPtr = Marshal.GetFunctionPointerForDelegate(_unmanagedCallback);
 
-    _delegateHandle = GCHandle.Alloc(_unmanagedCallback);
-
     _nativeListenerId = NativeCommands.RegisterClientCommandsListener(_unmanagedCallbackPtr);
 
   }
@@ -155,7 +149,6 @@ internal class ClientCommandListenerCallback : CommandCallbackBase
   public override void Dispose()
   {
     NativeCommands.UnregisterClientCommandsListener(_nativeListenerId);
-    if (_delegateHandle.IsAllocated) _delegateHandle.Free();
   }
 }
 
@@ -165,7 +158,6 @@ internal class ClientChatListenerCallback : CommandCallbackBase
   private ICommandService.ClientChatHandler _handler;
   private ClientChatListenerCallbackDelegate _unmanagedCallback;
   private nint _unmanagedCallbackPtr;
-  private GCHandle _delegateHandle;
   private ulong _nativeListenerId;
   private ILogger<ClientChatListenerCallback> _logger;
 
@@ -198,8 +190,6 @@ internal class ClientChatListenerCallback : CommandCallbackBase
 
     _unmanagedCallbackPtr = Marshal.GetFunctionPointerForDelegate(_unmanagedCallback);
 
-    _delegateHandle = GCHandle.Alloc(_unmanagedCallback);
-
     _nativeListenerId = NativeCommands.RegisterClientChatListener(_unmanagedCallbackPtr);
 
   }
@@ -207,6 +197,5 @@ internal class ClientChatListenerCallback : CommandCallbackBase
   public override void Dispose()
   {
     NativeCommands.UnregisterClientChatListener(_nativeListenerId);
-    if (_delegateHandle.IsAllocated) _delegateHandle.Free();
   }
 }
