@@ -285,7 +285,6 @@ internal static class GameFunctions
         {
             unsafe
             {
-                Console.WriteLine(pEngineTrace);
                 pTraceShape(pEngineTrace, ray, &vecStart, &vecEnd, pFilter, pTrace);
             }
         }
