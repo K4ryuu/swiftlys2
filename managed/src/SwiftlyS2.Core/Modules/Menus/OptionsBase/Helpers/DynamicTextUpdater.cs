@@ -116,7 +116,7 @@ internal sealed class DynamicTextUpdater : IDisposable
         }
         catch (Exception e)
         {
-            if (!GlobalExceptionHandler.Handle(e))
+            if (GlobalExceptionHandler.Handle(e))
             {
                 AnsiConsole.WriteException(e);
             }

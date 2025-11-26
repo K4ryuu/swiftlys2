@@ -125,7 +125,7 @@ internal class PluginManager
                         }
                         catch (Exception ex)
                         {
-                            if (!GlobalExceptionHandler.Handle(ex))
+                            if (GlobalExceptionHandler.Handle(ex))
                             {
                                 AnsiConsole.WriteException(ex);
                             }
@@ -543,7 +543,7 @@ internal class PluginManager
             }
             catch (Exception ex)
             {
-                if(!GlobalExceptionHandler.Handle(ex))
+                if (GlobalExceptionHandler.Handle(ex))
                 {
                     AnsiConsole.WriteException(ex);
                 }
