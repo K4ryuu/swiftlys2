@@ -1129,6 +1129,16 @@ public class TestPlugin : BasePlugin
             ?.Teleport(player.PlayerPawn!.AbsOrigin!.Value, player.PlayerPawn!.EyeAngles, Vector.Zero);
     }
 
+    [Command("los")]
+    public void LineOfSightCommand( ICommandContext context )
+    {
+        var player = context.Sender!;
+        Core.PlayerManager.GetAlive()
+            .Where(p => p.PlayerID != player.PlayerID)
+            .ToList()
+            .ForEach(targetPlayer => context.Reply($"Line of sight to {targetPlayer.Controller!.PlayerName}: {player.PlayerPawn!.HasLineOfSight(targetPlayer.PlayerPawn!)}"));
+    }
+
     public override void Unload()
     {
         Console.WriteLine("TestPlugin unloaded");
