@@ -26,7 +26,7 @@ public partial interface CEntityInstance
   /// <param name="activator">Activator entity. Nullable.</param>
   /// <param name="caller">Caller entity. Nullable.</param>
   /// <param name="outputID">Output ID.</param>
-  public void AcceptInput<T>( string input, T value, CEntityInstance? activator = null, CEntityInstance? caller = null, int outputID = 0 );
+  public void AcceptInput<T>( string input, T? value, CEntityInstance? activator = null, CEntityInstance? caller = null, int outputID = 0 );
 
   /// <summary>
   /// Add an entity IO event to the entity.
@@ -37,7 +37,7 @@ public partial interface CEntityInstance
   /// <param name="activator">Activator entity. Nullable.</param>
   /// <param name="caller">Caller entity. Nullable.</param>
   /// <param name="delay">Delay in seconds.</param>x
-  public void AddEntityIOEvent<T>( string input, T value, CEntityInstance? activator = null, CEntityInstance? caller = null, float delay = 0f );
+  public void AddEntityIOEvent<T>( string input, T? value, CEntityInstance? activator = null, CEntityInstance? caller = null, float delay = 0f );
 
   /// <summary>
   /// Dispatch a spawn event to the entity.
