@@ -34,55 +34,58 @@ internal class DatabaseService : IDatabaseService
     return NativeDatabase.GetDefaultConnectionCredentials();
   }
 
-  private Func<IDbConnection> ResolveConnectionString( string connectionString )
+  private Func<IDbConnection> ResolveConnectionString(string connectionString)
   {
+    if (_connectionStrings.TryGetValue(connectionString, out var cached))
+      return cached;
+
     try
     {
-
-      if (_connectionStrings.TryGetValue(connectionString, out var connectionFunc))
-      {
-        return connectionFunc;
-      }
-
-      var protocol = connectionString.Split("://")[0];
-      var rest = connectionString.Split("://")[1];
-
-      if (protocol == "sqlite")
-      {
-        var path = connectionString.Split("://")[1];
-        return () => new SQLiteConnection($"Data Source={path}");
-      }
-
-      var credential = rest.Split("@")[0];
-      rest = rest.Split("@")[1];
-
-      var user = credential.Split(":")[0];
-      var password = credential.Split(":")[1];
-
-      var address = rest.Split("/")[0];
-      var database = rest.Split("/")[1];
-
-      var host = address.Split(":")[0];
-      var port = address.Split(":")[1];
-
-
-      if (protocol == "mysql")
-      {
-        return () => new MySqlConnection($"Server={host};Port={port};Database={database};User ID={user};Password={password};");
-      }
-      else if (protocol == "postgresql")
-      {
-        return () => new NpgsqlConnection($"Server={host};Port={port};Database={database};User ID={user};Password={password};");
-      }
-
-      throw new Exception($"Unsupported protocol: {protocol}");
+      var factory = CreateConnectionFactory(connectionString);
+      _connectionStrings.TryAdd(connectionString, factory);
+      return factory;
     }
     catch (Exception e)
     {
       if (!GlobalExceptionHandler.Handle(e)) throw;
-      _Logger.LogError(e, "Failed to resolve database credentials for {connectionString}! Please check your connection string format.", connectionString);
+      _Logger.LogError(e, "Failed to parse connection string. Expected format: protocol://user:password@host:port/database");
       throw;
     }
+  }
+
+  private static Func<IDbConnection> CreateConnectionFactory(string connectionString)
+  {
+    // Format: protocol://user:password@host:port/database (password may contain special chars like @)
+    if (connectionString.StartsWith("sqlite://"))
+      return () => new SQLiteConnection($"Data Source={connectionString[9..]}");
+
+    var protoEnd = connectionString.IndexOf("://");
+    var lastAt = connectionString.LastIndexOf('@');
+    var slash = connectionString.IndexOf('/', lastAt);
+    var portColon = connectionString.LastIndexOf(':', slash > 0 ? slash : connectionString.Length);
+
+    if (protoEnd < 0 || lastAt < protoEnd || slash < 0)
+      throw new FormatException("Expected format: protocol://user:password@host:port/database");
+
+    var protocol = connectionString[..protoEnd];
+    var credentials = connectionString[(protoEnd + 3)..lastAt];
+    var userEnd = credentials.IndexOf(':');
+
+    if (userEnd < 0)
+      throw new FormatException("Expected format: protocol://user:password@host:port/database");
+
+    var connStr = $"Server={connectionString[(lastAt + 1)..portColon]};" +
+                  $"Port={(portColon > lastAt ? connectionString[(portColon + 1)..slash] : "3306")};" +
+                  $"Database={connectionString[(slash + 1)..]};" +
+                  $"User ID={credentials[..userEnd]};" +
+                  $"Password={credentials[(userEnd + 1)..]}";
+
+    return protocol switch
+    {
+      "mysql" => () => new MySqlConnection(connStr),
+      "postgresql" => () => new NpgsqlConnection(connStr),
+      _ => throw new NotSupportedException($"Unsupported protocol: {protocol}")
+    };
   }
 
   public IDbConnection GetConnection( string connectionName )
