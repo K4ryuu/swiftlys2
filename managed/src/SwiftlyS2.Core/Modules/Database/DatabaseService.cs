@@ -62,7 +62,6 @@ internal class DatabaseService : IDatabaseService
     var protoEnd = connectionString.IndexOf("://");
     var lastAt = connectionString.LastIndexOf('@');
     var slash = connectionString.IndexOf('/', lastAt);
-    var portColon = connectionString.LastIndexOf(':', slash > 0 ? slash : connectionString.Length);
 
     if (protoEnd < 0 || lastAt < protoEnd || slash < 0)
       throw new FormatException("Expected format: protocol://user:password@host:port/database");
@@ -74,18 +73,25 @@ internal class DatabaseService : IDatabaseService
     if (userEnd < 0)
       throw new FormatException("Expected format: protocol://user:password@host:port/database");
 
-    var connStr = $"Server={connectionString[(lastAt + 1)..portColon]};" +
-                  $"Port={(portColon > lastAt ? connectionString[(portColon + 1)..slash] : "3306")};" +
-                  $"Database={connectionString[(slash + 1)..]};" +
-                  $"User ID={credentials[..userEnd]};" +
-                  $"Password={credentials[(userEnd + 1)..]}";
-
-    return protocol switch
+    var (defaultPort, factory) = protocol switch
     {
-      "mysql" => () => new MySqlConnection(connStr),
-      "postgresql" => () => new NpgsqlConnection(connStr),
+      "mysql" => ("3306", (Func<string, IDbConnection>)(cs => new MySqlConnection(cs))),
+      "postgresql" => ("5432", (Func<string, IDbConnection>)(cs => new NpgsqlConnection(cs))),
       _ => throw new NotSupportedException($"Unsupported protocol: {protocol}")
     };
+
+    var hostPort = connectionString[(lastAt + 1)..slash];
+    var portColon = hostPort.LastIndexOf(':');
+    var host = portColon > 0 ? hostPort[..portColon] : hostPort;
+    var port = portColon > 0 ? hostPort[(portColon + 1)..] : defaultPort;
+
+    var connStr = $"Server={host};"
+               + $"Port={port};"
+               + $"Database={connectionString[(slash + 1)..]};"
+               + $"User ID={credentials[..userEnd]};"
+               + $"Password={credentials[(userEnd + 1)..]}";
+
+    return () => factory(connStr);
   }
 
   public IDbConnection GetConnection( string connectionName )
