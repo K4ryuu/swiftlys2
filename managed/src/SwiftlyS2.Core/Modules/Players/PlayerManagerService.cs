@@ -3,6 +3,7 @@ using SwiftlyS2.Core.SchemaDefinitions;
 using SwiftlyS2.Shared.Players;
 using SwiftlyS2.Shared.SchemaDefinitions;
 using SwiftlyS2.Shared.Services;
+using SwiftlyS2.Shared.SteamAPI;
 
 namespace SwiftlyS2.Core.Players;
 
@@ -17,22 +18,22 @@ internal class PlayerManagerService : IPlayerManagerService
         NativePlayerManager.ClearAllBlockedTransmitEntity();
     }
 
-    public IPlayer GetPlayer( int playerid )
+    public IPlayer GetPlayer(int playerid)
     {
         return new Player(playerid);
     }
 
-    public bool IsPlayerOnline( int playerid )
+    public bool IsPlayerOnline(int playerid)
     {
         return NativePlayerManager.IsPlayerOnline(playerid);
     }
 
-    public void SendMessage( MessageType kind, string message )
+    public void SendMessage(MessageType kind, string message)
     {
         NativePlayerManager.SendMessage((int)kind, message, 5000);
     }
 
-    public void ShouldBlockTransmitEntity( int entityid, bool shouldBlockTransmit )
+    public void ShouldBlockTransmitEntity(int entityid, bool shouldBlockTransmit)
     {
         NativePlayerManager.ShouldBlockTransmitEntity(entityid, shouldBlockTransmit);
     }
@@ -44,20 +45,7 @@ internal class PlayerManagerService : IPlayerManagerService
             .Select(GetPlayer);
     }
 
-    private static ulong SteamIDToSteamID64( string steamID )
-    {
-        string[] parts = steamID.Split(':');
-        if (parts.Length != 3) return 0;
-
-        int X = int.Parse(parts[1]);
-        int Y = int.Parse(parts[2]);
-
-        ulong steamID64 = (ulong)Y * 2 + (ulong)X + 76561197960265728UL;
-        return steamID64;
-    }
-
-
-    public IEnumerable<IPlayer> FindTargettedPlayers( IPlayer player, string target, TargetSearchMode searchMode )
+    public IEnumerable<IPlayer> FindTargettedPlayers(IPlayer player, string target, TargetSearchMode searchMode, StringComparison nameComparison = StringComparison.OrdinalIgnoreCase)
     {
         IEnumerable<IPlayer> allPlayers = [];
 
@@ -147,15 +135,11 @@ internal class PlayerManagerService : IPlayerManagerService
                     allPlayers = allPlayers.Append(targetPlayer);
                 }
             }
-            else if (targetPlayer.Controller.PlayerName.Contains(target))
+            else if (targetPlayer.Controller.PlayerName.Contains(target, nameComparison))
             {
                 allPlayers = allPlayers.Append(targetPlayer);
             }
-            else if (ulong.TryParse(target, out ulong steamId) && targetPlayer.SteamID == steamId)
-            {
-                allPlayers = allPlayers.Append(targetPlayer);
-            }
-            else if (SteamIDToSteamID64(target) == targetPlayer.SteamID)
+            else if (new CSteamID(target) is var steamId && steamId.IsValid() && steamId.GetSteamID64() == targetPlayer.SteamID)
             {
                 allPlayers = allPlayers.Append(targetPlayer);
             }
@@ -184,7 +168,7 @@ internal class PlayerManagerService : IPlayerManagerService
     {
         return GetAllPlayers().Where(p => p.Pawn?.TeamNum == (int)Team.Spectator);
     }
-    public IEnumerable<IPlayer> GetInTeam( Team team )
+    public IEnumerable<IPlayer> GetInTeam(Team team)
     {
         return GetAllPlayers().Where(p => p.Pawn?.TeamNum == (int)team);
     }
@@ -197,42 +181,42 @@ internal class PlayerManagerService : IPlayerManagerService
         return GetAllPlayers().Where(p => p.Pawn?.TeamNum == (int)Team.CT && p.Pawn?.LifeState == (byte)LifeState_t.LIFE_ALIVE);
     }
 
-    public void SendMessage( MessageType kind, string message, int htmlDuration = 5000 )
+    public void SendMessage(MessageType kind, string message, int htmlDuration = 5000)
     {
         NativePlayerManager.SendMessage((int)kind, message, htmlDuration);
     }
 
-    public void SendNotify( string message )
+    public void SendNotify(string message)
     {
         SendMessage(MessageType.Notify, message);
     }
 
-    public void SendConsole( string message )
+    public void SendConsole(string message)
     {
         SendMessage(MessageType.Console, message);
     }
 
-    public void SendChat( string message )
+    public void SendChat(string message)
     {
         SendMessage(MessageType.Chat, message);
     }
 
-    public void SendCenter( string message )
+    public void SendCenter(string message)
     {
         SendMessage(MessageType.Center, message);
     }
 
-    public void SendAlert( string message )
+    public void SendAlert(string message)
     {
         SendMessage(MessageType.Alert, message);
     }
 
-    public void SendCenterHTML( string message, int duration = 5000 )
+    public void SendCenterHTML(string message, int duration = 5000)
     {
         SendMessage(MessageType.CenterHTML, message, duration);
     }
 
-    public void SendChatEOT( string message )
+    public void SendChatEOT(string message)
     {
         SendMessage(MessageType.ChatEOT, message);
     }
