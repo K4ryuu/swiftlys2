@@ -57,7 +57,7 @@ internal class PlayerManagerService : IPlayerManagerService
     }
 
 
-    public IEnumerable<IPlayer> FindTargettedPlayers( IPlayer player, string target, TargetSearchMode searchMode )
+    public IEnumerable<IPlayer> FindTargettedPlayers( IPlayer player, string target, TargetSearchMode searchMode, StringComparison nameComparison = StringComparison.OrdinalIgnoreCase )
     {
         IEnumerable<IPlayer> allPlayers = [];
 
@@ -147,7 +147,7 @@ internal class PlayerManagerService : IPlayerManagerService
                     allPlayers = allPlayers.Append(targetPlayer);
                 }
             }
-            else if (targetPlayer.Controller.PlayerName.Contains(target))
+            else if (targetPlayer.Controller.PlayerName.Contains(target, nameComparison))
             {
                 allPlayers = allPlayers.Append(targetPlayer);
             }
@@ -155,9 +155,13 @@ internal class PlayerManagerService : IPlayerManagerService
             {
                 allPlayers = allPlayers.Append(targetPlayer);
             }
-            else if (SteamIDToSteamID64(target) == targetPlayer.SteamID)
+            else
             {
-                allPlayers = allPlayers.Append(targetPlayer);
+                var convertedSteamId = SteamIDToSteamID64(target);
+                if (convertedSteamId != 0 && convertedSteamId == targetPlayer.SteamID)
+                {
+                    allPlayers = allPlayers.Append(targetPlayer);
+                }
             }
         }
 
