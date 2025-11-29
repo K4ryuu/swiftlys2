@@ -3,6 +3,7 @@ using SwiftlyS2.Core.SchemaDefinitions;
 using SwiftlyS2.Shared.Players;
 using SwiftlyS2.Shared.SchemaDefinitions;
 using SwiftlyS2.Shared.Services;
+using SwiftlyS2.Shared.SteamAPI;
 
 namespace SwiftlyS2.Core.Players;
 
@@ -43,19 +44,6 @@ internal class PlayerManagerService : IPlayerManagerService
             .Where(IsPlayerOnline)
             .Select(GetPlayer);
     }
-
-    private static ulong SteamIDToSteamID64( string steamID )
-    {
-        string[] parts = steamID.Split(':');
-        if (parts.Length != 3) return 0;
-
-        int X = int.Parse(parts[1]);
-        int Y = int.Parse(parts[2]);
-
-        ulong steamID64 = (ulong)Y * 2 + (ulong)X + 76561197960265728UL;
-        return steamID64;
-    }
-
 
     public IEnumerable<IPlayer> FindTargettedPlayers( IPlayer player, string target, TargetSearchMode searchMode, StringComparison nameComparison = StringComparison.OrdinalIgnoreCase )
     {
@@ -151,14 +139,10 @@ internal class PlayerManagerService : IPlayerManagerService
             {
                 allPlayers = allPlayers.Append(targetPlayer);
             }
-            else if (ulong.TryParse(target, out ulong steamId) && targetPlayer.SteamID == steamId)
-            {
-                allPlayers = allPlayers.Append(targetPlayer);
-            }
             else
             {
-                var convertedSteamId = SteamIDToSteamID64(target);
-                if (convertedSteamId != 0 && convertedSteamId == targetPlayer.SteamID)
+                var parsedSteamId = SteamIdParser.ParseToSteamId64(target);
+                if (parsedSteamId.HasValue && parsedSteamId.Value == targetPlayer.SteamID)
                 {
                     allPlayers = allPlayers.Append(targetPlayer);
                 }
