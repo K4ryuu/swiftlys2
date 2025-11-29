@@ -333,7 +333,7 @@ void Bridge_Player_ExecuteCommand(int playerid, const char* command)
 
     ConCommandRef cmdRef(cmd[0]);
 
-    if (cmdRef.IsValidRef())
+    if (cmdRef.IsValidRef() && !cmdRef.IsFlagSet(FCVAR_SERVER_CAN_EXECUTE))
     {
         CCommandContext context(CommandTarget_t::CT_FIRST_SPLITSCREEN_CLIENT, CPlayerSlot(player->GetSlot()));
         cmdRef.Dispatch(context, cmd);
