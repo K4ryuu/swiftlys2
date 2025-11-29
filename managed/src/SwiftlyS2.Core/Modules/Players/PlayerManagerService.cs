@@ -139,13 +139,9 @@ internal class PlayerManagerService : IPlayerManagerService
             {
                 allPlayers = allPlayers.Append(targetPlayer);
             }
-            else
+            else if (new CSteamID(target) is var steamId && steamId.IsValid() && steamId.GetSteamID64() == targetPlayer.SteamID)
             {
-                var parsedSteamId = SteamIdParser.ParseToSteamId64(target);
-                if (parsedSteamId.HasValue && parsedSteamId.Value == targetPlayer.SteamID)
-                {
-                    allPlayers = allPlayers.Append(targetPlayer);
-                }
+                allPlayers = allPlayers.Append(targetPlayer);
             }
         }
 
